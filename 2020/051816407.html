@@ -649,14 +649,17 @@
 
 ![](image-20200518130816954.png)</code></pre><ul>
 <li><p>修改索引页 ： 打开httpd.conf  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#添加 index.php</span><br><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html index.php</span><br><span class="line">&lt;&#x2F;IfModule&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>#添加 index.php
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html index.php
+&lt;/IfModule&gt;</code></pre></li>
 <li><p>测试 php是否安装成功</p>
 <p>在网页目录(下面这个目录)下 新建文件 phpinfo.php</p>
 <p><img src="/2020/051816407/image-20200518122455739.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># phpinfo.php 文件内容</span><br><span class="line">&lt;?php</span><br><span class="line">    phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>完成后，在浏览器中访问<a href="http://localhost/phpinfo.php" target="_blank" rel="noopener">http://localhost/phpinfo.php</a> 出现以下成功 </p>
+<pre><code># phpinfo.php 文件内容
+&lt;?php
+    phpinfo();
+?&gt;</code></pre><p>完成后，在浏览器中访问<a href="http://localhost/phpinfo.php" target="_blank" rel="noopener">http://localhost/phpinfo.php</a> 出现以下成功 </p>
 <h6><span id="zhu-yi-xian-chong-qi-fu-wu-httpd-k-restart">注意：先重启服务 httpd -k restart</span><a href="#zhu-yi-xian-chong-qi-fu-wu-httpd-k-restart" class="header-anchor">#</a></h6><p><img src="/2020/051816407/image-20200518140403480.png" alt="image-20200518140403480"></p>
 </li>
 </ul>
@@ -974,8 +977,8 @@
 由于图片上传路径与博客文档中路径不统一 
 
 安装插件   
-npm i hexo-asset-image --save  配置_config.yml 文件
-post_asset_folder: true配置完后，在使
+    npm i hexo-asset-image --save  配置_config.yml 文件
+    post_asset_folder: tru
                         
                     </div>
                     <div class="publish-info">
