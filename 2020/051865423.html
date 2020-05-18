@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo上传图片出现问题-解决, 刘民锴的个人博客">
+    <meta name="keywords" content="php在win下的环境搭建/php在win下的环境搭建, 刘民锴的个人博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo上传图片出现问题-解决 | 刘民锴的个人博客</title>
+    <title>php在win下的环境搭建/php在win下的环境搭建 | 刘民锴的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo上传图片出现问题-解决</h1>
+                    <h1 class="description center-align post-title">php在win下的环境搭建/php在win下的环境搭建</h1>
                 </div>
             </div>
         </div>
@@ -436,33 +436,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/error/">
-                                <span class="chip bg-color">error</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%97%AE%E9%A2%98/">
-                                <span class="chip bg-color">问题</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B7%B2%E8%A7%A3%E5%86%B3/">
-                                <span class="chip bg-color">已解决</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/error/" class="post-category">
-                                error
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -471,7 +450,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-15
+                    2020-05-18
                 </div>
                 
 
@@ -487,32 +466,179 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2><span id="hexo-shang-chuan-tu-pian-wen-ti">hexo上传图片问题</span><a href="#hexo-shang-chuan-tu-pian-wen-ti" class="header-anchor">#</a></h2><ul>
-<li>由于图片上传路径与博客文档中路径不统一 </li>
+                <h2><span id="windows-xia-php-huan-jing-da-jian-apache2-4-php7-3-18">windows下php环境搭建 Apache2.4 + php7.3.18</span><a href="#windows-xia-php-huan-jing-da-jian-apache2-4-php7-3-18" class="header-anchor">#</a></h2><h3><span id="yi-apache4-2-an-zhuang-he-pei-zhi">一、Apache4.2 安装和配置</span><a href="#yi-apache4-2-an-zhuang-he-pei-zhi" class="header-anchor">#</a></h3><p><strong>下载地址:</strong>  <a href="http://www.apachelounge.com/download/" target="_blank" rel="noopener">http://www.apachelounge.com/download/</a><br>    <a href="https://www.apachehaus.com/cgi-bin/download.plx/" target="_blank" rel="noopener">https://www.apachehaus.com/cgi-bin/download.plx/</a>  </p>
+<h4><span id="yi-shang-liang-ge-lian-jie-du-ke-yi-xia-zai">以上两个链接都可以下载</span><a href="#yi-shang-liang-ge-lian-jie-du-ke-yi-xia-zai" class="header-anchor">#</a></h4><ul>
+<li><p>在界面中vc15 vc16等之间的差异,vc15是指用vs2014编译的代码,vc16是指vs2015编译的代码 </p>
+<img src="/2020/051865423/apache_1.png" style="zoom:50%;">
+
+<p>​    <img src="/2020/051865423/apache_2.png" style="zoom:50%;"></p>
+<h4><span id="apache-an-zhuang-mu-lu-jie-gou">apache安装目录结构</span><a href="#apache-an-zhuang-mu-lu-jie-gou" class="header-anchor">#</a></h4></li>
 </ul>
-<p>安装插件   </p>
-<pre><code>    npm i hexo-asset-image --save  </code></pre><p>配置_config.yml 文件</p>
-<pre><code>    post_asset_folder: true</code></pre><p>配置完后，在使用 hexo new post “” 时 会生成一个 与博客名一样的文件夹 ，这个文件夹用于装 资源的（博客里面的图片。。。）</p>
-<p>这样就强制把上传的资源路径 转移到 /YYYY/博客文件名/下<br><code>YYYY : 年份 如 2020</code></p>
-<blockquote>
-<p>这个改的路径有两个</p>
-<p>  一个 是 ![](随便一个目录/test.png)<br>上传是 前 改成 /YYYY/日期时间/test.png<br>这个可以用 F12 去查看 文件路径是否更改</p>
-<p>另一个 是 把 在 博客文件夹下 的 资源文件<br>它的目录 ：/…../source/_posts/博客名/ 资源文件 如 test。png  ==&gt;  github上 /YYYY/日期时间/test.png </p>
-</blockquote>
-<blockquote>
-<p>如果 路径相同 引入成功</p>
-</blockquote>
-<p>也就是说 他算法 是将 博客名文件夹下的 所有文件包括子文件夹 上传到 仓库里同一个目录（/年/日期时间/）下<br>把 博客文档里面所有的本地引用的路径 也同样 给成 一个格式（父目录相同(/年/日期时间/文件)） 能对的上 就找的到 </p>
-<p>前者的格式是 /年/日期时间/文件夹/文件<br>        或  /年/日期时间/文件</p>
-<p>后者的格式只有 /年/日期时间/文件</p>
-<p>可以看出<br>    1.资源文件必须放置在 博客名文件夹下 且 不能有子文件夹<br>    2.博客文件 中 文件路径可以随便写，只要文件名是对的就行 当然乱写 会导致你在编辑器里 看不到图片<br>    推荐 就写相对路径 即 （ ./博客名/资源文件名 或 博客名/资源文件名 ）</p>
-<blockquote>
-<p>当你的资源文件 不在 博客名文件夹下  肯定是出错的</p>
-</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>目录名</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bin</td>
+<td>Apache可执行文件目录，如httpd.exe、ApacheMonitor.exe等</td>
+</tr>
+<tr>
+<td>cig-bin</td>
+<td>CGI网页程序目录</td>
+</tr>
+<tr>
+<td>conf</td>
+<td>Apache配置文件目录</td>
+</tr>
+<tr>
+<td>htdocs</td>
+<td>默认站点的网页文档目录</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>Apache日志文件目录，主要包括访问日志access.log和错误日志error.log</td>
+</tr>
+<tr>
+<td>manual</td>
+<td>Apache帮助手册目录</td>
+</tr>
+<tr>
+<td>modules</td>
+<td>Apache动态加载模块目录</td>
+</tr>
+</tbody></table>
+<h5><span id="an-zhuang-pei-zhi">安装 配置：</span><a href="#an-zhuang-pei-zhi" class="header-anchor">#</a></h5><p>将已经下载好的压缩包解压到你想要的安装的目录下，如<strong>G:/phpEnv</strong>目录下，这里以<strong>G:/phpEnv/Apache24</strong>为例</p>
+<p>1.<strong>使用文本编辑器</strong>    编辑G:/phpEnv/Apache24/conf/<strong>httpd.conf</strong>文件</p>
+<h6><span id="zhu-yi-windows-huan-jing-xia-pei-zhi-wen-jian-suo-you-de-gai-wei">注意：windows环境下,配置文件所有的 ‘ \ ’ 改为 ‘ / ’</span><a href="#zhu-yi-windows-huan-jing-xia-pei-zhi-wen-jian-suo-you-de-gai-wei" class="header-anchor">#</a></h6><ul>
+<li><p>配置安装目录</p>
+<p>更改内容 为ServerRoot “G:/phpEnv/Apache24” </p>
+<h6><span id="mu-lu-gen-ju-zi-ji-an-zhuang-mu-lu-xiu-gai">目录根据自己安装目录修改</span><a href="#mu-lu-gen-ju-zi-ji-an-zhuang-mu-lu-xiu-gai" class="header-anchor">#</a></h6><p><img src="/2020/051865423/apache_3.png" alt></p>
+</li>
+<li><p>配置服务器域名 </p>
+<p>更改内容 为ServerName localhost:80</p>
+</li>
+</ul>
+<h6><span id="zhu-yi-bi-xu-ba-qian-mian-de-qu-diao">注意必须把前面的 ‘ # ’去掉</span><a href="#zhu-yi-bi-xu-ba-qian-mian-de-qu-diao" class="header-anchor">#</a></h6><p>  <img src="/2020/051865423/apache_4.png" alt></p>
+<h6><span id="dang-duan-kou-bei-zhan-yong-shi-jiang-duan-kou-hao-xiu-gai-wei-qi-ta-zhi">当端口被占用时 将端口号修改为其他值</span><a href="#dang-duan-kou-bei-zhan-yong-shi-jiang-duan-kou-hao-xiu-gai-wei-qi-ta-zhi" class="header-anchor">#</a></h6><p><img src="/2020/051865423/image-20200518122028162.png" alt></p>
 <ul>
-<li>有可能是路径是匹配的，原本上传的图片已损坏<br>  损坏 自己想办法</li>
+<li>更改内容 为<br>  <img src="/2020/051865423/image-20200518122455739.png" alt></li>
 </ul>
-<p>弄张图片看看<br><img src="/2020/051517541/2.png" alt></p>
+<p>2.<strong>使用cmd(管理员) cd到Apache安装目录的bin文件夹下</strong>  </p>
+<ul>
+<li><p>安装apache服务，并加入到系统服务中</p>
+<h6><span id="zhu-yi-cmd-guan-li-yuan-zai-apache-an-zhuang-mu-lu-de-bin-mu-lu-xia-cao-zuo">注意：cmd管理员 在apache安装目录的bin目录下 操作</span><a href="#zhu-yi-cmd-guan-li-yuan-zai-apache-an-zhuang-mu-lu-de-bin-mu-lu-xia-cao-zuo" class="header-anchor">#</a></h6><blockquote>
+<p>httpd -k install</p>
+</blockquote>
+<p>  <img src="/2020/051865423/image-20200518124207693.png" alt></p>
+<p>  Errors reported here must be corrected before the service can be started<br>  <code>若该句话后面有错误信息，则表示服务安装失败，需要先改正错误。若没有，则成功</code>  </p>
+</li>
+<li><p>启动apache服务: <strong>两种方式</strong></p>
+<ol>
+<li><p>cmd命令行 依然需要 管理员权限</p>
+<blockquote>
+<p>httpd -k start</p>
+</blockquote>
+</li>
+<li><p>可以使用bin文件夹下的 ApacheMonitor.exe启动   双击该程序<br><img src="/2020/051865423/image-20200518125553982.png" alt="image-20200518125553982"></p>
+<p><img src="/2020/051865423/C:%5CUsers%5C14239%5CDesktop%5Cblog%5Cphp%E5%9C%A8win%E4%B8%8B%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%5Cimage-20200518125625569.png" alt="image-20200518125625569"></p>
+<p>启动后浏览器地址栏输入 localhost </p>
+<p><img src="/2020/051865423/image-20200518124318456.png" alt></p>
+</li>
+</ol>
+</li>
+</ul>
+<h3><span id="bu-chong-apache-fu-wu-xie-zai">补充Apache服务卸载:</span><a href="#bu-chong-apache-fu-wu-xie-zai" class="header-anchor">#</a></h3><blockquote>
+<p>httpd.exe -k uninstall </p>
+</blockquote>
+<p><img src="/2020/051865423/image-20200518124419438.png" alt="image-20200518124419438"></p>
+<h3><span id="bu-chong-apache-chang-yong-pei-zhi">补充Apache常用配置</span><a href="#bu-chong-apache-chang-yong-pei-zhi" class="header-anchor">#</a></h3><h6><span id="xu-yao-zhu-yi-de-shi-yi-dan-xiu-gai-cuo-wu-hui-zao-cheng-apache-wu-fa-an-zhuang-huo-wu-fa-qi-dong-jian-yi-zai-xiu-gai-qian-xian-bei-fen-httpd-conf-pei-zhi-wen-jian">需要注意的是，一旦修改错误，会造成Apache无法安装或无法启动，建议在修改前先备份“httpd.conf”配置文件。</span><a href="#xu-yao-zhu-yi-de-shi-yi-dan-xiu-gai-cuo-wu-hui-zao-cheng-apache-wu-fa-an-zhuang-huo-wu-fa-qi-dong-jian-yi-zai-xiu-gai-qian-xian-bei-fen-httpd-conf-pei-zhi-wen-jian" class="header-anchor">#</a></h6><table>
+<thead>
+<tr>
+<th><strong>配置项</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ServerRoot</td>
+<td>Apache服务器的根目录，即安装目录</td>
+</tr>
+<tr>
+<td>Listen</td>
+<td>服务器监听的端口号，如80、8080</td>
+</tr>
+<tr>
+<td>LoadModule</td>
+<td>需要加载的模块</td>
+</tr>
+<tr>
+<td>ServerAdmin</td>
+<td>服务器管理员的邮箱地址</td>
+</tr>
+<tr>
+<td>ServerName</td>
+<td>服务器的域名</td>
+</tr>
+<tr>
+<td>DocumentRoot</td>
+<td>网站根目录</td>
+</tr>
+<tr>
+<td>ErrorLog</td>
+<td>用于记录错误日志</td>
+</tr>
+</tbody></table>
+<h3><span id="bu-chong-wo-yu-dao-de-cuo-wu">补充我遇到的错误</span><a href="#bu-chong-wo-yu-dao-de-cuo-wu" class="header-anchor">#</a></h3><blockquote>
+<p><strong>错误1</strong><br>(OS 1783)占位程序接收到错误数据。  : AH00370: Failed to create the ‘localhost’ service<br><img src="/2020/051865423/apache_6.png" alt><br><strong>出错原因:</strong> 服务安装被360软件拦截<br><strong>解决方法:</strong> 关掉360一类的安全软件</p>
+</blockquote>
+<blockquote>
+<p><strong>错误2</strong><br>AH00558: httpd.exe: Could not reliably determine the server’s fully qualified domain name, using fe80::8566:6b7a:4dc2:6593. Set the ‘ServerName’ directive globally to suppress this message<br><img src="/2020/051865423/apache_6.png" alt><br><strong>出错原因:</strong> Apache配置文件中 缺少ServerName的信息(httpd.conf中ServerName之前 ‘ # ’删掉)<br><strong>解决方法:</strong> 删除 ServerName前的‘ # ’</p>
+</blockquote>
+<hr>
+<h3><span id="er-php-an-zhuang-he-pei-zhi">二、PHP安装和配置</span><a href="#er-php-an-zhuang-he-pei-zhi" class="header-anchor">#</a></h3><p><strong>下载地址：</strong><br><a href="https://windows.php.net/download#php-7.3" target="_blank" rel="noopener">https://windows.php.net/download#php-7.3</a></p>
+<h6><span id="zhu-yi-xia-zai-xian-cheng-an-quan-ban">注意下载线程安全版</span><a href="#zhu-yi-xia-zai-xian-cheng-an-quan-ban" class="header-anchor">#</a></h6><p><img src="/2020/051865423/image-20200518130511074.png" alt></p>
+<h6><span id="php-mu-lu-jie-gou-jie-xi">php目录结构解析</span><a href="#php-mu-lu-jie-gou-jie-xi" class="header-anchor">#</a></h6><p>​    ext是PHP扩展文件所在的目录<br>​    php.exe是PHP的命令行应用程序<br>​    php7apache2_4.dll是用于Apache的DLL模块<br>​    php.ini-development是PHP预设的配置模板，适用于开发环境<br>​    php.ini-production也是配置模板，适合网站上线时使用</p>
+<h4><span id="an-zhuang-he-pei-zhi">安装和配置：</span><a href="#an-zhuang-he-pei-zhi" class="header-anchor">#</a></h4><ul>
+<li><p>解压压缩包到  <strong>G:\phpEnv\php</strong>下</p>
+</li>
+<li><p>创建php.ini：将php目录下<strong>php.ini-development</strong>拷贝更名为 <strong>php.ini</strong>(php配置文件)</p>
+</li>
+<li><p>配置扩展目录：打开php.ini</p>
+<p>  ​    更改内容 ；extension_dir=”ext”  ==&gt;  extension_dir=”php扩展目录” </p>
+<p>  <img src="/2020/051865423/image-20200518133933051.png" alt="image-20200518133933051"></p>
+</li>
+<li><p>配置PHP时区： 打开php.ini      PRC:中国时区 UTC：协调世界时</p>
+<p>  更改内容 ;date.timezone =      ==&gt;       data.timezone = PRC <img src="/2020/051865423/image-20200518134717384.png" alt="image-20200518134717384"></p>
+</li>
+<li><p>在<strong>apache的httpd.conf</strong>文件中做以下 ==添加内容==</p>
+</li>
+</ul>
+<pre><code>    PHPIniDir &quot;G:/phpEnv/php/&quot;  #根据实际路径修改
+
+    LoadModule php7_module &quot;G:/phpEnv/php/php7apache2_4.dll&quot; #根据实际路径修改
+
+    &lt;FilesMatch &quot;\.php$&quot;&gt;
+    setHandler application/x-httpd-php
+    &lt;/FilesMatch&gt;   
+
+![](image-20200518130816954.png)</code></pre><ul>
+<li><p>修改索引页 ： 打开httpd.conf  </p>
+<pre><code>#添加 index.php
+&lt;IfModule dir_module&gt;
+    DirectoryIndex index.html index.php
+&lt;/IfModule&gt;</code></pre></li>
+<li><p>测试 php是否安装成功</p>
+<p>在网页目录(下面这个目录)下 新建文件 phpinfo.php</p>
+<p><img src="/2020/051865423/image-20200518122455739.png" alt></p>
+<pre><code># phpinfo.php 文件内容
+&lt;?php
+    phpinfo();
+?&gt;</code></pre><p>完成后，在浏览器中访问<a href="http://localhost/phpinfo.php" target="_blank" rel="noopener">http://localhost/phpinfo.php</a> 出现以下成功 </p>
+<h6><span id="zhu-yi-xian-chong-qi-fu-wu-httpd-k-restart">注意：先重启服务 httpd -k restart</span><a href="#zhu-yi-xian-chong-qi-fu-wu-httpd-k-restart" class="header-anchor">#</a></h6><p><img src="/2020/051865423/image-20200518140403480.png" alt="image-20200518140403480"></p>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -538,7 +664,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://liuminkai-blog.github.io/2020/051517541.html">http://liuminkai-blog.github.io/2020/051517541.html</a>
+                    <a href="http://liuminkai-blog.github.io/2020/051865423.html">http://liuminkai-blog.github.io/2020/051865423.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,19 +701,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/error/">
-                                    <span class="chip bg-color">error</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%97%AE%E9%A2%98/">
-                                    <span class="chip bg-color">问题</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B7%B2%E8%A7%A3%E5%86%B3/">
-                                    <span class="chip bg-color">已解决</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -757,13 +871,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/051865423.html">
+                <a href="/2020/051816407.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="php在win下的环境搭建/php在win下的环境搭建">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="php在win下的环境搭建">
                         
-                        <span class="card-title">php在win下的环境搭建/php在win下的环境搭建</span>
+                        <span class="card-title">php在win下的环境搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -778,11 +892,31 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    安装和配置
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/apache/">
+                        <span class="chip bg-color">apache</span>
+                    </a>
+                    
+                    <a href="/tags/php/">
+                        <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/php%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">php环境搭建</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -794,23 +928,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/051515918.html">
+                <a href="/2020/051517541.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="markdown语法汇总">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="hexo上传图片出现问题-解决">
                         
-                        <span class="card-title">markdown语法汇总</span>
+                        <span class="card-title">hexo上传图片出现问题-解决</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            [TOC]
-什么是 Markdown#
-Markdown 是一种文本格式。你可以用它来控制文档的显示。使用Markdown，你可以创建各种样式的文字，添加图片，并且可以创建表格 等等。
+                            hexo上传图片问题#
+由于图片上传路径与博客文档中路径不统一 
 
-​    由于各编辑器的Markdown语法存在差异
+安装插件   
+    npm i hexo-asset-image --save  配置_config.yml 文件
+    post_asset_folder: tru
                         
                     </div>
                     <div class="publish-info">
@@ -821,8 +956,8 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/error/" class="post-category">
+                                    error
                                 </a>
                             
                             
@@ -832,12 +967,16 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
+                    <a href="/tags/error/">
+                        <span class="chip bg-color">error</span>
                     </a>
                     
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/tags/%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">问题</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E8%A7%A3%E5%86%B3/">
+                        <span class="chip bg-color">已解决</span>
                     </a>
                     
                 </div>
