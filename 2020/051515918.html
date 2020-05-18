@@ -746,7 +746,8 @@ Authors
 <p>Authors </p>
 <p>: lmk</p>
 <p>: liuminkai</p>
-<h4><span id="23-gan-te-tu-typora-xian-shi-de-hao-kan">23.甘特图(typora显示的好看)</span><a href="#23-gan-te-tu-typora-xian-shi-de-hao-kan" class="header-anchor">#</a></h4><pre class="line-numbers language-mermaid"><code class="language-mermaid">gantt
+<h4><span id="23-gan-te-tu-typora-xian-shi-de-hao-kan">23.甘特图(typora显示的好看)</span><a href="#23-gan-te-tu-typora-xian-shi-de-hao-kan" class="header-anchor">#</a></h4><p>gantt<br>        dateFormat  YYYY-MM-DD<br>        title Adding GANTT diagram functionality to mermaid<br>        section 现有任务<br>        已完成               :done,    des1, 2014-01-06,2014-01-08<br>        进行中               :active,  des2, 2014-01-09, 3d<br>        计划一               :         des3, after des2, 5d<br>        计划二               :         des4, after des3, 5d</p>
+<pre class="line-numbers language-mermaid"><code class="language-mermaid">gantt
         dateFormat  YYYY-MM-DD
         title Adding GANTT diagram functionality to mermaid
         section 现有任务
@@ -757,7 +758,9 @@ Authors
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">甘特图语法</a></p>
 </blockquote>
-<h4><span id="24-uml-tu">24.UML图</span><a href="#24-uml-tu" class="header-anchor">#</a></h4><pre class="line-numbers language-mermaid"><code class="language-mermaid">sequenceDiagram
+<h4><span id="24-uml-tu">24.UML图</span><a href="#24-uml-tu" class="header-anchor">#</a></h4><p>sequenceDiagram<br>张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?<br>李四–&gt;&gt;王五: 你最近怎么样，王五？<br>李四–x 张三: 我很好，谢谢!<br>李四-x 王五: 我很好，谢谢!<br>Note right of 王五: 李四想了很长时间, 文字太长了<br>不适合放在一行.</p>
+<p>李四–&gt;&gt;张三: 打量着王五…<br>张三-&gt;&gt;王五: 很好… 王五, 你怎么样?</p>
+<pre class="line-numbers language-mermaid"><code class="language-mermaid">sequenceDiagram
 张三 ->> 李四: 你好！李四, 最近怎么样?
 李四-->>王五: 你最近怎么样，王五？
 李四--x 张三: 我很好，谢谢!
@@ -769,7 +772,8 @@ Note right of 王五: 李四想了很长时间, 文字太长了<br>不适合放�
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">Mermaid语法</a></p>
 </blockquote>
-<h4><span id="25-liu-cheng-tu">25.流程图</span><a href="#25-liu-cheng-tu" class="header-anchor">#</a></h4><pre class="line-numbers language-mermaid"><code class="language-mermaid">graph LR
+<h4><span id="25-liu-cheng-tu">25.流程图</span><a href="#25-liu-cheng-tu" class="header-anchor">#</a></h4><p>graph LR<br>A[长方形] – 链接 –&gt; B((圆))<br>A –&gt; C(圆角长方形)<br>B –&gt; D{菱形}<br>C –&gt; D</p>
+<pre class="line-numbers language-mermaid"><code class="language-mermaid">graph LR
 A[长方形] -- 链接 --> B((圆))
 A --> C(圆角长方形)
 B --> D{菱形}
@@ -777,7 +781,9 @@ C --> D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">Mermaid语法</a></p>
 </blockquote>
-<h4><span id="flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi">Flowchart流程图(不知道支不支持)</span><a href="#flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi" class="header-anchor">#</a></h4><pre class="line-numbers language-mermaid"><code class="language-mermaid">flowchat
+<h4><span id="flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi">Flowchart流程图(不知道支不支持)</span><a href="#flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi" class="header-anchor">#</a></h4><p>flowchat<br>st=&gt;start: 开始<br>e=&gt;end: 结束<br>op=&gt;operation: 我的操作<br>cond=&gt;condition: 确认？</p>
+<p>st-&gt;op-&gt;cond<br>cond(yes)-&gt;e<br>cond(no)-&gt;op</p>
+<pre class="line-numbers language-mermaid"><code class="language-mermaid">flowchat
 st=>start: 开始
 e=>end: 结束
 op=>operation: 我的操作
