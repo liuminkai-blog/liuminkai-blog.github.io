@@ -815,23 +815,26 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/051515918.html">
+                <a href="/2020/051512485.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="markdown语法汇总">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="我的常用快捷键Win10">
                         
-                        <span class="card-title">markdown语法汇总</span>
+                        <span class="card-title">我的常用快捷键Win10</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            [TOC]
-什么是 Markdown#
-Markdown 是一种文本格式。你可以用它来控制文档的显示。使用Markdown，你可以创建各种样式的文字，添加图片，并且可以创建表格 等等。
-
-​    由于各编辑器的Markdown语法存在差异
+                            我的常用快捷键Win10 除一些键外（如Ctrl+C、Ctrl+v）#
+    
+        按键
+        操作
+    
+    Win+Ctrl+D添加虚拟桌面
+    Win+Ctrl+←/→虚拟桌面的切换
+    Win
                         
                     </div>
                     <div class="publish-info">
@@ -840,12 +843,8 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
                             
                         </span>
                     </div>
@@ -853,12 +852,8 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
-                    </a>
-                    
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                        <span class="chip bg-color">快捷键</span>
                     </a>
                     
                 </div>
@@ -909,12 +904,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
@@ -953,41 +942,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             }
         });
 
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
     });
 </script>
@@ -1086,7 +1040,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:1423928650@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1096,7 +1050,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1423928650" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1423928650" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
