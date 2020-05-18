@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -514,19 +515,9 @@
 <li><p>演示：</p>
 <h1><span id="h1">h1</span><a href="#h1" class="header-anchor">#</a></h1><h2><span id="h2">h2</span><a href="#h2" class="header-anchor">#</a></h2><h3><span id="h3">h3</span><a href="#h3" class="header-anchor">#</a></h3><h4><span id="h4">h4</span><a href="#h4" class="header-anchor">#</a></h4><h5><span id="h5">h5</span><a href="#h5" class="header-anchor">#</a></h5><h6><span id="h6">h6</span><a href="#h6" class="header-anchor">#</a></h6></li>
 </ul>
-<h4><span id="2-qiang-diao">2.强调</span><a href="#2-qiang-diao" class="header-anchor">#</a></h4><pre><code>  *斜体*
-  _斜体_
+<h4><span id="2-qiang-diao">2.强调</span><a href="#2-qiang-diao" class="header-anchor">#</a></h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br><span class="line">_斜体_</span><br><span class="line"></span><br><span class="line">**粗体**</span><br><span class="line">__粗体__</span><br><span class="line"></span><br><span class="line">_组**组合**合_</span><br><span class="line">*组__组合__合*</span><br><span class="line">**组_组合_合**</span><br><span class="line">__组*组合*合__</span><br><span class="line"></span><br><span class="line">~~删除~~</span><br><span class="line">&#x3D;&#x3D;标记&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
 
-  **粗体**
-  __粗体__
-
-  _组**组合**合_
-  *组__组合__合*
-  **组_组合_合**
-  __组*组合*合__
-
-  ~~删除~~
-  ==标记==</code></pre><ul>
+<ul>
 <li><p>演示：</p>
 <p><em>斜体</em><br><em>斜体</em></p>
 <p><strong>粗体</strong><br><strong>粗体</strong></p>
@@ -534,11 +525,9 @@
 <p><del>删除</del><br>==标记==</p>
 </li>
 </ul>
-<h4><span id="3-lie-biao">3.列表</span><a href="#3-lie-biao" class="header-anchor">#</a></h4><h5><span id="wu-xu-lie-biao">无序列表</span><a href="#wu-xu-lie-biao" class="header-anchor">#</a></h5><pre><code>- 列表1
-- 列表2
-    - 列表2.1
-        - 列表2.1.1
-            - 列表2.1.1.1</code></pre><ul>
+<h4><span id="3-lie-biao">3.列表</span><a href="#3-lie-biao" class="header-anchor">#</a></h4><h5><span id="wu-xu-lie-biao">无序列表</span><a href="#wu-xu-lie-biao" class="header-anchor">#</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表1</span><br><span class="line">- 列表2</span><br><span class="line">	- 列表2.1</span><br><span class="line">		- 列表2.1.1</span><br><span class="line">			- 列表2.1.1.1</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p>演示：</p>
 </li>
 <li><p>列表1</p>
@@ -555,12 +544,9 @@
 </ul>
 </li>
 </ul>
-<h5><span id="you-xu-lie-biao">有序列表</span><a href="#you-xu-lie-biao" class="header-anchor">#</a></h5><pre><code>  1. 列表1
-  1. 列表2
-      1. 列表2.1
-          1. 列表2.1.1
-              1. 列表2.1.1.1
-      1. 列表2.2</code></pre><ul>
+<h5><span id="you-xu-lie-biao">有序列表</span><a href="#you-xu-lie-biao" class="header-anchor">#</a></h5>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 列表1</span><br><span class="line">1. 列表2</span><br><span class="line">	1. 列表2.1</span><br><span class="line">		1. 列表2.1.1</span><br><span class="line">			1. 列表2.1.1.1</span><br><span class="line">	1. 列表2.2</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li>演示：</li>
 </ul>
 <ol>
@@ -577,86 +563,72 @@
 </ol>
 </li>
 </ol>
-<h4><span id="4-tian-jia-tu-pian">4.添加图片</span><a href="#4-tian-jia-tu-pian" class="header-anchor">#</a></h4><pre><code>![alt内容](images/github.png)
-![alt内容](图片url)
+<h4><span id="4-tian-jia-tu-pian">4.添加图片</span><a href="#4-tian-jia-tu-pian" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">![alt内容](images&#x2F;github.png)</span><br><span class="line">![alt内容](图片url)</span><br><span class="line"></span><br><span class="line">![alt内容](images&#x2F;github.png &quot;title光标悬停是显示&quot;)</span><br><span class="line"></span><br><span class="line">#改大小 以下只是方案 不是所有编辑器的都支持</span><br><span class="line">![alt内容](images&#x2F;github.png)&#123;:width:30% hight:30%&#125;</span><br><span class="line">![alt内容](images&#x2F;github.png &#x3D;30x30)</span><br><span class="line">&lt;img src&#x3D;&quot;github.png&quot; style&#x3D;&quot;zoom:50%&quot;&gt; #在md文件中HTML代码直接转为HTML实体</span><br></pre></td></tr></table></figure>
 
-![alt内容](images/github.png &quot;title光标悬停是显示&quot;)
 
-#改大小 以下只是方案 不是所有编辑器的都支持
-![alt内容](images/github.png){:width:30% hight:30%}
-![alt内容](images/github.png =30x30)
-&lt;img src=&quot;github.png&quot; style=&quot;zoom:50%&quot;&gt; #在md文件中HTML代码直接转为HTML实体
-</code></pre><p><img src="/2020/051515918/github.png" alt="Markdown语法" title="title:Markdown语法"></p>
+
+<p><img src="/2020/051515918/github.png" alt="Markdown语法" title="title:Markdown语法"></p>
 <img src="/2020/051515918/github.png" style="zoom:20%;" alt="采用HTML标签">
 
-<h4><span id="5-lian-jie">5.链接</span><a href="#5-lian-jie" class="header-anchor">#</a></h4><pre><code>[显示文字](网页url)
+<h4><span id="5-lian-jie">5.链接</span><a href="#5-lian-jie" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[显示文字](网页url)</span><br><span class="line"></span><br><span class="line">[github](https:&#x2F;&#x2F;github.com)</span><br></pre></td></tr></table></figure>
 
-[github](https://github.com)</code></pre><p><a href="https://github.com" target="_blank" rel="noopener">github</a></p>
-<h4><span id="6-yin-yong">6.引用</span><a href="#6-yin-yong" class="header-anchor">#</a></h4><pre><code>&gt; 引用的内容</code></pre><blockquote>
+<p><a href="https://github.com" target="_blank" rel="noopener">github</a></p>
+<h4><span id="6-yin-yong">6.引用</span><a href="#6-yin-yong" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 引用的内容</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>引用的内容</p>
 </blockquote>
-<h4><span id="7-fen-ge-fu">7.分割符</span><a href="#7-fen-ge-fu" class="header-anchor">#</a></h4><pre><code>--- 
-连字符
-***
-星号
-___
-下划线</code></pre><hr>
+<h4><span id="7-fen-ge-fu">7.分割符</span><a href="#7-fen-ge-fu" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--- </span><br><span class="line">连字符</span><br><span class="line">***</span><br><span class="line">星号</span><br><span class="line">___</span><br><span class="line">下划线</span><br></pre></td></tr></table></figure>
+
+<hr>
 <p>连字符</p>
 <hr>
 <p>星号</p>
 <hr>
 <p>下划线</p>
-<h4><span id="8-xing-nei-dai-ma">8.行内代码</span><a href="#8-xing-nei-dai-ma" class="header-anchor">#</a></h4><pre><code>这个就是 `行内代码` 吗？</code></pre><p>这个就是 <code>行内代码</code> 吗？</p>
-<h4><span id="9-dai-ma-kuai">9.代码块</span><a href="#9-dai-ma-kuai" class="header-anchor">#</a></h4><pre><code>​```
-我是代码块内容
-​```
+<h4><span id="8-xing-nei-dai-ma">8.行内代码</span><a href="#8-xing-nei-dai-ma" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个就是 &#96;行内代码&#96; 吗？</span><br></pre></td></tr></table></figure>
 
-#语法高亮 在上吗的符号后 加上高亮显示的语言
-​```javascript
+<p>这个就是 <code>行内代码</code> 吗？</p>
+<h4><span id="9-dai-ma-kuai">9.代码块</span><a href="#9-dai-ma-kuai" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>我是代码块内容<br>​```</p>
+<p>#语法高亮 在上吗的符号后 加上高亮显示的语言<br>​<code>javascript
     var id = document.getElementById(&quot;id&quot;);
-​```</code></pre><pre><code>我是代码块内容</code></pre><pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4><span id="10-dai-ma-kuai-class-mpe-kuo-zhan-de-te-xing">10.代码块class （MPE扩展的特性）</span><a href="#10-dai-ma-kuai-class-mpe-kuo-zhan-de-te-xing" class="header-anchor">#</a></h4><pre><code>#给代码块设置 class
-​```javascript {.class1 .class}
+​</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我是代码块内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">	var id &#x3D; document.getElementById(&quot;id&quot;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4><span id="10-dai-ma-kuai-class-mpe-kuo-zhan-de-te-xing">10.代码块class （MPE扩展的特性）</span><a href="#10-dai-ma-kuai-class-mpe-kuo-zhan-de-te-xing" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#给代码块设置 class</span><br><span class="line">​&#96;&#96;&#96;javascript &#123;.class1 .class&#125;</span><br><span class="line">	var id &#x3D; document.getElementById(&quot;id&quot;);</span><br><span class="line">​</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#你想要显示代码行数，只需填加 line-numbers class 即可<br>​<code>javascript {.line-numbers}
     var id = document.getElementById(&quot;id&quot;);
-​```</code></pre><pre><code>#你想要显示代码行数，只需填加 line-numbers class 即可
-​```javascript {.line-numbers}
-    var id = document.getElementById(&quot;id&quot;);
-​```
-#高亮代码行数 添加 highlight  //typora不支持
-​```javascript {highlight=10}
-    var id = document.getElementById(&quot;id&quot;);
-    var id = document.getElementById(&quot;id&quot;);
-    var id = document.getElementById(&quot;id&quot;);
-    var id = document.getElementById(&quot;id&quot;);
-    var id = document.getElementById(&quot;id&quot;);
-    var id = document.getElementById(&quot;id&quot;);
+​</code><br>#高亮代码行数 添加 highlight  //typora不支持<br>​<code>javascript {highlight=10}
     var id = document.getElementById(&quot;id&quot;);
     var id = document.getElementById(&quot;id&quot;);
-​```</code></pre><pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre class=" language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h4><span id="11-ren-wu-lie-biao">11.任务列表</span><a href="#11-ren-wu-lie-biao" class="header-anchor">#</a></h4><pre><code>- [x] 任务失败
-- [ ]任务成功</code></pre><ul>
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+​</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;javascript &#123;.line-numbers&#125;</span><br><span class="line">	var id &#x3D; document.getElementById(&quot;id&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>&#123;highlight</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br><span class="line"><span class="keyword">var</span> id = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4><span id="11-ren-wu-lie-biao">11.任务列表</span><a href="#11-ren-wu-lie-biao" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [x] 任务失败</span><br><span class="line">- [ ]任务成功</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><input checked disabled type="checkbox"> 任务失败</li>
 <li><input disabled type="checkbox"> 任务成功</li>
 </ul>
-<h4><span id="12-biao-ge">12.表格</span><a href="#12-biao-ge" class="header-anchor">#</a></h4><pre><code>head1 | head2
------:|:-----:
-cell1 | cell2
-cell3 | cell4
-#可以HTML的table标签替换
+<h4><span id="12-biao-ge">12.表格</span><a href="#12-biao-ge" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">head1 | head2</span><br><span class="line">-----:|:-----:</span><br><span class="line">cell1 | cell2</span><br><span class="line">cell3 | cell4</span><br><span class="line">#可以HTML的table标签替换</span><br><span class="line"></span><br><span class="line">拓展</span><br><span class="line">:-----: 居中</span><br><span class="line">:-----	居左 默认</span><br><span class="line"> -----:	居右</span><br></pre></td></tr></table></figure>
 
-拓展
-:-----: 居中
-:-----    居左 默认
- -----:    居右</code></pre><table>
+<table>
 <thead>
 <tr>
 <th align="right">head1</th>
@@ -672,29 +644,16 @@ cell3 | cell4
 <td align="center">cell4</td>
 </tr>
 </tbody></table>
-<h4><span id="13-emoji">13.Emoji</span><a href="#13-emoji" class="header-anchor">#</a></h4><pre><code>:smile:
-:horse:
-:fa-car:</code></pre><p>:smile:<br>:horse:</p>
+<h4><span id="13-emoji">13.Emoji</span><a href="#13-emoji" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:smile:</span><br><span class="line">:horse:</span><br><span class="line">:fa-car:</span><br></pre></td></tr></table></figure>
+
+<p>:smile:<br>:horse:</p>
 <p>:fa-car:</p>
 <blockquote>
 <p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">Emoji</a></p>
 </blockquote>
-<h4><span id="14-shang-biao-xia-biao-jiao-zhu-suo-lue-zhu-shi">14.上标 下标 脚注 缩略 注释</span><a href="#14-shang-biao-xia-biao-jiao-zhu-suo-lue-zhu-shi" class="header-anchor">#</a></h4><pre><code>#上标
-30^2^
+<h4><span id="14-shang-biao-xia-biao-jiao-zhu-suo-lue-zhu-shi">14.上标 下标 脚注 缩略 注释</span><a href="#14-shang-biao-xia-biao-jiao-zhu-suo-lue-zhu-shi" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#上标</span><br><span class="line">30^2^</span><br><span class="line"></span><br><span class="line">#下标</span><br><span class="line">H~2~O</span><br><span class="line"></span><br><span class="line">#脚注</span><br><span class="line">一个具有注脚的文本。[^2]</span><br><span class="line">[^2]: 注脚的解释</span><br><span class="line"></span><br><span class="line">#缩略</span><br><span class="line">_[HTML]:Hyper Text Markup Language</span><br><span class="line">_[W3C]:World Wide Web Consortium</span><br><span class="line"></span><br><span class="line">#注释</span><br><span class="line">*[HTML]:超文本标记语言</span><br></pre></td></tr></table></figure>
 
-#下标
-H~2~O
-
-#脚注
-一个具有注脚的文本。[^2]
-[^2]: 注脚的解释
-
-#缩略
-_[HTML]:Hyper Text Markup Language
-_[W3C]:World Wide Web Consortium
-
-#注释
-*[HTML]:超文本标记语言</code></pre><p>30^2^</p>
+<p>30^2^</p>
 <p>H<del>2</del>O</p>
 <p>一个具有注脚的文本。<a href="注脚的解释">^2</a></p>
 <p>_[HTML]:Hyper Text Markup Language<br>_[W3C]:World Wide Web Consortium</p>
@@ -716,12 +675,17 @@ _[W3C]:World Wide Web Consortium
 <p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/toc" target="_blank" rel="noopener">略</a></p>
 </blockquote>
 <p>个人还是喜欢 typora的快捷方式</p>
-<h4><span id="19-dao-ru-wen-jian-typora-bu-zhi-chi">19.导入文件(typora不支持)</span><a href="#19-dao-ru-wen-jian-typora-bu-zhi-chi" class="header-anchor">#</a></h4><pre><code>@import &quot;文件路径&quot;
-@import &quot;images/github.png&quot;</code></pre><p>@import “1.csv”</p>
+<h4><span id="19-dao-ru-wen-jian-typora-bu-zhi-chi">19.导入文件(typora不支持)</span><a href="#19-dao-ru-wen-jian-typora-bu-zhi-chi" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;文件路径&quot;</span><br><span class="line">@import &quot;images&#x2F;github.png&quot;</span><br></pre></td></tr></table></figure>
+
+<p>@import “1.csv”</p>
 <p>@import “1.c”</p>
 <p>@import “1”</p>
 <h5><span id="zhi-chi-de-wen-jian">支持的文件</span><a href="#zhi-chi-de-wen-jian" class="header-anchor">#</a></h5><p>.jpeg(.jpg), .gif, .png, .apng, .svg, .bmp 文件将会直接被当作 markdown 图片被引用。<br>.csv 文件将会被转换成 markdown 表格。<br>.mermaid 将会被 mermaid 渲染。<br>.dot 文件将会被 viz.js (graphviz) 渲染。<br>.plantuml(.puml) 文件将会被 PlantUML 渲染。<br>.html 将会直接被引入。<br>.js 将会被引用为 <script src="你的 js 文件"></script>。<br>.less 和 .css 将会被引用为 style。目前 less 只支持本地文件。.css 文件将会被引用为 <link rel="stylesheet" href="你的 css 文件">。<br>.pdf 文件将会被 pdf2svg 转换为 svg 然后被引用。<br>markdown 将会被分析处理然后被引用。<br>其他所有的文件都将被视为代码块</p>
-<h5><span id="she-zhi-tu-pian">设置图片</span><a href="#she-zhi-tu-pian" class="header-anchor">#</a></h5><pre><code>    @import &quot;test.png&quot; {width=&quot;300px&quot; height=&quot;200px&quot; title=&quot;图片的标题&quot; alt=&quot;我的 alt&quot;}</code></pre><h5><span id="qi-ta">其他</span><a href="#qi-ta" class="header-anchor">#</a></h5> <img src="/2020/051515918/import.png" alt="import" style="zoom: 50%;">
+<h5><span id="she-zhi-tu-pian">设置图片</span><a href="#she-zhi-tu-pian" class="header-anchor">#</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &quot;test.png&quot; &#123;width&#x3D;&quot;300px&quot; height&#x3D;&quot;200px&quot; title&#x3D;&quot;图片的标题&quot; alt&#x3D;&quot;我的 alt&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="qi-ta">其他</span><a href="#qi-ta" class="header-anchor">#</a></h5> <img src="/2020/051515918/import.png" alt="import" style="zoom: 50%;">
 
 <h4><span id="20-huan-deng-pian">20.幻灯片</span><a href="#20-huan-deng-pian" class="header-anchor">#</a></h4><blockquote>
 <p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/presentation" target="_blank" rel="noopener">https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/presentation</a></p>
@@ -729,62 +693,31 @@ _[W3C]:World Wide Web Consortium
 <h4><span id="21-pandoc">21.PanDoc</span><a href="#21-pandoc" class="header-anchor">#</a></h4><blockquote>
 <p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/pandoc" target="_blank" rel="noopener">https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/pandoc</a></p>
 </blockquote>
-<h4><span id="22-zi-ding-yi-lie-biao-typora-bu-zhi-chi">22.自定义列表（typora不支持）</span><a href="#22-zi-ding-yi-lie-biao-typora-bu-zhi-chi" class="header-anchor">#</a></h4><pre><code>tags:
+<h4><span id="22-zi-ding-yi-lie-biao-typora-bu-zhi-chi">22.自定义列表（typora不支持）</span><a href="#22-zi-ding-yi-lie-biao-typora-bu-zhi-chi" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line"></span><br><span class="line">: flower</span><br><span class="line"></span><br><span class="line">: grass</span><br><span class="line"></span><br><span class="line">Authors </span><br><span class="line"></span><br><span class="line">: lmk</span><br><span class="line"></span><br><span class="line">: liuminkai</span><br></pre></td></tr></table></figure>
 
-: flower
-
-: grass
-
-Authors 
-
-: lmk
-
-: liuminkai</code></pre><p>tags:</p>
+<p>tags:</p>
 <p>: flower</p>
 <p>: grass</p>
 <p>Authors </p>
 <p>: lmk</p>
 <p>: liuminkai</p>
-<h4><span id="23-gan-te-tu-typora-xian-shi-de-hao-kan">23.甘特图(typora显示的好看)</span><a href="#23-gan-te-tu-typora-xian-shi-de-hao-kan" class="header-anchor">#</a></h4><pre class=" language-mermaid"><code class="language-mermaid">gantt
-        dateFormat  YYYY-MM-DD
-        title Adding GANTT diagram functionality to mermaid
-        section 现有任务
-        已完成               :done,    des1, 2014-01-06,2014-01-08
-        进行中               :active,  des2, 2014-01-09, 3d
-        计划一               :         des3, after des2, 5d
-        计划二               :         des4, after des3, 5d</code></pre>
+<h4><span id="23-gan-te-tu-typora-xian-shi-de-hao-kan">23.甘特图(typora显示的好看)</span><a href="#23-gan-te-tu-typora-xian-shi-de-hao-kan" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">        dateFormat  YYYY-MM-DD</span><br><span class="line">        title Adding GANTT diagram functionality to mermaid</span><br><span class="line">        section 现有任务</span><br><span class="line">        已完成               :done,    des1, 2014-01-06,2014-01-08</span><br><span class="line">        进行中               :active,  des2, 2014-01-09, 3d</span><br><span class="line">        计划一               :         des3, after des2, 5d</span><br><span class="line">        计划二               :         des4, after des3, 5d</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">甘特图语法</a></p>
 </blockquote>
-<h4><span id="24-uml-tu">24.UML图</span><a href="#24-uml-tu" class="header-anchor">#</a></h4><pre class=" language-mermaid"><code class="language-mermaid">sequenceDiagram
-张三 ->> 李四: 你好！李四, 最近怎么样?
-李四-->>王五: 你最近怎么样，王五？
-李四--x 张三: 我很好，谢谢!
-李四-x 王五: 我很好，谢谢!
-Note right of 王五: 李四想了很长时间, 文字太长了<br>不适合放在一行.
+<h4><span id="24-uml-tu">24.UML图</span><a href="#24-uml-tu" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?</span><br><span class="line">李四--&gt;&gt;王五: 你最近怎么样，王五？</span><br><span class="line">李四--x 张三: 我很好，谢谢!</span><br><span class="line">李四-x 王五: 我很好，谢谢!</span><br><span class="line">Note right of 王五: 李四想了很长时间, 文字太长了&lt;br&#x2F;&gt;不适合放在一行.</span><br><span class="line"></span><br><span class="line">李四--&gt;&gt;张三: 打量着王五...</span><br><span class="line">张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</span><br></pre></td></tr></table></figure>
 
-李四-->>张三: 打量着王五...
-张三->>王五: 很好... 王五, 你怎么样?</code></pre>
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">Mermaid语法</a></p>
 </blockquote>
-<h4><span id="25-liu-cheng-tu">25.流程图</span><a href="#25-liu-cheng-tu" class="header-anchor">#</a></h4><pre class=" language-mermaid"><code class="language-mermaid">graph LR
-A[长方形] -- 链接 --> B((圆))
-A --> C(圆角长方形)
-B --> D{菱形}
-C --> D</code></pre>
+<h4><span id="25-liu-cheng-tu">25.流程图</span><a href="#25-liu-cheng-tu" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[长方形] -- 链接 --&gt; B((圆))</span><br><span class="line">A --&gt; C(圆角长方形)</span><br><span class="line">B --&gt; D&#123;菱形&#125;</span><br><span class="line">C --&gt; D</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">Mermaid语法</a></p>
 </blockquote>
-<h4><span id="flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi">Flowchart流程图(不知道支不支持)</span><a href="#flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi" class="header-anchor">#</a></h4><pre class=" language-mermaid"><code class="language-mermaid">flowchat
-st=>start: 开始
-e=>end: 结束
-op=>operation: 我的操作
-cond=>condition: 确认？
+<h4><span id="flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi">Flowchart流程图(不知道支不支持)</span><a href="#flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi" class="header-anchor">#</a></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st&#x3D;&gt;start: 开始</span><br><span class="line">e&#x3D;&gt;end: 结束</span><br><span class="line">op&#x3D;&gt;operation: 我的操作</span><br><span class="line">cond&#x3D;&gt;condition: 确认？</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
 
-st->op->cond
-cond(yes)->e
-cond(no)->op</code></pre>
 <blockquote>
 <p><a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">Flowchart流程图语法</a></p>
 </blockquote>
@@ -1051,8 +984,8 @@ cond(no)->op</code></pre>
 由于图片上传路径与博客文档中路径不统一 
 
 安装插件   
-    npm i hexo-asset-image --save  配置_config.yml 文件
-    post_asset_folder: tru
+npm i hexo-asset-image --save  配置_config.yml 文件
+post_asset_folder: true配置完后，在使
                         
                     </div>
                     <div class="publish-info">
