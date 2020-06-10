@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="php入门笔记, 刘民锴的个人博客">
+    <meta name="keywords" content="php入门笔记1, 刘民锴的个人博客">
     <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>php入门笔记 | 刘民锴的个人博客</title>
+    <title>php入门笔记1 | 刘民锴的个人博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">php入门笔记</h1>
+                    <h1 class="description center-align post-title">php入门笔记1</h1>
                 </div>
             </div>
         </div>
@@ -482,21 +482,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-20
+                    2020-06-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.2k
+                    6.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    25 分
                 </div>
                 
 
@@ -696,6 +696,8 @@
 <p>①define（）函数</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'CON'</span><span class="token punctuation">,</span> <span class="token string">'php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义名称为CON的常量，其值为php </span>
 <span class="token keyword">echo</span> <span class="token constant">CON</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//输出结果为：php</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">// 输出常量也可是下面方式</span>
+<span class="token keyword">echo</span> <span class="token function">constant</span><span class="token punctuation">(</span><span class="token string">'CON'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//php</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>②const关键字</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">const</span> <span class="token constant">PAI</span> <span class="token operator">=</span> <span class="token number">3.14</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//定义名字为PAI的常量，其值为3.14</span>
 <span class="token keyword">echo</span> <span class="token constant">PAI</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//输出结果为：3.14</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -710,10 +712,14 @@
 <h3><span id="2-zheng-xing">2.整型</span><a href="#2-zheng-xing" class="header-anchor">.</a></h3><p>​    八进制（oct）：07</p>
 <p>​    十进制（dec）：9</p>
 <p>​    十六进制（hex）：0xF</p>
-<h3><span id="3-fu-dian-xing">3.浮点型</span><a href="#3-fu-dian-xing" class="header-anchor">.</a></h3><pre><code>标准格式：
-    $fnum = 3.14
+<h3><span id="3-fu-dian-xing">3.浮点型</span><a href="#3-fu-dian-xing" class="header-anchor">.</a></h3><pre class="line-numbers language-php"><code class="language-php">标准格式：
+    <span class="token variable">$fnum</span> <span class="token operator">=</span> <span class="token number">3.14</span>
 科学计数法：
-    $fnum = 314E-2</code></pre><h3><span id="4-zi-fu-chuan-xing">4.字符串型</span><a href="#4-zi-fu-chuan-xing" class="header-anchor">.</a></h3><ul>
+    <span class="token variable">$fnum</span> <span class="token operator">=</span> <span class="token number">314E-2</span>
+
+<span class="token comment" spellcheck="true">// 不管采用哪种格式 浮点数的有效位都是14位</span>
+<span class="token comment" spellcheck="true">// 有效位： 从左边第一个不为0的数开始，直到末尾数的 个数，不包含小数点</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="4-zi-fu-chuan-xing">4.字符串型</span><a href="#4-zi-fu-chuan-xing" class="header-anchor">.</a></h3><ul>
 <li>使用单引号或双引号表示字符串</li>
 </ul>
 <p>​    <strong>注意：变量在双引号字符串中被解析</strong></p>
@@ -739,6 +745,7 @@
     var_dump($bool);
     var_dump($str);
 ?&gt;</code></pre><p><img src="/2020/05/20/6418/image-20200520135509868.png" alt></p>
+<p>使用<strong>print_r()</strong>打印变量易于理解的信息</p>
 <h2><span id="liu-yun-suan-fu">六、运算符</span><a href="#liu-yun-suan-fu" class="header-anchor">.</a></h2><h3><span id="1-suan-zhu-yun-suan-fu">1.算术运算符</span><a href="#1-suan-zhu-yun-suan-fu" class="header-anchor">.</a></h3><table>
 <thead>
 <tr>
@@ -1078,10 +1085,16 @@
 <li>补充：圆括号()优先级别最高</li>
 </ul>
 <h2><span id="jiu-shu-ju-lei-xing-zhuan-huan">九、数据类型转换</span><a href="#jiu-shu-ju-lei-xing-zhuan-huan" class="header-anchor">.</a></h2><h3><span id="1-zi-dong-lei-xing-zhuan-huan">1.自动类型转换</span><a href="#1-zi-dong-lei-xing-zhuan-huan" class="header-anchor">.</a></h3><p>​    自动类型转换，指的是当运算需要或与期望的结果类型不匹配时，PHP将自动进行类型转换，无需编程人员做任何操作</p>
-<pre><code>//比较“888php”与888是否相等
-var_dump(&#39;888php&#39; == 888);   //输出结果：bool(true)
-//比较“php888”与888是否相等
-var_dump(&#39;php888&#39; == 888);   //输出结果：bool(false)</code></pre><h3><span id="2-qiang-zhi-lei-xing-zhuan-huan">2.强制类型转换</span><a href="#2-qiang-zhi-lei-xing-zhuan-huan" class="header-anchor">.</a></h3><p>​    强制类型转换，就是根据编程需求手动转换数据类型，在要转换的数据或变量之前加上“(目标类型)”即可</p>
+<p>4种：①转换成布尔型 ②转换成整型 ③转换成浮点型 ④转换成字符串型</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">/* 字符串 --> 整型 */</span>
+<span class="token comment" spellcheck="true">//比较“888php”与888是否相等</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token string">'888php'</span> <span class="token operator">==</span> <span class="token number">888</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出结果：bool(true)</span>
+<span class="token comment" spellcheck="true">//比较“php888”与888是否相等</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token string">'php888'</span> <span class="token operator">==</span> <span class="token number">888</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出结果：bool(false)</span>
+
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token string">'php888'</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//输出结果：bool(true)</span>
+<span class="token comment" spellcheck="true">//这个是因为 字符串转换为 整型时 如果 字符串以数字开头，则使用 该数值 否则转换为零</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="2-qiang-zhi-lei-xing-zhuan-huan">2.强制类型转换</span><a href="#2-qiang-zhi-lei-xing-zhuan-huan" class="header-anchor">.</a></h3><p>​    强制类型转换，就是根据编程需求手动转换数据类型，在要转换的数据或变量之前加上“(目标类型)”即可</p>
 <table>
 <thead>
 <tr>
@@ -1226,6 +1239,24 @@ return $var;</code></pre><h4><span id="ke-xuan-can-shu">可选参数</span><a hr
 <blockquote>
 <p>匿名函数还可以作为函数的参数传递，实现回调函数。<br>极大增强了函数的灵活性。</p>
 </blockquote>
+<h3><span id="ke-bian-yu-ni-ming">可变与匿名</span><a href="#ke-bian-yu-ni-ming" class="header-anchor">.</a></h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//可变</span>
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"这是函数a"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">echo</span> <span class="token variable">$b</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//a</span>
+<span class="token keyword">echo</span> <span class="token variable">$b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这是函数a</span>
+<span class="token keyword">echo</span> <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//显示结果 ： string(1) "a"</span>
+<span class="token keyword">echo</span> <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//显示结果 ： 这是函数aNULL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//匿名函数</span>
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token string">"这是匿名函数"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这是个语句</span>
+
+<span class="token keyword">echo</span> <span class="token variable">$b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这是匿名函数</span>
+<span class="token keyword">echo</span> <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//显示结果 object(Closure)#1 (0) {}</span>
+<span class="token keyword">echo</span> <span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这是匿名函数NULL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2><span id="shi-san-shu-zu">十三、数组</span><a href="#shi-san-shu-zu" class="header-anchor">.</a></h2><p>与java中数组不同</p>
 <p>​    php的下标（键） 可以是 字符串类型</p>
 <p>​    键和值之间 使用  =&gt; 连接数组</p>
@@ -1778,40 +1809,35 @@ http://www.bxg.com/test.php?name=A%26B+C
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/20/6418.html">
+                <a href="/2020/06/05/55320.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/23.jpg" class="responsive-img" alt="php入门笔记">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/19.jpg" class="responsive-img" alt="php入门笔记2">
                         
-                        <span class="card-title">php入门笔记</span>
+                        <span class="card-title">php入门笔记2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PHP 语法基础.一、php标记与注释.1.php标记.​    php是嵌入式脚本语言，它经常会和HTML内容混编在一起，因此为了区分HTML与PHP代码，需要使用标记将PHP代码包裹起来。
+                            php操作数据库（mysql）.一、PHP数据库扩展分类.
+MySQL 扩展
+MySQLi 扩展
+PDO扩展
 
-
-
-标记类型
-开始标记
-结束标记
-
-
-
-标准
+1.MySQL扩展.
+MySQL 扩展是针对 MySQL 4.1.3 或更早版本设计的，是 PHP 与 MySQL数据库交互的早
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1824,12 +1850,15 @@ http://www.bxg.com/test.php?name=A%26B+C
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/php/">
                         <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
                 </div>
@@ -2041,7 +2070,7 @@ http://www.bxg.com/test.php?name=A%26B+C
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.6k</span>&nbsp;字
+                class="white-color">14.7k</span>&nbsp;字
             
             
             
