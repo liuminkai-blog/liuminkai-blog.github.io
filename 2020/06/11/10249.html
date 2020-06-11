@@ -480,7 +480,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    297
+                    469
                 </div>
                 
 
@@ -502,8 +502,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3><span id="zhuang-kuang-shuo-ming">状况说明</span><a href="#zhuang-kuang-shuo-ming" class="header-anchor">.</a></h3><p>在练习JDBC操作数据库的时候，存入中文数据都成了？</p>
-<p>这是由于字符集不是数据库字符集不是gbk和utf8导致的</p>
+                <h3><span id="zhuang-kuang-shuo-ming">状况说明</span><a href="#zhuang-kuang-shuo-ming" class="header-anchor">.</a></h3><p>在练习JDBC操作数据库的时候，存入中文数据都成了 ’ ？‘</p>
+<p>这是由于数据库字符集不是utf8导致的(java工程utf8)</p>
 <p>经查看的确是编码不匹配问题</p>
 <p><img src="/2020/06/11/10249/image-20200611011451063.png" alt></p>
 <h3><span id="jie-jue-fang-fa">解决方法</span><a href="#jie-jue-fang-fa" class="header-anchor">.</a></h3><blockquote>
@@ -514,7 +514,9 @@
 <span class="token constant">character-set-server</span><span class="token attr-value"><span class="token punctuation">=</span>utf8</span>
 
 # 在 [client] 下添加
-<span class="token constant">default-character-set</span><span class="token attr-value"><span class="token punctuation">=</span>utf8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token constant">default-character-set</span><span class="token attr-value"><span class="token punctuation">=</span>utf8</span>
+
+# 重启MySQL服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="/2020/06/11/10249/image-20200611004519065.png" alt></p>
 <p><img src="/2020/06/11/10249/image-20200611004843753.png" alt></p>
 <h4><span id="jie-guo">结果</span><a href="#jie-guo" class="header-anchor">.</a></h4><p>仍然有点偏差，字符集 client 、connection 、 results 并没有改变，还是 GBK</p>
@@ -546,6 +548,25 @@
 <blockquote>
 <p>重启cmd 结束</p>
 </blockquote>
+<h3><span id="xin-de-wen-ti">新的问题</span><a href="#xin-de-wen-ti" class="header-anchor">.</a></h3><p>在mysql命令行会输入不了中文</p>
+<p>解决 换回 GBK即可</p>
+<p>：删除上述文件（autorun 或 CodePage）</p>
+<p>以及</p>
+<p><img src="/2020/06/11/10249/image-20200611101126058.png" alt></p>
+<p><strong>上述client 、connection 、 results</strong>的编码并不代表数据的<strong>存储编码</strong></p>
+<p><strong>只要在my.ini中有之前的配置就没问题</strong>但除了 你的 数据表、数据列的编码本身就 不是UTF8</p>
+<p><strong>注意</strong></p>
+<blockquote>
+<p>如果你的 数据库的字符集是latin1</p>
+<p>在该数据库下新建的 表、列的字符集都会是latin1</p>
+<p>除非 在创建表时指定 字符集</p>
+</blockquote>
+<p>不同的客户端 的 这些都不同</p>
+<p><strong>Navicat</strong>：</p>
+<p><img src="/2020/06/11/10249/image-20200611102952562.png" alt></p>
+<p>JAVA IDEA：</p>
+<p><img src="/2020/06/11/10249/image-20200611105600508.png" alt></p>
+<p><a href="https://blog.csdn.net/xinyuan_java/article/details/90715341?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522159184231219724848324900%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=159184231219724848324900&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-90715341.pc_search_back_js&utm_term=mysql%E5%AD%97%E7%AC%A6%E9%9B%86" target="_blank" rel="noopener">MySQL字符集</a> (服务器级、数据库级、数据表级、数据列级)</p>
 
             </div>
             <hr/>
@@ -696,12 +717,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            状况说明.在练习JDBC操作数据库的时候，存入中文数据都成了？
-这是由于字符集不是数据库字符集不是gbk和utf8导致的
+                            状况说明.在练习JDBC操作数据库的时候，存入中文数据都成了 ’ ？‘
+这是由于数据库字符集不是utf8导致的(java工程utf8)
 经查看的确是编码不匹配问题
 
 解决方法.
-先找到 my.ini 配置文件（可能在安装目录下或则是在隐藏文件夹Progr
+先找到 my.ini 配置文件（可能在安装目录下或则是在隐藏文
                         
                     </div>
                     <div class="publish-info">
@@ -934,7 +955,7 @@ MySQL 扩展是针对 MySQL 4.1.3 或更早版本设计的，是 PHP 与 MySQL�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.7k</span>&nbsp;字
+                class="white-color">14.9k</span>&nbsp;字
             
             
             
