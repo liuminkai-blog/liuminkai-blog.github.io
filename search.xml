@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>我的自定义IDEA快捷键-部分</title>
+      <link href="/2020/06/14/26561.html"/>
+      <url>/2020/06/14/26561.html</url>
+      
+        <content type="html"><![CDATA[<h2><span id="wo-de-zi-ding-yi-idea-kuai-jie-jian">我的自定义IDEA快捷键</span><a href="#wo-de-zi-ding-yi-idea-kuai-jie-jian" class="header-anchor">.</a></h2><table><thead><tr><th>快捷键</th><th>描述</th></tr></thead><tbody><tr><td>Alt + ↑</td><td>当前行向上移动</td></tr><tr><td>Alt + ↓</td><td>当前行向下移动</td></tr><tr><td>Alt + ←</td><td>上一次编辑位置</td></tr><tr><td>Alt + →</td><td>下一次编辑位置</td></tr><tr><td>Alt + Shift + ↑</td><td>光标位置向外扩增选择</td></tr><tr><td>Alt + Shift + ↓</td><td>光标位置向内回退选择</td></tr><tr><td></td><td></td></tr><tr><td>Ctrl + Alt + ↓</td><td>复制当前行到下一行</td></tr><tr><td>Ctrl + Alt + ←</td><td>上一个tab页</td></tr><tr><td>Ctrl + Alt + →</td><td>下一个tab页</td></tr><tr><td>Ctrl + Shift + ↑</td><td>光标所在位置的上一个方法</td></tr><tr><td>Ctrl + Shift + ↓</td><td>光标所在位置的下一个方法</td></tr><tr><td>Ctrl + Enter</td><td>光标所在位置下方插入新行</td></tr><tr><td>Shift + Enter</td><td>光标所在位置上方插入新行</td></tr></tbody></table>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 快捷键 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于更改my.ini client字符集仍然是GBK的问题-已解决</title>
       <link href="/2020/06/11/10249.html"/>
       <url>/2020/06/11/10249.html</url>

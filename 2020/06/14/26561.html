@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo上传图片出现问题-解决, 刘民锴的个人博客">
+    <meta name="keywords" content="我的自定义IDEA快捷键-部分, 刘民锴的个人博客">
     <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>hexo上传图片出现问题-解决 | 刘民锴的个人博客</title>
+    <title>我的自定义IDEA快捷键-部分 | 刘民锴的个人博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
@@ -325,7 +325,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo上传图片出现问题-解决</h1>
+                    <h1 class="description center-align post-title">我的自定义IDEA快捷键-部分</h1>
                 </div>
             </div>
         </div>
@@ -450,31 +450,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/error/">
-                                <span class="chip bg-color">error</span>
-                            </a>
-                        
-                            <a href="/tags/%E9%97%AE%E9%A2%98/">
-                                <span class="chip bg-color">问题</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B7%B2%E8%A7%A3%E5%86%B3/">
-                                <span class="chip bg-color">已解决</span>
+                            <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                                <span class="chip bg-color">快捷键</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/error/" class="post-category">
-                                error
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -483,21 +466,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-15
+                    2020-06-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-19
+                    2020-06-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    459
+                    151
                 </div>
                 
 
@@ -519,36 +502,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2><span id="hexo-shang-chuan-tu-pian-wen-ti">hexo上传图片问题</span><a href="#hexo-shang-chuan-tu-pian-wen-ti" class="header-anchor">.</a></h2><ul>
-<li><h4><span id="you-yu-tu-pian-shang-chuan-lu-jing-yu-bo-ke-wen-dang-zhong-lu-jing-bu-tong-yi">由于图片上传路径与博客文档中路径不统一</span><a href="#you-yu-tu-pian-shang-chuan-lu-jing-yu-bo-ke-wen-dang-zhong-lu-jing-bu-tong-yi" class="header-anchor">.</a></h4></li>
-</ul>
-<p>安装插件   </p>
-<pre><code>    npm i hexo-asset-image --save  </code></pre><p>配置_config.yml 文件  修改 post_asset_folder</p>
-<pre><code>    post_asset_folder: true</code></pre><p>配置完后，在使用 hexo new post “” 时 会生成一个 与博客名一样的文件夹 ，这个文件夹用于装 资源的（博客里面的图片。。。）</p>
-<p>这样就强制把上传的本地资源目录 转移到 /…../source/_posts/博客文件名/  下<br><code>YYYY : 年份 如 2020</code></p>
-<blockquote>
-<p>上传过程中 改的路径有两个</p>
-<p>一个 是博客文档（.md）中 ![](随便一个目录/test.png)<br> ==&gt;       HTML中 &lt;img    src= “/YYYY/日期/博客名/test.png”&gt;<br>这个可以用 F12 去博客页面查看 文件路径是否更改</p>
-<p>另一个 是 把 在 博客文件夹下 的 资源文件<br>它的目录 ：/…../source/_posts/博客文件名/ 资源文件 如</p>
-<p>/…../source/_posts/博客文件名/ test.png  ==&gt;  github上 /YYYY/日期/博客名/test.png </p>
-<p>路径是根据这个设定的</p>
-<p><img src="/2020/05/15/17541/image-20200519132755390.png" alt></p>
-</blockquote>
-<blockquote>
-<p>如果 两路径相同 引入成功</p>
-</blockquote>
-<p>前者的格式可能是 /年/日期/博客名/文件夹/文件<br>        或  /年/日期/博客名/文件</p>
-<p>后者的格式只有 /年/日期/博客名/文件</p>
-<h5><span id="ke-yi-kan-chu">可以看出</span><a href="#ke-yi-kan-chu" class="header-anchor">.</a></h5><p>​    1.资源文件必须放置在 博客名文件夹下 且 不能有子文件夹</p>
-<p>​    2.博客文件 中 引用文件路径可以随便写，只要文件名是对的就行 当然乱写 会导致你在编辑器里 看不到图片     <strong>推荐</strong>： 就写相对路径 即 （ ./博客名/资源文件名 或 博客名/资源文件名 ）</p>
-<blockquote>
-<p>当你的资源文件 不在 博客名文件夹下  肯定是出错的</p>
-</blockquote>
-<ul>
-<li><h4><span id="you-ke-neng-shi-lu-jing-shi-pi-pei-de-yuan-ben-shang-chuan-de-tu-pian-yi-sun-pi">有可能是路径是匹配的，原本上传的图片已损坏</span><a href="#you-ke-neng-shi-lu-jing-shi-pi-pei-de-yuan-ben-shang-chuan-de-tu-pian-yi-sun-pi" class="header-anchor">.</a></h4>  损坏 自己想办法</li>
-</ul>
-<p>弄张图片看看<br><img src="/2020/05/15/17541/2.png" alt></p>
-<p>​</p>
+                <h2><span id="wo-de-zi-ding-yi-idea-kuai-jie-jian">我的自定义IDEA快捷键</span><a href="#wo-de-zi-ding-yi-idea-kuai-jie-jian" class="header-anchor">.</a></h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alt + ↑</td>
+<td>当前行向上移动</td>
+</tr>
+<tr>
+<td>Alt + ↓</td>
+<td>当前行向下移动</td>
+</tr>
+<tr>
+<td>Alt + ←</td>
+<td>上一次编辑位置</td>
+</tr>
+<tr>
+<td>Alt + →</td>
+<td>下一次编辑位置</td>
+</tr>
+<tr>
+<td>Alt + Shift + ↑</td>
+<td>光标位置向外扩增选择</td>
+</tr>
+<tr>
+<td>Alt + Shift + ↓</td>
+<td>光标位置向内回退选择</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + Alt + ↓</td>
+<td>复制当前行到下一行</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + ←</td>
+<td>上一个tab页</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + →</td>
+<td>下一个tab页</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + ↑</td>
+<td>光标所在位置的上一个方法</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + ↓</td>
+<td>光标所在位置的下一个方法</td>
+</tr>
+<tr>
+<td>Ctrl + Enter</td>
+<td>光标所在位置下方插入新行</td>
+</tr>
+<tr>
+<td>Shift + Enter</td>
+<td>光标所在位置上方插入新行</td>
+</tr>
+</tbody></table>
 
             </div>
             <hr/>
@@ -574,7 +591,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.liuminkai.top/2020/05/15/17541.html">http://www.liuminkai.top/2020/05/15/17541.html</a>
+                    <a href="http://www.liuminkai.top/2020/06/14/26561.html">http://www.liuminkai.top/2020/06/14/26561.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -612,16 +629,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/error/">
-                                    <span class="chip bg-color">error</span>
-                                </a>
-                            
-                                <a href="/tags/%E9%97%AE%E9%A2%98/">
-                                    <span class="chip bg-color">问题</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B7%B2%E8%A7%A3%E5%86%B3/">
-                                    <span class="chip bg-color">已解决</span>
+                                <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                                    <span class="chip bg-color">快捷键</span>
                                 </a>
                             
                         </div>
@@ -666,7 +675,7 @@
         repo: 'blogtalk',
         owner: 'liuminkai-blog',
         admin: ["liuminkai-blog"],
-        id: '2020-05-15T21-04-54',
+        id: '2020-06-14T22-57-04',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -690,54 +699,69 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/18/16407.html">
+                <a href="/2020/06/14/26561.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/10.jpg" class="responsive-img" alt="php在win下的环境搭建">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/10.jpg" class="responsive-img" alt="我的自定义IDEA快捷键-部分">
                         
-                        <span class="card-title">php在win下的环境搭建</span>
+                        <span class="card-title">我的自定义IDEA快捷键-部分</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            windows下php环境搭建 Apache2.4 + php7.3.18.一、Apache4.2 安装和配置.下载地址:  http://www.apachelounge.com/download/    https://www.apac
+                            我的自定义IDEA快捷键.
+
+
+快捷键
+描述
+
+
+
+Alt + ↑
+当前行向上移动
+
+
+Alt + ↓
+当前行向下移动
+
+
+Alt + ←
+上一次编辑位置
+
+
+Alt + →
+下一次编辑位置
+
+
+Alt + Shift + ↑
+光标位置向外
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-14
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-category">
-                                    安装和配置
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/php/">
-                        <span class="chip bg-color">php</span>
-                    </a>
-                    
-                    <a href="/tags/apache/">
-                        <span class="chip bg-color">apache</span>
-                    </a>
-                    
-                    <a href="/tags/php%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">php环境搭建</span>
+                    <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                        <span class="chip bg-color">快捷键</span>
                     </a>
                     
                 </div>
@@ -751,37 +775,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/15/15918.html">
+                <a href="/2020/06/11/10249.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/11.jpg" class="responsive-img" alt="markdown语法汇总">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="关于更改my.ini client字符集仍然是GBK的问题-已解决">
                         
-                        <span class="card-title">markdown语法汇总</span>
+                        <span class="card-title">关于更改my.ini client字符集仍然是GBK的问题-已解决</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            [TOC]
-什么是 Markdown.
-Markdown 是一种文本格式。你可以用它来控制文档的显示。使用Markdown，你可以创建各种样式的文字，添加图片，并且可以创建表格 等等。
-
-​    由于各编辑器的Markdown语法存在差异
+                            关于更改my.ini client字符集，mysql cmd仍然是GBK的问题（windows）-已解决.状况说明.在练习JDBC操作数据库的时候，存入中文数据都成了 ’ ？‘
+这是由于数据库字符集不是utf8导致的(java工程utf8)
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
                             
                         </span>
                     </div>
@@ -789,12 +806,8 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/markdown/">
-                        <span class="chip bg-color">markdown</span>
-                    </a>
-                    
-                    <a href="/tags/blog/">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/tags/err/">
+                        <span class="chip bg-color">err</span>
                     </a>
                     
                 </div>
