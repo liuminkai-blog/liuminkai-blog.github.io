@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>云端IDE(linux服务器)</title>
+      <link href="/2020/06/14/17010.html"/>
+      <url>/2020/06/14/17010.html</url>
+      
+        <content type="html"><![CDATA[<p>有了云端ide（VSCode）就可以 随时随地 用各种设备 在网页上就可以编程了</p><h2><span id="an-zhuang-qian-ti">安装前提</span><a href="#an-zhuang-qian-ti" class="header-anchor">.</a></h2><ul><li>有台服务器</li><li>服务器安全组 配置规则 入方向 添加8080 8443端口</li></ul><p>Code-Server：<a href="https://github.com/cdr/code-server/releases/tag/3.4.0/" target="_blank" rel="noopener">https://github.com/cdr/code-server/releases/tag/3.4.0/</a></p><p>我的服务器是centos系统</p><pre><code>wget https://github.com/cdr/code-server/releases/tag/3.4.0/code-server-3.4.0-linux-x86_64.tar.gzornpm  install -g code-server</code></pre><p><img src="/2020/06/14/17010/image-20200615002332137.png" alt="没下成功,可以本地直接下载压缩包，通过xshell、xftp传过去"></p><pre class="line-numbers language-shell"><code class="language-shell"># 解压tar -zxvf code-server-3.4.0-linux-x86_64.tar.gz# 对其更名mv code-server-3.4.0-linux-x86_64 code-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-shell"><code class="language-shell"># 进入安装目录cd code-server# 启动服务./code-server# 设置固定密码export PASSWORD="你的密码"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>因为8080端口一般会被占用 ，为了其他外网能够访问服务器</p><p>那么 我们可以做如下修改</p><pre class="line-numbers language-shell"><code class="language-shell"># 打开配置文件vim /root/.config/code-server/config.yaml# 修改配置bind-addr: 0.0.0.0:8443 # 默认端口auth: passwordpassword: 13fa7c9ec2398436ef7b851ccert: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>配置修改完 </p><pre class="line-numbers language-shell"><code class="language-shell"># Ctrl + c 终止服务# ./code-server 再次启动服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="/2020/06/14/17010/image-20200615105447319.png" alt="image-20200615105447319"></p><p>使用自己电脑或者移动设备</p><p>在浏览器 地址栏输入  服务器ip地址 ：8443 （如果有域名可以绑定ip）</p><p>出现下面情况 成功</p><p><img src="/2020/06/14/17010/image-20200615110222187.png" alt="image-20200615110222187"></p><p><strong>界面</strong></p><p><strong>移动端（手机）</strong></p><p><img src="/2020/06/14/17010/Screenshot_2020-06-15-11-06-03-600_com.android.br.jpg" alt></p><p><strong>PC端</strong></p><p><img src="/2020/06/14/17010/image-20200615111439323.png" alt></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 云端IDE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的自定义IDEA快捷键-部分</title>
       <link href="/2020/06/14/26561.html"/>
       <url>/2020/06/14/26561.html</url>
