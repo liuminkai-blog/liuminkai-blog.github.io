@@ -495,14 +495,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-14
+                    2020-06-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    151
+                    373
                 </div>
                 
 
@@ -527,7 +527,7 @@
                 <h2><span id="wo-de-zi-ding-yi-idea-kuai-jie-jian">我的自定义IDEA快捷键</span><a href="#wo-de-zi-ding-yi-idea-kuai-jie-jian" class="header-anchor">.</a></h2><table>
 <thead>
 <tr>
-<th>快捷键</th>
+<th>我的快捷键</th>
 <th>描述</th>
 </tr>
 </thead>
@@ -554,6 +554,10 @@
 <tr>
 <td>Alt + Shift + ↓</td>
 <td>光标位置向内回退选择</td>
+</tr>
+<tr>
+<td>Alt + 空格</td>
+<td>generate(构造器,getter,setter …)</td>
 </tr>
 <tr>
 <td></td>
@@ -584,10 +588,60 @@
 <td>光标所在位置下方插入新行</td>
 </tr>
 <tr>
+<td>Ctrl + Shift + z</td>
+<td>选中代码 + （if ，try ， …）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>Shift + Enter</td>
 <td>光标所在位置上方插入新行</td>
 </tr>
 </tbody></table>
+<h3><span id="line-templates">line Templates</span><a href="#line-templates" class="header-anchor">.</a></h3><p><img src="/2020/06/14/26561/image-20200616205327632.png" alt="line Templates"></p>
+<h3><span id="fang-fa-nei">方法内</span><a href="#fang-fa-nei" class="header-anchor">.</a></h3><p><strong>itar</strong> (for) – array(string)</p>
+<pre><code>for (int i = 0; i &lt; args.length; i++) {
+    String arg = args[i];
+}</code></pre><p><strong>iter</strong> (foreach) – array(string)</p>
+<pre><code>for (String arg : args) {
+
+}</code></pre><p><strong>ritar</strong>(r for) – array(string)</p>
+<pre><code>for (int i = args.length - 1; i &gt;= 0; i--) { 
+    String arg = args[i];
+}</code></pre><p><strong>itli</strong>(for list)</p>
+<pre><code>for (int i = 0; i &lt; list.size(); i++) {
+    Object o =  list.get(i);
+
+}</code></pre><p><strong>itit</strong>(while 迭代器)</p>
+<pre><code> while (iterator.hasNext()) {
+    Object next =  iterator.next();
+
+}</code></pre><p><strong>iten</strong>(while enum)</p>
+<pre><code>while (enumeration.hasMoreElements()) {
+    Object nextElement =  enumeration.nextElement();
+
+}</code></pre><p><strong>itco</strong>(for 迭代器 集合)</p>
+<pre><code>for (Iterator iterator = collection.iterator(); iterator.hasNext(); ) {
+    Object next =  iterator.next();
+
+}</code></pre><p><strong>souf</strong></p>
+<pre><code>System.out.printf()</code></pre><p>serr</p>
+<pre><code>System.err.println();</code></pre><p>soutv(打印可以直接访问的 变量 参数 )</p>
+<pre><code>System.out.println(&quot;args = &quot; + args);</code></pre><p>soutp(打印方法参数)</p>
+<pre><code>System.out.println(&quot;args = [&quot; + args + &quot;]&quot;);</code></pre><p>soutm（打印光标所在的 类名.方法名）</p>
+<pre><code>System.out.println(&quot;io_05_inputStream.fun&quot;);</code></pre><h3><span id="fang-fa-nei-wai">方法内外</span><a href="#fang-fa-nei-wai" class="header-anchor">.</a></h3><p>prsf</p>
+<pre><code>private static final </code></pre><p>psf</p>
+<pre><code>public static final</code></pre><p>psfs</p>
+<pre><code>public static final String </code></pre><p>psfi</p>
+<pre><code>public static final int </code></pre><h3><span id="fang-fa-wai">方法外</span><a href="#fang-fa-wai" class="header-anchor">.</a></h3><p>sbc</p>
+<pre><code>///////////////////////////////////////////////////////////////////////////
+//
+///////////////////////////////////////////////////////////////////////////</code></pre><p>noInstance</p>
+<pre><code>private CLassName() {
+    //no instance
+}</code></pre><p>newInstance</p>
 
             </div>
             <hr/>
@@ -961,7 +1015,7 @@ Code-Server：https://github.com/cdr/c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15.4k</span>&nbsp;字
+                class="white-color">22.5k</span>&nbsp;字
             
             
             
