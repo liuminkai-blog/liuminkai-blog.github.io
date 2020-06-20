@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>CSS/css_通用选择器</title>
-      <link href="/2020/06/20/44885.html"/>
-      <url>/2020/06/20/44885.html</url>
-      
-        <content type="html"><![CDATA[<!doctype html><html>    <head>        <style>            .father {                border: 10px solid rgb(47, 12, 161);                position:relative;                top:100px;            }            .son {                background-color: gold;                text-align: center;                position: absolute;                /* left: -100px; */                                }            .son1 {                background-color: silver;                text-align: center;            }        </style>    <meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>    <body>        <div class="father">            <div class="son1">儿子</div>            <div class="son"><span>活泼儿子                top100px;left:200px</span></div>            <div class="son1">儿子</div>        </div>    </body></html>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CSS入门(表现层) -- B站狂神说java笔记</title>
       <link href="/2020/06/20/22113.html"/>
       <url>/2020/06/20/22113.html</url>
