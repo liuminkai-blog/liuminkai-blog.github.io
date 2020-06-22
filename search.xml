@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>QQ截屏快速获取像素颜色</title>
+      <link href="/2020/06/22/6850.html"/>
+      <url>/2020/06/22/6850.html</url>
+      
+        <content type="html"><![CDATA[<h1><span id="qq-jie-ping-kuai-su-huo-qu-xiang-su-yan-se">QQ截屏快速获取像素颜色</span><a href="#qq-jie-ping-kuai-su-huo-qu-xiang-su-yan-se" class="header-anchor">.</a></h1><p>qq截屏的快捷键是 CTRL + ALT + A</p><p>qq截屏除了截屏 还有个很不错的小功能 ==获取像素的颜色== 是大家都容易忽略的<br>具体方法很简单</p><blockquote><p>第一步<br>按下 Ctrl + Alt + A  快捷键 但是 不要点击鼠标 </p></blockquote><blockquote><p>第二步<br>移动鼠标 到你想要像素点的颜色<br>如图所示 按C 即可复制 RGB十进制值（<strong>按CTRL可换为十六进制，CTRL+C复制十六进制值</strong>）</p></blockquote><p><img src="/2020/06/22/6850/image-20200622114251153.png" alt></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 收获 </tag>
+            
+            <tag> 小技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>登录界面小收获(css,js)</title>
       <link href="/2020/06/21/24412.html"/>
       <url>/2020/06/21/24412.html</url>
