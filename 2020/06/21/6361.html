@@ -1,0 +1,1771 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="php入门笔记3, 刘民锴的个人博客">
+    <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>php入门笔记3 | 刘民锴的个人博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">刘民锴的个人博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-sticky-note" style="zoom: 0.6;"></i>
+      
+      <span>Essay</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">刘民锴的个人博客</div>
+        <div class="logo-desc">
+            
+            刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-sticky-note"></i>
+			
+			Essay
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/kaiminliu" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/kaiminliu" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">php入门笔记3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/php/">
+                                <span class="chip bg-color">php</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-06-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-07-06
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    26 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1><span id="php-jin-jie">PHP进阶</span><a href="#php-jin-jie" class="header-anchor">.</a></h1><ul>
+<li>HTTP协议</li>
+<li>会话技术</li>
+<li>文件操作</li>
+<li>图像处理</li>
+<li>函数进阶</li>
+</ul>
+<h2><span id="yi-http-xie-yi">一、 HTTP协议</span><a href="#yi-http-xie-yi" class="header-anchor">.</a></h2><h3><span id="1-shi-me-shi-http-xie-yi">1、 什么是HTTP协议</span><a href="#1-shi-me-shi-http-xie-yi" class="header-anchor">.</a></h3><blockquote>
+<p>Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）<strong>服务器</strong>传输<strong>超文本</strong>到<strong>本地浏览器</strong>的<strong>传送协议</strong>。</p>
+<p>HTTP是一种基于请求与响应式的协议，即浏览器发送请求，服务器做出响应。在交互过程中，请求消息与响应消息统称为HTTP消息。</p>
+</blockquote>
+<h3><span id="2-http-xiao-xi">2、HTTP消息</span><a href="#2-http-xiao-xi" class="header-anchor">.</a></h3><ul>
+<li>消息头<ul>
+<li>保存消息时间、系统信息等内容</li>
+</ul>
+</li>
+<li>实体内容<ul>
+<li>包存网页或表单数据</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>请求网址（Request URL）<img src="/2020/06/21/6361/image-20200621101540627.png" alt></p>
+</blockquote>
+<blockquote>
+<p>请求方法（Request Method）<img src="/2020/06/21/6361/image-20200621101707766.png" alt></p>
+</blockquote>
+<blockquote>
+<p>状态码（Status Code）<img src="/2020/06/21/6361/image-20200621101805949.png" alt></p>
+</blockquote>
+<blockquote>
+<p>IP地址（Remote Address）<img src="/2020/06/21/6361/image-20200621101858003.png" alt></p>
+</blockquote>
+<blockquote>
+<p>响应头（Response Headers）：是服务器返回的信息<img src="/2020/06/21/6361/image-20200621103020732.png" alt></p>
+</blockquote>
+<blockquote>
+<p>请求头（Request Headers）：是发送本次请求时的浏览器的信息<img src="/2020/06/21/6361/image-20200621103215749.png" alt></p>
+</blockquote>
+<h3><span id="3-http-qing-qiu">3、 HTTP请求</span><a href="#3-http-qing-qiu" class="header-anchor">.</a></h3><h4><span id="3-1-qing-qiu-fang-shi-chang-yong">3.1、请求方式(常用)</span><a href="#3-1-qing-qiu-fang-shi-chang-yong" class="header-anchor">.</a></h4><ul>
+<li><p>GET</p>
+<ul>
+<li>数据通过URL地址的参数进行传递,提交的数据是可见的(对于用户)</li>
+<li>传输数据量（不超过1KB）受限于URL的长度</li>
+</ul>
+</li>
+<li><p>POST</p>
+<ul>
+<li>通常用于表单和文件上传</li>
+<li>通过实体内容传递数据</li>
+<li>传输数据量大小理论上没有限制，但服务端会进行限制</li>
+<li>因为POST内容隐藏在实体中，POST相对GET要安全一些</li>
+</ul>
+</li>
+</ul>
+<h4><span id="3-2-huo-qu-qing-qiu-xin-xi-php">3.2、获取请求信息（PHP）</span><a href="#3-2-huo-qu-qing-qiu-xin-xi-php" class="header-anchor">.</a></h4><blockquote>
+<p>PHP接收到浏览器端的请求，会将相关信息保存在<strong><code>$_SERVER</code>超全局变量数组</strong>中,我们通过该数组就可以获得请求消息</p>
+</blockquote>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">></span></span>
+<span class="token prolog">&lt;?php var_dump($_SERVER) ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3><span id="4-http-xiang-ying">4、HTTP响应</span><a href="#4-http-xiang-ying" class="header-anchor">.</a></h3><table>
+<thead>
+<tr>
+<th><strong>消息头</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>控制浏览器显示哪个页面</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>服务器的类型</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>服务器发送内容的类型和编码类型</td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td>服务器最后一次修改的时间</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>响应网站的时间</td>
+</tr>
+</tbody></table>
+<h6><span id="zai-mo-ren-qing-kuang-xia-xiang-ying-xiao-xi-tou-you-fu-wu-qi-zi-dong-fa-chu-tong-guo-php-de-header-han-shu-ke-yi-zi-ding-yi-xiang-ying-xiao-xi-tou">在默认情况下，响应消息头由服务器自动发出。通过PHP的header()函数可以自定义响应消息头。</span><a href="#zai-mo-ren-qing-kuang-xia-xiang-ying-xiao-xi-tou-you-fu-wu-qi-zi-dong-fa-chu-tong-guo-php-de-header-han-shu-ke-yi-zi-ding-yi-xiang-ying-xiao-xi-tou" class="header-anchor">.</a></h6><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//设定编码格式</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Content-Type:text/html;charset=utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//响应404消息</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'HTTP/1.1 404 Not Found'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//页面重定向</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Location: login.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4><span id="4-1-php-yuan-cheng-qing-qiu">4.1、PHP远程请求</span><a href="#4-1-php-yuan-cheng-qing-qiu" class="header-anchor">.</a></h4><blockquote>
+<p>HTTP协议是一种通信协议，除了浏览器，其他软件也可以通过HTTP协议与服务器交换信息。虽然PHP运行于服务器端，但有时服务器也需要向另一台服务器请求数据，这时可以通过PHP来实现。</p>
+</blockquote>
+<ul>
+<li><p>file_get_contents()</p>
+<p>file_get_contents()函数用于从一个文件中读取内容，返回字符串。该函数既可以读取本地文件，也可以读取远程地址文件。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//请求远程地址</span>
+<span class="token variable">$html</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span>'http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//www.test.com');</span>
+<span class="token comment" spellcheck="true">//获取响应消息头</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$http_response_header</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出返回信息</span>
+<span class="token keyword">echo</span> <span class="token string">'&lt;hr>'</span><span class="token punctuation">.</span><span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$html</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>$http_response_header变量是PHP的内置变量，用于自动保存响应消息。</p>
+</blockquote>
+</li>
+<li><p>cURL扩展</p>
+<p>PHP中提供的cURL扩展可以高效地进行远程请求。在使用cURL扩展前应确保php.ini中已经开启了cURL扩展。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//初始化一个cURL会话</span>
+<span class="token variable">$ch</span> <span class="token operator">=</span> <span class="token function">curl_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置请求选项，包括具体的URL</span>
+<span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_URL</span><span class="token punctuation">,</span> 'http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//www.itcast.cn');</span>
+<span class="token comment" spellcheck="true">//设定返回的信息中包含响应消息头</span>
+<span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_HEADER</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设定curl_exec()函数将结果返回，而不是直接输出</span>
+<span class="token function">curl_setopt</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token constant">CURLOPT_RETURNTRANSFER</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//执行一个cURL会话</span>
+<span class="token variable">$html</span> <span class="token operator">=</span> <span class="token function">curl_exec</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//释放cURL句柄，关闭一个cURL会话</span>
+<span class="token function">curl_close</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//输出返回信息</span>
+<span class="token keyword">echo</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$html</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h2><span id="er-hui-hua-ji-zhu">二、会话技术</span><a href="#er-hui-hua-ji-zhu" class="header-anchor">.</a></h2><blockquote>
+<p>当用户通过浏览器访问网站时，通常情况下，服务器需要对用户的状态进行跟踪。例如，当用户通过用户名和密码进行登录时，如果登录成功，服务器应该记住该用户的登录状态。<br>在Web开发中，服务器跟踪用户信息的技术称为会话技术。</p>
+</blockquote>
+<h3><span id="1-cookie-ji-zhu">1、Cookie技术</span><a href="#1-cookie-ji-zhu" class="header-anchor">.</a></h3><blockquote>
+<p>Cookie是<strong>网站为了辨别用户身份而存储在用户本地终端上的数据</strong>。因为HTTP协议是无状态的，即服务器不知道用户上一次做了什么，这严重阻碍了交互式Web应用程序的实现。</p>
+<p>Cookie就是<strong>解决HTTP无状态性的一种技术</strong>，服务器可以设置或读取Cookie中包含的信息，借此可以跟踪用户与服务器之间的会话状态，通常应用于保存浏览历史、保存购物车商品和保存用户登录状态等场景。</p>
+</blockquote>
+<img src="/2020/06/21/6361/image-20200706092718694.png" style="zoom:50%;">
+
+<h5><span id="que-dian">缺点</span><a href="#que-dian" class="header-anchor">.</a></h5><ul>
+<li>Cookie被附加在每个HTTP请求中，无形中增加了数据流量。</li>
+<li>Cookie在HTTP请求中是明文传输的，所以安全性不高，容易被窃取。</li>
+<li>Cookie存储于浏览器，可以被篡改，服务器接收后必须先验证数据的合法性。</li>
+<li>浏览器限制Cookie的数量和大小（通常限制为50个，每个不超过4KB），对于复杂的存储需求来说是不够用的。</li>
+</ul>
+<h4><span id="1-1-cookie-de-shi-yong">1.1、Cookie的使用</span><a href="#1-1-cookie-de-shi-yong" class="header-anchor">.</a></h4><p>​    在PHP中，使用setcookie()函数可以创建或修改Cookie。</p>
+<pre class="line-numbers language-php"><code class="language-php">bool <span class="token function">setcookie</span> <span class="token punctuation">(</span> 
+       string <span class="token variable">$name</span>        <span class="token comment" spellcheck="true">//Cookie名称</span>
+       string <span class="token variable">$value</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//Cookie值</span>
+       int <span class="token variable">$expire</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//有效期（时间戳）</span>
+       string <span class="token variable">$path</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//有效路径（默认为当前目录和子目录有效）</span>
+       string <span class="token variable">$domain</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//有效域名（可允许二级域名下访问Cookie）</span>
+       bool <span class="token variable">$secure</span> <span class="token operator">=</span> <span class="token boolean">false</span> <span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//是否只允许HTTPS安全连接访问</span>
+       bool <span class="token variable">$httponly</span> <span class="token operator">=</span> <span class="token boolean">false</span>      <span class="token comment" spellcheck="true">//是否只允许HTTP访问（可阻止JavaScript访问Cookie）</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>参数$name是必需的，其他参数都是可选的</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token function">setcookie</span><span class="token punctuation">(</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'北京市'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token comment" spellcheck="true">//未指定过期时间，在会话结束时过期</span>
+<span class="token function">setcookie</span><span class="token punctuation">(</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'北京市'</span><span class="token punctuation">,</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//半小时后过期</span>
+<span class="token function">setcookie</span><span class="token punctuation">(</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">'北京市'</span><span class="token punctuation">,</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">60</span><span class="token operator">*</span><span class="token number">60</span><span class="token operator">*</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//一天后过期</span>
+<span class="token function">setcookie</span><span class="token punctuation">(</span><span class="token string">'city'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">//立即过期（删除COOKIE）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>setcookie()函数的第三个参数是时间戳，当省略时，Cookie仅在本次会话有效，当用户关闭浏览器时，会话就会结束。</li>
+<li>除了可以通过PHP操作Cookie，使用JavaScript也可以操作Cookie，如果只是保存用户在网页中的偏好设置，可以直接用JavaScript操作Cookie，无需服务器进行处理。</li>
+</ul>
+<h4><span id="1-2-du-qu-cookie">1.2、读取Cookie</span><a href="#1-2-du-qu-cookie" class="header-anchor">.</a></h4><blockquote>
+<p>对于浏览器发送的Cookie数据，在PHP中可以使用超全局数组变量<code>$_COOKIE</code>来接收。</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//判断Cookie中是否存在city数据</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token variable">$city</span> <span class="token operator">=</span> <span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//从COOKIE中获取City数据</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//Cookie中的city不存在</span>
+    <span class="token comment" spellcheck="true">//在这可以设置cookie</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$city</span><span class="token operator">=</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>需要注意的是，当PHP第一次通过setcookie()创建Cookie时，<code>$_COOKIE</code>中没有这个数据；只有当浏览器下次请求并携带Cookie时，才能通过<code>$_COOKIE</code>获取到相关信息。</p>
+</blockquote>
+<h4><span id="1-3-cha-kan-cookie">1.3、查看Cookie</span><a href="#1-3-cha-kan-cookie" class="header-anchor">.</a></h4><blockquote>
+<p>当服务器端PHP通过setcookie()向浏览器端响应Cookie后，浏览器就会保存Cookie，在下次请求时会自动携带Cookie。</p>
+</blockquote>
+<p>对于普通用户来说，Cookie是不可见的，但Web开发者可以通过“F12”开发者工具查看Cookie。在开发者工具中切换到【Network】-【Cookies】。</p>
+<img src="/2020/06/21/6361/image-20200706094114117.png" style="zoom:50%;">
+
+<img src="/2020/06/21/6361/image-20200706094321663.png" style="zoom:50%;">
+
+<ul>
+<li>Cookie在浏览器中是根据域名分开保存的，每个Cookie具有名称（Name）、值（Value）、域名（Domain）、路径（Path）、有效期（Expires）等属性。</li>
+<li>在访问Cookie时，不同路径之间是隔离的，路径可以向下继承。例如，路径为“/admin/”的Cookie可以在admin的子目录中访问，但在admin的上级目录中无法访问。</li>
+</ul>
+<h3><span id="2-session-ji-zhu">2、Session技术</span><a href="#2-session-ji-zhu" class="header-anchor">.</a></h3><blockquote>
+<p>Session在网络应用中称为“会话”，指的是用户在浏览某个网站时，从进入网站到关闭网站所经过的这段时间。<br>Session技术是一种服务器端的技术，它的生命周期从用户访问页面开始，直到断开与网站的连接时结束。Session通常用于保存用户登录状态、保存生成的验证码等。</p>
+</blockquote>
+<p>当PHP启动Session时，服务器会为每个用户的浏览器创建一个供其独享的Session文件。</p>
+<img src="/2020/06/21/6361/image-20200706094745683.png" style="zoom:50%;">
+
+<ul>
+<li>每一个Session都具有一个唯一的会话ID，用于标识不同的用户。</li>
+<li>会话ID分别保存在浏览器端和服务器端两个位置，浏览器端<strong>通过Cookie保存</strong>，服务器端<strong>以文件的形式</strong>保存在指定的Session目录中。</li>
+</ul>
+<h4><span id="2-1-cha-kan-sessionid">2.1、查看SessionID</span><a href="#2-1-cha-kan-sessionid" class="header-anchor">.</a></h4><p> Session文件的保存目录是php.ini中的配置项“session.save_path”指定的，其默认路径位于“C:\Windows\Temp”，打开这个目录可以查看Session文件：</p>
+<p><img src="/2020/06/21/6361/image-20200706100035013.png" alt></p>
+<h4><span id="2-2-session-de-shi-yong">2.2、Session的使用</span><a href="#2-2-session-de-shi-yong" class="header-anchor">.</a></h4><ul>
+<li>在使用Session之前，需要通过session_start()函数先启动Session</li>
+<li>当启动后，即可通过超全局变量<code>$_SESSION</code>添加、读取或修改Session中的数据。</li>
+</ul>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//开启SESSION</span>
+<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'小明'</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//向SESSION添加数据（字符串）</span>
+<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'info'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">//向SESSION添加数据（数组）</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'test'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>          <span class="token comment" spellcheck="true">//判断SESSION中是否存在test</span>
+      <span class="token variable">$test</span> <span class="token operator">=</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'test'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//读取SESSION中的test</span>
+<span class="token punctuation">}</span>
+<span class="token function">unset</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">//删除单个数据</span>
+<span class="token variable">$_SESSION</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//删除所有数据</span>
+<span class="token function">session_destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//结束当前会话</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>使用“<code>$_SESSION</code>= []”方式可以删除Session中的所有数据，但是Session文件仍然存在，只不过它是一个空文件。<br>如果需要将这个空文件删除，可以通过session_destroy()函数来实现。</p>
+</blockquote>
+<h3><span id="3-shu-chu-huan-chong">3、输出缓冲</span><a href="#3-shu-chu-huan-chong" class="header-anchor">.</a></h3><blockquote>
+<p>在PHP中，输出缓冲（Output Buffer）是一种缓存机制，它通过内存预先保存PHP脚本的输出内容，当缓存的数据量达到设定的大小时，再将数据传输到浏览器。</p>
+<p>输出缓冲机制解决了当有实体内容输出后，再使用header()、setcookie()、session_start()等函数无法设置HTTP消息头的问题，因为消息头必须在实体内容之前被发送，通过输出缓冲，可以使实体内容延缓到HTTP消息头的后面被发送。</p>
+</blockquote>
+<blockquote>
+<p>输出缓冲在PHP中是默认开启的。<br>在php.ini中，它的配置项为“output_buffering = 4096”，表示输出缓冲的内存空间为4KB。</p>
+</blockquote>
+<p>通过PHP的ob函数可以控制输出缓冲，常用函数如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数名</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ob_start()</td>
+<td>启动输出缓冲</td>
+</tr>
+<tr>
+<td>ob_get_contents()</td>
+<td>返回当前输出缓冲区的内容</td>
+</tr>
+<tr>
+<td>ob_end_flush()</td>
+<td>向浏览器发送输出缓冲区的内容，并禁用输出缓冲</td>
+</tr>
+<tr>
+<td>ob_end_clean()</td>
+<td>清空输出缓冲区的内容，不进行发送，并禁用输出缓冲</td>
+</tr>
+<tr>
+<td>ob_start()</td>
+<td>启动输出缓冲</td>
+</tr>
+</tbody></table>
+<h2><span id="san-wen-jian-cao-zuo">三、文件操作</span><a href="#san-wen-jian-cao-zuo" class="header-anchor">.</a></h2><h3><span id="1-wen-jian-shang-chuan">1、文件上传</span><a href="#1-wen-jian-shang-chuan" class="header-anchor">.</a></h3><h4><span id="1-1-wen-jian-shang-chuan-biao-dan">1.1、文件上传表单</span><a href="#1-1-wen-jian-shang-chuan-biao-dan" class="header-anchor">.</a></h4><p>要想完成文件上传，在设计表单时需要满足以下两个需求：</p>
+<ul>
+<li>表单提交方式设置为POST方式。</li>
+<li>enctype属性的值设置为“multipart/form-data”。</li>
+</ul>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>upload<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>上传<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>默认情况下，该元素只能上传一个文件。当需要上传多个文件时，可以编写多个标签，或者为一个标签添加multiple属性。</p>
+</blockquote>
+<h4><span id="1-2-chu-li-shang-chuan-wen-jian">1.2、处理上传文件</span><a href="#1-2-chu-li-shang-chuan-wen-jian" class="header-anchor">.</a></h4><p>PHP默认将通过HTTP上传的文件保存到服务器的临时目录下，该临时文件的保存期为脚本的周期，即PHP脚本执行期间。</p>
+<p>在处理上传文件时，通过sleep(seconds)函数延迟PHP文件执行的时间，可以在系统临时目录“C:\Windows\Temp”中查看临时文件。</p>
+<ul>
+<li>提交表单后，上传的文件会以随机生成的文件名保存在系统临时目录中。</li>
+<li>PHP执行完毕后，图中方框内的临时文件就会被释放掉。</li>
+</ul>
+<h4><span id="1-3-huo-qu-wen-jian-xin-xi">1.3、获取文件信息</span><a href="#1-3-huo-qu-wen-jian-xin-xi" class="header-anchor">.</a></h4><p>在PHP释放上传文件之前，在PHP脚本中可以用超全局变量<code>$_FILES</code>来获取上传文件的信息。<br>该变量的外层数组保存上传文件的“name”属性名，内层数组保存的是该上传文件的具体信息</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//假设PHP收到来自</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>upload<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></span>上传的文件
+<span class="token keyword">echo</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//上传文件名称，如photo.jpg</span>
+<span class="token keyword">echo</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">//上传文件大小，如879394（单位是Byte）</span>
+<span class="token keyword">echo</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>           <span class="token comment" spellcheck="true">//上传是否有误，如0（表示成功）</span>
+<span class="token keyword">echo</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">//上传文件的MIME类型，如image/jpeg</span>
+<span class="token keyword">echo</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//上传后临时文件名，如C:\Windows\Temp\php9BA5.tmp</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>$_FILES数组中的 error 有 7 个值，分别为 0、1、2、3、4、6、7。</p>
+<p>0 表示上传成功<br>1 表示文件大小超过了php.ini中upload_max_filesize选项限制的值<br>2 表示文件大小超过了表单中max_file_size选项指定的值<br>3 表示文件只有部分被上传<br>4 表示没有文件被上传<br>6 表示找不到临时文件夹<br>7 表示文件写入失败</p>
+<h4><span id="1-4-shang-chuan-wen-jian-de-bao-cun">1.4、上传文件的保存</span><a href="#1-4-shang-chuan-wen-jian-de-bao-cun" class="header-anchor">.</a></h4><ul>
+<li>文件上传成功后会暂时保存在系统的临时文件夹中。</li>
+<li>为了保存文件到指定的目录中，需要使用 move_uploaded_file()函数进行操作。</li>
+</ul>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//判断是否有“name=upload”的文件上传，是否上传成功</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//上传成功，将文件保存到当前目录下的“uploads”目录中</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'./uploads'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">echo</span> <span class="token string">'文件上传成功'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>需要注意的是，移动文件的目标路径“./uploads”必须是已经存在的目录，否则会移动失败。</p>
+</blockquote>
+<h3><span id="2-wen-jian-ji-ben-cao-zuo">2、文件基本操作</span><a href="#2-wen-jian-ji-ben-cao-zuo" class="header-anchor">.</a></h3><h4><span id="2-1-wen-jian-lei-xing">2.1、文件类型</span><a href="#2-1-wen-jian-lei-xing" class="header-anchor">.</a></h4><blockquote>
+<p>文件类型主要分为文件和目录，PHP可以通过filetype()函数来获取文件类型。</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">echo</span> <span class="token function">filetype</span><span class="token punctuation">(</span><span class="token string">'./uploads/1.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出结果：file</span>
+<span class="token keyword">echo</span> <span class="token function">filetype</span><span class="token punctuation">(</span><span class="token string">'./uploads'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//输出结果：dir</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>在Windows系统中，PHP只能获得“file”、“dir”和“unknown”三种文件类型。</li>
+<li>在Linux系统中，还可以获取block（块设备文件）、char（字符设置）、link（符号链接）等文件类型。</li>
+</ul>
+<blockquote>
+<p><strong>在操作一个文件时，如果该文件不存在，会发生错误</strong>。为了避免这种情况发生，可以通过<strong>file_exits()</strong>、<strong>is_file()</strong>和<strong>is_dir()</strong>函数，来检查文件或目录是否存在。</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token function">var_dump</span><span class="token punctuation">(</span> <span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'./uploads/1.jpg'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//文件存在，输出：bool(true)</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span> <span class="token function">file_exists</span><span class="token punctuation">(</span><span class="token string">'./uploads/2.jpg'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//文件不存在，输出：bool(false)</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span> <span class="token function">is_file</span><span class="token punctuation">(</span><span class="token string">'./uploads/1.jpg'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出结果：bool(true)</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span> <span class="token function">is_dir</span><span class="token punctuation">(</span><span class="token string">'./uploads'</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//输出结果：bool(true)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4><span id="2-2-wen-jian-shu-xing">2.2、文件属性</span><a href="#2-2-wen-jian-shu-xing" class="header-anchor">.</a></h4><table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int filesize(string $filename )</td>
+<td>获取文件大小</td>
+</tr>
+<tr>
+<td>int filectime(string $filename)</td>
+<td>获取文件的创建时间</td>
+</tr>
+<tr>
+<td>int filemtime(string $filename)</td>
+<td>获取文件的修改时间</td>
+</tr>
+<tr>
+<td>int fileatime(string $filename)</td>
+<td>获取文件的上次访问时间</td>
+</tr>
+<tr>
+<td>bool is_readable(string $filename)</td>
+<td>判断给定文件是否可读</td>
+</tr>
+<tr>
+<td>bool is_writable(string $filename)</td>
+<td>判断给定文件是否可写</td>
+</tr>
+<tr>
+<td>bool is_executable(string $filename)</td>
+<td>判断给定文件是否可执行</td>
+</tr>
+<tr>
+<td>array stat(string $filename)</td>
+<td>给出文件的信息</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>由于PHP中int数据类型表示的数据范围有限，所以filesize()函数对于大于2GB的文件，并不能准确获取其大小，需斟酌使用。</p>
+</blockquote>
+<h4><span id="2-3-wen-jian-cao-zuo">2.3、文件操作</span><a href="#2-3-wen-jian-cao-zuo" class="header-anchor">.</a></h4><p>在程序开发过程中，经常需要对文件进行复制、删除以及重命名等操作。针对这些功能，PHP提供了相应的函数</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bool copy(string $source, string $dest)</td>
+<td>用于实现拷贝文件的功能</td>
+</tr>
+<tr>
+<td>bool unlink(string $filename)</td>
+<td>用于删除文件</td>
+</tr>
+<tr>
+<td>bool rename(string $old_name, string $new_name)</td>
+<td>用于实现文件或目录的重命名功能</td>
+</tr>
+</tbody></table>
+<h4><span id="2-4-wen-jian-du-xie">2.4、文件读写</span><a href="#2-4-wen-jian-du-xie" class="header-anchor">.</a></h4><p>在PHP中，对于文件的读写提供了许多函数。其中，基于文件的句柄的函数可以对大文件进行流式读写操作；而对于小文件，直接进行读写效率更高。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource fopen(string $filename, string $mode)</td>
+<td>打开文件，获取文件句柄</td>
+</tr>
+<tr>
+<td>bool fclose(resource $handle)</td>
+<td>关闭文件句柄</td>
+</tr>
+<tr>
+<td>string fread(resource $handle, int $length)</td>
+<td>通过句柄读取文件，获取指定长度字符串</td>
+</tr>
+<tr>
+<td>int fwrite(resource $handle, string $string [,int $length])</td>
+<td>通过句柄写入文件</td>
+</tr>
+<tr>
+<td>string fgetc(resource $handle)</td>
+<td>通过句柄读取文件，每次读取一个字节。</td>
+</tr>
+<tr>
+<td>string fgets(resource $handle [,int $length])</td>
+<td>通过句柄读取文件，每次读取一行内容</td>
+</tr>
+<tr>
+<td>array file(string $filename)</td>
+<td>将文件读取到按行分割的数组中</td>
+</tr>
+<tr>
+<td>string file_get_contents(string $filename)</td>
+<td>读取文件</td>
+</tr>
+<tr>
+<td>int file_put_contents(string $filename, mixed $data)</td>
+<td>写入文件</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//定义下载文件名</span>
+<span class="token variable">$name</span> <span class="token operator">=</span> <span class="token string">'download.zip'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取文件大小</span>
+<span class="token variable">$size</span> <span class="token operator">=</span> <span class="token function">filesize</span><span class="token punctuation">(</span><span class="token string">'./data.zip'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置HTTP响应消息为文件下载</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-type:octet-stream'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-length:'</span><span class="token punctuation">.</span><span class="token variable">$size</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'content-disposition:attachment;filename="'</span><span class="token punctuation">.</span><span class="token variable">$name</span><span class="token punctuation">.</span><span class="token string">'"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">'./data.zip'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//以只读方式打开文件</span>
+<span class="token comment" spellcheck="true">//读取文件并输出</span>
+<span class="token variable">$buffer</span> <span class="token operator">=</span> <span class="token number">1024</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//读取缓冲</span>
+<span class="token variable">$count</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//已读取的大小</span>
+<span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">feof</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token variable">$size</span> <span class="token operator">-</span> <span class="token variable">$count</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//判断文件是否全部读取</span>
+      <span class="token keyword">echo</span> <span class="token function">fread</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">,</span> <span class="token variable">$buffer</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token variable">$count</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token variable">$buffer</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//关闭文件，停止脚本</span>
+<span class="token function">fclose</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span><span class="token punctuation">;</span>exit<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="3-mu-lu-ji-ben-cao-zuo">3、目录基本操作</span><a href="#3-mu-lu-ji-ben-cao-zuo" class="header-anchor">.</a></h3><h4><span id="3-1-chuang-jian-mu-lu">3.1、创建目录</span><a href="#3-1-chuang-jian-mu-lu" class="header-anchor">.</a></h4><p>在进行文件操作时，经常需要创建目录。通过mkdir()函数可以实现目录的创建。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token string">'./path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">//在当前目录下创建一个path目录</span>
+<span class="token function">mkdir</span><span class="token punctuation">(</span><span class="token string">'./path1/path2'</span><span class="token punctuation">,</span> <span class="token number">0777</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//在当前目录下递归创建path1/path2目录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4><span id="3-2-jie-xi-lu-jing">3.2、解析路径</span><a href="#3-2-jie-xi-lu-jing" class="header-anchor">.</a></h4><p>在程序中经常需要对文件路径进行解析操作，如路径中的文件名和目录等。PHP提供了一些函数实现目录的解析操作。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string basename(string $path [, string $suffix ])</td>
+<td>返回路径中的文件名</td>
+</tr>
+<tr>
+<td>string dirname(string $path)</td>
+<td>返回路径中的目录部分</td>
+</tr>
+<tr>
+<td>mixed pathinfo(string $path [, int $options ])</td>
+<td>以数组的形式返回路径信息，包括目录名、文件名等</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>需要注意的是，在处理带有中文的路径时，应注意操作系统对于文件路径的编码问题。只有PHP程序设置的编码与操作系统的编码统一，才能正确处理中文路径。</p>
+</blockquote>
+<h4><span id="3-3-bian-li-mu-lu">3.3、遍历目录</span><a href="#3-3-bian-li-mu-lu" class="header-anchor">.</a></h4><p>在程序中经常需要对某个目录下的子目录或文件进行遍历。为此，PHP中内置了相应的函数用于实现目录或文件的遍历。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource opendir(string $path)</td>
+<td>打开一个目录句柄</td>
+</tr>
+<tr>
+<td>string readdir(resource $dir_handle)</td>
+<td>从目录句柄中读取条目</td>
+</tr>
+<tr>
+<td>void closedir(resource $dir_handle)</td>
+<td>关闭目录句柄</td>
+</tr>
+<tr>
+<td>void rewinddir(resource $dir_handle)</td>
+<td>倒回目录句柄</td>
+</tr>
+<tr>
+<td>array glob(string $pattern [, int $flags = 0 ])</td>
+<td>寻找与模式匹配的文件路径</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">getDirSize</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token variable">$size</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>              <span class="token comment" spellcheck="true">//保存文件大小</span>
+      <span class="token variable">$handle</span> <span class="token operator">=</span> <span class="token function">opendir</span><span class="token punctuation">(</span><span class="token variable">$path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//打开目录句柄</span>
+      <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token variable">$name</span> <span class="token operator">=</span> <span class="token function">readdir</span><span class="token punctuation">(</span><span class="token variable">$handle</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token operator">!=</span><span class="token string">'.'</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$name</span> <span class="token operator">!=</span><span class="token string">'..'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                  <span class="token variable">$file</span> <span class="token operator">=</span> <span class="token string">"$path/$name"</span><span class="token punctuation">;</span>
+                  <span class="token variable">$size</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">is_dir</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">getDirSize</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">filesize</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">closedir</span><span class="token punctuation">(</span><span class="token variable">$handle</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token variable">$size</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token string">'当前目录大小：'</span><span class="token punctuation">.</span><span class="token function">getDirSize</span><span class="token punctuation">(</span><span class="token string">'./'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">'B'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="si-tu-xiang-chu-li">四、图像处理</span><a href="#si-tu-xiang-chu-li" class="header-anchor">.</a></h2><h3><span id="1-gd-ku-jian-jie">1、GD库简介</span><a href="#1-gd-ku-jian-jie" class="header-anchor">.</a></h3><blockquote>
+<p>GD库是PHP处理图像的扩展库，它提供了一系列用来处理图像的函数，可以实现缩略图、验证码和图片水印等操作。<br>但由于不同的GD库版本支持的图像格式不完全一样，因此，从PHP的4.3版本开始，PHP捆绑了其开发团队实现的GD2库。它不仅支持GIF、JPEG、PNG等格式的图像文件，还支持FreeType、Type1等字体库。</p>
+</blockquote>
+<ul>
+<li>打开PHP的配置文件php.ini</li>
+<li>找到“;extension=php_gd2.dll”配置项，去掉前面的分号“;”注释</li>
+<li>保存PHP的配置文件php.ini，并重启Apache使配置生效</li>
+<li>通过phpinfo()函数可以查看GD库是否开启成功</li>
+</ul>
+<h3><span id="2-tu-xiang-de-chuang-jian-yu-shu-chu">2、图像的创建与输出</span><a href="#2-tu-xiang-de-chuang-jian-yu-shu-chu" class="header-anchor">.</a></h3><h4><span id="2-1-chuang-jian-tu-xiang-zi-yuan">2.1、创建图像资源</span><a href="#2-1-chuang-jian-tu-xiang-zi-yuan" class="header-anchor">.</a></h4><p>在处理图像前，需要先创建图像资源。PHP有多种创建图像的方式，可以基于一个已有的文件创建，也可以直接创建一个空白画布。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource imagecreate(int $width, int $height)</td>
+<td>创建指定宽高的空白画布图像</td>
+</tr>
+<tr>
+<td>resource imagecreatetruecolor (int $width, int $height )</td>
+<td>创建指定宽高的真彩色空白画布图像</td>
+</tr>
+<tr>
+<td>resource imagecreatefromgif(string $filename)</td>
+<td>从给定的文件路径创建GIF格式的图像</td>
+</tr>
+<tr>
+<td>resource imagecreatefromjpeg(string $filename)</td>
+<td>从给定的文件路径创建JPEG格式的图像</td>
+</tr>
+<tr>
+<td>resource imagecreatefrompng(string $filename)</td>
+<td>从给定的文件路径创建PNG格式的图像</td>
+</tr>
+</tbody></table>
+<h4><span id="2-2-tian-chong-yan-se">2.2、填充颜色</span><a href="#2-2-tian-chong-yan-se" class="header-anchor">.</a></h4><p>在使用PHP创建空白画布的时候，并不能直接给画布指定颜色。为画布填充颜色时，可以通过imagecolorallocate()函数来完成。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//创建空白画布资源</span>
+<span class="token variable">$im</span> <span class="token operator">=</span> <span class="token function">imagecreate</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//填充颜色（参数依次为：图像资源、红色数值、绿色数值，蓝色数值）</span>
+<span class="token function">imagecolorallocate</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">110</span><span class="token punctuation">,</span> <span class="token number">204</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>imagecolorallocate()函数用于为画布填充颜色，该函数的第2~4个参数分别表示RGB中的三种颜色。</p>
+<h4><span id="2-3-tu-xiang-shu-chu">2.3、图像输出</span><a href="#2-3-tu-xiang-shu-chu" class="header-anchor">.</a></h4><p>在完成图像资源的处理后，可以将图像输出到网页中，或者保存到文件中。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//创建空白画布并填充颜色</span>
+<span class="token variable">$im</span> <span class="token operator">=</span> <span class="token function">imagecreate</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imagecolorallocate</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">110</span><span class="token punctuation">,</span> <span class="token number">204</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置HTTP响应消息，将文档类型设置为GIF图片</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Content-Type: image/gif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//将图像资源以GIF格式输出</span>
+<span class="token function">imagegif</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//该函数第2个参数指定图像保存路径，省略时直接输出到网页</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>在在输出时应通过header()函数告知浏览器接下来发送的数据是一张GIF格式的图片，否则浏览器不会以图片的形式展现内容。</p>
+</blockquote>
+<h3><span id="3-hui-zhi-wen-ben-he-tu-xing">3、绘制文本和图形</span><a href="#3-hui-zhi-wen-ben-he-tu-xing" class="header-anchor">.</a></h3><h4><span id="3-1-hui-zhi-wen-ben">3.1、绘制文本</span><a href="#3-1-hui-zhi-wen-ben" class="header-anchor">.</a></h4><p>在PHP中，绘制文本通常用于开发验证码、文字水印等功能。通过imagettftext()函数可以将文字写入到图像中，该函数的参数说明如下。</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">array</span> <span class="token function">imagettftext</span><span class="token punctuation">(</span>
+      resource <span class="token variable">$image</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">//图像资源（通过imagecreate()创建）</span>
+      float <span class="token variable">$size</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//文字大小（字号）</span>
+      float <span class="token variable">$angel</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//文字倾斜角度</span>
+      int <span class="token variable">$x</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//绘制位置的x坐标</span>
+      int <span class="token variable">$y</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//绘制位置的y坐标</span>
+      int <span class="token variable">$color</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//文字颜色（通过imagecolorallocate()创建）</span>
+      string <span class="token variable">$fontfile</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//文字字体文件（即.ttf字体文件的保存路径）</span>
+      string <span class="token variable">$text</span>    <span class="token comment" spellcheck="true">//文字内容</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在使用imagettftext()函数时，需要给定字体文件，可以使用Windows系统中安装的字体文件（在C:\Windows\Fonts目录中），也可以通过网络获取其它字体文件放在项目目录下使用。</p>
+<h4><span id="3-2-hui-zhi-ji-ben-tu-xing">3.2、绘制基本图形</span><a href="#3-2-hui-zhi-ji-ben-tu-xing" class="header-anchor">.</a></h4><p>图形的构成无论多么复杂，都离不开最基本的点、线、面。在PHP中，GD库提供很多绘制基本图形的函数，通过这些函数可以绘制像素点、线条、矩形、图形等。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>imagesetpixel(resource $image, int $x, int ​$y, int $color)</td>
+<td>绘制一个点，其中参数$x和​$y用于指定该点的坐标，$color用于指定颜色</td>
+</tr>
+<tr>
+<td>imageline(resource $image, int ​$x1, int ​$y1, int ​$x2, int $y2, int $color)</td>
+<td>用$color颜色在图像$image中从坐标（x1,y1）到（x2,y2）绘制一条线条</td>
+</tr>
+<tr>
+<td>imagerectangle(resource $image, int ​$x1, int ​$y1, int $x2, int ​$y2, int $color)</td>
+<td>用$color颜色在$image图像中绘制一个矩形，其左上角坐标为（x1，y1），右下角坐标为（x2，y2）</td>
+</tr>
+<tr>
+<td>imageellipse(resource $image, int ​$cx, int ​$cy, int ​$w, int ​$h, int $color)</td>
+<td>在$image图像中绘制一个以坐标（cx，cy）为中心的椭圆。其中，​$w和​$h分别指定了椭圆的宽度和高度，如果​$w和$h相等，则为正圆。成功时返回true，失败则返回false。</td>
+</tr>
+<tr>
+<td>imagesetpixel(resource $image, int ​$x, int ​$y, int $color)</td>
+<td>绘制一个点，其中参数$x和​$y用于指定该点的坐标，$color用于指定颜色</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//创建画布、填充颜色、创建颜色</span>
+<span class="token variable">$im</span> <span class="token operator">=</span> <span class="token function">imagecreate</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//创建200*100大小的画布</span>
+<span class="token function">imagecolorallocate</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//为画布填充白色</span>
+<span class="token variable">$color</span> <span class="token operator">=</span> <span class="token function">imagecolorallocate</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//创建黑色</span>
+<span class="token comment" spellcheck="true">//绘制矩形</span>
+<span class="token function">imagerectangle</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">180</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token variable">$color</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//绘制文本（使用Windows自带的黑体字体）</span>
+<span class="token function">imagettftext</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">65</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token variable">$color</span><span class="token punctuation">,</span> <span class="token string">'C:/Windows/Fonts/simhei.ttf'</span><span class="token punctuation">,</span> <span class="token string">'矩形'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">//输出图像</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Content-Type: image/png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token function">imagepng</span><span class="token punctuation">(</span><span class="token variable">$im</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="4-tu-xiang-suo-fang-yu-die-jia">4、图像缩放与叠加</span><a href="#4-tu-xiang-suo-fang-yu-die-jia" class="header-anchor">.</a></h3><p>在创建图像资源时，除了创建空白画布，还可以基于图片文件进行创建。当需要对图片进行缩放、叠加时，可以通过imagecopyresampled()函数来完成。</p>
+<pre class="line-numbers language-php"><code class="language-php">bool <span class="token function">imagecopyresampled</span><span class="token punctuation">(</span>
+      resource <span class="token variable">$dst_image</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//目标图像资源</span>
+      resource <span class="token variable">$src_image</span><span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">//原图像资源</span>
+      int <span class="token variable">$dst_x</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//目标的x坐标</span>
+      int <span class="token variable">$dst_y</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//目标的y坐标</span>
+      int <span class="token variable">$src_x</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//原图的x坐标</span>
+      int <span class="token variable">$src_y</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//原图的y坐标</span>
+      int <span class="token variable">$dst_w</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//目标图像的宽</span>
+      int <span class="token variable">$dst_h</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//目标图像的高</span>
+      int <span class="token variable">$src_w</span><span class="token punctuation">,</span>         <span class="token comment" spellcheck="true">//原图像的宽</span>
+      int <span class="token variable">$src_h</span>         <span class="token comment" spellcheck="true">//原图像的高</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//定义基本变量</span>
+<span class="token variable">$source</span> <span class="token operator">=</span> <span class="token string">'./1.jpg'</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//原图路径</span>
+<span class="token variable">$dst_w</span> <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//目标宽度</span>
+<span class="token variable">$dst_h</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>    目标高度
+<span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$src_w</span><span class="token punctuation">,</span> <span class="token variable">$src_h</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">getimagesize</span><span class="token punctuation">(</span><span class="token variable">$source</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//获取原图宽高</span>
+<span class="token variable">$src_im</span> <span class="token operator">=</span> <span class="token function">imagecreatefromjpeg</span><span class="token punctuation">(</span><span class="token variable">$source</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//创建原图资源</span>
+<span class="token variable">$dst_im</span> <span class="token operator">=</span> <span class="token function">imagecreatetruecolor</span><span class="token punctuation">(</span><span class="token variable">$dst_w</span><span class="token punctuation">,</span> <span class="token variable">$dst_h</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//创建目标图像画布资源</span>
+<span class="token comment" spellcheck="true">//将原图缩放到目标图像中</span>
+<span class="token function">imagecopyresampled</span><span class="token punctuation">(</span><span class="token variable">$dst_im</span><span class="token punctuation">,</span> <span class="token variable">$src_im</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$dst_w</span><span class="token punctuation">,</span> <span class="token variable">$dst_h</span><span class="token punctuation">,</span> <span class="token variable">$src_w</span><span class="token punctuation">,</span> <span class="token variable">$src_h</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//保存到文件中（参数依次为图像资源、保存路径、JPEG压缩质量0~100）</span>
+<span class="token function">imagejpeg</span><span class="token punctuation">(</span><span class="token variable">$dst_im</span><span class="token punctuation">,</span> <span class="token string">'./thumb_1.jpg'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+
+
+
+
+<span class="token comment" spellcheck="true">//定义基本变量</span>
+<span class="token variable">$source</span> <span class="token operator">=</span> <span class="token string">'./1.jpg'</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//原图路径</span>
+<span class="token variable">$target</span> <span class="token operator">=</span> <span class="token string">'./2.jpg'</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//目标图路径</span>
+<span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$src_w</span><span class="token punctuation">,</span> <span class="token variable">$src_h</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">getimagesize</span><span class="token punctuation">(</span><span class="token variable">$source</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取原图的宽高</span>
+<span class="token comment" spellcheck="true">//创建图像资源</span>
+<span class="token variable">$src_image</span> <span class="token operator">=</span> <span class="token function">imagecreatefromjpeg</span><span class="token punctuation">(</span><span class="token variable">$source</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$dst_image</span> <span class="token operator">=</span> <span class="token function">imagecreatefromjpeg</span><span class="token punctuation">(</span><span class="token variable">$target</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//将原图叠加到目标图中</span>
+<span class="token function">imagecopyresampled</span><span class="token punctuation">(</span><span class="token variable">$dst_image</span><span class="token punctuation">,</span> <span class="token variable">$src_image</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$src_w</span><span class="token punctuation">,</span> <span class="token variable">$src_h</span><span class="token punctuation">,</span> <span class="token variable">$src_w</span><span class="token punctuation">,</span> <span class="token variable">$src_h</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Content-Type: image/jpeg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">imagejpeg</span><span class="token punctuation">(</span><span class="token variable">$dst_image</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="wu-han-shu-jin-jie">五、函数进阶</span><a href="#wu-han-shu-jin-jie" class="header-anchor">.</a></h2><h3><span id="1-jing-tai-bian-liang">1、静态变量</span><a href="#1-jing-tai-bian-liang" class="header-anchor">.</a></h3><blockquote>
+<p>在函数中定义的局部变量，在函数执行完成后，就会被自动释放。当不希望函数中的局部变量被释放时，可以使用静态变量。<br>在实际开发中，函数执行完成后自动释放局部变量有利于节省内存空间，而静态变量会一直占用内存空间，因此在使用静态变量时一定要酌情考虑</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">static</span> <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token operator">/</span>    <span class="token operator">/</span>声明静态变量，并赋值<span class="token number">1</span>
+      <span class="token keyword">return</span> <span class="token operator">++</span><span class="token variable">$a</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//静态变量$a自增1，然后返回</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出结果：2</span>
+<span class="token keyword">echo</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出结果：3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="2-yin-yong-can-shu">2、引用参数</span><a href="#2-yin-yong-can-shu" class="header-anchor">.</a></h3><blockquote>
+<p>在变量赋值的时候，有传值赋值和引用赋值两种形式。同样，在函数进行参数传递时，也可以进行引用传参。<br>在编写函数时，在参数的前面加上“&amp;”引用符号即可。</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token operator">++</span><span class="token variable">$a</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$num</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token variable">$num</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//调用函数，引用传参</span>
+<span class="token keyword">echo</span> <span class="token variable">$num</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//输出结果：2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>当test()函数第1次调用时，函数内的$a引用了函数外部的变量$num。</li>
+<li>在函数中对$a进行自增运算时，$num的值也会随之改变。</li>
+<li>在实际开发中，通过引用传参可以在函数中直接修改变量的值。</li>
+</ul>
+<p>3、可变参数</p>
+<blockquote>
+<p>在PHP中，函数参数的数量可以是不固定的，可以通过func_get_args()获取调用时传递的所有参数，这些参数以数组的形式保存。</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token variable">$params</span> <span class="token operator">=</span> <span class="token function">func_get_args</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//获取调用时传递的参数，返回数组类型</span>
+      <span class="token keyword">return</span> <span class="token function">implode</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">,</span> <span class="token variable">$params</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">456</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出结果：123-456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>test()函数定义时，没有声明参数</li>
+<li>调用函数时传入的123、456两个参数</li>
+<li>在test()中通过func_get_args()函数获取到传递的参数</li>
+</ul>
+<p>因此，在PHP中，函数的参数数量可以是不固定的</p>
+<blockquote>
+<p>值得一提的是，在调用函数时，还可以使用call_user_func_array()函数以数组的形式传递参数。</p>
+</blockquote>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">,</span> <span class="token variable">$b</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token variable">$a</span> <span class="token operator">+</span> <span class="token variable">$b</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">echo</span> <span class="token function">call_user_func_array</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">456</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出结果：579</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>call_user_func_array()函数的第1个参数表示需要调用的函数</li>
+<li>call_user_func_array()函数的第2个参数表示传入的参数</li>
+<li>在传参时，数组的第1个元素将赋值给$a，数组的第2个元素将赋值给$b。</li>
+<li>当被调用的函数执行后，其返回值将作为call_user_func_array()函数的返回值进行返回。</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.liuminkai.top" rel="external nofollow noreferrer">liuminkai</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.liuminkai.top/2020/06/21/6361.html">http://www.liuminkai.top/2020/06/21/6361.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://www.liuminkai.top" target="_blank">liuminkai</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/php/">
+                                    <span class="chip bg-color">php</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '4e04421bf007cd448eb3',
+        clientSecret: '98d0aaec7d39c4c8ba7ef6118575f68eafc77951',
+        repo: 'blogtalk',
+        owner: 'liuminkai-blog',
+        admin: ["liuminkai-blog"],
+        id: '2020-06-21T09-58-18',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/06/21/24412.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg" class="responsive-img" alt="登录界面小收获(css,js)">
+                        
+                        <span class="card-title">登录界面小收获(css,js)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            收获.今天做了一个登陆界面
+学到了一些小知识点
+
+1. 做网页前要学会设置初值（css）.html,body,div(背景图){
+    height:100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                    <a href="/tags/jQuery/">
+                        <span class="chip bg-color">jQuery</span>
+                    </a>
+                    
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%94%B6%E8%8E%B7/">
+                        <span class="chip bg-color">收获</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/20/22113.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/10.jpg" class="responsive-img" alt="CSS入门(表现层) -- B站狂神说java笔记">
+                        
+                        <span class="card-title">CSS入门(表现层) -- B站狂神说java笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CSS入门(表现层) – B站狂神说java笔记.
+1.什么是CSS.Cascading Style Sheets 层叠级联样式表
+CSS：表现（美化页面）
+字体、颜色、边距、高度、宽度、背景图、网页定位、网页浮动。。。
+1.发展史.CSS
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="http://www.liuminkai.top" target="_blank">liuminkai</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">30.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/kaiminliu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1423928650@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1423928650" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1423928650" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/instantpage/instantpage.js" type="module"></script>
+    
+	
+	
+	<!-- 一言API -->
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
+	  fetch('https://v1.hitokoto.cn')
+		.then(function (res){
+		  return res.json();
+		})
+		.then(function (data) {
+		  var hitokoto = document.getElementById('hitokoto');
+		  hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+		})
+		.catch(function (err) {
+		  console.error(err);
+		})
+	</script>
+</body>
+
+</html>
