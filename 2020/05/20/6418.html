@@ -748,8 +748,8 @@
 <p>​                <strong>变量在单引号字符串中原样输出</strong></p>
 <ul>
 <li><p>在字符串中可以使用转义字符。例如：</p>
-<pre><code>        **双引号字符串中使用双引号时，可以使用 “ \\"  ”来表示。**
-              **单引号字符串只支持“ ' ”和“ \ ”的转义。**</code></pre></li>
+<pre><code>        **双引号字符串中使用双引号时，可以使用 “ \\&quot;  ”来表示。**
+              **单引号字符串只支持“ &#39; ”和“ \ ”的转义。**</code></pre></li>
 <li><p>在双引号字符串中输出变量时，有时会出现变量名界定不明确的问题，对于这种情况，可以使用{}来对变量进行界定。</p>
 <pre class="line-numbers language-php"><code class="language-php"><span class="token variable">$str</span> <span class="token operator">=</span> <span class="token string">'php'</span><span class="token punctuation">;</span>
 <span class="token keyword">echo</span> <span class="token string">"世界上最好的语言是{$str}？"</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出结果为：世界上最好的语言是php？</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1191,7 +1191,7 @@
 <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>“<!--?= ?-->”是短标记输出语法，自 PHP 5.4起，这种语法在短标记关闭的情况下仍然可用。<br>因此，在HTML嵌入PHP变量使用这种简写形式将会非常方便。</p>
+<p>“<?= ?>”是短标记输出语法，自 PHP 5.4起，这种语法在短标记关闭的情况下仍然可用。<br>因此，在HTML嵌入PHP变量使用这种简写形式将会非常方便。</p>
 </blockquote>
 <h2><span id="shi-er-han-shu">十二、函数</span><a href="#shi-er-han-shu" class="header-anchor">.</a></h2><p>函数：就是程序中用来实现特定功能的代码段，避免代码的重复书写。<br>自定义函数：就是开发人员可根据实际功能编写的代码段。</p>
 <h3><span id="1-zi-ding-yi-han-shu">1.自定义函数</span><a href="#1-zi-ding-yi-han-shu" class="header-anchor">.</a></h3><pre class="line-numbers language-php"><code class="language-php"><span class="token keyword">function</span> 函数名<span class="token punctuation">(</span> <span class="token punctuation">[</span>参数<span class="token number">1</span><span class="token punctuation">,</span> 参数<span class="token number">2</span><span class="token punctuation">,</span> ……<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -1305,8 +1305,8 @@ return $var;</code></pre><h4><span id="ke-xuan-can-shu">可选参数</span><a hr
 <blockquote>
 <p>从PHP 5.4版本起，新增了定义数组的简写语法“[ ]”，使用 “[ ]”定义数组的语法与“array()”语法类似，书写更加方便。</p>
 </blockquote>
-<pre><code>$color = ['red','blue']
-$arr = ['one'=&gt;1,'two'=&gt;2]</code></pre><blockquote>
+<pre><code>$color = [&#39;red&#39;,&#39;blue&#39;]
+$arr = [&#39;one&#39;=&gt;1,&#39;two&#39;=&gt;2]</code></pre><blockquote>
 <p>数组元素的下标只有整型和字符串两种类型，如果有其他类型，则会进行类型转换。<br>在PHP中合法的整数值下标会被自动的转换为整型下标。<br>若数组存在相同的下标时，后面的元素值会覆盖前面的元素值。</p>
 </blockquote>
 <h3><span id="3-fang-wen-shu-zu">3.访问数组</span><a href="#3-fang-wen-shu-zu" class="header-anchor">.</a></h3><pre class="line-numbers language-php"><code class="language-php"><span class="token comment" spellcheck="true">//定义数组</span>
@@ -1715,25 +1715,7 @@ $arr = ['one'=&gt;1,'two'=&gt;2]</code></pre><blockquote>
 http<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//www.bxg.com/test.php?name=A%26B+C</span>
 
 在通过<span class="token variable">$_GET</span>接收参数时，获得的数据已经是<span class="token constant">URL</span>解码后的结果，无需手动进行<span class="token constant">URL</span>解码。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1910,12 +1892,12 @@ MySQL 扩展是针对 MySQL 4.1.3 或更早版本设计的，是 PHP 与 MySQL�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
-                    
                     <a href="/tags/php/">
                         <span class="chip bg-color">php</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
                 </div>
@@ -2079,7 +2061,7 @@ MySQL 扩展是针对 MySQL 4.1.3 或更早版本设计的，是 PHP 与 MySQL�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.9k</span>&nbsp;字
+                class="white-color">39.9k</span>&nbsp;字
             
             
             

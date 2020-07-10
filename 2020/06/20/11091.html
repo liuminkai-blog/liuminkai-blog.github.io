@@ -589,9 +589,9 @@
 </ul>
 <p><mark>数组</mark></p>
 <p>一些类型相同的对象，js中不需要这样</p>
-<pre><code>var arr = [1,2,3,"4"];
+<pre><code>var arr = [1,2,3,&quot;4&quot;];
 
-new Array(1,2,3,"4");</code></pre><p><mark>对象</mark></p>
+new Array(1,2,3,&quot;4&quot;);</code></pre><p><mark>对象</mark></p>
 <p>对象是大括号，数组是中括号</p>
 <blockquote>
 <p>每个属性之间使用逗号隔开，最后一个不需要添加</p>
@@ -605,7 +605,7 @@ new Array(1,2,3,"4");</code></pre><p><mark>对象</mark></p>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>去对象的值</p>
 <pre><code>person.name
-&gt;"lmk"</code></pre><p><strong>逻辑运算</strong></p>
+&gt;&quot;lmk&quot;</code></pre><p><strong>逻辑运算</strong></p>
 <pre class="line-numbers language-javaScript"><code class="language-javaScript">&&
 
 ||
@@ -775,11 +775,11 @@ age<span class="token punctuation">.</span><span class="token function">forEach<
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3><span id="3-5-map-he-set-es6">3.5 Map 和Set （ES6）</span><a href="#3-5-map-he-set-es6" class="header-anchor">.</a></h3><p><strong>Map</strong></p>
 <pre><code>//
-var map = new Map([['tom',100],['jack',90],['haha',80]]);
+var map = new Map([[&#39;tom&#39;,100],[&#39;jack&#39;,90],[&#39;haha&#39;,80]]);
 
-var name = map.get('tom'); //100
+var name = map.get(&#39;tom&#39;); //100
 
-map.set('lmk',100);// ['lmk',100]</code></pre><p><strong>Set</strong>  (无序，不重复)</p>
+map.set(&#39;lmk&#39;,100);// [&#39;lmk&#39;,100]</code></pre><p><strong>Set</strong>  (无序，不重复)</p>
 <pre><code>var set = new Set([3,1,1,1,1]);
 
 set.add(2);
@@ -867,9 +867,9 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <p>这个是Javascript 建立之初就存在的特性，要养成规范</p>
 <pre><code>function a(){
     var y 
-    var x = "x" + y;
+    var x = &quot;x&quot; + y;
     console.og(x);
-    y = 'y'; // 后定义 y
+    y = &#39;y&#39;; // 后定义 y
 }</code></pre><p><img src="/2020/06/20/11091/image-20200620072111763.png" alt="image-20200620072111763"></p>
 <h5><span id="quan-ju-han-shu"><strong>全局函数</strong></span><a href="#quan-ju-han-shu" class="header-anchor">.</a></h5><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">//全局变量</span>
 
@@ -885,14 +885,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token function">alert</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// xxx</span>
 <span class="token function">alert</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// xxx</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>alert()这个函数本身也是一个<mark>window</mark>变量</p>
-<pre><code>var x = "xxx";
+<pre><code>var x = &quot;xxx&quot;;
 
 window.alert(x); // xxx
 
 var old_alert = window.alert;
 
 window.alert = function (){
-    console.log("...");
+    console.log(&quot;...&quot;);
 }
 
 window.alert(123);//失败 ...
@@ -926,9 +926,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 PI <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>PI<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在ES6，引入<strong>const常量关键字</strong></p>
-<pre><code>const PI = '3.14';
+<pre><code>const PI = &#39;3.14&#39;;
 
-PI = '2';</code></pre><p><img src="/2020/06/20/11091/image-20200620084919380.png" alt></p>
+PI = &#39;2&#39;;</code></pre><p><img src="/2020/06/20/11091/image-20200620084919380.png" alt></p>
 <h4><span id="gui-fan">规范</span><a href="#gui-fan" class="header-anchor">.</a></h4><p>由于我们所有的全局变量都会绑定到我们的window上，如果不同的js文件，使用了相同的全局变量，冲突 -&gt; 如何能够减少冲突？<strong>自定义一个唯一空间名字中，所有的全局变量都把绑定到这个唯一空间名字上</strong></p>
 <pre class="line-numbers language-js"><code class="language-js"> <span class="token comment" spellcheck="true">// 唯一全局变量</span>
  <span class="token keyword">var</span> lmk <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -1045,8 +1045,8 @@ now<span class="token punctuation">.</span><span class="token function">getTime<
 <span class="token comment" spellcheck="true">//JSON 字符串串 转为 js对象 </span>
 <span class="token comment" spellcheck="true">// key的引号加上 不然报错</span>
 <span class="token keyword">var</span> newObj <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">'{"name":"liuminkai","age":1}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2020/06/20/11091/image-20200620110612039.png" alt="JS对象 --> JSON字符串"></p>
-<p><img src="/2020/06/20/11091/image-20200620110839849.png" alt="JSON字符串 --> JS对象"></p>
+<p><img src="/2020/06/20/11091/image-20200620110612039.png" alt="JS对象 --&gt; JSON字符串"></p>
+<p><img src="/2020/06/20/11091/image-20200620110839849.png" alt="JSON字符串 --&gt; JS对象"></p>
 <p><strong>JSON与JS对象的区别</strong></p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token string">'1'</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">;</span> 
 
@@ -1109,7 +1109,7 @@ function Student(name) {
 
 // 给student 新增一个方法
 Student.prototype.hello = function(){
-    alert("hello");
+    alert(&quot;hello&quot;);
 }
 
 //继承方法在上面  原型</code></pre><pre><code>
@@ -1127,7 +1127,7 @@ Student.prototype.hello = function(){
         }
 
         hello(){
-            alert('hello');
+            alert(&#39;hello&#39;);
         }
     }
 
@@ -1138,7 +1138,7 @@ Student.prototype.hello = function(){
             this.grade = grade;
         }
         myIdentity(){
-            console.log("我是一名小学生");
+            console.log(&quot;我是一名小学生&quot;);
         } 
     }
 </code></pre><p><strong>class继承本质：还是查看原型</strong></p>
@@ -1146,7 +1146,7 @@ Student.prototype.hello = function(){
 <p>_<em>proto_</em></p>
 </blockquote>
 <p><img src="/2020/06/20/11091/image-20200620123248846.png" alt="image-20200620123248846"></p>
-<p><a href="https://baijiahao.baidu.com/s?id=1604426873229560999&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">秒通原型和原型链</a></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1604426873229560999&wfr=spider&for=pc" target="_blank" rel="noopener">秒通原型和原型链</a></p>
 <h2><span id="7-cao-zuo-bom-yuan-su-chong-dian">7、 操作BOM元素（重点）</span><a href="#7-cao-zuo-bom-yuan-su-chong-dian" class="header-anchor">.</a></h2><p>BOM : 浏览器对象模型</p>
 <p>JavaScript 和 浏览器的关系？</p>
 <p>JavaScript的诞生是为了能够让他在浏览器中运行</p>
@@ -1193,19 +1193,19 @@ screen<span class="token punctuation">.</span>height<span aria-hidden="true" cla
 <h3><span id="7-4-location-chong-yao">7.4 location (重要)</span><a href="#7-4-location-chong-yao" class="header-anchor">.</a></h3><blockquote>
 <p>代表当前页面的URL信息</p>
 </blockquote>
-<pre><code>location.assign('https://liuminkai.top');</code></pre><h3><span id="7-5-document">7.5 Document</span><a href="#7-5-document" class="header-anchor">.</a></h3><blockquote>
+<pre><code>location.assign(&#39;https://liuminkai.top&#39;);</code></pre><h3><span id="7-5-document">7.5 Document</span><a href="#7-5-document" class="header-anchor">.</a></h3><blockquote>
 <p>代表当前的页面，HTML</p>
 </blockquote>
 <pre><code>document.title
 
-documen.title = "..."</code></pre><ul>
+documen.title = &quot;...&quot;</code></pre><ul>
 <li><p>获取具体的文档树节点</p>
 </li>
 <li><p>获取cookie</p>
 <pre><code>document.cookie
-""
+&quot;&quot;
 //不要浏览恶意的网站 因为 他们的cookie可能是由毒的</code></pre><p><strong>劫持cookie原理</strong></p>
-<pre><code>&lt;script src="aa.js"&gt;&lt;/script&gt;
+<pre><code>&lt;script src=&quot;aa.js&quot;&gt;&lt;/script&gt;
 &lt;!-- 恶意人员，获取你的cookie上传到他的服务器获取登录 伪造cookie 获取你的隐私--&gt;</code></pre><p>服务器端可以设置 cookie ：httpOnly:只读</p>
 </li>
 </ul>
@@ -1387,25 +1387,7 @@ father<span class="token punctuation">.</span><span class="token function">appen
 <p>2.ElementUI：饿了么 ，快速建web</p>
 <p>3.bootstrap：×</p>
 <p>4.note.js</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1733,7 +1715,7 @@ Code-Server：https://github.com/cdr/c
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.9k</span>&nbsp;字
+                class="white-color">39.9k</span>&nbsp;字
             
             
             

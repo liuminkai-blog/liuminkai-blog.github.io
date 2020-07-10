@@ -692,11 +692,11 @@
 <li><p>在<strong>apache的httpd.conf</strong>文件中做以下 ==添加内容==</p>
 </li>
 </ul>
-<pre><code>    PHPIniDir "G:/phpEnv/php/"  #根据实际路径修改
+<pre><code>    PHPIniDir &quot;G:/phpEnv/php/&quot;  #根据实际路径修改
 
-    LoadModule php7_module "G:/phpEnv/php/php7apache2_4.dll" #根据实际路径修改
+    LoadModule php7_module &quot;G:/phpEnv/php/php7apache2_4.dll&quot; #根据实际路径修改
 
-    &lt;FilesMatch "\.php$"&gt;
+    &lt;FilesMatch &quot;\.php$&quot;&gt;
     setHandler application/x-httpd-php
     &lt;/FilesMatch&gt;   
 
@@ -716,25 +716,7 @@
 <h6><span id="zhu-yi-xian-chong-qi-fu-wu-httpd-k-restart">注意：先重启服务 httpd -k restart</span><a href="#zhu-yi-xian-chong-qi-fu-wu-httpd-k-restart" class="header-anchor">.</a></h6><p><img src="/2020/05/18/16407/image-20200518140403480.png" alt="image-20200518140403480"></p>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -893,9 +875,6 @@
                         
                             hexo官方文档
 
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src)
                         
                     </div>
                     <div class="publish-info">
@@ -1090,7 +1069,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.9k</span>&nbsp;字
+                class="white-color">39.9k</span>&nbsp;字
             
             
             

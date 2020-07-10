@@ -1,0 +1,716 @@
+<hr>
+<p>title: php入门笔记3<br>tags:</p>
+<ul>
+<li>php</li>
+<li>笔记<br>abbrlink: 6361<br>date: 2020-06-21 09:58:18</li>
+</ul>
+<hr>
+<h1 id="PHP进阶"><a href="#PHP进阶" class="headerlink" title="PHP进阶"></a>PHP进阶</h1><ul>
+<li>HTTP协议</li>
+<li>会话技术</li>
+<li>文件操作</li>
+<li>图像处理</li>
+<li>函数进阶</li>
+</ul>
+<h2 id="一、-HTTP协议"><a href="#一、-HTTP协议" class="headerlink" title="一、 HTTP协议"></a>一、 HTTP协议</h2><h3 id="1、-什么是HTTP协议"><a href="#1、-什么是HTTP协议" class="headerlink" title="1、 什么是HTTP协议"></a>1、 什么是HTTP协议</h3><blockquote>
+<p>Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wide Web ）<strong>服务器</strong>传输<strong>超文本</strong>到<strong>本地浏览器</strong>的<strong>传送协议</strong>。</p>
+<p>HTTP是一种基于请求与响应式的协议，即浏览器发送请求，服务器做出响应。在交互过程中，请求消息与响应消息统称为HTTP消息。</p>
+</blockquote>
+<h3 id="2、HTTP消息"><a href="#2、HTTP消息" class="headerlink" title="2、HTTP消息"></a>2、HTTP消息</h3><ul>
+<li>消息头<ul>
+<li>保存消息时间、系统信息等内容</li>
+</ul>
+</li>
+<li>实体内容<ul>
+<li>包存网页或表单数据</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>请求网址（Request URL）<img src="image-20200621101540627.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>请求方法（Request Method）<img src="image-20200621101707766.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>状态码（Status Code）<img src="image-20200621101805949.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>IP地址（Remote Address）<img src="image-20200621101858003.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>响应头（Response Headers）：是服务器返回的信息<img src="image-20200621103020732.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>请求头（Request Headers）：是发送本次请求时的浏览器的信息<img src="image-20200621103215749.png" alt=""></p>
+</blockquote>
+<h3 id="3、-HTTP请求"><a href="#3、-HTTP请求" class="headerlink" title="3、 HTTP请求"></a>3、 HTTP请求</h3><h4 id="3-1、请求方式-常用"><a href="#3-1、请求方式-常用" class="headerlink" title="3.1、请求方式(常用)"></a>3.1、请求方式(常用)</h4><ul>
+<li><p>GET</p>
+<ul>
+<li>数据通过URL地址的参数进行传递,提交的数据是可见的(对于用户)</li>
+<li>传输数据量（不超过1KB）受限于URL的长度</li>
+</ul>
+</li>
+<li><p>POST</p>
+<ul>
+<li>通常用于表单和文件上传</li>
+<li>通过实体内容传递数据</li>
+<li>传输数据量大小理论上没有限制，但服务端会进行限制</li>
+<li>因为POST内容隐藏在实体中，POST相对GET要安全一些</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-2、获取请求信息（PHP）"><a href="#3-2、获取请求信息（PHP）" class="headerlink" title="3.2、获取请求信息（PHP）"></a>3.2、获取请求信息（PHP）</h4><blockquote>
+<p>PHP接收到浏览器端的请求，会将相关信息保存在<strong><code>$_SERVER</code>超全局变量数组</strong>中,我们通过该数组就可以获得请求消息</p>
+</blockquote>
+<pre><code class="html"><span class="tag">&lt;<span class="name">pre</span>&gt;</span>
+<span class="php"><span class="meta">&lt;?php</span> var_dump($_SERVER) <span class="meta">?&gt;</span></span>
+<span class="tag">&lt;/<span class="name">pre</span>&gt;</span></code></pre>
+<h3 id="4、HTTP响应"><a href="#4、HTTP响应" class="headerlink" title="4、HTTP响应"></a>4、HTTP响应</h3><table>
+<thead>
+<tr>
+<th><strong>消息头</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td>控制浏览器显示哪个页面</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>服务器的类型</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>服务器发送内容的类型和编码类型</td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td>服务器最后一次修改的时间</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>响应网站的时间</td>
+</tr>
+</tbody></table>
+<h6 id="在默认情况下，响应消息头由服务器自动发出。通过PHP的header-函数可以自定义响应消息头。"><a href="#在默认情况下，响应消息头由服务器自动发出。通过PHP的header-函数可以自定义响应消息头。" class="headerlink" title="在默认情况下，响应消息头由服务器自动发出。通过PHP的header()函数可以自定义响应消息头。"></a>在默认情况下，响应消息头由服务器自动发出。通过PHP的header()函数可以自定义响应消息头。</h6><pre><code class="php"><span class="comment">//设定编码格式</span>
+header(<span class="string">'Content-Type:text/html;charset=utf-8'</span>);
+<span class="comment">//响应404消息</span>
+header(<span class="string">'HTTP/1.1 404 Not Found'</span>);
+<span class="comment">//页面重定向</span>
+header(<span class="string">'Location: login.php'</span>);</code></pre>
+<h4 id="4-1、PHP远程请求"><a href="#4-1、PHP远程请求" class="headerlink" title="4.1、PHP远程请求"></a>4.1、PHP远程请求</h4><blockquote>
+<p>HTTP协议是一种通信协议，除了浏览器，其他软件也可以通过HTTP协议与服务器交换信息。虽然PHP运行于服务器端，但有时服务器也需要向另一台服务器请求数据，这时可以通过PHP来实现。</p>
+</blockquote>
+<ul>
+<li><p>file_get_contents()</p>
+<p>file_get_contents()函数用于从一个文件中读取内容，返回字符串。该函数既可以读取本地文件，也可以读取远程地址文件。</p>
+<pre><code class="php"><span class="comment">//请求远程地址</span>
+$html = file_get_contents(<span class="string">'http://www.test.com'</span>);
+<span class="comment">//获取响应消息头</span>
+var_dump($http_response_header);
+<span class="comment">//输出返回信息</span>
+<span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>.htmlspecialchars($html);
+</code></pre>
+<blockquote>
+<p>$http_response_header变量是PHP的内置变量，用于自动保存响应消息。</p>
+</blockquote>
+</li>
+<li><p>cURL扩展</p>
+<p>PHP中提供的cURL扩展可以高效地进行远程请求。在使用cURL扩展前应确保php.ini中已经开启了cURL扩展。</p>
+<pre><code class="php"><span class="comment">//初始化一个cURL会话</span>
+$ch = curl_init();
+<span class="comment">//设置请求选项，包括具体的URL</span>
+curl_setopt($ch, CURLOPT_URL, <span class="string">'http://www.itcast.cn'</span>);
+<span class="comment">//设定返回的信息中包含响应消息头</span>
+curl_setopt($ch, CURLOPT_HEADER, <span class="number">1</span>);
+<span class="comment">//设定curl_exec()函数将结果返回，而不是直接输出</span>
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);
+<span class="comment">//执行一个cURL会话</span>
+$html = curl_exec($ch);
+<span class="comment">//释放cURL句柄，关闭一个cURL会话</span>
+curl_close($ch);
+<span class="comment">//输出返回信息</span>
+<span class="keyword">echo</span> htmlspecialchars($html);</code></pre>
+</li>
+</ul>
+<h2 id="二、会话技术"><a href="#二、会话技术" class="headerlink" title="二、会话技术"></a>二、会话技术</h2><blockquote>
+<p>当用户通过浏览器访问网站时，通常情况下，服务器需要对用户的状态进行跟踪。例如，当用户通过用户名和密码进行登录时，如果登录成功，服务器应该记住该用户的登录状态。<br>在Web开发中，服务器跟踪用户信息的技术称为会话技术。</p>
+</blockquote>
+<h3 id="1、Cookie技术"><a href="#1、Cookie技术" class="headerlink" title="1、Cookie技术"></a>1、Cookie技术</h3><blockquote>
+<p>Cookie是<strong>网站为了辨别用户身份而存储在用户本地终端上的数据</strong>。因为HTTP协议是无状态的，即服务器不知道用户上一次做了什么，这严重阻碍了交互式Web应用程序的实现。</p>
+<p>Cookie就是<strong>解决HTTP无状态性的一种技术</strong>，服务器可以设置或读取Cookie中包含的信息，借此可以跟踪用户与服务器之间的会话状态，通常应用于保存浏览历史、保存购物车商品和保存用户登录状态等场景。</p>
+</blockquote>
+<img src="image-20200706092718694.png" style="zoom:50%;" />
+
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li>Cookie被附加在每个HTTP请求中，无形中增加了数据流量。</li>
+<li>Cookie在HTTP请求中是明文传输的，所以安全性不高，容易被窃取。</li>
+<li>Cookie存储于浏览器，可以被篡改，服务器接收后必须先验证数据的合法性。</li>
+<li>浏览器限制Cookie的数量和大小（通常限制为50个，每个不超过4KB），对于复杂的存储需求来说是不够用的。</li>
+</ul>
+<h4 id="1-1、Cookie的使用"><a href="#1-1、Cookie的使用" class="headerlink" title="1.1、Cookie的使用"></a>1.1、Cookie的使用</h4><p>​    在PHP中，使用setcookie()函数可以创建或修改Cookie。</p>
+<pre><code class="php">bool setcookie ( 
+       string $name        <span class="comment">//Cookie名称</span>
+       string $value = <span class="string">''</span>,     <span class="comment">//Cookie值</span>
+       int $expire = <span class="number">0</span>,     <span class="comment">//有效期（时间戳）</span>
+       string $path = <span class="string">''</span>,     <span class="comment">//有效路径（默认为当前目录和子目录有效）</span>
+       string $domain = <span class="string">''</span>,     <span class="comment">//有效域名（可允许二级域名下访问Cookie）</span>
+       bool $secure = <span class="keyword">false</span> ,     <span class="comment">//是否只允许HTTPS安全连接访问</span>
+       bool $httponly = <span class="keyword">false</span>      <span class="comment">//是否只允许HTTP访问（可阻止JavaScript访问Cookie）</span>
+)</code></pre>
+<blockquote>
+<p>参数$name是必需的，其他参数都是可选的</p>
+</blockquote>
+<pre><code class="php">setcookie(<span class="string">'city'</span>, <span class="string">'北京市'</span>);                    <span class="comment">//未指定过期时间，在会话结束时过期</span>
+setcookie(<span class="string">'city'</span>, <span class="string">'北京市'</span>, time()+<span class="number">1800</span>);        <span class="comment">//半小时后过期</span>
+setcookie(<span class="string">'city'</span>, <span class="string">'北京市'</span>, time()+<span class="number">60</span>*<span class="number">60</span>*<span class="number">24</span>); <span class="comment">//一天后过期</span>
+setcookie(<span class="string">'city'</span>, <span class="string">''</span>, time()<span class="number">-1</span>);                <span class="comment">//立即过期（删除COOKIE）</span></code></pre>
+<ul>
+<li>setcookie()函数的第三个参数是时间戳，当省略时，Cookie仅在本次会话有效，当用户关闭浏览器时，会话就会结束。</li>
+<li>除了可以通过PHP操作Cookie，使用JavaScript也可以操作Cookie，如果只是保存用户在网页中的偏好设置，可以直接用JavaScript操作Cookie，无需服务器进行处理。</li>
+</ul>
+<h4 id="1-2、读取Cookie"><a href="#1-2、读取Cookie" class="headerlink" title="1.2、读取Cookie"></a>1.2、读取Cookie</h4><blockquote>
+<p>对于浏览器发送的Cookie数据，在PHP中可以使用超全局数组变量<code>$_COOKIE</code>来接收。</p>
+</blockquote>
+<pre><code class="php"><span class="comment">//判断Cookie中是否存在city数据</span>
+<span class="keyword">if</span>(<span class="keyword">isset</span>($_COOKIE[<span class="string">'city'</span>])){
+      $city = $_COOKIE[<span class="string">'city'</span>];  <span class="comment">//从COOKIE中获取City数据</span>
+}<span class="keyword">else</span>{
+    <span class="comment">//Cookie中的city不存在</span>
+    <span class="comment">//在这可以设置cookie</span>
+}
+
+$city=<span class="keyword">isset</span>($_COOKIE[<span class="string">'city'</span>])?$_COOKIE[<span class="string">'city'</span>]:<span class="string">''</span>;</code></pre>
+<blockquote>
+<p>需要注意的是，当PHP第一次通过setcookie()创建Cookie时，<code>$_COOKIE</code>中没有这个数据；只有当浏览器下次请求并携带Cookie时，才能通过<code>$_COOKIE</code>获取到相关信息。</p>
+</blockquote>
+<h4 id="1-3、查看Cookie"><a href="#1-3、查看Cookie" class="headerlink" title="1.3、查看Cookie"></a>1.3、查看Cookie</h4><blockquote>
+<p>当服务器端PHP通过setcookie()向浏览器端响应Cookie后，浏览器就会保存Cookie，在下次请求时会自动携带Cookie。</p>
+</blockquote>
+<p>对于普通用户来说，Cookie是不可见的，但Web开发者可以通过“F12”开发者工具查看Cookie。在开发者工具中切换到【Network】-【Cookies】。</p>
+<img src="image-20200706094114117.png" style="zoom:50%;" />
+
+<img src="image-20200706094321663.png" style="zoom:50%;" />
+
+<ul>
+<li>Cookie在浏览器中是根据域名分开保存的，每个Cookie具有名称（Name）、值（Value）、域名（Domain）、路径（Path）、有效期（Expires）等属性。</li>
+<li>在访问Cookie时，不同路径之间是隔离的，路径可以向下继承。例如，路径为“/admin/”的Cookie可以在admin的子目录中访问，但在admin的上级目录中无法访问。</li>
+</ul>
+<h3 id="2、Session技术"><a href="#2、Session技术" class="headerlink" title="2、Session技术"></a>2、Session技术</h3><blockquote>
+<p>Session在网络应用中称为“会话”，指的是用户在浏览某个网站时，从进入网站到关闭网站所经过的这段时间。<br>Session技术是一种服务器端的技术，它的生命周期从用户访问页面开始，直到断开与网站的连接时结束。Session通常用于保存用户登录状态、保存生成的验证码等。</p>
+</blockquote>
+<p>当PHP启动Session时，服务器会为每个用户的浏览器创建一个供其独享的Session文件。</p>
+<img src="image-20200706094745683.png" style="zoom:50%;" />
+
+<ul>
+<li>每一个Session都具有一个唯一的会话ID，用于标识不同的用户。</li>
+<li>会话ID分别保存在浏览器端和服务器端两个位置，浏览器端<strong>通过Cookie保存</strong>，服务器端<strong>以文件的形式</strong>保存在指定的Session目录中。</li>
+</ul>
+<h4 id="2-1、查看SessionID"><a href="#2-1、查看SessionID" class="headerlink" title="2.1、查看SessionID"></a>2.1、查看SessionID</h4><p> Session文件的保存目录是php.ini中的配置项“session.save_path”指定的，其默认路径位于“C:\Windows\Temp”，打开这个目录可以查看Session文件：</p>
+<p><img src="image-20200706100035013.png" alt=""></p>
+<h4 id="2-2、Session的使用"><a href="#2-2、Session的使用" class="headerlink" title="2.2、Session的使用"></a>2.2、Session的使用</h4><ul>
+<li>在使用Session之前，需要通过session_start()函数先启动Session</li>
+<li>当启动后，即可通过超全局变量<code>$_SESSION</code>添加、读取或修改Session中的数据。</li>
+</ul>
+<pre><code class="php">session_start();                  <span class="comment">//开启SESSION</span>
+$_SESSION[<span class="string">'username'</span>] = <span class="string">'小明'</span>;          <span class="comment">//向SESSION添加数据（字符串）</span>
+$_SESSION[<span class="string">'info'</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];           <span class="comment">//向SESSION添加数据（数组）</span>
+<span class="keyword">if</span>(<span class="keyword">isset</span>($_SESSION[<span class="string">'test'</span>])){          <span class="comment">//判断SESSION中是否存在test</span>
+      $test = $_SESSION[<span class="string">'test'</span>];          <span class="comment">//读取SESSION中的test</span>
+}
+<span class="keyword">unset</span>($_SESSION[<span class="string">'username'</span>]);          <span class="comment">//删除单个数据</span>
+$_SESSION = [];                  <span class="comment">//删除所有数据</span>
+session_destroy();              <span class="comment">//结束当前会话</span></code></pre>
+<blockquote>
+<p>使用“<code>$_SESSION</code>= []”方式可以删除Session中的所有数据，但是Session文件仍然存在，只不过它是一个空文件。<br>如果需要将这个空文件删除，可以通过session_destroy()函数来实现。</p>
+</blockquote>
+<h3 id="3、输出缓冲"><a href="#3、输出缓冲" class="headerlink" title="3、输出缓冲"></a>3、输出缓冲</h3><blockquote>
+<p>在PHP中，输出缓冲（Output Buffer）是一种缓存机制，它通过内存预先保存PHP脚本的输出内容，当缓存的数据量达到设定的大小时，再将数据传输到浏览器。</p>
+<p>输出缓冲机制解决了当有实体内容输出后，再使用header()、setcookie()、session_start()等函数无法设置HTTP消息头的问题，因为消息头必须在实体内容之前被发送，通过输出缓冲，可以使实体内容延缓到HTTP消息头的后面被发送。</p>
+</blockquote>
+<blockquote>
+<p>输出缓冲在PHP中是默认开启的。<br>在php.ini中，它的配置项为“output_buffering = 4096”，表示输出缓冲的内存空间为4KB。</p>
+</blockquote>
+<p>通过PHP的ob函数可以控制输出缓冲，常用函数如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数名</strong></th>
+<th><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ob_start()</td>
+<td>启动输出缓冲</td>
+</tr>
+<tr>
+<td>ob_get_contents()</td>
+<td>返回当前输出缓冲区的内容</td>
+</tr>
+<tr>
+<td>ob_end_flush()</td>
+<td>向浏览器发送输出缓冲区的内容，并禁用输出缓冲</td>
+</tr>
+<tr>
+<td>ob_end_clean()</td>
+<td>清空输出缓冲区的内容，不进行发送，并禁用输出缓冲</td>
+</tr>
+<tr>
+<td>ob_start()</td>
+<td>启动输出缓冲</td>
+</tr>
+</tbody></table>
+<h2 id="三、文件操作"><a href="#三、文件操作" class="headerlink" title="三、文件操作"></a>三、文件操作</h2><h3 id="1、文件上传"><a href="#1、文件上传" class="headerlink" title="1、文件上传"></a>1、文件上传</h3><h4 id="1-1、文件上传表单"><a href="#1-1、文件上传表单" class="headerlink" title="1.1、文件上传表单"></a>1.1、文件上传表单</h4><p>要想完成文件上传，在设计表单时需要满足以下两个需求：</p>
+<ul>
+<li>表单提交方式设置为POST方式。</li>
+<li>enctype属性的值设置为“multipart/form-data”。</li>
+</ul>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span>
+      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload"</span> /&gt;</span>
+      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"上传"</span> /&gt;</span>
+<span class="tag">&lt;/<span class="name">form</span>&gt;</span></code></pre>
+<blockquote>
+<p>默认情况下，该元素只能上传一个文件。当需要上传多个文件时，可以编写多个标签，或者为一个标签添加multiple属性。</p>
+</blockquote>
+<h4 id="1-2、处理上传文件"><a href="#1-2、处理上传文件" class="headerlink" title="1.2、处理上传文件"></a>1.2、处理上传文件</h4><p>PHP默认将通过HTTP上传的文件保存到服务器的临时目录下，该临时文件的保存期为脚本的周期，即PHP脚本执行期间。</p>
+<p>在处理上传文件时，通过sleep(seconds)函数延迟PHP文件执行的时间，可以在系统临时目录“C:\Windows\Temp”中查看临时文件。</p>
+<ul>
+<li>提交表单后，上传的文件会以随机生成的文件名保存在系统临时目录中。</li>
+<li>PHP执行完毕后，图中方框内的临时文件就会被释放掉。</li>
+</ul>
+<h4 id="1-3、获取文件信息"><a href="#1-3、获取文件信息" class="headerlink" title="1.3、获取文件信息"></a>1.3、获取文件信息</h4><p>在PHP释放上传文件之前，在PHP脚本中可以用超全局变量<code>$_FILES</code>来获取上传文件的信息。<br>该变量的外层数组保存上传文件的“name”属性名，内层数组保存的是该上传文件的具体信息</p>
+<pre><code class="php"><span class="comment">//假设PHP收到来自&lt;input type="file" name="upload" /&gt;上传的文件</span>
+<span class="keyword">echo</span> $_FILES[<span class="string">'upload'</span>][<span class="string">'name'</span>];         <span class="comment">//上传文件名称，如photo.jpg</span>
+<span class="keyword">echo</span> $_FILES[<span class="string">'upload'</span>][<span class="string">'size'</span>];               <span class="comment">//上传文件大小，如879394（单位是Byte）</span>
+<span class="keyword">echo</span> $_FILES[<span class="string">'upload'</span>][<span class="string">'error'</span>];           <span class="comment">//上传是否有误，如0（表示成功）</span>
+<span class="keyword">echo</span> $_FILES[<span class="string">'upload'</span>][<span class="string">'type'</span>];               <span class="comment">//上传文件的MIME类型，如image/jpeg</span>
+<span class="keyword">echo</span> $_FILES[<span class="string">'upload'</span>][<span class="string">'tmp_name'</span>]; <span class="comment">//上传后临时文件名，如C:\Windows\Temp\php9BA5.tmp</span></code></pre>
+<p>$_FILES数组中的 error 有 7 个值，分别为 0、1、2、3、4、6、7。</p>
+<p>0 表示上传成功<br>1 表示文件大小超过了php.ini中upload_max_filesize选项限制的值<br>2 表示文件大小超过了表单中max_file_size选项指定的值<br>3 表示文件只有部分被上传<br>4 表示没有文件被上传<br>6 表示找不到临时文件夹<br>7 表示文件写入失败</p>
+<h4 id="1-4、上传文件的保存"><a href="#1-4、上传文件的保存" class="headerlink" title="1.4、上传文件的保存"></a>1.4、上传文件的保存</h4><ul>
+<li>文件上传成功后会暂时保存在系统的临时文件夹中。</li>
+<li>为了保存文件到指定的目录中，需要使用 move_uploaded_file()函数进行操作。</li>
+</ul>
+<pre><code class="php"><span class="comment">//判断是否有“name=upload”的文件上传，是否上传成功</span>
+<span class="keyword">if</span>(<span class="keyword">isset</span>($_FILES[<span class="string">'upload'</span>]) &amp;&amp; $_FILES[<span class="string">'upload'</span>][<span class="string">'error'</span>]==<span class="number">0</span>){
+      <span class="comment">//上传成功，将文件保存到当前目录下的“uploads”目录中</span>
+      <span class="keyword">if</span>(move_uploaded_file($_FILES[<span class="string">'upload'</span>][<span class="string">'tmp_name'</span>], <span class="string">'./uploads'</span>)){
+            <span class="keyword">echo</span> <span class="string">'文件上传成功'</span>;
+      }
+}</code></pre>
+<blockquote>
+<p>需要注意的是，移动文件的目标路径“./uploads”必须是已经存在的目录，否则会移动失败。</p>
+</blockquote>
+<h3 id="2、文件基本操作"><a href="#2、文件基本操作" class="headerlink" title="2、文件基本操作"></a>2、文件基本操作</h3><h4 id="2-1、文件类型"><a href="#2-1、文件类型" class="headerlink" title="2.1、文件类型"></a>2.1、文件类型</h4><blockquote>
+<p>文件类型主要分为文件和目录，PHP可以通过filetype()函数来获取文件类型。</p>
+</blockquote>
+<pre><code class="php"><span class="keyword">echo</span> filetype(<span class="string">'./uploads/1.jpg'</span>);     <span class="comment">//输出结果：file</span>
+<span class="keyword">echo</span> filetype(<span class="string">'./uploads'</span>);         <span class="comment">//输出结果：dir</span></code></pre>
+<ul>
+<li>在Windows系统中，PHP只能获得“file”、“dir”和“unknown”三种文件类型。</li>
+<li>在Linux系统中，还可以获取block（块设备文件）、char（字符设置）、link（符号链接）等文件类型。</li>
+</ul>
+<blockquote>
+<p><strong>在操作一个文件时，如果该文件不存在，会发生错误</strong>。为了避免这种情况发生，可以通过<strong>file_exits()</strong>、<strong>is_file()</strong>和<strong>is_dir()</strong>函数，来检查文件或目录是否存在。</p>
+</blockquote>
+<pre><code class="php">var_dump( file_exists(<span class="string">'./uploads/1.jpg'</span>) );     <span class="comment">//文件存在，输出：bool(true)</span>
+var_dump( file_exists(<span class="string">'./uploads/2.jpg'</span>) );     <span class="comment">//文件不存在，输出：bool(false)</span>
+var_dump( is_file(<span class="string">'./uploads/1.jpg'</span>) );     <span class="comment">//输出结果：bool(true)</span>
+var_dump( is_dir(<span class="string">'./uploads'</span>) );         <span class="comment">//输出结果：bool(true)</span></code></pre>
+<h4 id="2-2、文件属性"><a href="#2-2、文件属性" class="headerlink" title="2.2、文件属性"></a>2.2、文件属性</h4><table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int filesize(string $filename )</td>
+<td>获取文件大小</td>
+</tr>
+<tr>
+<td>int filectime(string $filename)</td>
+<td>获取文件的创建时间</td>
+</tr>
+<tr>
+<td>int filemtime(string $filename)</td>
+<td>获取文件的修改时间</td>
+</tr>
+<tr>
+<td>int fileatime(string $filename)</td>
+<td>获取文件的上次访问时间</td>
+</tr>
+<tr>
+<td>bool is_readable(string $filename)</td>
+<td>判断给定文件是否可读</td>
+</tr>
+<tr>
+<td>bool is_writable(string $filename)</td>
+<td>判断给定文件是否可写</td>
+</tr>
+<tr>
+<td>bool is_executable(string $filename)</td>
+<td>判断给定文件是否可执行</td>
+</tr>
+<tr>
+<td>array stat(string $filename)</td>
+<td>给出文件的信息</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>由于PHP中int数据类型表示的数据范围有限，所以filesize()函数对于大于2GB的文件，并不能准确获取其大小，需斟酌使用。</p>
+</blockquote>
+<h4 id="2-3、文件操作"><a href="#2-3、文件操作" class="headerlink" title="2.3、文件操作"></a>2.3、文件操作</h4><p>在程序开发过程中，经常需要对文件进行复制、删除以及重命名等操作。针对这些功能，PHP提供了相应的函数</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bool copy(string $source, string $dest)</td>
+<td>用于实现拷贝文件的功能</td>
+</tr>
+<tr>
+<td>bool unlink(string $filename)</td>
+<td>用于删除文件</td>
+</tr>
+<tr>
+<td>bool rename(string $old_name, string $new_name)</td>
+<td>用于实现文件或目录的重命名功能</td>
+</tr>
+</tbody></table>
+<h4 id="2-4、文件读写"><a href="#2-4、文件读写" class="headerlink" title="2.4、文件读写"></a>2.4、文件读写</h4><p>在PHP中，对于文件的读写提供了许多函数。其中，基于文件的句柄的函数可以对大文件进行流式读写操作；而对于小文件，直接进行读写效率更高。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource fopen(string $filename, string $mode)</td>
+<td>打开文件，获取文件句柄</td>
+</tr>
+<tr>
+<td>bool fclose(resource $handle)</td>
+<td>关闭文件句柄</td>
+</tr>
+<tr>
+<td>string fread(resource $handle, int $length)</td>
+<td>通过句柄读取文件，获取指定长度字符串</td>
+</tr>
+<tr>
+<td>int fwrite(resource $handle, string $string [,int $length])</td>
+<td>通过句柄写入文件</td>
+</tr>
+<tr>
+<td>string fgetc(resource $handle)</td>
+<td>通过句柄读取文件，每次读取一个字节。</td>
+</tr>
+<tr>
+<td>string fgets(resource $handle [,int $length])</td>
+<td>通过句柄读取文件，每次读取一行内容</td>
+</tr>
+<tr>
+<td>array file(string $filename)</td>
+<td>将文件读取到按行分割的数组中</td>
+</tr>
+<tr>
+<td>string file_get_contents(string $filename)</td>
+<td>读取文件</td>
+</tr>
+<tr>
+<td>int file_put_contents(string $filename, mixed $data)</td>
+<td>写入文件</td>
+</tr>
+</tbody></table>
+<pre><code class="php"><span class="comment">//定义下载文件名</span>
+$name = <span class="string">'download.zip'</span>;
+<span class="comment">//获取文件大小</span>
+$size = filesize(<span class="string">'./data.zip'</span>);
+<span class="comment">//设置HTTP响应消息为文件下载</span>
+header(<span class="string">'content-type:octet-stream'</span>);
+header(<span class="string">'content-length:'</span>.$size);
+header(<span class="string">'content-disposition:attachment;filename="'</span>.$name.<span class="string">'"'</span>);
+$fp = fopen(<span class="string">'./data.zip'</span>, <span class="string">'r'</span>); <span class="comment">//以只读方式打开文件</span>
+<span class="comment">//读取文件并输出</span>
+$buffer = <span class="number">1024</span>;        <span class="comment">//读取缓冲</span>
+$count = <span class="number">0</span>;        <span class="comment">//已读取的大小</span>
+<span class="keyword">while</span>(!feof($fp) &amp;&amp; ($size - $count &gt; <span class="number">0</span>)){<span class="comment">//判断文件是否全部读取</span>
+      <span class="keyword">echo</span> fread($fp, $buffer);
+      $count += $buffer;
+}
+<span class="comment">//关闭文件，停止脚本</span>
+fclose($fp);<span class="keyword">exit</span>;</code></pre>
+<h3 id="3、目录基本操作"><a href="#3、目录基本操作" class="headerlink" title="3、目录基本操作"></a>3、目录基本操作</h3><h4 id="3-1、创建目录"><a href="#3-1、创建目录" class="headerlink" title="3.1、创建目录"></a>3.1、创建目录</h4><p>在进行文件操作时，经常需要创建目录。通过mkdir()函数可以实现目录的创建。</p>
+<pre><code class="php">mkdir(<span class="string">'./path'</span>);            <span class="comment">//在当前目录下创建一个path目录</span>
+mkdir(<span class="string">'./path1/path2'</span>, <span class="number">0777</span>, <span class="keyword">true</span>);     <span class="comment">//在当前目录下递归创建path1/path2目录</span></code></pre>
+<h4 id="3-2、解析路径"><a href="#3-2、解析路径" class="headerlink" title="3.2、解析路径"></a>3.2、解析路径</h4><p>在程序中经常需要对文件路径进行解析操作，如路径中的文件名和目录等。PHP提供了一些函数实现目录的解析操作。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string basename(string $path [, string $suffix ])</td>
+<td>返回路径中的文件名</td>
+</tr>
+<tr>
+<td>string dirname(string $path)</td>
+<td>返回路径中的目录部分</td>
+</tr>
+<tr>
+<td>mixed pathinfo(string $path [, int $options ])</td>
+<td>以数组的形式返回路径信息，包括目录名、文件名等</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>需要注意的是，在处理带有中文的路径时，应注意操作系统对于文件路径的编码问题。只有PHP程序设置的编码与操作系统的编码统一，才能正确处理中文路径。</p>
+</blockquote>
+<h4 id="3-3、遍历目录"><a href="#3-3、遍历目录" class="headerlink" title="3.3、遍历目录"></a>3.3、遍历目录</h4><p>在程序中经常需要对某个目录下的子目录或文件进行遍历。为此，PHP中内置了相应的函数用于实现目录或文件的遍历。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource opendir(string $path)</td>
+<td>打开一个目录句柄</td>
+</tr>
+<tr>
+<td>string readdir(resource $dir_handle)</td>
+<td>从目录句柄中读取条目</td>
+</tr>
+<tr>
+<td>void closedir(resource $dir_handle)</td>
+<td>关闭目录句柄</td>
+</tr>
+<tr>
+<td>void rewinddir(resource $dir_handle)</td>
+<td>倒回目录句柄</td>
+</tr>
+<tr>
+<td>array glob(string $pattern [, int $flags = 0 ])</td>
+<td>寻找与模式匹配的文件路径</td>
+</tr>
+</tbody></table>
+<pre><code class="php"><span class="function"><span class="keyword">function</span> <span class="title">getDirSize</span><span class="params">($path)</span></span>{
+      $size = <span class="number">0</span>;              <span class="comment">//保存文件大小</span>
+      $handle = opendir($path);      <span class="comment">//打开目录句柄</span>
+      <span class="keyword">while</span>($name = readdir($handle)){
+            <span class="keyword">if</span>($name!=<span class="string">'.'</span> &amp;&amp; $name !=<span class="string">'..'</span>){
+                  $file = <span class="string">"$path/$name"</span>;
+                  $size += is_dir($file) ? getDirSize($file) : filesize($file);
+            }
+      }
+      closedir($handle);
+      <span class="keyword">return</span> $size;
+}
+<span class="keyword">echo</span> <span class="string">'当前目录大小：'</span>.getDirSize(<span class="string">'./'</span>).<span class="string">'B'</span>;</code></pre>
+<h2 id="四、图像处理"><a href="#四、图像处理" class="headerlink" title="四、图像处理"></a>四、图像处理</h2><h3 id="1、GD库简介"><a href="#1、GD库简介" class="headerlink" title="1、GD库简介"></a>1、GD库简介</h3><blockquote>
+<p>GD库是PHP处理图像的扩展库，它提供了一系列用来处理图像的函数，可以实现缩略图、验证码和图片水印等操作。<br>但由于不同的GD库版本支持的图像格式不完全一样，因此，从PHP的4.3版本开始，PHP捆绑了其开发团队实现的GD2库。它不仅支持GIF、JPEG、PNG等格式的图像文件，还支持FreeType、Type1等字体库。</p>
+</blockquote>
+<ul>
+<li>打开PHP的配置文件php.ini</li>
+<li>找到“;extension=php_gd2.dll”配置项，去掉前面的分号“;”注释</li>
+<li>保存PHP的配置文件php.ini，并重启Apache使配置生效</li>
+<li>通过phpinfo()函数可以查看GD库是否开启成功</li>
+</ul>
+<h3 id="2、图像的创建与输出"><a href="#2、图像的创建与输出" class="headerlink" title="2、图像的创建与输出"></a>2、图像的创建与输出</h3><h4 id="2-1、创建图像资源"><a href="#2-1、创建图像资源" class="headerlink" title="2.1、创建图像资源"></a>2.1、创建图像资源</h4><p>在处理图像前，需要先创建图像资源。PHP有多种创建图像的方式，可以基于一个已有的文件创建，也可以直接创建一个空白画布。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resource imagecreate(int $width, int $height)</td>
+<td>创建指定宽高的空白画布图像</td>
+</tr>
+<tr>
+<td>resource imagecreatetruecolor (int $width, int $height )</td>
+<td>创建指定宽高的真彩色空白画布图像</td>
+</tr>
+<tr>
+<td>resource imagecreatefromgif(string $filename)</td>
+<td>从给定的文件路径创建GIF格式的图像</td>
+</tr>
+<tr>
+<td>resource imagecreatefromjpeg(string $filename)</td>
+<td>从给定的文件路径创建JPEG格式的图像</td>
+</tr>
+<tr>
+<td>resource imagecreatefrompng(string $filename)</td>
+<td>从给定的文件路径创建PNG格式的图像</td>
+</tr>
+</tbody></table>
+<h4 id="2-2、填充颜色"><a href="#2-2、填充颜色" class="headerlink" title="2.2、填充颜色"></a>2.2、填充颜色</h4><p>在使用PHP创建空白画布的时候，并不能直接给画布指定颜色。为画布填充颜色时，可以通过imagecolorallocate()函数来完成。</p>
+<pre><code class="php"><span class="comment">//创建空白画布资源</span>
+$im = imagecreate(<span class="number">200</span>,<span class="number">100</span>);
+<span class="comment">//填充颜色（参数依次为：图像资源、红色数值、绿色数值，蓝色数值）</span>
+imagecolorallocate($im, <span class="number">100</span>, <span class="number">110</span>, <span class="number">204</span>);</code></pre>
+<p>imagecolorallocate()函数用于为画布填充颜色，该函数的第2~4个参数分别表示RGB中的三种颜色。</p>
+<h4 id="2-3、图像输出"><a href="#2-3、图像输出" class="headerlink" title="2.3、图像输出"></a>2.3、图像输出</h4><p>在完成图像资源的处理后，可以将图像输出到网页中，或者保存到文件中。</p>
+<pre><code class="php"><span class="comment">//创建空白画布并填充颜色</span>
+$im = imagecreate(<span class="number">200</span>, <span class="number">100</span>);
+imagecolorallocate($im, <span class="number">100</span>, <span class="number">110</span>, <span class="number">204</span>);
+<span class="comment">//设置HTTP响应消息，将文档类型设置为GIF图片</span>
+header(<span class="string">'Content-Type: image/gif'</span>);
+<span class="comment">//将图像资源以GIF格式输出</span>
+imagegif($im); <span class="comment">//该函数第2个参数指定图像保存路径，省略时直接输出到网页</span></code></pre>
+<blockquote>
+<p>在在输出时应通过header()函数告知浏览器接下来发送的数据是一张GIF格式的图片，否则浏览器不会以图片的形式展现内容。</p>
+</blockquote>
+<h3 id="3、绘制文本和图形"><a href="#3、绘制文本和图形" class="headerlink" title="3、绘制文本和图形"></a>3、绘制文本和图形</h3><h4 id="3-1、绘制文本"><a href="#3-1、绘制文本" class="headerlink" title="3.1、绘制文本"></a>3.1、绘制文本</h4><p>在PHP中，绘制文本通常用于开发验证码、文字水印等功能。通过imagettftext()函数可以将文字写入到图像中，该函数的参数说明如下。</p>
+<pre><code class="php"><span class="keyword">array</span> imagettftext(
+      resource $image,    <span class="comment">//图像资源（通过imagecreate()创建）</span>
+      float $size,     <span class="comment">//文字大小（字号）</span>
+      float $angel,     <span class="comment">//文字倾斜角度</span>
+      int $x,         <span class="comment">//绘制位置的x坐标</span>
+      int $y,         <span class="comment">//绘制位置的y坐标</span>
+      int $color,     <span class="comment">//文字颜色（通过imagecolorallocate()创建）</span>
+      string $fontfile,     <span class="comment">//文字字体文件（即.ttf字体文件的保存路径）</span>
+      string $text    <span class="comment">//文字内容</span>
+);</code></pre>
+<p>在使用imagettftext()函数时，需要给定字体文件，可以使用Windows系统中安装的字体文件（在C:\Windows\Fonts目录中），也可以通过网络获取其它字体文件放在项目目录下使用。</p>
+<h4 id="3-2、绘制基本图形"><a href="#3-2、绘制基本图形" class="headerlink" title="3.2、绘制基本图形"></a>3.2、绘制基本图形</h4><p>图形的构成无论多么复杂，都离不开最基本的点、线、面。在PHP中，GD库提供很多绘制基本图形的函数，通过这些函数可以绘制像素点、线条、矩形、图形等。</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>imagesetpixel(resource $image, int $x, int ​$y, int $color)</td>
+<td>绘制一个点，其中参数$x和​$y用于指定该点的坐标，$color用于指定颜色</td>
+</tr>
+<tr>
+<td>imageline(resource $image, int ​$x1, int ​$y1, int ​$x2, int $y2, int $color)</td>
+<td>用$color颜色在图像$image中从坐标（x1,y1）到（x2,y2）绘制一条线条</td>
+</tr>
+<tr>
+<td>imagerectangle(resource $image, int ​$x1, int ​$y1, int $x2, int ​$y2, int $color)</td>
+<td>用$color颜色在$image图像中绘制一个矩形，其左上角坐标为（x1，y1），右下角坐标为（x2，y2）</td>
+</tr>
+<tr>
+<td>imageellipse(resource $image, int ​$cx, int ​$cy, int ​$w, int ​$h, int $color)</td>
+<td>在$image图像中绘制一个以坐标（cx，cy）为中心的椭圆。其中，​$w和​$h分别指定了椭圆的宽度和高度，如果​$w和$h相等，则为正圆。成功时返回true，失败则返回false。</td>
+</tr>
+<tr>
+<td>imagesetpixel(resource $image, int ​$x, int ​$y, int $color)</td>
+<td>绘制一个点，其中参数$x和​$y用于指定该点的坐标，$color用于指定颜色</td>
+</tr>
+</tbody></table>
+<pre><code class="php"><span class="comment">//创建画布、填充颜色、创建颜色</span>
+$im = imagecreate(<span class="number">200</span>, <span class="number">100</span>);         <span class="comment">//创建200*100大小的画布</span>
+imagecolorallocate($im, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);     <span class="comment">//为画布填充白色</span>
+$color = imagecolorallocate($im, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>);     <span class="comment">//创建黑色</span>
+<span class="comment">//绘制矩形</span>
+imagerectangle($im, <span class="number">10</span>, <span class="number">10</span>, <span class="number">180</span>, <span class="number">90</span>, $color);
+<span class="comment">//绘制文本（使用Windows自带的黑体字体）</span>
+imagettftext($im, <span class="number">20</span>, <span class="number">0</span>, <span class="number">65</span>, <span class="number">60</span>, $color, <span class="string">'C:/Windows/Fonts/simhei.ttf'</span>, <span class="string">'矩形'</span>); 
+<span class="comment">//输出图像</span>
+header(<span class="string">'Content-Type: image/png'</span>); 
+imagepng($im); </code></pre>
+<h3 id="4、图像缩放与叠加"><a href="#4、图像缩放与叠加" class="headerlink" title="4、图像缩放与叠加"></a>4、图像缩放与叠加</h3><p>在创建图像资源时，除了创建空白画布，还可以基于图片文件进行创建。当需要对图片进行缩放、叠加时，可以通过imagecopyresampled()函数来完成。</p>
+<pre><code class="php">bool imagecopyresampled(
+      resource $dst_image,     <span class="comment">//目标图像资源</span>
+      resource $src_image,     <span class="comment">//原图像资源</span>
+      int $dst_x,         <span class="comment">//目标的x坐标</span>
+      int $dst_y,         <span class="comment">//目标的y坐标</span>
+      int $src_x,         <span class="comment">//原图的x坐标</span>
+      int $src_y,         <span class="comment">//原图的y坐标</span>
+      int $dst_w,         <span class="comment">//目标图像的宽</span>
+      int $dst_h,         <span class="comment">//目标图像的高</span>
+      int $src_w,         <span class="comment">//原图像的宽</span>
+      int $src_h         <span class="comment">//原图像的高</span>
+)</code></pre>
+<pre><code class="php"><span class="comment">//定义基本变量</span>
+$source = <span class="string">'./1.jpg'</span>;    <span class="comment">//原图路径</span>
+$dst_w = <span class="number">200</span>;    <span class="comment">//目标宽度</span>
+$dst_h = <span class="number">100</span>;    目标高度
+<span class="keyword">list</span>($src_w, $src_h) = getimagesize($source);         <span class="comment">//获取原图宽高</span>
+$src_im = imagecreatefromjpeg($source);         <span class="comment">//创建原图资源</span>
+$dst_im = imagecreatetruecolor($dst_w, $dst_h);     <span class="comment">//创建目标图像画布资源</span>
+<span class="comment">//将原图缩放到目标图像中</span>
+imagecopyresampled($dst_im, $src_im, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, $dst_w, $dst_h, $src_w, $src_h);
+<span class="comment">//保存到文件中（参数依次为图像资源、保存路径、JPEG压缩质量0~100）</span>
+imagejpeg($dst_im, <span class="string">'./thumb_1.jpg'</span>, <span class="number">100</span>); 
+
+
+
+
+
+<span class="comment">//定义基本变量</span>
+$source = <span class="string">'./1.jpg'</span>;    <span class="comment">//原图路径</span>
+$target = <span class="string">'./2.jpg'</span>;    <span class="comment">//目标图路径</span>
+<span class="keyword">list</span>($src_w, $src_h) = getimagesize($source); <span class="comment">//获取原图的宽高</span>
+<span class="comment">//创建图像资源</span>
+$src_image = imagecreatefromjpeg($source);
+$dst_image = imagecreatefromjpeg($target);
+<span class="comment">//将原图叠加到目标图中</span>
+imagecopyresampled($dst_image, $src_image, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, $src_w, $src_h, $src_w, $src_h);
+header(<span class="string">'Content-Type: image/jpeg'</span>);
+imagejpeg($dst_image);
+</code></pre>
+<h2 id="五、函数进阶"><a href="#五、函数进阶" class="headerlink" title="五、函数进阶"></a>五、函数进阶</h2><h3 id="1、静态变量"><a href="#1、静态变量" class="headerlink" title="1、静态变量"></a>1、静态变量</h3><blockquote>
+<p>在函数中定义的局部变量，在函数执行完成后，就会被自动释放。当不希望函数中的局部变量被释放时，可以使用静态变量。<br>在实际开发中，函数执行完成后自动释放局部变量有利于节省内存空间，而静态变量会一直占用内存空间，因此在使用静态变量时一定要酌情考虑</p>
+</blockquote>
+<pre><code class="php"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
+      <span class="keyword">static</span> $a = <span class="number">1</span>; /    /声明静态变量，并赋值<span class="number">1</span>
+      <span class="keyword">return</span> ++$a;     <span class="comment">//静态变量$a自增1，然后返回</span>
+}
+<span class="keyword">echo</span> test();     <span class="comment">//输出结果：2</span>
+<span class="keyword">echo</span> test();     <span class="comment">//输出结果：3</span></code></pre>
+<h3 id="2、引用参数"><a href="#2、引用参数" class="headerlink" title="2、引用参数"></a>2、引用参数</h3><blockquote>
+<p>在变量赋值的时候，有传值赋值和引用赋值两种形式。同样，在函数进行参数传递时，也可以进行引用传参。<br>在编写函数时，在参数的前面加上“&amp;”引用符号即可。</p>
+</blockquote>
+<pre><code class="php"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">(&amp;$a)</span></span>{
+      ++$a;
+}
+$num = <span class="number">1</span>;
+test($num);       <span class="comment">//调用函数，引用传参</span>
+<span class="keyword">echo</span> $num;       <span class="comment">//输出结果：2</span></code></pre>
+<ul>
+<li>当test()函数第1次调用时，函数内的$a引用了函数外部的变量$num。</li>
+<li>在函数中对$a进行自增运算时，$num的值也会随之改变。</li>
+<li>在实际开发中，通过引用传参可以在函数中直接修改变量的值。</li>
+</ul>
+<p>3、可变参数</p>
+<blockquote>
+<p>在PHP中，函数参数的数量可以是不固定的，可以通过func_get_args()获取调用时传递的所有参数，这些参数以数组的形式保存。</p>
+</blockquote>
+<pre><code class="php"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>{
+      $params = func_get_args();    <span class="comment">//获取调用时传递的参数，返回数组类型</span>
+      <span class="keyword">return</span> implode(<span class="string">'-'</span>, $params);
+}
+<span class="keyword">echo</span> test(<span class="number">123</span>, <span class="number">456</span>);     <span class="comment">//输出结果：123-456</span></code></pre>
+<ul>
+<li>test()函数定义时，没有声明参数</li>
+<li>调用函数时传入的123、456两个参数</li>
+<li>在test()中通过func_get_args()函数获取到传递的参数</li>
+</ul>
+<p>因此，在PHP中，函数的参数数量可以是不固定的</p>
+<blockquote>
+<p>值得一提的是，在调用函数时，还可以使用call_user_func_array()函数以数组的形式传递参数。</p>
+</blockquote>
+<pre><code class="php"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">($a, $b)</span></span>{
+      <span class="keyword">return</span> $a + $b;
+}
+<span class="keyword">echo</span> call_user_func_array(<span class="string">'test'</span>, [<span class="number">123</span>, <span class="number">456</span>]);     <span class="comment">//输出结果：579</span></code></pre>
+<ul>
+<li>call_user_func_array()函数的第1个参数表示需要调用的函数</li>
+<li>call_user_func_array()函数的第2个参数表示传入的参数</li>
+<li>在传参时，数组的第1个元素将赋值给$a，数组的第2个元素将赋值给$b。</li>
+<li>当被调用的函数执行后，其返回值将作为call_user_func_array()函数的返回值进行返回。</li>
+</ul>

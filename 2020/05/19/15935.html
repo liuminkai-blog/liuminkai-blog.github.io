@@ -559,15 +559,15 @@
 <p><img src="/2020/05/19/15935/image-20200519212146910.png" alt></p>
 <p>​        2.打开“conf/extra/httpd-vhosts.conf”虚拟主机配置文件，将文件中原有的配置全部注释起来，然后重新编写如下的配置</p>
 <pre><code>&lt;VirtualHost *:80&gt;
-      DocumentRoot "G:/phpEnv/www"
+      DocumentRoot &quot;G:/phpEnv/www&quot;
       ServerName www.test.com
 &lt;/VirtualHost&gt;
 &lt;VirtualHost *:80&gt;
-      DocumentRoot "G:/phpEnv/www/bxg"
+      DocumentRoot &quot;G:/phpEnv/www/bxg&quot;
       ServerName bxg.test.com
 &lt;/VirtualHost&gt;
 &lt;VirtualHost *:80&gt;
-      DocumentRoot "G:/phpEnv/www/admin"
+      DocumentRoot &quot;G:/phpEnv/www/admin&quot;
     ServerName www.admin.com
 &lt;/VirtualHost&gt;</code></pre></li>
 </ul>
@@ -590,7 +590,7 @@
 <li><h3><span id="fen-bu-shi-pei-zhi-wen-jian">分布式配置文件</span><a href="#fen-bu-shi-pei-zhi-wen-jian" class="header-anchor">.</a></h3><p>​       分布式配置文件是为目录单独进行配置的文件，可以实现在<strong>不重启服务器</strong>的前提下更<strong>改某个目录的配置</strong>。</p>
 <h4><span id="1-kai-qi-fen-bu-shi-pei-zhi-wen-jian">1.开启分布式配置文件</span><a href="#1-kai-qi-fen-bu-shi-pei-zhi-wen-jian" class="header-anchor">.</a></h4><p>​    开启时，打开配置文件“httpd-vhosts.conf”，添加如下配置。</p>
 <p>​    </p>
-<pre><code>&lt;Directory "G:/phpEnv/www/admin"&gt;
+<pre><code>&lt;Directory &quot;G:/phpEnv/www/admin&quot;&gt;
       Require local
       AllowOverride All
 &lt;/Directory&gt;</code></pre><ul>
@@ -651,25 +651,7 @@ default_charset <span class="token operator">=</span> <span class="token string"
 </ul>
 </li>
 </ul>
-<h5><span id="zhu-yi-php-de-curl-kuo-zhan-zai-php-ini-zhong-kai-qi-hou-huan-bu-neng-shi-yong-xu-yao-zai-apache-pei-zhi-wen-jian-httpd-conf-zhong-jin-xing-pei-zhi">注意：PHP的CURL扩展在php.ini中开启后还不能使用，需要在Apache配置文件“httpd.conf”中进行配置。</span><a href="#zhu-yi-php-de-curl-kuo-zhan-zai-php-ini-zhong-kai-qi-hou-huan-bu-neng-shi-yong-xu-yao-zai-apache-pei-zhi-wen-jian-httpd-conf-zhong-jin-xing-pei-zhi" class="header-anchor">.</a></h5><pre><code>LoadFile "G:/phpEnv/www/php7/libssh2.dll"</code></pre><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+<h5><span id="zhu-yi-php-de-curl-kuo-zhan-zai-php-ini-zhong-kai-qi-hou-huan-bu-neng-shi-yong-xu-yao-zai-apache-pei-zhi-wen-jian-httpd-conf-zhong-jin-xing-pei-zhi">注意：PHP的CURL扩展在php.ini中开启后还不能使用，需要在Apache配置文件“httpd.conf”中进行配置。</span><a href="#zhu-yi-php-de-curl-kuo-zhan-zai-php-ini-zhong-kai-qi-hou-huan-bu-neng-shi-yong-xu-yao-zai-apache-pei-zhi-wen-jian-httpd-conf-zhong-jin-xing-pei-zhi" class="header-anchor">.</a></h5><pre><code>LoadFile &quot;G:/phpEnv/www/php7/libssh2.dll&quot;</code></pre>
             </div>
             <hr/>
 
@@ -1037,7 +1019,7 @@ permalink
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.9k</span>&nbsp;字
+                class="white-color">39.9k</span>&nbsp;字
             
             
             

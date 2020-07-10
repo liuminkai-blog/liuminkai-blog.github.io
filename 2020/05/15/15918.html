@@ -515,7 +515,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.7k
                 </div>
                 
 
@@ -634,12 +634,12 @@
 <h4><span id="4-tian-jia-tu-pian">4.添加图片</span><a href="#4-tian-jia-tu-pian" class="header-anchor">.</a></h4><pre><code>![alt内容](images/github.png)
 ![alt内容](图片url)
 
-![alt内容](images/github.png "title光标悬停是显示")
+![alt内容](images/github.png &quot;title光标悬停是显示&quot;)
 
 #改大小 以下只是方案 不是所有编辑器的都支持
 ![alt内容](images/github.png){:width:30% hight:30%}
 ![alt内容](images/github.png =30x30)
-&lt;img src="github.png" style="zoom:50%"&gt; #在md文件中HTML代码直接转为HTML实体
+&lt;img src=&quot;github.png&quot; style=&quot;zoom:50%&quot;&gt; #在md文件中HTML代码直接转为HTML实体
 </code></pre><p><img src="/2020/05/15/15918/github.png" alt="Markdown语法" title="title:Markdown语法"></p>
 <img src="/2020/05/15/15918/github.png" style="zoom:20%;" alt="采用HTML标签">
 
@@ -667,25 +667,25 @@ ___
 
 #语法高亮 在上吗的符号后 加上高亮显示的语言
 ​```javascript
-    var id = document.getElementById("id");
+    var id = document.getElementById(&quot;id&quot;);
 ​```</code></pre><pre><code>我是代码块内容</code></pre><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4><span id="10-dai-ma-kuai-class-mpe-kuo-zhan-de-te-xing">10.代码块class （MPE扩展的特性）</span><a href="#10-dai-ma-kuai-class-mpe-kuo-zhan-de-te-xing" class="header-anchor">.</a></h4><pre><code>#给代码块设置 class
 ​```javascript {.class1 .class}
-    var id = document.getElementById("id");
+    var id = document.getElementById(&quot;id&quot;);
 ​```</code></pre><pre><code>#你想要显示代码行数，只需填加 line-numbers class 即可
 ​```javascript {.line-numbers}
-    var id = document.getElementById("id");
+    var id = document.getElementById(&quot;id&quot;);
 ​```
 #高亮代码行数 添加 highlight  //typora不支持
 ​```javascript {highlight=10}
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
-    var id = document.getElementById("id");
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
+    var id = document.getElementById(&quot;id&quot;);
 ​```</code></pre><pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-javascript"><code class="language-javascript">    <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> id <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -770,12 +770,12 @@ _[W3C]:World Wide Web Consortium
 <p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/toc" target="_blank" rel="noopener">略</a></p>
 </blockquote>
 <p>个人还是喜欢 typora的快捷方式</p>
-<h4><span id="19-dao-ru-wen-jian-typora-bu-zhi-chi">19.导入文件(typora不支持)</span><a href="#19-dao-ru-wen-jian-typora-bu-zhi-chi" class="header-anchor">.</a></h4><pre><code>@import "文件路径"
-@import "images/github.png"</code></pre><p>@import “1.csv”</p>
+<h4><span id="19-dao-ru-wen-jian-typora-bu-zhi-chi">19.导入文件(typora不支持)</span><a href="#19-dao-ru-wen-jian-typora-bu-zhi-chi" class="header-anchor">.</a></h4><pre><code>@import &quot;文件路径&quot;
+@import &quot;images/github.png&quot;</code></pre><p>@import “1.csv”</p>
 <p>@import “1.c”</p>
 <p>@import “1”</p>
 <h5><span id="zhi-chi-de-wen-jian">支持的文件</span><a href="#zhi-chi-de-wen-jian" class="header-anchor">.</a></h5><p>.jpeg(.jpg), .gif, .png, .apng, .svg, .bmp 文件将会直接被当作 markdown 图片被引用。<br>.csv 文件将会被转换成 markdown 表格。<br>.mermaid 将会被 mermaid 渲染。<br>.dot 文件将会被 viz.js (graphviz) 渲染。<br>.plantuml(.puml) 文件将会被 PlantUML 渲染。<br>.html 将会直接被引入。<br>.js 将会被引用为 <script src="你的 js 文件"></script>。<br>.less 和 .css 将会被引用为 style。目前 less 只支持本地文件。.css 文件将会被引用为 <link rel="stylesheet" href="你的 css 文件">。<br>.pdf 文件将会被 pdf2svg 转换为 svg 然后被引用。<br>markdown 将会被分析处理然后被引用。<br>其他所有的文件都将被视为代码块</p>
-<h5><span id="she-zhi-tu-pian">设置图片</span><a href="#she-zhi-tu-pian" class="header-anchor">.</a></h5><pre><code>    @import "test.png" {width="300px" height="200px" title="图片的标题" alt="我的 alt"}</code></pre><h5><span id="qi-ta">其他</span><a href="#qi-ta" class="header-anchor">.</a></h5> <img src="/2020/05/15/15918/import.png" alt="import" style="zoom: 50%;">
+<h5><span id="she-zhi-tu-pian">设置图片</span><a href="#she-zhi-tu-pian" class="header-anchor">.</a></h5><pre><code>    @import &quot;test.png&quot; {width=&quot;300px&quot; height=&quot;200px&quot; title=&quot;图片的标题&quot; alt=&quot;我的 alt&quot;}</code></pre><h5><span id="qi-ta">其他</span><a href="#qi-ta" class="header-anchor">.</a></h5> <img src="/2020/05/15/15918/import.png" alt="import" style="zoom: 50%;">
 
 <h4><span id="20-huan-deng-pian">20.幻灯片</span><a href="#20-huan-deng-pian" class="header-anchor">.</a></h4><blockquote>
 <p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/presentation" target="_blank" rel="noopener">https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/presentation</a></p>
@@ -815,24 +815,24 @@ Authors
 <h4><span id="24-uml-tu">24.UML图</span><a href="#24-uml-tu" class="header-anchor">.</a></h4><p>sequenceDiagram<br>张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?<br>李四–&gt;&gt;王五: 你最近怎么样，王五？<br>李四–x 张三: 我很好，谢谢!<br>李四-x 王五: 我很好，谢谢!<br>Note right of 王五: 李四想了很长时间, 文字太长了<br>不适合放在一行.</p>
 <p>李四–&gt;&gt;张三: 打量着王五…<br>张三-&gt;&gt;王五: 很好… 王五, 你怎么样?</p>
 <pre class="mermaid">sequenceDiagram
-张三 -&gt;&gt; 李四: 你好！李四, 最近怎么样?
-李四--&gt;&gt;王五: 你最近怎么样，王五？
+张三 ->> 李四: 你好！李四, 最近怎么样?
+李四-->>王五: 你最近怎么样，王五？
 李四--x 张三: 我很好，谢谢!
 李四-x 王五: 我很好，谢谢!
 Note right of 王五: 李四想了很长时间, 文字太长了<br>不适合放在一行.
 
-李四--&gt;&gt;张三: 打量着王五...
-张三-&gt;&gt;王五: 很好... 王五, 你怎么样?</pre>
+李四-->>张三: 打量着王五...
+张三->>王五: 很好... 王五, 你怎么样?</pre>
 
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">Mermaid语法</a></p>
 </blockquote>
 <h4><span id="25-liu-cheng-tu">25.流程图</span><a href="#25-liu-cheng-tu" class="header-anchor">.</a></h4><p>graph LR<br>A[长方形] – 链接 –&gt; B((圆))<br>A –&gt; C(圆角长方形)<br>B –&gt; D{菱形}<br>C –&gt; D</p>
 <pre class="mermaid">graph LR
-A[长方形] -- 链接 --&gt; B((圆))
-A --&gt; C(圆角长方形)
-B --&gt; D{菱形}
-C --&gt; D</pre>
+A[长方形] -- 链接 --> B((圆))
+A --> C(圆角长方形)
+B --> D{菱形}
+C --> D</pre>
 
 <blockquote>
 <p><a href="https://mermaidjs.github.io/#/" target="_blank" rel="noopener">Mermaid语法</a></p>
@@ -840,14 +840,14 @@ C --&gt; D</pre>
 <h4><span id="flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi">Flowchart流程图(不知道支不支持)</span><a href="#flowchart-liu-cheng-tu-bu-zhi-dao-zhi-bu-zhi-chi" class="header-anchor">.</a></h4><p>flowchat<br>st=&gt;start: 开始<br>e=&gt;end: 结束<br>op=&gt;operation: 我的操作<br>cond=&gt;condition: 确认？</p>
 <p>st-&gt;op-&gt;cond<br>cond(yes)-&gt;e<br>cond(no)-&gt;op</p>
 <pre class="mermaid">flowchat
-st=&gt;start: 开始
-e=&gt;end: 结束
-op=&gt;operation: 我的操作
-cond=&gt;condition: 确认？
+st=>start: 开始
+e=>end: 结束
+op=>operation: 我的操作
+cond=>condition: 确认？
 
-st-&gt;op-&gt;cond
-cond(yes)-&gt;e
-cond(no)-&gt;op</pre>
+st->op->cond
+cond(yes)->e
+cond(no)->op</pre>
 
 <blockquote>
 <p><a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">Flowchart流程图语法</a></p>
@@ -859,25 +859,7 @@ cond(no)-&gt;op</pre>
 <p>CSDN:<a href="https://editor.csdn.net/md/#fn2" target="_blank" rel="noopener">https://editor.csdn.net/md/#fn2</a></p>
 <p>Typora:<a href="https://support.typora.io/" target="_blank" rel="noopener">https://support.typora.io/</a></p>
 </blockquote>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1231,7 +1213,7 @@ cond(no)-&gt;op</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">40.9k</span>&nbsp;字
+                class="white-color">39.9k</span>&nbsp;字
             
             
             
