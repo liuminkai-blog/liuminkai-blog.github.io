@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="登录界面小收获(css,js), 刘民锴的个人博客">
+    <meta name="keywords" content="CSS兼容问题（PC端）, 刘民锴的个人博客">
     <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>登录界面小收获(css,js) | 刘民锴的个人博客</title>
+    <title>CSS兼容问题（PC端） | 刘民锴的个人博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
@@ -342,12 +342,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">登录界面小收获(css,js)</h1>
+                    <h1 class="description center-align post-title">CSS兼容问题（PC端）</h1>
                 </div>
             </div>
         </div>
@@ -472,20 +472,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/js/">
-                                <span class="chip bg-color">js</span>
-                            </a>
-                        
-                            <a href="/tags/jQuery/">
-                                <span class="chip bg-color">jQuery</span>
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
                             </a>
                         
                             <a href="/tags/css/">
                                 <span class="chip bg-color">css</span>
                             </a>
                         
-                            <a href="/tags/%E6%94%B6%E8%8E%B7/">
-                                <span class="chip bg-color">收获</span>
+                            <a href="/tags/%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/">
+                                <span class="chip bg-color">兼容问题</span>
                             </a>
                         
                     </div>
@@ -500,28 +496,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-21
+                    2020-07-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-22
+                    2020-07-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    303
+                    944
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -536,45 +532,146 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2><span id="shou-huo">收获</span><a href="#shou-huo" class="header-anchor">.</a></h2><p>今天做了一个登陆界面</p>
-<p>学到了一些小知识点</p>
-<p><img src="/2020/06/21/24412/image-20200621231731038.png" alt></p>
-<h4><span id="1-zuo-wang-ye-qian-yao-xue-hui-she-zhi-chu-zhi-css">1. 做网页前要学会设置初值（css）</span><a href="#1-zuo-wang-ye-qian-yao-xue-hui-she-zhi-chu-zhi-css" class="header-anchor">.</a></h4><pre class="line-numbers language-css"><code class="language-css"><span class="token selector">html,body,div(背景图)</span><span class="token punctuation">{</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector">* </span><span class="token punctuation">{</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    //文本对齐
-    //字体大小
-    //字体粗细
-    //字体名字
-    //<span class="token number">...</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4><span id="2-qu-chu-input-button-de-bian-kuang-ying-xiang">2. 去除input，button的边框影响</span><a href="#2-qu-chu-input-button-de-bian-kuang-ying-xiang" class="header-anchor">.</a></h4><pre class="line-numbers language-css"><code class="language-css"><span class="token property">border</span><span class="token punctuation">:</span><span class="token number">0</span> <span class="token punctuation">;</span>
-<span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4><span id="3-rong-qi-deng-lu-kuang-ju-zhong-liu-lan-qi-chuang-kou">3. 容器(登陆框)居中（浏览器窗口）</span><a href="#3-rong-qi-deng-lu-kuang-ju-zhong-liu-lan-qi-chuang-kou" class="header-anchor">.</a></h4><pre class="line-numbers language-css"><code class="language-css"><span class="token selector">div(对应容器)</span><span class="token punctuation">{</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
-    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">50%</span><span class="token punctuation">;</span>
-
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-<span class="token number">50%</span>,-<span class="token number">50%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4><span id="4-input-de-dao-jiao-dian-focus-shi-shi-yong-css-shi-input-fa-sheng-xiang-ying-de-bian-hua-shi-qu-jiao-dian-hou-yang-shi-ye-hui-tong-yang-xiao-shi">4. input得到焦点(focus)时，使用CSS是input发生相应的变化；失去焦点后，样式也会同样消失</span><a href="#4-input-de-dao-jiao-dian-focus-shi-shi-yong-css-shi-input-fa-sheng-xiang-ying-de-bian-hua-shi-qu-jiao-dian-hou-yang-shi-ye-hui-tong-yang-xiao-shi" class="header-anchor">.</a></h4><pre class="line-numbers language-css"><code class="language-css"><span class="token selector"><span class="token class">.input-text</span><span class="token pseudo-class">:focus</span> </span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">/* 最好只用在input文本上(text,password,tel,email,...),不要用在按钮上 */</span>
-    <span class="token property">border-color</span><span class="token punctuation">:</span> purple<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*当得到焦点时，input边框变为紫色*/</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4><span id="5-jquery-zhong-ru-he-qu-diao-bian-liang-zhi-zhong-px-deng-dan-wei-shi-yong-parseint-var-radix">5.JQuery中如何去掉变量值中 px等单位(使用parseInt(var [, radix]) )</span><a href="#5-jquery-zhong-ru-he-qu-diao-bian-liang-zhi-zhong-px-deng-dan-wei-shi-yong-parseint-var-radix" class="header-anchor">.</a></h4><blockquote>
-<p>radix : 基数</p>
-<p>当 1 &lt; radix &lt; 37 , 就是 让radix进制 返回数</p>
-<p>当 radix = 0 ，表示 10进制</p>
-<p>当radix = 0x or 0X , 表示16进制</p>
-<p>当radix &gt; 36 or radix = 1 , parseInt返回0</p>
+                <h1><span id="css-jian-rong-wen-ti-pc-duan">CSS兼容问题（PC端）</span><a href="#css-jian-rong-wen-ti-pc-duan" class="header-anchor">.</a></h1><blockquote>
+<p>浏览器兼容性问题，通常是因为不同浏览器对同一端代码有不同的解析，造成页面显示不统一的情况</p>
 </blockquote>
-<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token string">"10px"</span><span class="token punctuation">;</span>
-
-<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"去掉px : "</span> <span class="token operator">+</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2020/06/21/24412/image-20200621235510522.png" alt></p>
+<h2><span id="yi-qi-yin">一、起因</span><a href="#yi-qi-yin" class="header-anchor">.</a></h2><ul>
+<li>浏览器不同 <ul>
+<li>IE</li>
+<li>FireFox</li>
+<li>Chrome</li>
+<li>Opera</li>
+<li>Safari</li>
+<li>。。。</li>
+</ul>
+</li>
+<li>浏览器版本不同<ul>
+<li>IE6 IE7 。。。</li>
+<li>IE9 。。。（遵循W3C规范，之前不遵循，其他浏览器遵循，所以说主要兼容来自IE9版本之前的IE浏览器）</li>
+</ul>
+</li>
+</ul>
+<h2><span id="er-css-hack">二、CSS Hack</span><a href="#er-css-hack" class="header-anchor">.</a></h2><blockquote>
+<p>为了让页面形成统一的效果，要针对不同的浏览器或不同版本写出对应可解析的CSS样式，所以我们就把这个针对不同浏览器/版本而写CSS的过程叫<strong>CSS Hack</strong></p>
+</blockquote>
+<p>简单理解，根据不同浏览器/版本写样式</p>
+<h3><span id="1-ie-tiao-jian-zhu-shi-fa">1.IE条件注释法</span><a href="#1-ie-tiao-jian-zhu-shi-fa" class="header-anchor">.</a></h3><blockquote>
+<p>在正常代码之外添加判别IE浏览器或对应版本的条件注释，符合条件的浏览器或者版本号才执行里边的代码</p>
+</blockquote>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 小于等于IE8 识别内容 --></span>
+<span class="token comment" spellcheck="true">&lt;!--[if lte IE8]>
+    想要执行的代码
+&lt;![endif]--></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="2-css-shu-xing-qian-zhui-fa">2.CSS属性前缀法</span><a href="#2-css-shu-xing-qian-zhui-fa" class="header-anchor">.</a></h3><blockquote>
+<p>给CSS的属性添加前缀。</p>
+<p>*可以被IE6/IE7识别</p>
+<p>_只能被IE6识别</p>
+<p>IE6~IE10可以识别 \9</p>
+<p>IE6不能识别 !important </p>
+<p>FireFox不能识别 *  _ \9</p>
+</blockquote>
+<p>在标准模式下</p>
+<ul>
+<li>“ _ “ IE6专有的Hack</li>
+<li>“ \9 “ IE6~IE10 都生效</li>
+<li>“ \0 “ IE8~IE10 都生效</li>
+<li>“ \9\0 “ IE9/IE10</li>
+</ul>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector">h1 </span><span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#111</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* all */</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#222</span><span class="token entity" title="\9">\9</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* IE */</span>
+        *<span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#333</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* IE6/IE7 */</span>
+        <span class="token property">_color</span><span class="token punctuation">:</span> <span class="token hexcode">#444</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* IE6 */</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>IETester软件</p>
+<p>测试IE兼容性</p>
+</blockquote>
+<h3><span id="3-xuan-ze-qi-qian-zhui-fa">3.选择器前缀法</span><a href="#3-xuan-ze-qi-qian-zhui-fa" class="header-anchor">.</a></h3><ul>
+<li>IE6/IE7可识别 *div{}</li>
+<li>IE7可识别 *+div{}</li>
+<li>@media screen\9{}          IE6/IE7</li>
+<li>@media \0screen{}         IE8</li>
+<li>@media  \0screen,screen\9{}         IE6/IE7/IE8</li>
+<li>@media  screen\0{}           IE8/9/10</li>
+<li>@media  screen and (min-width: 100px\0){}          IE9/10</li>
+<li>。。。</li>
+</ul>
+<h2><span id="san-liu-lan-qi-si-you-shu-xing">三、浏览器私有属性</span><a href="#san-liu-lan-qi-si-you-shu-xing" class="header-anchor">.</a></h2><ul>
+<li>-moz代表FireFox浏览器私有属性</li>
+<li>-ms代表IE浏览器私有属性</li>
+<li>-webkit代表Chrome、Safari私有属性</li>
+<li>-o代表Opera私有属性</li>
+</ul>
+<blockquote>
+<p>书写要求：标准写在最后，兼容性写在前面</p>
+</blockquote>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token property">-webkit-transform</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span>-<span class="token number">3</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">-moz-transform</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span>-<span class="token number">3</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">-ms-transforn</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span>-<span class="token number">3</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">-o-transforn</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span>-<span class="token number">3</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">transforn</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span>-<span class="token number">3</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>为什么会出现私有属性呢？这是因为<strong>制定HTML和CSS标准的组织w3c动作是很慢的</strong>。</p>
+<ul>
+<li>通常，有W3C组织成员提出一个新属性，比如说圆角border-radius，大家都觉得很好，但w3c制定标准，要走很复杂的程序、审查等，而浏览器市场推广时间紧，如果一个属性已经够成熟了，就会在浏览器中加入支持。</li>
+<li>但是为避免日后w3c公布标准时有所变更，会加入一个私有前缀，比如  -webkit- border-radius，<strong>通过这种方式来提前支持新属性</strong>，等到日后w3c公布了标准，border-radius的标准写法确立之后，再让新版的浏览器支持border-radius这种写法。</li>
+</ul>
+<p>彼得朱 链接：<a href="https://www.jianshu.com/p/a6f52fe96e6e" target="_blank" rel="noopener">https://www.jianshu.com/p/a6f52fe96e6e</a></p>
+<h2><span id="si-liu-lan-qi-yang-shi-chu-shi-hua">四、浏览器样式初始化</span><a href="#si-liu-lan-qi-yang-shi-chu-shi-hua" class="header-anchor">.</a></h2><blockquote>
+<p>解决不同浏览器/版本代码解析效果不同  –  把默认样式归零</p>
+</blockquote>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+        <span class="token selector">blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul </span><span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token property">padding</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/* *{margin:0;padding:0;} */</span>
+    <span class="token selector">body, button, input, select, textarea </span><span class="token punctuation">{</span>
+        <span class="token property">font</span><span class="token punctuation">:</span> <span class="token number">12</span>px/<span class="token number">1.5</span>tahoma, arial, <span class="token entity" title="\5b8b">\5b8b</span><span class="token entity" title="\4f53">\4f53</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/* 宋体 */</span>
+    <span class="token punctuation">}</span> 
+    <span class="token selector">h1, h2, h3, h4, h5, h6 </span><span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">address, cite, dfn, em, var </span><span class="token punctuation">{</span>
+        <span class="token property">font-style</span><span class="token punctuation">:</span>normal<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">code, kbd, pre, samp </span><span class="token punctuation">{</span>
+        <span class="token property">font-family</span><span class="token punctuation">:</span>couriernew, courier, monospace<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">small </span><span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">12</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">ul, ol </span><span class="token punctuation">{</span>
+        <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">a </span><span class="token punctuation">{</span>
+        <span class="token property">text-decoration</span><span class="token punctuation">:</span> none
+    <span class="token punctuation">}</span>
+    <span class="token selector">a<span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
+        <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">sup </span><span class="token punctuation">{</span>
+        <span class="token property">vertical-align</span><span class="token punctuation">:</span> text-top<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">sub </span><span class="token punctuation">{</span>
+        <span class="token property">vertical-align</span><span class="token punctuation">:</span> text-bottom<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">legend </span><span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#000</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">fieldset, img </span><span class="token punctuation">{</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">button, input, select, textarea </span><span class="token punctuation">{</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">table </span><span class="token punctuation">{</span>
+        <span class="token property">border-collapse</span><span class="token punctuation">:</span> collapse<span class="token punctuation">;</span>
+        <span class="token property">border-spacing</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1><span id="bu-chong">补充</span><a href="#bu-chong" class="header-anchor">.</a></h1><p><a href="https://www.jb51.net/css/571918.html" target="_blank" rel="noopener">https://www.jb51.net/css/571918.html</a></p>
+<p><strong>最全整理浏览器兼容性问题与解决方案</strong>： <a href="https://wenku.baidu.com/view/1ceb47637f21af45b307e87101f69e314332fae9.html?fr=search" target="_blank" rel="noopener">https://wenku.baidu.com/view/1ceb47637f21af45b307e87101f69e314332fae9.html?fr=search</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -618,7 +715,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://www.liuminkai.top/2020/06/21/24412.html">http://www.liuminkai.top/2020/06/21/24412.html</a>
+                    <a href="http://www.liuminkai.top/2020/07/10/31245.html">http://www.liuminkai.top/2020/07/10/31245.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -656,20 +753,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/js/">
-                                    <span class="chip bg-color">js</span>
-                                </a>
-                            
-                                <a href="/tags/jQuery/">
-                                    <span class="chip bg-color">jQuery</span>
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
                                 <a href="/tags/css/">
                                     <span class="chip bg-color">css</span>
                                 </a>
                             
-                                <a href="/tags/%E6%94%B6%E8%8E%B7/">
-                                    <span class="chip bg-color">收获</span>
+                                <a href="/tags/%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/">
+                                    <span class="chip bg-color">兼容问题</span>
                                 </a>
                             
                         </div>
@@ -714,7 +807,7 @@
         repo: 'blogtalk',
         owner: 'liuminkai-blog',
         admin: ["liuminkai-blog"],
-        id: '2020-06-21T23-59-38',
+        id: '2020-07-10T23-56-35',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -738,32 +831,44 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/06/22/6850.html">
+                <a href="/2020/07/10/31245.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="QQ截屏快速获取像素颜色">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="CSS兼容问题（PC端）">
                         
-                        <span class="card-title">QQ截屏快速获取像素颜色</span>
+                        <span class="card-title">CSS兼容问题（PC端）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            QQ截屏快速获取像素颜色.qq截屏的快捷键是 CTRL + ALT + A
-qq截屏除了截屏 还有个很不错的小功能 ==获取像素的颜色== 是大家都容易忽略的具体方法很简单
+                            CSS兼容问题（PC端）.
+浏览器兼容性问题，通常是因为不同浏览器对同一端代码有不同的解析，造成页面显示不统一的情况
 
-第一步按下 Ctrl + Alt + A  快捷键 但是 不要点
+一、起因.
+浏览器不同 
+IE
+FireFox
+Chrome
+Opera
+Safari
+。。。
+
+
+浏览器版本不同
+IE
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -772,15 +877,20 @@ qq截屏除了截屏 还有个很不错的小功能 ==获取像素的颜色== �
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%94%B6%E8%8E%B7/">
-                        <span class="chip bg-color">收获</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-                        <span class="chip bg-color">小技巧</span>
+                    <a href="/tags/css/">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">兼容问题</span>
                     </a>
                     
                 </div>
@@ -794,32 +904,27 @@ qq截屏除了截屏 还有个很不错的小功能 ==获取像素的颜色== �
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/21/6361.html">
+                <a href="/2020/07/10/41780.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/20.jpg" class="responsive-img" alt="php入门笔记3">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/12.jpg" class="responsive-img" alt="响应式Web">
                         
-                        <span class="card-title">php入门笔记3</span>
+                        <span class="card-title">响应式Web</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PHP进阶.
-HTTP协议
-会话技术
-文件操作
-图像处理
-函数进阶
-
-一、 HTTP协议.1、 什么是HTTP协议.
-Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万维网（WWW:World Wi
+                            响应式Web.响应式布局.简单理解，就是根据不同的屏幕尺寸写不同的样式
+必须有 viewport.告诉手机浏览器，这个网站是响应式的
+&lt;!-- 内容设备宽度,一倍的缩放 -->
+&lt;meta name="viewport" con
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
                             </span>
                         <span class="publish-author">
                             
@@ -832,12 +937,16 @@ Hyper Text Transfer Protocol（超文本传输协议）的缩写,是用于从万
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/php/">
-                        <span class="chip bg-color">php</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/">
+                        <span class="chip bg-color">响应式</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
                     </a>
                     
                 </div>
