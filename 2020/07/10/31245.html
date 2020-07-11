@@ -510,14 +510,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    892
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -622,56 +622,67 @@
 <h2><span id="si-liu-lan-qi-yang-shi-chu-shi-hua">四、浏览器样式初始化</span><a href="#si-liu-lan-qi-yang-shi-chu-shi-hua" class="header-anchor">.</a></h2><blockquote>
 <p>解决不同浏览器/版本代码解析效果不同  –  把默认样式归零</p>
 </blockquote>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
-        <span class="token selector">blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul </span><span class="token punctuation">{</span>
-        <span class="token property">margin</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token property">padding</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">/* *{margin:0;padding:0;} */</span>
-    <span class="token selector">body, button, input, select, textarea </span><span class="token punctuation">{</span>
-        <span class="token property">font</span><span class="token punctuation">:</span> <span class="token number">12</span>px/<span class="token number">1.5</span>tahoma, arial, <span class="token entity" title="\5b8b">\5b8b</span><span class="token entity" title="\4f53">\4f53</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">/* 宋体 */</span>
-    <span class="token punctuation">}</span> 
-    <span class="token selector">h1, h2, h3, h4, h5, h6 </span><span class="token punctuation">{</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">address, cite, dfn, em, var </span><span class="token punctuation">{</span>
-        <span class="token property">font-style</span><span class="token punctuation">:</span>normal<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">code, kbd, pre, samp </span><span class="token punctuation">{</span>
-        <span class="token property">font-family</span><span class="token punctuation">:</span>couriernew, courier, monospace<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">small </span><span class="token punctuation">{</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">12</span>px<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">ul, ol </span><span class="token punctuation">{</span>
-        <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">a </span><span class="token punctuation">{</span>
-        <span class="token property">text-decoration</span><span class="token punctuation">:</span> none
-    <span class="token punctuation">}</span>
-    <span class="token selector">a<span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
-        <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">sup </span><span class="token punctuation">{</span>
-        <span class="token property">vertical-align</span><span class="token punctuation">:</span> text-top<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">sub </span><span class="token punctuation">{</span>
-        <span class="token property">vertical-align</span><span class="token punctuation">:</span> text-bottom<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">legend </span><span class="token punctuation">{</span>
-        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#000</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">fieldset, img </span><span class="token punctuation">{</span>
-        <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">button, input, select, textarea </span><span class="token punctuation">{</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">table </span><span class="token punctuation">{</span>
-        <span class="token property">border-collapse</span><span class="token punctuation">:</span> collapse<span class="token punctuation">;</span>
-        <span class="token property">border-spacing</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-html"><code class="language-html">blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+    margin:0;padding:0;
+} /* *{margin:0;padding:0;} */
+body, button, input, select, textarea {
+    font: 12px/1.5tahoma, arial, \5b8b\4f53;/* 宋体 */
+} 
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+address, cite, dfn, em, var {
+    font-style:normal;
+}
+code, kbd, pre, samp {
+    font-family:couriernew, courier, monospace;
+}
+small {
+    font-size: 12px;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none
+}
+a:hover {
+    text-decoration: underline;
+}
+sup {
+    vertical-align: text-top;
+}
+sub {
+    vertical-align: text-bottom;
+}
+legend {
+    color: #000;
+}
+fieldset, img {
+    border: 0;
+}
+button, input, select, textarea {
+    font-size: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>可以使用 Normlize.css达到初始化效果</p>
+</blockquote>
+<p>Normalize.css 使浏览器呈现所有 HTML 元素更加一致，并且符合现代 web 标准。Normalize.css 只作用于需要规范化的样式。</p>
+
+<pre class="line-numbers language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 非压缩 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!-- 压缩 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h1><span id="bu-chong">补充</span><a href="#bu-chong" class="header-anchor">.</a></h1><p><a href="https://www.jb51.net/css/571918.html" target="_blank" rel="noopener">https://www.jb51.net/css/571918.html</a></p>
-<p><strong>最全整理浏览器兼容性问题与解决方案</strong>： <a href="https://wenku.baidu.com/view/1ceb47637f21af45b307e87101f69e314332fae9.html?fr=search" target="_blank" rel="noopener">https://wenku.baidu.com/view/1ceb47637f21af45b307e87101f69e314332fae9.html?fr=search</a></p>
+<h3><span id="zui-quan-zheng-li-liu-lan-qi-jian-rong-xing-wen-ti-yu-jie-jue-fang-an"><strong>最全整理浏览器兼容性问题与解决方案</strong>：</span><a href="#zui-quan-zheng-li-liu-lan-qi-jian-rong-xing-wen-ti-yu-jie-jue-fang-an" class="header-anchor">.</a></h3><p> <a href="https://wenku.baidu.com/view/1ceb47637f21af45b307e87101f69e314332fae9.html?fr=search" target="_blank" rel="noopener">https://wenku.baidu.com/view/1ceb47637f21af45b307e87101f69e314332fae9.html?fr=search</a></p>
+<h3><span id="bootcdn">bootCDN</span><a href="#bootcdn" class="header-anchor">.</a></h3><p>稳定、快速、免费的前端开源项目 CDN 加速服务</p>
+<blockquote>
+<p><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener">https://www.bootcdn.cn/</a></p>
+</blockquote>
 
             </div>
             <hr/>
@@ -1034,7 +1045,7 @@ IE
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">39.9k</span>&nbsp;字
+                class="white-color">40k</span>&nbsp;字
             
             
             
