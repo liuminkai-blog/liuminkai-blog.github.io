@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>IEDA文档注释模板和方法注释模板</title>
+      <link href="/2020/07/14/52809.html"/>
+      <url>/2020/07/14/52809.html</url>
+      
+        <content type="html"><![CDATA[<h5><span id="wen-dang-zhu-shi-mo-ban">文档注释模板</span><a href="#wen-dang-zhu-shi-mo-ban" class="header-anchor">.</a></h5><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">/** * @author liuminkai * @version 1.0 * @datetime ${DATE} ${TIME} * @decription ${DECRIPTION} **/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="/2020/07/14/52809/image-20200714203742120.png" alt></p><h5><span id="fang-fa-zhu-shi-mo-ban">方法注释模板</span><a href="#fang-fa-zhu-shi-mo-ban" class="header-anchor">.</a></h5><pre class="line-numbers language-java"><code class="language-java"><span class="token operator">*</span><span class="token operator">*</span> <span class="token operator">*</span> $desc$ <span class="token operator">*</span> <span class="token annotation punctuation">@date</span> $date$ $time$$params$ <span class="token operator">*</span> @<span class="token keyword">return</span> $<span class="token keyword">return</span>$ <span class="token operator">*</span> @<span class="token keyword">throw</span>  <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="/2020/07/14/52809/image-20200714204130749.png" alt></p><p><img src="/2020/07/14/52809/image-20200714204313489.png" alt></p><pre class="line-numbers language-groovy"><code class="language-groovy"><span class="token function">groovyScript</span><span class="token punctuation">(</span><span class="token string">"def result=''; def params=\"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); for(i = 0; i &lt; params.size(); i++) {result+=' * @param ' + params[i] + ((i &lt; params.size() - 1) ? '\\n' : '')}; return result"</span><span class="token punctuation">,</span> <span class="token function">methodParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSS兼容问题（PC端）</title>
       <link href="/2020/07/10/31245.html"/>
       <url>/2020/07/10/31245.html</url>
