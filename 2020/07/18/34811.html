@@ -1,0 +1,1506 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="单例模式（Singleton）, 刘民锴的个人博客">
+    <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>单例模式（Singleton） | 刘民锴的个人博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">刘民锴的个人博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-sticky-note" style="zoom: 0.6;"></i>
+      
+      <span>Essay</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">刘民锴的个人博客</div>
+        <div class="logo-desc">
+            
+            刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-sticky-note"></i>
+			
+			Essay
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/kaiminliu" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/kaiminliu" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">单例模式（Singleton）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
+                            </a>
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">单例模式</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-18
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-07-18
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1><span id="dan-li-mo-shi-singleton">单例模式（Singleton）</span><a href="#dan-li-mo-shi-singleton" class="header-anchor">.</a></h1><h3><span id="ding-yi"><strong>定义：</strong></span><a href="#ding-yi" class="header-anchor">.</a></h3><p>指一个类只有一个实例，且该类能自行创建这个实例的一种模式。例如，Windows 中只能打开一个任务管理器，这样可以避免因打开多个任务管理器窗口而造成内存资源的浪费，或出现各个窗口显示内容的不一致等错误。</p>
+<p>在计算机系统中，还有 Windows 的回收站、操作系统中的文件系统、多线程中的线程池、显卡的驱动程序对象、打印机的后台处理服务、应用程序的日志对象、数据库的连接池、网站的计数器、Web 应用的配置对象、应用程序中的对话框、系统中的缓存等常常被设计成单例。</p>
+<h3><span id="dan-li-mo-shi-you-3-ge-te-dian"><strong>单例模式有 3 个特点</strong>：</span><a href="#dan-li-mo-shi-you-3-ge-te-dian" class="header-anchor">.</a></h3><ol>
+<li>单例类只有一个实例对象；(私有构造器)</li>
+<li>该单例对象必须由单例类自行创建；（内部new）</li>
+<li>单例类对外提供一个访问该单例的全局访问点；（getInstance静态方法）</li>
+</ol>
+<h3><span id="dan-li-de-shi-xian">单例的实现</span><a href="#dan-li-de-shi-xian" class="header-anchor">.</a></h3><ul>
+<li><p><strong>实现方式</strong></p>
+<ul>
+<li>饿汉式（类加载时初始化，线程安全，如果未获取实例，会造成资源浪费）</li>
+<li>懒汉式（类加载时不初始化，获取实例时初始化，线程不安全，不会造成资源浪费）</li>
+<li>懒汉式（线程安全版）<ul>
+<li><code>synchronized</code> getInstance()（由于<code>synchronized</code>是非常消耗性能，多次调用该方法，加载慢）</li>
+<li>双重校验锁（DCL）（解决了多次调用getInstance，加载慢的问题，但是存在指令重排问题）</li>
+<li>双重校验锁（DCL）+ volatile （解决指令重排问题，但是反射可以破解单例模式）</li>
+<li>三重校验锁（在构造器中再加一个验证，仍然有缺陷，只适用于先产生单例对象，再使用反射获取对象 的情况）</li>
+<li>红绿灯（可以简单解决放射问题，但是仍然有问题）</li>
+</ul>
+</li>
+<li>静态内部类（类加载时不初始化）</li>
+<li>枚举（默认单例，不能通过反射破解）</li>
+</ul>
+<p>除了枚举所有的实现方式，在反射机制面前，都是不安全</p>
+</li>
+</ul>
+<h4><span id="1-e-han-shi">1.饿汉式</span><a href="#1-e-han-shi" class="header-anchor">.</a></h4><blockquote>
+<p><strong>饿汉式</strong> <code>线程安全</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Hungry</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">Hungry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//内部 new对象 private final static</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> Hungry HUNGRY <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Hungry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> Hungry <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> HUNGRY<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/*
+        饿汉式 由于在内部已经new 实力化
+        会造成资源浪费
+     */</span>
+    <span class="token comment" spellcheck="true">//多线程并发</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// lambda表达式 jdk8</span>
+            <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">{</span>
+                Hungry<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment" spellcheck="true">/*
+            结果发现 始终只有一个实例产生
+            (没有考虑到反射情况下)
+        */</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果显示</p>
+<p><img src="/2020/07/18/34811/image-20200718150307478.png" alt></p>
+<h4><span id="2-lan-han-shi-xian-cheng-bu-an-quan">2.懒汉式（线程不安全）</span><a href="#2-lan-han-shi-xian-cheng-bu-an-quan" class="header-anchor">.</a></h4><blockquote>
+<p>懒汉式（普通）<code>存在多线程问题</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazyMan</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">LazyMan</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//声明域对象 但是不实例化 到要使用时 实例化 private static  相比于饿汉式 没有 final</span>
+    <span class="token keyword">private</span>  <span class="token keyword">static</span>  LazyMan LAZYMAN<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取实例</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> LazyMan <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            LAZYMAN <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyMan</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> LAZYMAN<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        虽然解决了 内存浪费问题，在单线程下也是OK的, 对象是唯一的
+        但是：多线程下,是不安全的，对象可能 不是唯一
+
+        看main方法中的测试可以看出
+        多次的结果产生了多个对象
+
+        我们需要的是单例
+
+        因此我们需要同步
+     */</span>
+    <span class="token comment" spellcheck="true">//多线程并发</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">{</span>
+                LazyMan<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果演示</p>
+<p><img src="/2020/07/18/34811/image-20200718150929152.png" alt></p>
+<h4><span id="3-lan-han-shi-xian-cheng-an-quan">3.懒汉式（线程安全）</span><a href="#3-lan-han-shi-xian-cheng-an-quan" class="header-anchor">.</a></h4><blockquote>
+<p>懒汉式（<code>synchronized</code> getInstance()）<code>为了解决多线程问题</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazyMan_Synr</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">LazyMan_Synr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//声明域对象 但是不实例化 到要使用时 实例化 private static  相比于饿汉式 没有 final</span>
+    <span class="token keyword">private</span>  <span class="token keyword">static</span> LazyMan_Synr LAZYMAN<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//获取实例 同步操作</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> LazyMan_Synr <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            LAZYMAN <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyMan_Synr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> LAZYMAN<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        虽然进行了同步处理，解决了多线程问题
+
+        但是synchronized操作是非常消耗性能的
+
+        我们可以使用 DCL 过滤不必要的 同步代码块的调用
+     */</span>
+    <span class="token comment" spellcheck="true">//多线程并发</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">{</span>
+                LazyMan_Synr<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果显示</p>
+<p><img src="/2020/07/18/34811/image-20200718152804700.png" alt></p>
+<blockquote>
+<p>双重校验锁（DCL）<code>为了解决多线程问题</code></p>
+</blockquote>
+<h5><span id="dcl-dan-li-mo-shi-wei-shi-me-yao-liang-ci-pan-kong">DCL单例模式为什么要两次判空</span><a href="#dcl-dan-li-mo-shi-wei-shi-me-yao-liang-ci-pan-kong" class="header-anchor">.</a></h5><p><a href="https://www.jianshu.com/p/17a39b71f8d9" target="_blank" rel="noopener"><strong>来自简书（next_discover）</strong></a></p>
+<ul>
+<li>getInstance方法中第一个判空条件，逻辑上是可以去除的，去除之后并不影响单例的正确性，但是去除之后效率低。因为去掉之后，不管instance是否已经初始化，都会进行synchronized操作，而synchronized是一个重操作消耗性能。加上之后，如果已经初始化直接返回结果，不会进行synchronized操作。</li>
+<li>getInstance方法中的第二个判空条件是不可以去除，如果去除了，并且刚好有两个线程a和b都通过了第一个判空条件。此时假设a先获得锁，进入synchronized的代码块，初始化instance，a释放锁。接着b获得锁，进入synchronized的代码块，也直接初始化instance，instance被初始化多遍不符合单例模式的要求~。加上第二个判空条件之后，b获得锁进入synchronized的代码块，此时instance不为空，不执行初始化操作。</li>
+</ul>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazyMan_Lock</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">LazyMan_Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//声明域对象 但是不实例化 到要使用时 实例化 private static  相比于饿汉式 没有 final</span>
+    <span class="token keyword">private</span>  <span class="token keyword">static</span> LazyMan_Lock LAZYMAN<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//获取实例 双重检查锁模式的 懒汉式单例 （DCL懒汉式）</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> LazyMan_Lock <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//外层检测</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>LazyMan_Lock<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//同步锁</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//内层检测</span>
+                    LAZYMAN <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyMan_Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 不是一个原子性操作</span>
+                    <span class="token comment" spellcheck="true">/*
+                        new一个对象 正常的3步实现
+                        1.分配内存空间
+                        2.执行构造方法，初始化对象
+                        3.把这个对象指向这个空间
+                     */</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> LAZYMAN<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        DCL懒汉式 
+        降低了 synchronized 对性能的影响
+
+        获得的结果只有个一个实例
+
+        但是仍然存在问题
+        由于上面
+        LAZYMAN = new LazyMan_Lock(); // 不是一个原子性操作
+
+        new 实例的顺序就有可能被打破
+
+        假如A获取实例 构造的顺序 是 132
+            1.分配内存空间
+            3.把这个对象指向这个空间
+            2.执行构造方法，初始化对象
+        此时B又获取实例的话，由于LAZYMAN != null,他就会认为实例是存在的,紧接着返回这个实例，
+        实际上这个实例指向的是一片虚无,就会报错
+
+     */</span>
+
+    <span class="token comment" spellcheck="true">//多线程并发</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token punctuation">{</span>
+                LazyMan_Synr<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>展示结果</p>
+<ul>
+<li><p>结果与上一个无区别</p>
+</li>
+<li><p>存在指令重排问题（目前无法展示出结果，发生概率太小）</p>
+</li>
+</ul>
+<h5><span id="zhi-ling-chong-pai"></span><a href="#zhi-ling-chong-pai" class="header-anchor">.</a></h5><p>指令重排是指JVM在编译Java代码的时候，或者CPU在执行JVM字节码的时候，对现有的指令顺序进行重新排序。</p>
+<p>指令重排的目的是为了在不改变程序执行结果的前提下，优化程序的运行效率。需要注意的是，这里所说的不改变执行结果，指的是不改变单线程下的程序执行结果。</p>
+<h4><span id></span><a href="#" class="header-anchor">.</a></h4><blockquote>
+<p>懒汉式（双重校验锁（DCL）+ volatile）<code>为了解决多线程问题 + 原子性</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazyMan_Lock_Atom</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">LazyMan_Lock_Atom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//声明域对象 但是不实例化 到要使用时 实例化 private static  相比于饿汉式 没有 final</span>
+    <span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">static</span> LazyMan_Lock_Atom LAZYMAN<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//获取实例 双重检查锁模式的 懒汉式单例 （DCL懒汉式）</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> LazyMan_Lock_Atom <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//外层检测</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>LazyMan_Lock_Atom<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//同步锁</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//内层检测</span>
+                    LAZYMAN <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyMan_Lock_Atom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 不是一个原子性操作</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> LAZYMAN<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        增加volatile修饰符 保证原子性
+        private volatile static LazyMan_Lock_Atom LAZYMAN;
+
+        当时这些仍然是有问题的
+        由于放射可以获得 该类的私有构造器，所以可以轻易破解 单例模式 获取多个实例
+     */</span>
+
+    <span class="token comment" spellcheck="true">//使用反射破解 单例模式</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> NoSuchMethodException<span class="token punctuation">,</span> IllegalAccessException<span class="token punctuation">,</span> InvocationTargetException<span class="token punctuation">,</span> InstantiationException <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//        for (int i = 0; i &lt; 10 ; i++) {</span>
+<span class="token comment" spellcheck="true">//            new Thread(()->{</span>
+<span class="token comment" spellcheck="true">//                LazyMan_Lock_Atom.getInstance();</span>
+<span class="token comment" spellcheck="true">//            }).start();</span>
+<span class="token comment" spellcheck="true">//        }</span>
+        <span class="token comment" spellcheck="true">//单例模式创建的实例</span>
+        LazyMan_Lock_Atom LazyMan <span class="token operator">=</span> LazyMan_Lock_Atom<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//反射创建的实例</span>
+        Constructor<span class="token operator">&lt;</span>LazyMan_Lock_Atom<span class="token operator">></span> constructor <span class="token operator">=</span> LazyMan_Lock_Atom<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getDeclaredConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        constructor<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        LazyMan_Lock_Atom LazyMan1 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"单例模式创建的实例 "</span><span class="token operator">+</span> LazyMan<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"反射创建的实例 "</span><span class="token operator">+</span> LazyMan1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/*
+            运行可以看到 两次产生对象不是同一个
+         */</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果演示</p>
+<ul>
+<li>结果是一致</li>
+<li>这里我们考虑反射破解（运行可以看到 两次产生对象不是同一个，单例被破解）</li>
+</ul>
+<p><img src="/2020/07/18/34811/image-20200718155630033.png" alt></p>
+<blockquote>
+<p>懒汉式（三重校验锁）<code>为了解决反射破解问题</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazyMan_Lock_Atom_PRO</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">LazyMan_Lock_Atom_PRO</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>LazyMan_Lock_Atom_PRO<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//第三重检测</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果对象(单例模式创建的)存在</span>
+                <span class="token comment" spellcheck="true">//抛出异常 由于 反射破解 私有构造器</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"不要试图使用反射破解异常"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//声明域对象 但是不实例化 到要使用时 实例化 private static  相比于饿汉式 没有 final</span>
+    <span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">static</span> LazyMan_Lock_Atom_PRO LAZYMAN<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//获取实例 双重检查锁模式的 懒汉式单例 （DCL懒汉式）</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> LazyMan_Lock_Atom_PRO <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//外层检测</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>LazyMan_Lock_Atom_PRO<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//同步锁</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//内层检测</span>
+                    LAZYMAN <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyMan_Lock_Atom_PRO</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 不是一个原子性操作</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> LAZYMAN<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        在私有构造器中添加第三重检测
+
+        看上去好像 是解决了反射破解构造器的问题
+        事实上，仍然有问题
+            这个只适用于 先产生单例对象，再使用反射获取对象 的情况
+        如果没有 产生使用单例模式创建对象 而是 使用 反射
+
+     */</span>
+
+    <span class="token comment" spellcheck="true">//使用反射破解 单例模式</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> NoSuchMethodException<span class="token punctuation">,</span> IllegalAccessException<span class="token punctuation">,</span> InvocationTargetException<span class="token punctuation">,</span> InstantiationException <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//反射创建的实例</span>
+        Constructor<span class="token operator">&lt;</span>LazyMan_Lock_Atom_PRO<span class="token operator">></span> constructor <span class="token operator">=</span> LazyMan_Lock_Atom_PRO<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getDeclaredConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        constructor<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token operator">/</span><span class="token comment" spellcheck="true">/************************ 三重检测结果 ***************************/</span><span class="token operator">/</span>
+        <span class="token comment" spellcheck="true">/*
+        //单例模式创建的实例
+        LazyMan_Lock_Atom_PRO LazyMan = LazyMan_Lock_Atom_PRO.getInstance();
+         //反射实例1
+        LazyMan_Lock_Atom_PRO LazyMan1 = constructor.newInstance();
+
+        System.out.println("单例模式创建的实例 "+ LazyMan);
+        System.out.println("反射创建的实例1 "+ LazyMan1);
+        */</span>
+        <span class="token operator">/</span><span class="token comment" spellcheck="true">/************* 仍然存在的问题（先注释“三重检测结果”部分）*************/</span><span class="token operator">/</span>
+        <span class="token comment" spellcheck="true">//反射实例1</span>
+        LazyMan_Lock_Atom_PRO LazyMan1 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//反射实例2</span>
+        LazyMan_Lock_Atom_PRO LazyMan2 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"反射创建的实例1 "</span><span class="token operator">+</span> LazyMan1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"反射创建的实例2 "</span><span class="token operator">+</span> LazyMan2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果展示</p>
+<ul>
+<li><p>三重检测结果</p>
+<p><img src="/2020/07/18/34811/image-20200718161027137.png" alt></p>
+</li>
+<li><p>仍然存在的问题（没有使用getInstance获取实例，只使用反射获取实例，仍然可以破解）</p>
+<p><img src="/2020/07/18/34811/image-20200718160814285.png" alt></p>
+</li>
+</ul>
+<blockquote>
+<p>懒汉式（红绿灯）<code>为了解决反射破解问题</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LazyMan_Lock_Atom_PRO_Signals</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">//添加红绿灯</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> qwert <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//私有构造器</span>
+    <span class="token keyword">private</span> <span class="token function">LazyMan_Lock_Atom_PRO_Signals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>qwert <span class="token operator">==</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果实例 不存在</span>
+            qwert <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//如果实例存在</span>
+            <span class="token comment" spellcheck="true">//抛出异常 由于 反射破解 私有构造器</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"不要试图使用反射破解异常"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//声明域对象 但是不实例化 到要使用时 实例化 private static  相比于饿汉式 没有 final</span>
+    <span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">static</span> LazyMan_Lock_Atom_PRO_Signals LAZYMAN<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//获取实例 双重检查锁模式的 懒汉式单例 （DCL懒汉式）</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> LazyMan_Lock_Atom_PRO_Signals <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//外层检测</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>LazyMan_Lock_Atom_PRO_Signals<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//同步锁</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>LAZYMAN <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//内层检测</span>
+                    LAZYMAN <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyMan_Lock_Atom_PRO_Signals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 不是一个原子性操作</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> LAZYMAN<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/*
+        使用 红绿灯(一个标志位) 解决 反射破解 构造器 创建对象
+            私有一个boolean static(保持唯一) 属性 由于这个属性 正常角度是无法通过放射去获取这个 属性的（因为你不知道属性名是啥） 并更改这个属性值的 所以一般来说已经很安全
+            但是 如果 是在 反编译的情况下 同样可以获取 该属性的名字 然后更改 属性值 破解构造器 创建实例
+
+            下面的就不做演示，也就是说 道高一尺，魔高一丈
+
+     */</span>
+
+    <span class="token comment" spellcheck="true">//使用反射破解 单例模式</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> NoSuchMethodException<span class="token punctuation">,</span> IllegalAccessException<span class="token punctuation">,</span> InvocationTargetException<span class="token punctuation">,</span> InstantiationException <span class="token punctuation">{</span>
+
+        <span class="token comment" spellcheck="true">//反射创建的实例</span>
+        Constructor<span class="token operator">&lt;</span>LazyMan_Lock_Atom_PRO_Signals<span class="token operator">></span> constructor <span class="token operator">=</span> LazyMan_Lock_Atom_PRO_Signals<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getDeclaredConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        constructor<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//反射实例1</span>
+        LazyMan_Lock_Atom_PRO_Signals LazyMan1 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//反射实例2</span>
+        LazyMan_Lock_Atom_PRO_Signals LazyMan2 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"反射创建的实例1 "</span><span class="token operator">+</span> LazyMan1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"反射创建的实例2 "</span><span class="token operator">+</span> LazyMan2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果展示</p>
+<p><img src="/2020/07/18/34811/image-20200718162753394.png" alt></p>
+<h4><span id="4-jing-tai-nei-bu-lei">4.静态内部类</span><a href="#4-jing-tai-nei-bu-lei" class="header-anchor">.</a></h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Outer</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token function">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Inner</span><span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Outer instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 调用该方法，获取实例，并进行初始化</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> Outer <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Inner<span class="token punctuation">.</span>instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4><span id="5-mei-ju">5.枚举</span><a href="#5-mei-ju" class="header-anchor">.</a></h4><img src="/2020/07/18/34811/image-20200718164835227.png" style="zoom:50%;">
+
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//enum 默认就是一个单列的 可以去看 Constructor.class 中 newInstance()</span>
+    <span class="token comment" spellcheck="true">/*
+        if ((clazz.getModifiers() &amp; Modifier.ENUM) != 0)
+            throw new IllegalArgumentException("Cannot reflectively create enum objects"); // 不能反射地创建枚举对象
+     */</span>
+<span class="token keyword">public</span> <span class="token keyword">enum</span> EnumSingle <span class="token punctuation">{</span>
+    INSTANCE<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token function">EnumSingle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> EnumSingle <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> INSTANCE<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> IllegalAccessException<span class="token punctuation">,</span> InvocationTargetException<span class="token punctuation">,</span> InstantiationException<span class="token punctuation">,</span> NoSuchMethodException <span class="token punctuation">{</span>
+<span class="token comment" spellcheck="true">//        EnumSingle instance1 = EnumSingle.getInstance();</span>
+<span class="token comment" spellcheck="true">//        EnumSingle instance2 = EnumSingle.getInstance();</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">//        System.out.println(instance1);</span>
+<span class="token comment" spellcheck="true">//        System.out.println(instance2);</span>
+
+        Constructor<span class="token operator">&lt;</span>EnumSingle<span class="token operator">></span> constructor <span class="token operator">=</span> EnumSingle<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getDeclaredConstructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        constructor<span class="token punctuation">.</span><span class="token function">setAccessible</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        EnumSingle enumSingle1 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        EnumSingle enumSingle2 <span class="token operator">=</span> constructor<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>enumSingle1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>enumSingle2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//反编译 1</span>
+        <span class="token comment" spellcheck="true">//javap -p **.class</span>
+
+        <span class="token comment" spellcheck="true">//反编译 2 专业</span>
+        <span class="token comment" spellcheck="true">//jad.exe 将 class反编译为 java文件</span>
+        <span class="token comment" spellcheck="true">//jad -sjava **.class</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.liuminkai.top" rel="external nofollow noreferrer">liuminkai</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.liuminkai.top/2020/07/18/34811.html">http://www.liuminkai.top/2020/07/18/34811.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://www.liuminkai.top" target="_blank">liuminkai</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
+                                </a>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">单例模式</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '4e04421bf007cd448eb3',
+        clientSecret: '98d0aaec7d39c4c8ba7ef6118575f68eafc77951',
+        repo: 'blogtalk',
+        owner: 'liuminkai-blog',
+        admin: ["liuminkai-blog"],
+        id: '2020-07-18T14-06-30',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/07/18/34811.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/6.jpg" class="responsive-img" alt="单例模式（Singleton）">
+                        
+                        <span class="card-title">单例模式（Singleton）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            单例模式（Singleton）.定义：.指一个类只有一个实例，且该类能自行创建这个实例的一种模式。例如，Windows 中只能打开一个任务管理器，这样可以避免因打开多个任务管理器窗口而造成内存资源的浪费，或出现各个窗口显示内容的不一致等错误
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">单例模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/16/15330.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="IDEA设置配置">
+                        
+                        <span class="card-title">IDEA设置配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+这篇博客用于记录 我的IDEA的一些原有配置信息位置 及 恢复
+
+IDEA2020.1的配置文件路径：
+C:\Users\用户名\AppData\Roaming\JetBrains\IntelliJIdea2020.1\
+fileTemp
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            liuminkai
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="http://www.liuminkai.top" target="_blank">liuminkai</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">43.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/kaiminliu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1423928650@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1423928650" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1423928650" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/instantpage/instantpage.js" type="module"></script>
+    
+	
+	
+	<!-- 一言API -->
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
+	  fetch('https://v1.hitokoto.cn')
+		.then(function (res){
+		  return res.json();
+		})
+		.then(function (data) {
+		  var hitokoto = document.getElementById('hitokoto');
+		  hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+		})
+		.catch(function (err) {
+		  console.error(err);
+		})
+	</script>
+</body>
+
+</html>
