@@ -549,8 +549,8 @@
 <li>饿汉式（类加载时初始化，线程安全，如果未获取实例，会造成资源浪费）</li>
 <li>懒汉式（类加载时不初始化，获取实例时初始化，线程不安全，不会造成资源浪费）</li>
 <li>懒汉式（线程安全版）<ul>
-<li><code>synchronized</code> getInstance()（由于<code>synchronized</code>是非常消耗性能，多次调用该方法，加载慢）</li>
-<li>双重校验锁（DCL）（解决了多次调用getInstance，加载慢的问题，但是存在指令重排问题）</li>
+<li><code>synchronized</code> getInstance()（<code>synchronized</code>是非常消耗性能，多次调用该方法会造成不必要的性能消耗）</li>
+<li>双重校验锁（DCL）（解决了多次调用getInstance对性能消耗的影响，但是存在指令重排问题）</li>
 <li>双重校验锁（DCL）+ volatile （解决指令重排问题，但是反射可以破解单例模式）</li>
 <li>三重校验锁（在构造器中再加一个验证，仍然有缺陷，只适用于先产生单例对象，再使用反射获取对象 的情况）</li>
 <li>红绿灯（可以简单解决放射问题，但是仍然有问题）</li>
