@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>maven远程仓库镜像更改为阿里云镜像</title>
+      <link href="/2020/07/21/12421.html"/>
+      <url>/2020/07/21/12421.html</url>
+      
+        <content type="html"><![CDATA[<h4><span id="maven-yuan-cheng-cang-ku-jing-xiang-geng-gai-wei-a-li-yun-jing-xiang">maven远程仓库镜像更改为阿里云镜像</span><a href="#maven-yuan-cheng-cang-ku-jing-xiang-geng-gai-wei-a-li-yun-jing-xiang" class="header-anchor">.</a></h4><h5><span id="1-zhao-dao-maven-xia-de-conf-mu-lu-zhong-de-config-xml-wen-jian">1.找到maven下的conf目录中的config.xml文件</span><a href="#1-zhao-dao-maven-xia-de-conf-mu-lu-zhong-de-config-xml-wen-jian" class="header-anchor">.</a></h5><p>在&lt;mirrors&gt;标签中添加 如下内容</p><pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>nexus-aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>central<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Nexus aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://maven.aliyun.com/nexus/content/groups/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 镜像 </tag>
+            
+            <tag> maven </tag>
+            
+            <tag> aliyun </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>单例模式（Singleton）</title>
       <link href="/2020/07/18/34811.html"/>
       <url>/2020/07/18/34811.html</url>
