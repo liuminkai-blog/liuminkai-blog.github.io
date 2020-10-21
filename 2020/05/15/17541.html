@@ -870,7 +870,7 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h2, h3, h4, h5, h6'
         });
 
         // modify the toc link href to support Chinese.
@@ -882,7 +882,7 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
@@ -922,7 +922,7 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">52.3k</span>&nbsp;字
+                class="white-color">113.1k</span>&nbsp;字
             
             
             
@@ -952,7 +952,7 @@ Markdown 是一种文本格式。你可以用它来控制文档的显示。使�
 
 
 
-    <a href="mailto:1423928650@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:liuyou2021@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
