@@ -491,21 +491,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-23
+                    2020-10-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.2k
+                    11k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    31 分
+                    40 分
                 </div>
                 
 
@@ -992,7 +992,7 @@ add [column] create_definition [first | after column_name] # 添加新字段
 <h3><span id="shu-ju-yue-shu">数据约束</span><a href="#shu-ju-yue-shu" class="header-anchor">.</a></h3><blockquote>
 <p>在 MySQL 中，为了减少输入错误和保证数据的完整性，可以对字段设置约束。所谓约束就是一种命名规则和机制，通过对数据的增、删、改操作进行一些限制，以保证数据库中数据的完整性。</p>
 </blockquote>
-<h6><span id="chang-jian-de-biao-yue-shu-5-chong">常见的表约束（5种）</span><a href="#chang-jian-de-biao-yue-shu-5-chong" class="header-anchor">.</a></h6><ul>
+<h4><span id="chang-jian-de-biao-yue-shu-5-chong">常见的表约束（5种）</span><a href="#chang-jian-de-biao-yue-shu-5-chong" class="header-anchor">.</a></h4><ul>
 <li>主键约束</li>
 <li>非空约束</li>
 <li>默认约束</li>
@@ -1013,7 +1013,7 @@ sno varchar(12) not null<span aria-hidden="true" class="line-numbers-rows"><span
 <p>在 MySQL 中，所有数据类型的值都可以是 NULL，包括 INT、FLOAT 等数据类型。</p>
 <p>需要注意的是，空字符串和 0 皆不属于空值 NULL。</p>
 </blockquote>
-<h4><span id="wei-yi-yue-shu-unique">唯一约束 unique</span><a href="#wei-yi-yue-shu-unique" class="header-anchor">.</a></h4><pre class="line-numbers language-mysql"><code class="language-mysql"># 唯一约束用于保证数据表中字段的唯一性，即表中字段的值不能重复出现
+<h5><span id="wei-yi-yue-shu-unique">唯一约束 unique</span><a href="#wei-yi-yue-shu-unique" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql"># 唯一约束用于保证数据表中字段的唯一性，即表中字段的值不能重复出现
 
 # 列级约束
 字段名 数据类型 UNIQUE
@@ -1021,7 +1021,7 @@ sno varchar(12) not null<span aria-hidden="true" class="line-numbers-rows"><span
 UNIQUE(字段名1, 字段名2, ……);
 
 # 虽然不允许出现重复的值，但是可以出现多个空值 NULL<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4><span id="zhu-jian-yue-shu-primary-key">主键约束 primary key</span><a href="#zhu-jian-yue-shu-primary-key" class="header-anchor">.</a></h4><pre class="line-numbers language-mysql"><code class="language-mysql"># 主键约束相当于唯一约束和非空约束的组合
+<h5><span id="zhu-jian-yue-shu-primary-key">主键约束 primary key</span><a href="#zhu-jian-yue-shu-primary-key" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql"># 主键约束相当于唯一约束和非空约束的组合
 # 每个表最多只允许含有一个主键，建立主键约束可以在列级别创建，也可以在表级别上创建
 #主键约束可以由一个字段构成单字段主键，也可以由多个字段组合而成
 
@@ -1030,10 +1030,10 @@ UNIQUE(字段名1, 字段名2, ……);
 # 表级约束
 PRIMARY KEY (字段名1,字段名2,……)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4><span id="mo-ren-yue-shu-default">默认约束 default</span><a href="#mo-ren-yue-shu-default" class="header-anchor">.</a></h4><pre class="line-numbers language-mysql"><code class="language-mysql"># 默认约束用于指定数据表中字段的默认值
+<h5><span id="mo-ren-yue-shu-default">默认约束 default</span><a href="#mo-ren-yue-shu-default" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql"># 默认约束用于指定数据表中字段的默认值
 
 字段名 数据类型 DEFAULT 默认值;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4><span id="wai-jian-yue-shu-foreign-key">外键约束  foreign key</span><a href="#wai-jian-yue-shu-foreign-key" class="header-anchor">.</a></h4><pre class="line-numbers language-mysql"><code class="language-mysql"># 外键并不是通过列名实现的，而是通过定义外键约束实现的
+<h5><span id="wai-jian-yue-shu-foreign-key">外键约束  foreign key</span><a href="#wai-jian-yue-shu-foreign-key" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql"># 外键并不是通过列名实现的，而是通过定义外键约束实现的
 
 FOREIGN KEY (外键) REFERENCES 其他表(其他表主键);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3><span id="shu-ju-de-cao-zuo">数据的操作</span><a href="#shu-ju-de-cao-zuo" class="header-anchor">.</a></h3><h4><span id="cha-ru-ji-lu-dml">插入记录(DML)</span><a href="#cha-ru-ji-lu-dml" class="header-anchor">.</a></h4><pre class="line-numbers language-mysql"><code class="language-mysql"># 字段列表的字段 位置顺序可以随意更改的
@@ -1134,6 +1134,7 @@ select * from 表名
 where 字段1 = 值1
 and    字段2 = 值2;
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5><span id="bi-jiao-da-xiao">比较大小</span><a href="#bi-jiao-da-xiao" class="header-anchor">.</a></h5><pre class="line-numbers language-sql"><code class="language-sql"><span class="token operator">=</span>  <span class="token operator">></span>  <span class="token operator">&lt;</span>  <span class="token operator">>=</span>  <span class="token operator">&lt;=</span>  <span class="token operator">&lt;></span>  <span class="token operator">!=</span>  <span class="token operator">!</span><span class="token operator">></span>  <span class="token operator">!</span><span class="token operator">&lt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5><span id="dai-in-guan-jian-zi-cha-xun">带IN关键字查询</span><a href="#dai-in-guan-jian-zi-cha-xun" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql"># IN 关键字，用于判断某个字段的值是否在指定集合中
 SELECT  *|{字段名1, 字段名2, 字段名3,...} 
 FROM 表名
@@ -1170,6 +1171,10 @@ WHERE 字段名 [NOT] LIKE '匹配字符串';
 <p>百分号(%)适用于不定长的模糊查询</p>
 <p>下划线(_)适用于定长的查询。</p>
 </blockquote>
+<h6><span id="zhuan-yi-zi-fu">转义字符</span><a href="#zhuan-yi-zi-fu" class="header-anchor">.</a></h6><blockquote>
+<p>有时存在字符串中本身就含有 _ 或 %，那么我们就需要转义字符</p>
+</blockquote>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">USER</span> <span class="token keyword">WHERE</span> name <span class="token operator">like</span> <span class="token operator">%</span>n\__1<span class="token operator">%</span> <span class="token keyword">ESCAPE</span> <span class="token string">'\'</span> <span class="token comment" spellcheck="true">-- 第一个_ 被转义</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5><span id="dai-and-de-duo-tiao-jian-cha-xun">带AND的多条件查询</span><a href="#dai-and-de-duo-tiao-jian-cha-xun" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql">SELECT *|{字段名1, 字段名2, ...}
 FROM 表名
 WHERE 条件表达式1 AND 条件表达式2 [... AND 条件表达式n];
@@ -1190,6 +1195,9 @@ ORDER BY 字段名1 [ASC | DESC] [, 字段名2 [ASC | DESC
 # ASC 升序
 # DESC 降序
 # 当有多个字段进行排序时，首先按照字段名 1 进行排序，当遇到字段 1值相同时，再按照字段 2 进行排序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>如果要实现<strong>分组结果</strong>的排序，ORDER BY 子句中必须使用 聚集函数或GROUP BY 子句的分组列</p>
+</blockquote>
 <h5><span id="limit-xian-liang-cha-xun-fen-ye-cha-xun">LIMIT限量查询(分页查询)</span><a href="#limit-xian-liang-cha-xun-fen-ye-cha-xun" class="header-anchor">.</a></h5><pre class="line-numbers language-mysql"><code class="language-mysql"># 对于一次性查询出的大量记录，不仅不便于阅读查看，还会浪费系统效率
 # 指定查询结果从哪一条记录开始，以及每次查询出的记录数量
 
@@ -1356,6 +1364,76 @@ EXISTS (SELECT 1 FROM `category` WHERE `cid`=999);
 <pre class="line-numbers language-mysql"><code class="language-mysql">SELECT * FROM `article`
 WHERE `cid` <> ALL (SELECT `cid` FROM `category`);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>子查询返回单值的时候可用比较运算符，但返回多值的时候要用ANY或ALL，使用ANY和ALL时必须同时使用比较运算符</p>
+<h6><span id="yu-any-he-all-xiang-guan-de-bi-jiao-yun-suan-fu">与ANY和ALL相关的比较运算符</span><a href="#yu-any-he-all-xiang-guan-de-bi-jiao-yun-suan-fu" class="header-anchor">.</a></h6><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>等效功能</th>
+<th>功能含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt; ANY</td>
+<td>&gt; 最小值（MIN）</td>
+<td>大于子查询结果中的某个值</td>
+</tr>
+<tr>
+<td>&gt; ALL</td>
+<td>&gt; 最大值（MAX）</td>
+<td>大于子查询结果中的所有值</td>
+</tr>
+<tr>
+<td>&lt; ANY</td>
+<td>&lt; 最小值（MIN）</td>
+<td>小于子查询结果中的某个值</td>
+</tr>
+<tr>
+<td>&lt; ALL</td>
+<td>&lt; 最小值（MIN）</td>
+<td>小于子查询结果中的所有值</td>
+</tr>
+<tr>
+<td>&gt;= ANY</td>
+<td>&gt;= 最小值（MIN）</td>
+<td>大于等于子查询结果中的某个值</td>
+</tr>
+<tr>
+<td>&gt;= ALL</td>
+<td>&gt;= 最大值（MAX）</td>
+<td>大于等于子查询结果中的所有值</td>
+</tr>
+<tr>
+<td>&lt;= ANY</td>
+<td>&lt;= 最小值（MIN）</td>
+<td>小于等于子查询结果中的某个值</td>
+</tr>
+<tr>
+<td>&lt;= ALL</td>
+<td>&lt;= 最小值（MIN）</td>
+<td>小于等于子查询结果中的所有值</td>
+</tr>
+<tr>
+<td>= ANY</td>
+<td>IN</td>
+<td>等于子查询结果中的某个值</td>
+</tr>
+<tr>
+<td>= ALL</td>
+<td></td>
+<td>等于子查询结果中的所有值（无意义）</td>
+</tr>
+<tr>
+<td>!=ANY 或 &lt;&gt;ANY</td>
+<td></td>
+<td>不等于子查询结果中的某个值</td>
+</tr>
+<tr>
+<td>!=ALL 或 &lt;&gt;ALL</td>
+<td>NOT IN</td>
+<td>不等于子查询结果中的任何一个值</td>
+</tr>
+</tbody></table>
 <h3><span id="shi-wu">事务</span><a href="#shi-wu" class="header-anchor">.</a></h3><p><a href="https://www.liaoxuefeng.com/wiki/1177760294764384/1179611198786848" target="_blank" rel="noopener">廖雪峰事务</a></p>
 <h4><span id="shu-ju-ku-shi-wu">数据库事务</span><a href="#shu-ju-ku-shi-wu" class="header-anchor">.</a></h4><blockquote>
 <p>把多条语句作为一个整体进行操作的功能</p>
@@ -1377,11 +1455,9 @@ WHERE `cid` <> ALL (SELECT `cid` FROM `category`);
 <p><code>COMMIT</code>是指提交事务，即试图把事务内的所有SQL所做的修改永久保存。</p>
 <p>如果<code>COMMIT</code>语句执行失败了，整个事务也会失败。</p>
 </blockquote>
-<p>​    </p>
 <blockquote>
 <p>有时希望主动让事务失败，这时，可以用<code>ROLLBACK</code>回滚事务，整个事务会失败</p>
 </blockquote>
-<p>​    </p>
 <blockquote>
 <p>数据库事务是由数据库系统保证的，我们只需要根据业务逻辑使用它就可以</p>
 </blockquote>
@@ -1444,7 +1520,7 @@ ROLLBACK;<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <ul>
 <li><p><strong>Read Uncommitted</strong>是隔离级别最低的一种事务级别。在这种隔离级别下，一个事务会读到另一个事务更新后但未提交的数据，如果另一个事务回滚，那么当前事务读到的数据就是脏数据，这就是脏读（Dirty Read）</p>
 <blockquote>
-<p><strong>脏数据</strong>:从目标中取出的数据已经过期、错误或者没有意义</p>
+<p><strong>脏数据</strong>:从目标中取出的数据已经过期、错误或者没有意义 ，即，与数据库中内容不一致的数据</p>
 </blockquote>
 </li>
 </ul>
@@ -1653,6 +1729,202 @@ SELECT * FROM students FORCE INDEX (idx_class_id) WHERE class_id = 1 ORDER BY id
 <blockquote>
 <p>指定索引的前提是索引<code>idx_class_id</code>必须存在。</p>
 </blockquote>
+<h3><span id="10-mo-shi-de-chuang-jian-yu-shan-chu">10. 模式的创建与删除</span><a href="#10-mo-shi-de-chuang-jian-yu-shan-chu" class="header-anchor">.</a></h3><blockquote>
+<p>创建一个模式相当于创建一个<strong>命名空间</strong>，我们可以在这个命名空间创建数据库对象，如表，视图，索引。。。</p>
+</blockquote>
+<p><strong>创建：</strong></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">SCHEMA</span> <span class="token punctuation">[</span>模式名<span class="token punctuation">]</span> <span class="token keyword">AUTHORIZATION</span> 用户名 <span class="token comment" spellcheck="true">-- 如果没有定义模式名，默认使用用户名充当</span>
+    <span class="token punctuation">[</span>表定义语句<span class="token punctuation">]</span><span class="token operator">|</span><span class="token punctuation">[</span>视图定义语句<span class="token punctuation">]</span><span class="token operator">|</span><span class="token punctuation">[</span>授权定义子句<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>删除：</strong></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">SCHEMA</span> 模式名 <span class="token keyword">CASCADE</span> <span class="token operator">|</span> <span class="token keyword">RESTRICT</span> <span class="token comment" spellcheck="true">-- 级联：删除模式下的所有数据库对象；限制：若存在数据库对象，不删除模式</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="11-suo-yin-de-chuang-jian-yu-shan-chu">11.索引的创建与删除</span><a href="#11-suo-yin-de-chuang-jian-yu-shan-chu" class="header-anchor">.</a></h3><blockquote>
+<p>索引是基本表的目录</p>
+</blockquote>
+<p><strong>作用：</strong></p>
+<ul>
+<li>加快数据查询速度<ul>
+<li>数据量大时，数据文件很大，不使用索引，每次查询，会将数据文件分块读到内存中，查找</li>
+<li>如果使用索引，那么先加载索引文件（比数据文件小很多），根据索引找到元祖数据的位置，然后加载元祖数据所在的块，加载到内存查找；</li>
+</ul>
+</li>
+<li>保证数据的唯一性<ul>
+<li>定义索引，需要定义数据的唯一性</li>
+</ul>
+</li>
+<li>加快连接速度<ul>
+<li>两个表的连接操作，（连接字段建立索引）</li>
+</ul>
+</li>
+</ul>
+<p><strong>建立原则：</strong></p>
+<ul>
+<li>大表建索引</li>
+<li>基本表，不要创建过多索引</li>
+<li>更具查询条件要求建立索引（查询频度高的）</li>
+</ul>
+<p><strong>创建索引：</strong></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> CLUSTER <span class="token operator">|</span> <span class="token keyword">UNIQUE</span> <span class="token keyword">INDEX</span> IX_xxx <span class="token keyword">ON</span> 表名<span class="token punctuation">(</span>列名 <span class="token punctuation">[</span><span class="token keyword">DESC</span> <span class="token operator">|</span> <span class="token keyword">ASC</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">,</span>列名。。。<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">-- CLUSTER 聚簇索引：索引项的排序顺序与基本表的物理顺序一致</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>删除索引：</strong></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">INDEX</span> IX_xxx <span class="token comment" spellcheck="true">-- 增删改频繁的，系统会花费大量时间维护索引，查询效率变低，因此需要删除这些不必要的索引</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="12-shi-tu-de-chuang-jian-yu-shan-chu">12.视图的创建与删除</span><a href="#12-shi-tu-de-chuang-jian-yu-shan-chu" class="header-anchor">.</a></h3><blockquote>
+<p>视图是从一个表或几个基本表(或视图)中选定某些记录或列而导出的特殊类型的<strong>表</strong>。</p>
+<p>视图本身并不存储数据，数据仍存储在原来的基本表上，试图数据是虚拟的，视图只是提供了一种访问基本表中数据的方法。</p>
+<p>视图是一个虚表，数据库只存放视图的定义，但是视图视图创建后，用户可以像基本表一样对视图进行查询，在特殊情况下甚至可以增删改</p>
+</blockquote>
+<p><strong>优点：</strong></p>
+<ul>
+<li>增加数据安全性<ul>
+<li>可以限制用户直接存取基本表的某些列或记录</li>
+</ul>
+</li>
+<li>屏蔽数据的复杂性<ul>
+<li>通过视图可得到多个基本表经过计算后的数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>视图创建：</strong></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">VIEW</span> 视图名 <span class="token punctuation">[</span><span class="token punctuation">(</span>列名<span class="token punctuation">[</span><span class="token punctuation">,</span>列名<span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">-- 指定列</span>
+<span class="token keyword">AS</span> SQL子查询语句
+<span class="token punctuation">[</span><span class="token keyword">WITH</span> <span class="token keyword">CHECK</span> <span class="token keyword">OPTION</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">-- 这一行表示 对视图进行增删改操作是要保证，操作的行，要满足子查询语句的条件表达式中的条件，即会自定添加 子查询的条件，如下</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">view</span> view_1 
+<span class="token keyword">as</span> 
+    <span class="token keyword">select</span> sno<span class="token punctuation">,</span>sname
+    <span class="token keyword">from</span> student
+    <span class="token keyword">where</span> sno <span class="token operator">></span> <span class="token number">20</span>
+    <span class="token keyword">with</span> <span class="token keyword">check</span> <span class="token keyword">option</span>
+
+<span class="token operator">=</span><span class="token operator">=</span><span class="token operator">></span> 对视图进行增删改操作时，需要满足 sno <span class="token operator">></span> <span class="token number">20</span> 的条件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>删除视图：</strong></p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">VIEW</span> 视图名 <span class="token punctuation">[</span><span class="token keyword">CASCADE</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">-- 级联：删除本视图和导出引用的所有视图</span>
+<span class="token comment" spellcheck="true">-- 删除视图，只是删除视图的定义，数据还在(只有数据库管理员才能删除)</span>
+<span class="token comment" spellcheck="true">-- 视图对对应的 基本表删除后，视图将无意义，因此我们也需要删除视图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4><span id="shi-tu-de-cha-xun-yu-geng-xin">视图的查询与更新</span><a href="#shi-tu-de-cha-xun-yu-geng-xin" class="header-anchor">.</a></h4><p><strong>试图查询：</strong></p>
+<blockquote>
+<p>使用与基本表一致</p>
+</blockquote>
+<p><strong>视图更新：</strong></p>
+<blockquote>
+<p>实际上是 基本表的更新; <strong>但是</strong><code>只能在一个基本表上进行增删改的操作</code>，增删改时为了避免对不属于视图的部分进行操作，定义视图都需要加上 <code>with check option</code></p>
+</blockquote>
+<blockquote>
+<p>使用与基本表一致</p>
+</blockquote>
+<p><strong>其他注意点：</strong></p>
+<ul>
+<li><p>如果视图定义中 <code>SELECT</code>语句中含有 <code>GROUP BY</code>、<code>DISTINCT</code> 或 <strong>聚集函数</strong> 等，可进行删除操作，不能进行插入、修改操作</p>
+</li>
+<li><p>如果视图中包含由表达式计算的列，那么也不允许进行 修改操作</p>
+</li>
+<li><p><strong>如果视图中没有包含基本表的所有非空列，则不能 进行插入操作</strong></p>
+</li>
+<li><p>如果视图定义中含有嵌套语句，且内层查询的from子句中涉及的表也是导出的视图的基本表，则不允许更新</p>
+</li>
+</ul>
+<blockquote>
+<p> 总之，使用视图，就别想着增删改</p>
+</blockquote>
+<h3><span id="13-fang-fa">13.方法</span><a href="#13-fang-fa" class="header-anchor">.</a></h3><p><code>DATEPART</code> : <code>SQLServer</code>中 获取日期部分</p>
+<pre class="line-numbers language-sql"><code class="language-sql">DATAPART<span class="token punctuation">(</span>year<span class="token punctuation">,</span>getdate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>getdate</code>：获取当前时间</p>
+<p><code>LOWER</code>：字符串小写</p>
+<h3><span id="14-xiao-ti-shi">14. 小提示</span><a href="#14-xiao-ti-shi" class="header-anchor">.</a></h3><ul>
+<li><code>WHERE</code> 和 <code>GROUP</code> 子句中都不能出现 <strong>聚集函数</strong>，其他的可以</li>
+<li>如果要实现<strong>分组结果</strong>的排序，ORDER BY 子句中必须使用 聚集函数或GROUP BY 子句的分组列 </li>
+</ul>
+<h3><span id="15-san-fan-shi">15. 三范式</span><a href="#15-san-fan-shi" class="header-anchor">.</a></h3><p><strong>第一范式 1NF</strong></p>
+<p><code>为了解决高层项导致的更新困难，如 经理 分为 正副 ==&gt; 直接 正经理和副经理</code></p>
+<blockquote>
+<p>属性是不可再分的原子值</p>
+</blockquote>
+<p><strong>第二范式 2NF</strong></p>
+<p><code>为了解决存在的大量冗余数据和操作异常问题</code></p>
+<blockquote>
+<p>非主键完全依赖于主键，主键值可以确定唯一非主键值，一个主键确定唯一一行</p>
+</blockquote>
+<p><strong>第三范式 3NF</strong></p>
+<blockquote>
+<p>所有字段只能依赖于主属性，不能依赖其他字段。消除依赖传递</p>
+</blockquote>
+<h3><span id="16-bing-fa-cao-zuo-wen-ti">16.并发操作问题</span><a href="#16-bing-fa-cao-zuo-wen-ti" class="header-anchor">.</a></h3><blockquote>
+<p>影响数据一致性</p>
+</blockquote>
+<ol>
+<li><p>丢失修改</p>
+<p>两个事务T1和T2读入同一个数据并修改<strong>，事务T2提交的修改结果覆盖了事务T1提交的修改结果</strong>，导致提交的修改结果，导致事务T1的修改结果丢失。</p>
+</li>
+<li><p>脏读</p>
+<p>事务T1更改某一数据，并写入数据库，事务T2读取同一数据，但事<strong>务T1由于某种原因被撤销</strong>，此时事务T1更改过的数据恢复到原来的值，使事务T2读取到的值与数据库中的值不同，只是操作过程中的一个过渡性的、不需要的、脏的数据。</p>
+</li>
+<li><p>不可重复读</p>
+<p><strong>事务T1读取数据后，事务T2执行更改操作，使事务T1无法在现前一次读取的结果</strong></p>
+<ul>
+<li>事务T1读取某一数据之后，事务T2对其修改，T1再次读取时，结果与上次不一致</li>
+<li>事务T1按一定条件读取某些数据记录以后，事务T2删除了其中的部分记录，使事务T1按相同条件再次读取记录时，发现某些记录不存在了。（幻读的一种格式）</li>
+<li>事务T1按一定条件读取某些数据记录以后，事务T2插入了一些记录，使事务T1按相同的条件再次读取记录时，发现增加了记录。（幻读的一种格式，普遍）</li>
+</ul>
+</li>
+<li><p>幻读</p>
+<p>事务T1插入数据提交前，事务T2获取数据；T1事务提交后，T2获取数据（结果多了新纪录）– repeatable read隔离之前</p>
+<p>使用 repeatable read隔离之后：</p>
+<p>​    T2获取的数据，是不会有任何变化的，但是当我们更新数据后，在查询，就会发现原本没有的记录，就有了记录（细节看之前的事务）</p>
+</li>
+</ol>
+<h3><span id="17-suo">17.锁</span><a href="#17-suo" class="header-anchor">.</a></h3><ol>
+<li><p>排他锁（行级）</p>
+<blockquote>
+<p>写锁，X锁</p>
+</blockquote>
+<ul>
+<li>如果事务T对数据库对象加X锁，只允许事务T读取和更改操作，其他事务无法加锁 —— 保证数据不被同时读写</li>
+</ul>
+</li>
+<li><p>共享锁（表级）</p>
+<blockquote>
+<p>读锁，S锁</p>
+</blockquote>
+<ul>
+<li><p>如果事务T对数据库对象加S锁，只允许事务T读取，其他事务可以加S锁，但不能加X锁 ——</p>
+<p>保证数据不被同时写，可以读</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>锁定机制：</strong></p>
+<ol>
+<li><p>一级锁定协议：</p>
+<ol>
+<li><p>事务T在修改数据对象之前，必须先对其加X锁，并直到事务结束时才释放X锁；<strong>如果事务T只是读取，就不加锁</strong>； —— 只能防止丢失修改，但不能防止脏读、不可重复读。</p>
+<blockquote>
+<p>事务T 在修改数据之前 加了X锁，直到修改完毕T事务提交，此时数据已经修改完毕，不会被其他事务覆盖 —— 无丢失修改</p>
+</blockquote>
+<blockquote>
+<p>事务T 在查数据，由于没有加锁，事务T之前其他事务更新数据，事务T查到数据，接着其他事务回滚，事务T在查，发现该结果，与数据库中不一致 —— 存在脏读</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>二级锁定协议：</p>
+<ol>
+<li><p>在一级的基础上，加上事务T在读取之前必须加S锁，读完后立刻释放S锁 —— 进一步防止脏读，但是不防不可重复读</p>
+<blockquote>
+<p>事务T 在查数据之前加S锁，在事务T读的过程中，其他事务只能读，不能写（不可能存在回滚），所以事务T读完后，读取的数据是一直在数据库中存在的 —— 没有脏读</p>
+</blockquote>
+<blockquote>
+<p>事务T 在读取数据加S锁，但是这个S锁，在读后就释放了，因此在事务T释放S锁后，进行更新操作，事务T再次读取数加S锁，此时读到的数据和之前的数据不一致 —— 不可重复读</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>三级锁定协：</p>
+<ol>
+<li><p>在一级的基础上，加上事务T在读取之前必须加S锁，直到事务T结束后才释放S锁 </p>
+<blockquote>
+<p>查询等到事务T结束，才会释放S锁，即在整个事务T中间，其他的事务只能读，不能写，因此读取的数据始终是相同的 —— 没有不可重复读</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -1996,7 +2268,7 @@ settings（设置
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">113.1k</span>&nbsp;字
+                class="white-color">115.9k</span>&nbsp;字
             
             
             
