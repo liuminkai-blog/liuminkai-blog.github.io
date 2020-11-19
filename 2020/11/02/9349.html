@@ -560,13 +560,13 @@
 </blockquote>
 </li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201106015904710.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130110.png" alt></p>
 <ul>
 <li>用户的个人信息（社交网络、地理位置、用户日志等）爆发是增长，无法使用关系型数据库去存储，那么需要NoSQL数据库</li>
 </ul>
 <h3><span id="2-shi-me-shi-nosql">2、什么是NoSQL</span><a href="#2-shi-me-shi-nosql" class="header-anchor">.</a></h3><blockquote>
 <h4><span id="not-only-sql-gt-fei-guan-xi-xing-shu-ju-ku">Not Only SQL –&gt; 非关系型数据库</span><a href="#not-only-sql-gt-fei-guan-xi-xing-shu-ju-ku" class="header-anchor">.</a></h4></blockquote>
-<p><img src="/2020/11/02/9349/image-20201106020756406.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130153.png" alt></p>
 <blockquote>
 <h4><span id="nosql-te-dian">NoSQL特点</span><a href="#nosql-te-dian" class="header-anchor">.</a></h4></blockquote>
 <ol>
@@ -717,7 +717,7 @@
 <li><strong>丰富的特性</strong> – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
 <li>Redis运行在内存中但是可以<strong>持久化</strong>到磁盘，所以在对不同数据集进行高速读写时需要权衡内存，因为数据量不能大于硬件内存。在内存数据库方面的另一个优点是，相<strong>比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单</strong>，这样Redis可以做很多内部复杂性很强的事情。同时，<strong>在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问</strong>。</li>
 </ol>
-<p><img src="/2020/11/02/9349/image-20201110222302261.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130236.png" alt></p>
 <h3><span id="2-neng-gan-shi-me">2.能干什么？</span><a href="#2-neng-gan-shi-me" class="header-anchor">.</a></h3><ul>
 <li>内存存储、<strong>持久化（rdb，aof）</strong></li>
 <li>效率高、可以用于高速缓存</li>
@@ -739,16 +739,16 @@
 </blockquote>
 <p>①下载安装包</p>
 <p><a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a></p>
-<p><img src="/2020/11/02/9349/image-20201111195937022.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130247.png" alt></p>
 <p>②加压安装包（提前使用xshell和xftp上传压缩包到服务器上）</p>
 <blockquote>
 <p>压缩包在 /app/目录下</p>
 </blockquote>
 <p>在/usr/local/ 下创建redis文件夹，并进入到文件夹中</p>
-<p><img src="/2020/11/02/9349/image-20201111231127710.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130258.png" alt></p>
 <p>解压压缩包到该文件夹下</p>
 <pre class="line-numbers language-bash"><code class="language-bash"> <span class="token function">tar</span> -zxvf /app/redis-6.0.6.tar.gz -C ./<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201111231343241.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130303.png" alt></p>
 <p>③编译并安装（保证安装了编译环境）</p>
 <blockquote>
 <p>没有安装编译环境，需要 yum install gcc-c++</p>
@@ -767,20 +767,20 @@ scl <span class="token function">enable</span> devtoolset-9 <span class="token f
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> redis-6.0.6
 
 <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201111231857081.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130308.png" alt></p>
 <p>编译后，默认安装路径在 <code>/usr/local/bin</code></p>
-<p><img src="/2020/11/02/9349/image-20201112010411592.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130313.png" alt></p>
 <p>④安装系统服务并后台启动</p>
 <blockquote>
 <p>可能会报错：</p>
-<p><img src="/2020/11/02/9349/image-20201112000455623.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130318.png" alt></p>
 <p>解决方法：vim install_server.sh，注释如下图内容</p>
-<p><img src="/2020/11/02/9349/image-20201112000331356.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130327.png" alt></p>
 </blockquote>
 <p><strong>安装系统服务</strong>（可以指定选项，下面默认）</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> utils
 ./install_server.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201112000900696.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130336.png" alt></p>
 <blockquote>
 <p>默认的配置文件：/etc/redis/6379.conf（安装成功后，默认后台自启）</p>
 </blockquote>
@@ -792,26 +792,26 @@ scl <span class="token function">enable</span> devtoolset-9 <span class="token f
 /redis安装目录/redis-cli <span class="token function">shutdown</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <pre class="line-numbers language-bash"><code class="language-bash">systemctl start redis_6379.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201112002255049.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130344.png" alt></p>
 <p>⑥客户端连接测试</p>
-<p><img src="/2020/11/02/9349/image-20201112002547937.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130348.png" alt></p>
 <p>⑦设置远程连接</p>
 <pre class="line-numbers language-bash"><code class="language-bash">vim /etc/redis/6379.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201112003116560.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201116102102532.png" alt="关闭保护模式"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130353.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130357.png" alt="关闭保护模式"></p>
 <blockquote>
 <p>然后重启服务即可：</p>
 <pre class="line-numbers language-bash"><code class="language-bash">systemctl restart redis_6379.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </blockquote>
 <p>⑧配置访问密码</p>
 <pre class="line-numbers language-bash"><code class="language-bash">vim /etc/redis/6379.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201112003914126.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130401.png" alt></p>
 <p>重启服务</p>
 <pre class="line-numbers language-bash"><code class="language-bash">systemctl restart redis_6379.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>客户端连接测试</p>
-<p><img src="/2020/11/02/9349/image-20201112004527290.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130407.png" alt></p>
 <p>关闭连接</p>
-<p><img src="/2020/11/02/9349/image-20201112011605369.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130411.png" alt></p>
 <h3><span id="5-xing-neng-ce-shi">5.性能测试</span><a href="#5-xing-neng-ce-shi" class="header-anchor">.</a></h3><blockquote>
 <p>使用自带的<code>redis-benchmark</code>工具测试即可</p>
 </blockquote>
@@ -913,7 +913,7 @@ scl <span class="token function">enable</span> devtoolset-9 <span class="token f
 </tbody></table>
 <h4><span id="ce-shi">测试</span><a href="#ce-shi" class="header-anchor">.</a></h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 测试：100个并发连接  100000请求</span>
 redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201112013211391.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130417.png" alt></p>
 <h3><span id="6-ji-ben-zhi-shi-shuo-ming-ji-ben-ming-ling">6.基本知识说明（基本命令）</span><a href="#6-ji-ben-zhi-shi-shuo-ming-ji-ben-ming-ling" class="header-anchor">.</a></h3><blockquote>
 <p>如果觉得这里命令不太好看，去这个博客<a href="https://www.cnblogs.com/wlandwl/p/redis.html，或者" target="_blank" rel="noopener">https://www.cnblogs.com/wlandwl/p/redis.html，或者</a> 官网：<a href="http://www.redis.cn/commands.html" target="_blank" rel="noopener">http://www.redis.cn/commands.html</a></p>
 </blockquote>
@@ -921,19 +921,19 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <h4><span id="1-redis-you-16-ge-shu-ju-ku-0-15-mo-ren-shi-yong-di-0-ge">1.Redis 有16个数据库（0~15），默认使用第0个</span><a href="#1-redis-you-16-ge-shu-ju-ku-0-15-mo-ren-shi-yong-di-0-ge" class="header-anchor">.</a></h4><blockquote>
 <p>可以使用 <code>select</code>进行切换</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112013719183.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130423.png" alt></p>
 <h4><span id="2-cha-kan-shu-ju-ku-da-xiao">2.查看数据库大小</span><a href="#2-cha-kan-shu-ju-ku-da-xiao" class="header-anchor">.</a></h4><blockquote>
 <p>使用 <code>dbsize</code>查看数据库大小</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112013932066.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130427.png" alt></p>
 <h4><span id="3-cha-kan-suo-you-de-key-dang-qian-ku">3.查看所有的key（当前库）</span><a href="#3-cha-kan-suo-you-de-key-dang-qian-ku" class="header-anchor">.</a></h4><blockquote>
 <p>使用 <code>keys *</code></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112014210532.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130431.png" alt></p>
 <h4><span id="4-qing-chu-dang-qian-shu-ju-ku">4.清除当前数据库</span><a href="#4-qing-chu-dang-qian-shu-ju-ku" class="header-anchor">.</a></h4><blockquote>
 <p><code>flushdb</code></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112014841540.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130435.png" alt></p>
 <h4><span id="5-qing-kong-suo-you-shu-ju-ku">5.清空所有数据库</span><a href="#5-qing-kong-suo-you-shu-ju-ku" class="header-anchor">.</a></h4><blockquote>
 <p><code>flushall</code></p>
 </blockquote>
@@ -945,17 +945,17 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <h4><span id="7-pan-duan-key-shi-fou-cun-zai">7.判断key是否存在</span><a href="#7-pan-duan-key-shi-fou-cun-zai" class="header-anchor">.</a></h4><blockquote>
 <p><code>exists</code> key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112021614868.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130441.png" alt></p>
 <h4><span id="8-yi-chu-key">8.移除key</span><a href="#8-yi-chu-key" class="header-anchor">.</a></h4><blockquote>
 <p><code>move</code> key 1 // 1表示当前数据库  </p>
 <p><code>del</code>  key  // 删除当前数据库的key（可以多个）</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112021922036.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130447.png" alt></p>
 <h4><span id="9-she-zhi-key-de-guo-qi-shi-jian">9.设置key的过期时间</span><a href="#9-she-zhi-key-de-guo-qi-shi-jian" class="header-anchor">.</a></h4><blockquote>
 <p><code>expire</code> key 时间  // 单位时间为s</p>
 <p><code>ttl</code> key  // 查看剩余存活时间</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112022845295.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130453.png" alt></p>
 <h4><span id="10-cha-kan-dang-qian-key-de-lei-xing">10.查看当前key的类型</span><a href="#10-cha-kan-dang-qian-key-de-lei-xing" class="header-anchor">.</a></h4><blockquote>
 <p><code>type</code> key</p>
 </blockquote>
@@ -965,15 +965,15 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <ul>
 <li><mark>如果当前 key 不存在，作用相当于 set key</mark></li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201112155948212.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130458.png" alt></p>
 <h4><span id="12-huo-qu-zi-fu-chuan-chang-du-string">12.获取字符串长度（String）</span><a href="#12-huo-qu-zi-fu-chuan-chang-du-string" class="header-anchor">.</a></h4><blockquote>
 <p><code>strlen</code>  key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112160438509.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130502.png" alt></p>
 <h4><span id="13-zi-fu-chuan-i-cao-zuo-ke-yong-yu-yue-du-liang-shi-xian-string">13.字符串i++操作（可用于阅读量实现）（String）</span><a href="#13-zi-fu-chuan-i-cao-zuo-ke-yong-yu-yue-du-liang-shi-xian-string" class="header-anchor">.</a></h4><blockquote>
 <p><code>incr</code> key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112160808692.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130506.png" alt></p>
 <h5><span id="tong-li-i">同理，i–</span><a href="#tong-li-i" class="header-anchor">.</a></h5><blockquote>
 <p><code>decr</code> key</p>
 </blockquote>
@@ -981,7 +981,7 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <p><code>incrby</code> key 步长</p>
 <p><code>decrby</code> key 步长</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112161046812.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130509.png" alt></p>
 <h4><span id="14-zi-fu-chuan-pian-duan-range-string">14.字符串片段 Range （String）</span><a href="#14-zi-fu-chuan-pian-duan-range-string" class="header-anchor">.</a></h4><blockquote>
 <p><code>getrange</code> key startIndex endIndex  </p>
 </blockquote>
@@ -989,7 +989,7 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <li><strong>对应java里的substring</strong>（<mark>但是这里会endIndex是一个闭区间</mark>）</li>
 <li>特例，endIndex = -1 时，表示从startIndex 到最后</li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201112161327671.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130513.png" alt></p>
 <h4><span id="15-zi-fu-chuan-ti-huan-string">15.字符串替换 （String）</span><a href="#15-zi-fu-chuan-ti-huan-string" class="header-anchor">.</a></h4><blockquote>
 <p><code>setrange</code> key  index  replaceString </p>
 </blockquote>
@@ -997,22 +997,22 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <li><strong>对应java里的replace</strong></li>
 <li>注意，如果replaceString是一个字符串，那么会替换源字符串中index后replaceString长度的片段，结果如下</li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201112162331874.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130517.png" alt></p>
 <h4><span id="16-te-shu-set-she-zhi-string">16.特殊set设置 （String）</span><a href="#16-te-shu-set-she-zhi-string" class="header-anchor">.</a></h4><h5><span id="setex-set-with-expire">setex（set with expire）</span><a href="#setex-set-with-expire" class="header-anchor">.</a></h5><blockquote>
 <p><code>setex</code>   key  时间  value  // 设置值，带过期时间</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112163512238.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130520.png" alt></p>
 <h5><span id="setnx-set-if-not-exist">setnx（set if not exist）</span><a href="#setnx-set-if-not-exist" class="header-anchor">.</a></h5><blockquote>
 <p><code>setnx</code>   key  value // 如果不存在，则设置</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112163835546.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130524.png" alt></p>
 <h4><span id="17-pi-liang-she-zhi-pi-liang-huo-qu-yuan-zi-xing-cao-zuo-string">17.批量设置、批量获取（原子性操作） （String）</span><a href="#17-pi-liang-she-zhi-pi-liang-huo-qu-yuan-zi-xing-cao-zuo-string" class="header-anchor">.</a></h4><blockquote>
 <p><code>mset</code>  k1  v1  k2  v2  …</p>
 </blockquote>
 <blockquote>
 <p><code>mget</code>  k1  k2 …</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112164518065.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130527.png" alt></p>
 <ul>
 <li><strong>特殊</strong><ul>
 <li><code>msetnx</code> 批量设置</li>
@@ -1022,15 +1022,15 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <h4><span id="18-she-zhi-gao-jie-string">18.设置高阶 （String）</span><a href="#18-she-zhi-gao-jie-string" class="header-anchor">.</a></h4><h5><span id="1-getset">1）getset</span><a href="#1-getset" class="header-anchor">.</a></h5><blockquote>
 <p><code>getset</code>  key  value  // 先get再set（如果不存在，先返回nil，在设置值；如果存在，就先返回原值，再设置新值）</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112165634596.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130531.png" alt></p>
 <h4><span id="19-chong-ming-ming-key">19.重命名key</span><a href="#19-chong-ming-ming-key" class="header-anchor">.</a></h4><blockquote>
 <p><code>rename</code>   key   newName</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201116113141597.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130541.png" alt></p>
 <h4><span id="20-fan-hui-yi-ge-sui-ji-key">20.返回一个随机key</span><a href="#20-fan-hui-yi-ge-sui-ji-key" class="header-anchor">.</a></h4><blockquote>
 <p><code>randomKey</code></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201116113106940.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130548.png" alt></p>
 <h4><span id="21-shou-dong-chi-jiu-hua-cao-zuo">21.手动持久化操作</span><a href="#21-shou-dong-chi-jiu-hua-cao-zuo" class="header-anchor">.</a></h4><blockquote>
 <p><code>save</code>  阻塞</p>
 </blockquote>
@@ -1089,8 +1089,8 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <h4><span id="25-guan-bi-redis-fu-wu">25.关闭redis服务</span><a href="#25-guan-bi-redis-fu-wu" class="header-anchor">.</a></h4><blockquote>
 <p><code>shutdown</code></p>
 </blockquote>
-<h4><span id="26-cha-kan-rdb-wen-jian-cun-fang-de-mu-lu">26.<strong>查看rdb文件存放的目录</strong></span><a href="#26-cha-kan-rdb-wen-jian-cun-fang-de-mu-lu" class="header-anchor">.</a></h4><p><img src="/2020/11/02/9349/image-20201117094047195.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117094120662.png" alt></p>
+<h4><span id="26-cha-kan-rdb-wen-jian-cun-fang-de-mu-lu">26.<strong>查看rdb文件存放的目录</strong></span><a href="#26-cha-kan-rdb-wen-jian-cun-fang-de-mu-lu" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130556.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130600.png" alt></p>
 <h4><span id="27-cha-kan-fu-wu-qi-de-xin-xi">27.查看服务器的信息</span><a href="#27-cha-kan-fu-wu-qi-de-xin-xi" class="header-anchor">.</a></h4><blockquote>
 <p><code>info</code>  参数</p>
 </blockquote>
@@ -1128,44 +1128,44 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <p><code>rpush</code>  key  value</p>
 <p><code>lrange</code>  key  0  -1</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112170900884.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201112170918967.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130607.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130610.png" alt></p>
 <h4><span id="2-cong-tou-bu-wei-bu-yi-chu-shu-ju">2.从头部/尾部<mark>移除</mark>数据</span><a href="#2-cong-tou-bu-wei-bu-yi-chu-shu-ju" class="header-anchor">.</a></h4><blockquote>
 <p><code>lpop</code>  key  </p>
 <p><code>rpop</code>  key  </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112171037789.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130614.png" alt></p>
 <h4><span id="3-huo-qu-zhi-ding-suo-yin-de-zhi">3.<mark>获取</mark>指定索引的值</span><a href="#3-huo-qu-zhi-ding-suo-yin-de-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>lindex</code>   key  index</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112171223518.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130617.png" alt></p>
 <h4><span id="4-huo-qu-lie-biao-chang-du">4.获取列表长度</span><a href="#4-huo-qu-lie-biao-chang-du" class="header-anchor">.</a></h4><blockquote>
 <p><code>llen</code>  key  </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112171308314.png" alt="image-20201112171308314"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130623.png" alt="image-20201112171308314"></p>
 <h4><span id="5-yi-chu-zhi-ding-de-zhi">5.移除指定的值</span><a href="#5-yi-chu-zhi-ding-de-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>lrem</code>   key  count(移除的个数)  element  </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112215400522.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130627.png" alt></p>
 <h4><span id="6-lie-biao-xiu-jian-trim">6.列表修剪 trim</span><a href="#6-lie-biao-xiu-jian-trim" class="header-anchor">.</a></h4><blockquote>
 <p><code>ltrim</code>  key  startIndex  endIndex  </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112215856038.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130632.png" alt></p>
 <h4><span id="7-ye-ke-yi-shi-yong-set">7.也可以使用set</span><a href="#7-ye-ke-yi-shi-yong-set" class="header-anchor">.</a></h4><blockquote>
 <p><code>lset</code>   key   index   value  // 将列表中 指定index的值替换为对应的value</p>
 </blockquote>
 <ul>
 <li>需要保证key和index都存在，否则报错</li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201112221822055.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130638.png" alt></p>
 <h4><span id="8-cha-ru-zhi-ding-de-zhi">8.插入指定的值</span><a href="#8-cha-ru-zhi-ding-de-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>linsert</code>   key   before|after   pivot(那个单词后)   value </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112222920625.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130644.png" alt></p>
 <h4><span id="9-fu-za-cao-zuo">9.复杂操作</span><a href="#9-fu-za-cao-zuo" class="header-anchor">.</a></h4><h5><span id="1-rpoplpush">1）rpoplpush</span><a href="#1-rpoplpush" class="header-anchor">.</a></h5><blockquote>
 <p><code>rpoplpush</code>    source   destination(newList)  // 先移除source最后的元素，再将该元素添加到newList中</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112220927016.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130703.png" alt></p>
 <h4><span id="shi-yong-chang-jing">使用场景：</span><a href="#shi-yong-chang-jing" class="header-anchor">.</a></h4><ol>
 <li>栈（lpush、lpop）</li>
 <li>队列（lpush、rpop）<ol>
@@ -1183,37 +1183,37 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p><code>smembers</code>   key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112225820635.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130707.png" alt></p>
 <h4><span id="2-pan-ding-cheng-yuan-shi-fou-cun-zai">2.判定成员是否存在</span><a href="#2-pan-ding-cheng-yuan-shi-fou-cun-zai" class="header-anchor">.</a></h4><blockquote>
 <p><code>sismember</code>   key    member</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112230011640.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130711.png" alt></p>
 <h4><span id="3-cha-kan-ji-he-chang-du-te-bie">3.查看集合长度（特别）</span><a href="#3-cha-kan-ji-he-chang-du-te-bie" class="header-anchor">.</a></h4><blockquote>
 <p><code>scard</code>   key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112230106517.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130716.png" alt></p>
 <h4><span id="4-yi-chu-zhi-ding-de-cheng-yuan">4.移除指定的成员</span><a href="#4-yi-chu-zhi-ding-de-cheng-yuan" class="header-anchor">.</a></h4><blockquote>
 <p><code>srem</code>   key    member</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112230217252.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130719.png" alt></p>
 <h4><span id="5-huo-qu-ji-he-zhong-de-sui-ji-cheng-yuan">5.获取集合中的随机成员</span><a href="#5-huo-qu-ji-he-zhong-de-sui-ji-cheng-yuan" class="header-anchor">.</a></h4><blockquote>
 <p><code>srandmember</code>    key   [count]</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112230555468.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130722.png" alt></p>
 <h4><span id="6-sui-ji-yi-chu-cheng-yuan">6.随机移除成员</span><a href="#6-sui-ji-yi-chu-cheng-yuan" class="header-anchor">.</a></h4><blockquote>
 <p><code>spop</code>    key   [count]</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112230739790.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130726.png" alt></p>
 <h4><span id="7-yi-dong-ji-he-cheng-yuan-dao-qi-ta-ji-he">7.移动集合成员到其他集合</span><a href="#7-yi-dong-ji-he-cheng-yuan-dao-qi-ta-ji-he" class="header-anchor">.</a></h4><blockquote>
 <p><code>smove</code>   source    destination   member(需要移动的成员)</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201112231034282.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130730.png" alt></p>
 <h4><span id="8-shu-zi-ji-he-lei">8.数字集合类：</span><a href="#8-shu-zi-ji-he-lei" class="header-anchor">.</a></h4><ul>
 <li>差集 <code>sdiff</code>   key1 ，key2 …</li>
 <li>交集（共同好友）<code>sinter</code>   key1，key2 …</li>
 <li>并集 <code>sunion</code>   key1 ，key2 …</li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201112231240765.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130734.png" alt></p>
 <h3><span id="hash-ha-xi">Hash（哈希）</span><a href="#hash-ha-xi" class="header-anchor">.</a></h3><blockquote>
 <p>key-Map  or  key-&lt;k,v&gt;，value是一个Map</p>
 </blockquote>
@@ -1229,36 +1229,36 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p><code>hget</code>    key   field</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114215225462.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201114215251338.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130741.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130745.png" alt></p>
 <h4><span id="2-huo-qu-suo-you-map-zi-duan-ji-zhi">2.获取所有Map字段及值</span><a href="#2-huo-qu-suo-you-map-zi-duan-ji-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>hgetall</code>   key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114215449582.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130748.png" alt></p>
 <h4><span id="3-shan-chu-map-zhong-de-zi-duan">3.删除Map中的字段</span><a href="#3-shan-chu-map-zhong-de-zi-duan" class="header-anchor">.</a></h4><blockquote>
 <p><code>hdel</code>    key    field</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114215624190.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130753.png" alt></p>
 <h4><span id="4-cha-kan-map-zhong-mou-zi-duan-shi-fou-cun-zai">4.查看Map中某字段是否存在</span><a href="#4-cha-kan-map-zhong-mou-zi-duan-shi-fou-cun-zai" class="header-anchor">.</a></h4><blockquote>
 <p><code>hexists</code>    key    field</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114215917012.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130758.png" alt></p>
 <h4><span id="5-huo-qu-suo-you-zi-duan-huo-zhe-suo-you-zi-duan-dui-ying-de-zhi">5.获取所有字段或者所有字段对应的值</span><a href="#5-huo-qu-suo-you-zi-duan-huo-zhe-suo-you-zi-duan-dui-ying-de-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>hkeys</code>    key    // 此处的key是Map名</p>
 </blockquote>
 <blockquote>
 <p><code>hvals</code>    key    </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114220021694.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130801.png" alt></p>
 <h4><span id="6-zeng-liang-i">6.增量i++</span><a href="#6-zeng-liang-i" class="header-anchor">.</a></h4><blockquote>
 <p><code>hincrby</code>   key   field    value</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114220408509.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130805.png" alt></p>
 <h4><span id="7-bu-cun-zai-jiu-tian-jia-cheng-gong">7.不存在，就添加成功</span><a href="#7-bu-cun-zai-jiu-tian-jia-cheng-gong" class="header-anchor">.</a></h4><blockquote>
 <p><code>hsetnx</code>    key    field    value  // field 在map中不存在就添加这个值，否则不做改变</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114220742599.png" alt></p>
-<h4><span id="8-gua-he-cun-chu-dui-xiang">8.适合存储对象</span><a href="#8-gua-he-cun-chu-dui-xiang" class="header-anchor">.</a></h4><p><img src="/2020/11/02/9349/image-20201114220915713.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130808.png" alt></p>
+<h4><span id="8-gua-he-cun-chu-dui-xiang">8.适合存储对象</span><a href="#8-gua-he-cun-chu-dui-xiang" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130813.png" alt></p>
 <h3><span id="zset-you-xu-ji-he">Zset（有序集合）</span><a href="#zset-you-xu-ji-he" class="header-anchor">.</a></h3><blockquote>
 <p>在Set基础上增加了一个值（用于排序的值）</p>
 </blockquote>
@@ -1273,7 +1273,7 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p><code>zrange</code>   key    startIndex    endIndex</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114221621537.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130816.png" alt></p>
 <h4><span id="2-pai-xu-shi-xian-sheng-xu-he-jiang-xu">2.排序实现（升序和降序）</span><a href="#2-pai-xu-shi-xian-sheng-xu-he-jiang-xu" class="header-anchor">.</a></h4><blockquote>
 <p><code>zrangebyscore</code>     key      -inf      +inf      [withscores]  // 升序</p>
 <p><code>zrange</code>     key    0      -1</p>
@@ -1288,15 +1288,15 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <h4><span id="3-yi-chu-zhi-ding-de-zhi">3.移除指定的值</span><a href="#3-yi-chu-zhi-ding-de-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>zrem</code>    key    value</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114225707042.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130821.png" alt></p>
 <h4><span id="4-ji-he-de-chang-du">4.集合的长度</span><a href="#4-ji-he-de-chang-du" class="header-anchor">.</a></h4><blockquote>
 <p><code>zcard</code>    key </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114230040396.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130826.png" alt></p>
 <h4><span id="5-zhi-ding-qu-jian-de-ji-he-chang-du">5.指定区间的集合长度</span><a href="#5-zhi-ding-qu-jian-de-ji-he-chang-du" class="header-anchor">.</a></h4><blockquote>
 <p><code>zcount</code>    key     startIndex    endIndex</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114230249718.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130829.png" alt></p>
 <h2><span id="si-san-chong-te-shu-shu-ju-lei-xing">四、三种特殊数据类型</span><a href="#si-san-chong-te-shu-shu-ju-lei-xing" class="header-anchor">.</a></h2><h3><span id="geospatial">Geospatial</span><a href="#geospatial" class="header-anchor">.</a></h3><blockquote>
 <p>朋友的定位，附近的人，打车距离计算</p>
 <p>底层是 <code>Zset</code>，<strong>即可以使用Zset的命令操作Geospatial</strong></p>
@@ -1310,11 +1310,11 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p><code>geoadd</code>     key    经度    纬度     名称</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114231815041.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130835.png" alt></p>
 <h4><span id="2-huo-qu-zhi-ding-wei-zhi-de-di-li-wei-zhi">2.获取指定位置的地理位置</span><a href="#2-huo-qu-zhi-ding-wei-zhi-de-di-li-wei-zhi" class="header-anchor">.</a></h4><blockquote>
 <p><code>geopos</code>     key     名称</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114233528014.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130839.png" alt></p>
 <h4><span id="3-fan-hui-liang-ge-gei-ding-wei-zhi-zhi-jian-de-ju-chi-zhi-xian-ju-chi">3.返回两个给定位置之间的距离（直线距离）</span><a href="#3-fan-hui-liang-ge-gei-ding-wei-zhi-zhi-jian-de-ju-chi-zhi-xian-ju-chi" class="header-anchor">.</a></h4><ul>
 <li>单位：<ul>
 <li>m ：米</li>
@@ -1327,26 +1327,26 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p><code>geodist</code>    key     </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114233508574.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201114233549168.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130844.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130848.png" alt></p>
 <h4><span id="4-yi-gei-ding-zhi-wei-ban-jing-yi-jing-du-he-wei-du-wei-zhong-xin-cha-zhao">4.以给定值为半径，以经度和维度为中心，查找</span><a href="#4-yi-gei-ding-zhi-wei-ban-jing-yi-jing-du-he-wei-du-wei-zhong-xin-cha-zhao" class="header-anchor">.</a></h4><ul>
 <li>附近的人（获得所有附近的人的地址（开启定位））通过半径查询</li>
 </ul>
 <blockquote>
 <p><code>georadius</code>     key     经度       纬度         半径         单位</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114235452826.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130852.png" alt></p>
 <h4><span id="5-yi-gei-ding-zhi-wei-ban-jing-yi-cheng-yuan-cheng-shi-ming-wei-zhong-xin-cha-zhao">5.以给定值为半径，以成员(城市名)为中心，查找</span><a href="#5-yi-gei-ding-zhi-wei-ban-jing-yi-cheng-yuan-cheng-shi-ming-wei-zhong-xin-cha-zhao" class="header-anchor">.</a></h4><blockquote>
 <p><code>georadiusbymember</code>     key     成员名       半径         单位</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114235534941.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130856.png" alt></p>
 <h4><span id="6-fan-hui-yi-ge-huo-duo-ge-wei-zhi-yuan-su-de-geohash-biao-shi">6.返回一个或多个位置元素的geohash表示</span><a href="#6-fan-hui-yi-ge-huo-duo-ge-wei-zhi-yuan-su-de-geohash-biao-shi" class="header-anchor">.</a></h4><ul>
 <li>如果两个字符串越相似，表示两个地方越近</li>
 </ul>
 <blockquote>
 <p><code>geohash</code>      key       成员1       成员2</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201114235643834.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130900.png" alt></p>
 <h3><span id="hyperloglog">Hyperloglog</span><a href="#hyperloglog" class="header-anchor">.</a></h3><blockquote>
 <p>基数统计的算法</p>
 </blockquote>
@@ -1373,7 +1373,7 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p>合并：<code>pfmerge</code>      destkey      sourceKey1      sourceKey2     [sourceKey3 …] </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201115213230322.png" alt="image-20201115213230322"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130905.png" alt="image-20201115213230322"></p>
 <h3><span id="bitmaps">Bitmaps</span><a href="#bitmaps" class="header-anchor">.</a></h3><blockquote>
 <p>位存储，位图（操作二进制）</p>
 </blockquote>
@@ -1382,17 +1382,17 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <blockquote>
 <p><code>setbit</code>    key    offset     bit</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201115215559838.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130909.png" alt></p>
 <p><strong>查看单天打卡情况</strong></p>
 <blockquote>
 <p><code>getbit</code>    key    offset </p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201115215701523.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130914.png" alt></p>
 <p><strong>统计所有打卡的天数</strong></p>
 <blockquote>
 <p><code>bitcount</code>    key</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201115215736405.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130919.png" alt></p>
 <h2><span id="wu-shi-wu">五、事务</span><a href="#wu-shi-wu" class="header-anchor">.</a></h2><blockquote>
 <p>注意：Redis单条命令是保证原子性的；<mark><strong>但是事务不保证原子性！</strong></mark></p>
 <p><mark><strong>Redis事务没有隔离级别的概念</strong>，所有的命令在事务中，并没有直接被执行，只有发起执行命令时才执行</mark></p>
@@ -1408,21 +1408,21 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 </ul>
 <blockquote>
 <h3><span id="zheng-chang-shi-wu-de-zhi-xing">正常事务的执行</span><a href="#zheng-chang-shi-wu-de-zhi-xing" class="header-anchor">.</a></h3></blockquote>
-<p><img src="/2020/11/02/9349/image-20201115221844106.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130924.png" alt></p>
 <blockquote>
 <h3><span id="qu-xiao-shi-wu">取消事务</span><a href="#qu-xiao-shi-wu" class="header-anchor">.</a></h3></blockquote>
 <p><code>discard</code></p>
-<p><img src="/2020/11/02/9349/image-20201115222127141.png" alt="、"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130927.png" alt="、"></p>
 <blockquote>
 <h3><span id="yi-chang-zhi-xing">异常执行</span><a href="#yi-chang-zhi-xing" class="header-anchor">.</a></h3></blockquote>
 <h4><span id="1-bian-yi-shi-ming-ling-xie-cuo">1.编译时（命令写错）</span><a href="#1-bian-yi-shi-ming-ling-xie-cuo" class="header-anchor">.</a></h4><blockquote>
 <p><strong>整个命令队列都不会执行</strong></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201115223355432.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130931.png" alt></p>
 <h4><span id="2-yun-xing-shi">2.运行时</span><a href="#2-yun-xing-shi" class="header-anchor">.</a></h4><blockquote>
 <p><strong>报错语句，会抛出异常；其他语句照样运行</strong></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201115223545215.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130935.png" alt></p>
 <h3><span id="jian-kong-watch-mian-shi-chang-wen">监控 Watch（面试常问）</span><a href="#jian-kong-watch-mian-shi-chang-wen" class="header-anchor">.</a></h3><h4><span id="le-guan-suo-shi-xian-miao-sha">乐观锁：实现秒杀</span><a href="#le-guan-suo-shi-xian-miao-sha" class="header-anchor">.</a></h4><ul>
 <li>顾名思义，很乐观，认为什么时候都不会出现问题，所以不会加锁！（更新数据的时候去判断一下，在此期间是否有人修改过这个数据）<ul>
 <li>获取version</li>
@@ -1433,17 +1433,17 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
 <h4><span id="bei-guan-suo">悲观锁</span><a href="#bei-guan-suo" class="header-anchor">.</a></h4><ul>
 <li>顾名思义，很悲观，认为什么时候都会出现问题，无论做什么都会加锁！</li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201115230320535.png" alt></p>
-<h4><span id="redis-shi-xian-le-guan-suo">Redis实现乐观锁</span><a href="#redis-shi-xian-le-guan-suo" class="header-anchor">.</a></h4><h5><span id="zhi-xing-cheng-gong-dan-xian-cheng-mei-you-gan-rao-qing-kuang">执行成功（单线程没有干扰情况）</span><a href="#zhi-xing-cheng-gong-dan-xian-cheng-mei-you-gan-rao-qing-kuang" class="header-anchor">.</a></h5><p><img src="/2020/11/02/9349/image-20201115230641186.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130942.png" alt></p>
+<h4><span id="redis-shi-xian-le-guan-suo">Redis实现乐观锁</span><a href="#redis-shi-xian-le-guan-suo" class="header-anchor">.</a></h4><h5><span id="zhi-xing-cheng-gong-dan-xian-cheng-mei-you-gan-rao-qing-kuang">执行成功（单线程没有干扰情况）</span><a href="#zhi-xing-cheng-gong-dan-xian-cheng-mei-you-gan-rao-qing-kuang" class="header-anchor">.</a></h5><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130946.png" alt></p>
 <h5><span id="ce-shi-duo-xian-cheng-xiu-gai-zhi-shi-yong-watch-ke-yi-dang-zuo-redis-de-le-guan-suo-cao-zuo">测试多线程修改值，使用watch可以当作redis的<mark>乐观锁操作</mark></span><a href="#ce-shi-duo-xian-cheng-xiu-gai-zhi-shi-yong-watch-ke-yi-dang-zuo-redis-de-le-guan-suo-cao-zuo" class="header-anchor">.</a></h5><p><strong>演示</strong>‘</p>
 <p>①开启俩个，客户端，模拟多线程情况</p>
-<p><img src="/2020/11/02/9349/image-20201116083639168.png" alt="image-20201116083639168"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119130959.png" alt="image-20201116083639168"></p>
 <p>②左边支出20元（但是不执行事务），然后右边修改money的数值</p>
-<p><img src="/2020/11/02/9349/image-20201116084159165.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131006.png" alt></p>
 <p>③左边执行事务，发现执行操作返回nil，查看money和out，发现事务并没有被执行（确实有乐观锁的效果）</p>
-<p><img src="/2020/11/02/9349/image-20201116084531194.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131010.png" alt></p>
 <p><strong>如果修改失败获取最新的值就好（<mark><code>exec</code>、<code>unwatch</code>、``discard`都可以清除连接时所有的监视）</mark></strong></p>
-<p><img src="/2020/11/02/9349/image-20201116085255106.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131014.png" alt></p>
 <h5><span id="xiao-jie">小结</span><a href="#xiao-jie" class="header-anchor">.</a></h5><ul>
 <li>使用Redis实现乐观锁（watch监听某一个key，获取其最新的value）<ul>
 <li>在提交事务时，如果key的value没有发生变化，则成功执行</li>
@@ -1486,7 +1486,7 @@ redis-benchmark -c 100 -n 100000<span aria-hidden="true" class="line-numbers-row
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>jedis<span class="token punctuation">.</span><span class="token function">ping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 测试连接</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201116110936832.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131021.png" alt></p>
 <ol start="2">
 <li><p><strong>操作</strong></p>
 <pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 连通</span>
@@ -1569,7 +1569,7 @@ Transaction multi <span class="token operator">=</span> jedis<span class="token 
 </ul>
 </li>
 </ul>
-<h4><span id="xin-jian-springboot-xiang-mu">①新建springboot项目</span><a href="#xin-jian-springboot-xiang-mu" class="header-anchor">.</a></h4><p><img src="/2020/11/02/9349/image-20201116120907774.png" alt></p>
+<h4><span id="xin-jian-springboot-xiang-mu">①新建springboot项目</span><a href="#xin-jian-springboot-xiang-mu" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131030.png" alt></p>
 <h4><span id="redisautoconfiguration-yuan-ma-fen-xi">② <code>RedisAutoConfiguration</code>源码分析</span><a href="#redisautoconfiguration-yuan-ma-fen-xi" class="header-anchor">.</a></h4><p><img src="/2020/11/02/9349/image-20201116122843330.png" alt></p>
 <h4><span id="zheng-he-ce-shi">③整合测试</span><a href="#zheng-he-ce-shi" class="header-anchor">.</a></h4><p>1、导入依赖</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
@@ -1602,15 +1602,15 @@ Transaction multi <span class="token operator">=</span> jedis<span class="token 
         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201116125607586.png" alt="结果展示"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131040.png" alt="结果展示"></p>
 <blockquote>
 <p>但是存在问题，没有序列化，存储在Redis中的中文会被转义，如下图</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201116130600109.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131044.png" alt></p>
 <blockquote>
 <p>为啥会出现这个情况？ RedisTemplate默认序列化使用JDK的，我们需要使用JSON格式</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201116131136264.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131048.png" alt></p>
 <blockquote>
 <p>如何解决？我们需要编写自定义Redis配置类，自定义RedisTemplate</p>
 </blockquote>
@@ -1648,7 +1648,7 @@ Transaction multi <span class="token operator">=</span> jedis<span class="token 
 <blockquote>
 <p>自定义RedisTemplate后，再启动③的测试类，结果Redis中正常显示</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201116142403348.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131054.png" alt></p>
 <h4><span id="redisutils-gong-ju-lei">⑤<mark>RedisUtils工具类</mark></span><a href="#redisutils-gong-ju-lei" class="header-anchor">.</a></h4><blockquote>
 <p>日常开发我们都不会使用原始的<code>RedisTemplate</code>，都会封装一个RedisUtils工具类便于使用</p>
 </blockquote>
@@ -2245,12 +2245,12 @@ Transaction multi <span class="token operator">=</span> jedis<span class="token 
 <ul>
 <li><strong>大小写不敏感</strong></li>
 </ul>
-<p><img src="/2020/11/02/9349/image-20201116145708391.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131119.png" alt></p>
 <blockquote>
 <h3><span id="bao-han">包含</span><a href="#bao-han" class="header-anchor">.</a></h3></blockquote>
 <ul>
 <li><p>可以包含多个配置文件（即，这些文件导入到主配置文件 <code>Redis.conf</code> 中）</p>
-<p><img src="/2020/11/02/9349/image-20201116145905808.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131123.png" alt></p>
 </li>
 </ul>
 <blockquote>
@@ -2295,9 +2295,9 @@ rdbchecksum <span class="token function">yes</span> <span class="token comment" 
 <blockquote>
 <h4><span id="an-quan-security">安全 SECURITY</span><a href="#an-quan-security" class="header-anchor">.</a></h4></blockquote>
 <pre class="line-numbers language-bash"><code class="language-bash">requirepass 你的密码 <span class="token comment" spellcheck="true"># 设置密码（默认被注释着需要自己解开注释） </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201116153339030.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131144.png" alt></p>
 <p><strong>当然可以通过命令行配置(临时，服务重启失效)</strong></p>
-<p><img src="/2020/11/02/9349/image-20201116170841087.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131149.png" alt></p>
 <blockquote>
 <h4><span id="ke-hu-duan-xian-zhi">客户端限制</span><a href="#ke-hu-duan-xian-zhi" class="header-anchor">.</a></h4></blockquote>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># maxclients 10000 # 限制最多10000个客户端访问（默认注释）</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2326,19 +2326,19 @@ appendfsync everysec <span class="token comment" spellcheck="true"># 每秒执�
 <h3><span id="1-rdb-redis-database">1、RDB（Redis DataBase）</span><a href="#1-rdb-redis-database" class="header-anchor">.</a></h3><blockquote>
 <p>RDB持久化是指在指定的时间间隔内将内存中的数据集快照写入磁盘，实际操作过程是fork一个子进程，先将数据集写入临时文件，写入成功后，再替换之前的文件，用二进制压缩存储。 保存文件格式 <code>dump.rdb</code></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201118110832157.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131158.png" alt></p>
 <p><img src="/2020/11/02/9349/image-20201117102650803.png" alt></p>
-<h4><span id="she-zhi-rdb-wen-jian-bao-cun-tiao-jian">设置RDB文件保存条件</span><a href="#she-zhi-rdb-wen-jian-bao-cun-tiao-jian" class="header-anchor">.</a></h4><p><img src="/2020/11/02/9349/image-20201117100923979.png" alt></p>
+<h4><span id="she-zhi-rdb-wen-jian-bao-cun-tiao-jian">设置RDB文件保存条件</span><a href="#she-zhi-rdb-wen-jian-bao-cun-tiao-jian" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131204.png" alt></p>
 <p><strong>重启服务</strong></p>
 <pre class="line-numbers language-bash"><code class="language-bash">systemctl restart redis_6379<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5><span id="jie-guo-ce-shi">结果测试</span><a href="#jie-guo-ce-shi" class="header-anchor">.</a></h5><p><strong>1.查看rdb文件存放的目录</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117094047195.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117094120662.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131209.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131213.png" alt></p>
 <p><strong>2.删除已有的dump.rdb文件</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117100731471.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131218.png" alt></p>
 <p><strong>3.添加5个key</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117102023292.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117101947680.png" alt="发现重新生成rdb文件"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131223.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131228.png" alt="发现重新生成rdb文件"></p>
 <h4><span id="rdb-wen-jian-sheng-cheng-hong-fa-ji-zhi"><strong>RDB文件生成触发机制</strong></span><a href="#rdb-wen-jian-sheng-cheng-hong-fa-ji-zhi" class="header-anchor">.</a></h4><p>1.满足redis.conf中，快照save生成条件</p>
 <p>2.使用flushall命令，自动生成一个RDB文件</p>
 <p>3.退出redis</p>
@@ -2361,17 +2361,17 @@ appendfsync everysec <span class="token comment" spellcheck="true"># 每秒执�
 <p>AOF持久化以<strong>日志</strong>的形式<strong>记录服务器所处理的每一个写、删除操作</strong>，<strong>查询操作不会记录</strong>，<mark>只许追加文件，不许改写文件</mark>。以文本的方式记录，可以打开文件看到详细的操作记录。</p>
 <p> 保存文件格式 <code>appendonly.aof</code></p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201118112417217.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131235.png" alt></p>
 <p><strong>aof默认不开启，需要到配置文件中开启</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117103427251.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131240.png" alt></p>
 <h5><span id="chong-qi-redis-hou-appendonly-aof-wen-jian-zi-dong-sheng-cheng">重启redis后，appendonly.aof文件自动生成</span><a href="#chong-qi-redis-hou-appendonly-aof-wen-jian-zi-dong-sheng-cheng" class="header-anchor">.</a></h5><p><strong>客户端进行一些操作</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117104257540.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131247.png" alt></p>
 <p><strong>appendonly.aof文件内容，日志形式记录</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117104041277.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131252.png" alt></p>
 <h5><span id="chong-xie-gui-zhi">重写规制</span><a href="#chong-xie-gui-zhi" class="header-anchor">.</a></h5><blockquote>
 <p>如果aof文件大于64mb，就会fork一个新进程来将我们的文件进行重写（清除之前的64mb）</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201117105549403.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131257.png" alt></p>
 <h5><span id="cuo-wu-xiu-fu">错误修复</span><a href="#cuo-wu-xiu-fu" class="header-anchor">.</a></h5><p>如果aof文件有错误，redis是启动不了的，可以使用官方自带 <code>redis-check-aof --fix aof文件</code>进行修复</p>
 <h5><span id="you-que-dian">优缺点</span><a href="#you-que-dian" class="header-anchor">.</a></h5><ul>
 <li>优点<ul>
@@ -2385,15 +2385,15 @@ appendfsync everysec <span class="token comment" spellcheck="true"># 每秒执�
 </ul>
 </li>
 </ul>
-<h3><span id="kuo-zhan">扩展</span><a href="#kuo-zhan" class="header-anchor">.</a></h3><p><img src="/2020/11/02/9349/image-20201117111203522.png" alt></p>
+<h3><span id="kuo-zhan">扩展</span><a href="#kuo-zhan" class="header-anchor">.</a></h3><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131303.png" alt></p>
 <h2><span id="shi-redis-fa-bu-ding-yue">十、Redis发布订阅</span><a href="#shi-redis-fa-bu-ding-yue" class="header-anchor">.</a></h2><p>Redis 发布订阅(pub/sub)是一种<strong>消息通信模式</strong>：发送者(pub)发送消息，订阅者(sub)接收消息。微信、微博、关注系统！</p>
 <p>Redis客户端可以订阅任意数量的频道</p>
 <p><strong>订阅/发布消息图：</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117111910709.png" alt="订阅/发布消息图"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131309.png" alt="订阅/发布消息图"></p>
 <p>下图展示了频道 channel1 ， 以及订阅这个频道的三个客户端 —— client2 、 client5 和 client1 之间的关系：</p>
-<p><img src="/2020/11/02/9349/image-20201117112233761.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131317.png" alt></p>
 <p>当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端：</p>
-<p><img src="/2020/11/02/9349/image-20201117112253831.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131322.png" alt></p>
 <h3><span id="ming-ling">命令</span><a href="#ming-ling" class="header-anchor">.</a></h3><p>这些命令被广泛用于构建即时通信应用，比如网络聊天室（chatroom）和实时广播、实时提醒等。</p>
 <table>
 <thead>
@@ -2427,9 +2427,9 @@ appendfsync everysec <span class="token comment" spellcheck="true"># 每秒执�
 <td>退订一个或多个频道</td>
 </tr>
 </tbody></table>
-<h3><span id="ce-shi">测试</span><a href="#ce-shi" class="header-anchor">.</a></h3><p><img src="/2020/11/02/9349/image-20201117113448764.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117113640506.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117113729623.png" alt></p>
+<h3><span id="ce-shi">测试</span><a href="#ce-shi" class="header-anchor">.</a></h3><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131328.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131335.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131340.png" alt></p>
 <pre class="line-numbers language-bash"><code class="language-bash">127.0.0.1:6379<span class="token operator">></span> subscribe blog <span class="token comment" spellcheck="true"># 订阅频道</span>
 Reading messages<span class="token punctuation">..</span>. <span class="token punctuation">(</span>press Ctrl-C to quit<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 等待推送信息</span>
 1<span class="token punctuation">)</span> <span class="token string">"subscribe"</span>
@@ -2443,8 +2443,8 @@ Reading messages<span class="token punctuation">..</span>. <span class="token pu
 127.0.0.1:6379<span class="token operator">></span> publish blog <span class="token string">"hello world!"</span> <span class="token comment" spellcheck="true"># 发送消息到频道</span>
 <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> 1
 127.0.0.1:6379<span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3><span id="yuan-li">原理</span><a href="#yuan-li" class="header-anchor">.</a></h3><p><img src="/2020/11/02/9349/image-20201117114504422.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117114519482.png" alt></p>
+<h3><span id="yuan-li">原理</span><a href="#yuan-li" class="header-anchor">.</a></h3><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131347.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131412.png" alt></p>
 <p>每个 Redis 服务器进程都维持着一个表示服务器状态的 redis.h/redisServer 结构， 结构的 pubsub_channels 属性是一个字典， 这个字典就用于保存订阅频道的信息，其中，<strong>字典的键为正在被订阅的频道</strong>， 而<strong>字典的值则是一个链表， 链表中保存了所有订阅这个频道的客户端</strong>。</p>
 <p>客户端订阅，就被链接到对应频道的链表的尾部，退订则就是将客户端节点从链表中移除。</p>
 <h3><span id="shi-yong-chang-jing">使用场景：</span><a href="#shi-yong-chang-jing" class="header-anchor">.</a></h3><ul>
@@ -2460,7 +2460,7 @@ Reading messages<span class="token punctuation">..</span>. <span class="token pu
 <li>这和数据传输可靠性有关，如果在订阅方断线，那么他将会丢失所有在短线期间发布者发布的消息。</li>
 </ol>
 <h2><span id="shi-yi-zhu-cong-fu-zhi">十一、主从复制</span><a href="#shi-yi-zhu-cong-fu-zhi" class="header-anchor">.</a></h2><h3><span id="gai-nian">概念</span><a href="#gai-nian" class="header-anchor">.</a></h3><p>主从复制，是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点（Master/Leader）,后者称为从节点（Slave/Follower）， 数据的复制是单向的！<strong>只能由主节点复制到从节点</strong>（主节点以写为主、从节点以读为主）。</p>
-<p><img src="/2020/11/02/9349/image-20201117122229046.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131424.png" alt></p>
 <h3><span id="zhu-cong-fu-zhi-de-zhu-yao-zuo-yong">主从复制的主要作用</span><a href="#zhu-cong-fu-zhi-de-zhu-yao-zuo-yong" class="header-anchor">.</a></h3><ol>
 <li><strong>数据冗余</strong>：主从复制实现了数据的热备份，是持久化之外的一种数据冗余的方式。</li>
 <li><strong>故障恢复</strong>：当主节点故障时，从节点可以暂时替代主节点提供服务，是一种服务冗余的方式</li>
@@ -2480,7 +2480,7 @@ Reading messages<span class="token punctuation">..</span>. <span class="token pu
 <blockquote>
 <p>默认情况下，每一个Redis服务器都是主节点</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201117124215604.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131432.png" alt></p>
 <pre class="line-numbers language-bash"><code class="language-bash">127.0.0.1:6379<span class="token operator">></span> info replication
 <span class="token comment" spellcheck="true"># Replication</span>
 role:master  <span class="token comment" spellcheck="true"># 主节点</span>
@@ -2493,22 +2493,22 @@ repl_backlog_active:0
 repl_backlog_size:1048576
 repl_backlog_first_byte_offset:0
 repl_backlog_histlen:0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4><span id="1-fu-zhi-pei-zhi-wen-jian-redis-conf-dao-redis-an-zhuang-mu-lu-xia">1、复制配置文件redis.conf到Redis安装目录下</span><a href="#1-fu-zhi-pei-zhi-wen-jian-redis-conf-dao-redis-an-zhuang-mu-lu-xia" class="header-anchor">.</a></h4><p><img src="/2020/11/02/9349/image-20201117124928748.png" alt></p>
+<h4><span id="1-fu-zhi-pei-zhi-wen-jian-redis-conf-dao-redis-an-zhuang-mu-lu-xia">1、复制配置文件redis.conf到Redis安装目录下</span><a href="#1-fu-zhi-pei-zhi-wen-jian-redis-conf-dao-redis-an-zhuang-mu-lu-xia" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131438.png" alt></p>
 <h4><span id="2-zai-cong-gai-wen-jian-kao-bei-chu-3-ge-wen-jian">2、再从该文件拷贝出3个文件</span><a href="#2-zai-cong-gai-wen-jian-kao-bei-chu-3-ge-wen-jian" class="header-anchor">.</a></h4><p><strong>主：</strong><code>redis_6379.conf</code></p>
 <p><strong>从：</strong><code>redis_6380.conf、redis_6381.conf</code></p>
-<p><img src="/2020/11/02/9349/image-20201117125341522.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131447.png" alt></p>
 <h4><span id="3-xiu-gai-zhu-pei-zhi-wen-jian">3、修改主配置文件</span><a href="#3-xiu-gai-zhu-pei-zhi-wen-jian" class="header-anchor">.</a></h4><blockquote>
 <p>由于端口和后台默认运行pid都是6379的，就不改了</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201117125611885.png" alt="image-20201117125611885"></p>
-<p><img src="/2020/11/02/9349/image-20201117125857232.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131452.png" alt="image-20201117125611885"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131455.png" alt></p>
 <h4><span id="4-xiu-gai-cong-pei-zhi-wen-jian">4、修改从配置文件</span><a href="#4-xiu-gai-cong-pei-zhi-wen-jian" class="header-anchor">.</a></h4><blockquote>
 <p>下面以  <code>redis_6380.conf</code> 为例， <code>redis_6381.conf</code> 同理</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201117130229341.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117130417390.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117130536600.png" alt></p>
-<p><img src="/2020/11/02/9349/image-20201117130619046.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131500.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131504.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131508.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131512.png" alt></p>
 <h4><span id="pei-zhi-wen-jian-xiu-gai-de-xin-xi">配置文件修改的信息</span><a href="#pei-zhi-wen-jian-xiu-gai-de-xin-xi" class="header-anchor">.</a></h4><ol>
 <li>端口（92行）</li>
 <li>pid进程名（244行）</li>
@@ -2528,11 +2528,11 @@ root      2874     1  0 13:13 ?        00:00:00 redis-server 0.0.0.0:6381
 root      2880  2393  0 13:13 pts/0    00:00:00 <span class="token function">grep</span> --color<span class="token operator">=</span>auto redis
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4><span id="6-deng-lu-ke-hu-duan">6、登录客户端</span><a href="#6-deng-lu-ke-hu-duan" class="header-anchor">.</a></h4><p>①开启4个窗口，前三用于主从复制，最后一个用于测试</p>
-<p><img src="/2020/11/02/9349/image-20201117132145420.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131520.png" alt></p>
 <p>②登录（注意端口）</p>
-<p><img src="/2020/11/02/9349/image-20201117132347422.png" alt="窗口1"></p>
-<p><img src="/2020/11/02/9349/image-20201117132412937.png" alt="窗口2"></p>
-<p><img src="/2020/11/02/9349/image-20201117132448363.png" alt="窗口3"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131528.png" alt="窗口1"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131535.png" alt="窗口2"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131542.png" alt="窗口3"></p>
 <h4><span id="7-yi-zhu-er-cong">7、一主二从</span><a href="#7-yi-zhu-er-cong" class="header-anchor">.</a></h4><p><mark>默认情况下，每一个Redis服务器都是主节点</mark></p>
 <p><strong>一般情况下，只配置从机</strong></p>
 <blockquote>
@@ -2541,10 +2541,10 @@ root      2880  2393  0 13:13 pts/0    00:00:00 <span class="token function">gre
 <blockquote>
 <p>下面以 窗口3（端口为6381） 为例，窗口2同理 </p>
 </blockquote>
-<h5><span id="shi-yong-slaveof-zhi-ding-zhu-jie-dian-ip-he-duan-kou-lin-shi-pei-zhi"><strong>使用slaveof 指定 主节点 ip 和 端口（临时配置）</strong></span><a href="#shi-yong-slaveof-zhi-ding-zhu-jie-dian-ip-he-duan-kou-lin-shi-pei-zhi" class="header-anchor">.</a></h5><p><img src="/2020/11/02/9349/image-20201117153248609.png" alt></p>
+<h5><span id="shi-yong-slaveof-zhi-ding-zhu-jie-dian-ip-he-duan-kou-lin-shi-pei-zhi"><strong>使用slaveof 指定 主节点 ip 和 端口（临时配置）</strong></span><a href="#shi-yong-slaveof-zhi-ding-zhu-jie-dian-ip-he-duan-kou-lin-shi-pei-zhi" class="header-anchor">.</a></h5><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131549.png" alt></p>
 <p><strong>查看主节点，主从复制信息</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117153352259.png" alt></p>
-<h5><span id="you-mi-ma-pei-zhi-yong-jiu-pei-zhi">有密码配置（+永久配置）</span><a href="#you-mi-ma-pei-zhi-yong-jiu-pei-zhi" class="header-anchor">.</a></h5><p><img src="/2020/11/02/9349/image-20201117153934485.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131554.png" alt></p>
+<h5><span id="you-mi-ma-pei-zhi-yong-jiu-pei-zhi">有密码配置（+永久配置）</span><a href="#you-mi-ma-pei-zhi-yong-jiu-pei-zhi" class="header-anchor">.</a></h5><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131609.png" alt></p>
 <blockquote>
 <p>配置完重启服务</p>
 </blockquote>
@@ -2552,11 +2552,11 @@ root      2880  2393  0 13:13 pts/0    00:00:00 <span class="token function">gre
 <p>Redis只允许，主机写，从机读</p>
 </blockquote>
 <p><strong>主机写</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117154518906.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131615.png" alt></p>
 <p><strong>从机读</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117154539623.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131621.png" alt></p>
 <p><strong>从机不能写</strong></p>
-<p><img src="/2020/11/02/9349/image-20201117154715536.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131626.png" alt></p>
 <blockquote>
 <p><strong>主机断开连接</strong>，从机依旧连接主机，但是没有写操作，如果从机中途恢复正常，从机依旧可以获取主机写的内容 </p>
 </blockquote>
@@ -2577,7 +2577,7 @@ root      2880  2393  0 13:13 pts/0    00:00:00 <span class="token function">gre
 <p>上一个M连接下一个S，（可以看做主从复制的一种实现）</p>
 <p>配置只需：将上面配好的，窗口3的主机改为窗口2即可</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201117181038375.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131637.png" alt></p>
 <h4><span id="9-dang-ji-shou-dong-pei-zhi-zhu-ji">9、宕机手动配置主机</span><a href="#9-dang-ji-shou-dong-pei-zhi-zhu-ji" class="header-anchor">.</a></h4><pre class="line-numbers language-bash"><code class="language-bash">slaveof no one <span class="token comment" spellcheck="true"># 如果主机断开连接，从机可以使用该命令，让自己变为主机，其他节点连到该节点</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>如果主机如果会来了，也没有从机连接上它。</p>
@@ -2588,12 +2588,12 @@ root      2880  2393  0 13:13 pts/0    00:00:00 <span class="token function">gre
 <p>在 <code>Redis2.8</code>之前，采用手动配置主机的形式（会导致一段时间服务不可用）</p>
 <p><code>Redis2.8</code>之后，Redis正是提供了Sentinel（哨兵）来解决这个问题（<strong>主机宕机，根据投票自动在从机中选出新主机</strong>）</p>
 <p><strong>哨兵模式</strong>是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，他会独立运行<strong>。其原理是哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例</strong></p>
-<h3><span id="dan-shao-bing-mo-shi">单哨兵模式</span><a href="#dan-shao-bing-mo-shi" class="header-anchor">.</a></h3><p><img src="/2020/11/02/9349/image-20201117162803348.png" alt="单机哨兵"></p>
+<h3><span id="dan-shao-bing-mo-shi">单哨兵模式</span><a href="#dan-shao-bing-mo-shi" class="header-anchor">.</a></h3><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131646.png" alt="单机哨兵"></p>
 <h3><span id="shao-bing-de-zuo-yong">哨兵的作用：</span><a href="#shao-bing-de-zuo-yong" class="header-anchor">.</a></h3><ol>
 <li>通过发送命令，让Redis服务器返回监控其运行状态，包括主服务器和从服务器</li>
 <li>当哨兵监测到master宕机，会自动将slave切换到master，然后通过 <strong>发布订阅模式</strong> 通知其他的从服务器，修改配置文件，让他们切换主机</li>
 </ol>
-<h3><span id="duo-shao-bing-mo-shi">多哨兵模式</span><a href="#duo-shao-bing-mo-shi" class="header-anchor">.</a></h3><p><img src="/2020/11/02/9349/image-20201117164501035.png" alt="多机哨兵"></p>
+<h3><span id="duo-shao-bing-mo-shi">多哨兵模式</span><a href="#duo-shao-bing-mo-shi" class="header-anchor">.</a></h3><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131654.png" alt="多机哨兵"></p>
 <p>假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象称为<strong>主观下线</strong>。</p>
 <p>当其他哨兵也检测到主服务器不可用，并且达到一定数量时，那么哨兵之间就会进行一次投票，投票的结果有一个哨兵发起，进行failover故障转移操作。</p>
 <p>切换成功后，就会通过<strong>发布订阅模式</strong>，让各个哨兵把自己监控的从服务器实现切换主机，这个时候称为<strong>客观下线</strong></p>
@@ -2603,25 +2603,25 @@ root      2880  2393  0 13:13 pts/0    00:00:00 <span class="token function">gre
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># sentinel monitor 被监控的名称 host port 1       </span>
 <span class="token comment" spellcheck="true"># 1 表示 主机宕机，从机投票选举</span>
 sentinel monitor myredis  127.0.0.1 6379 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201117183721862.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131701.png" alt></p>
 <h4><span id="2-qi-dong-shao-bing-mo-shi">2、启动哨兵模式</span><a href="#2-qi-dong-shao-bing-mo-shi" class="header-anchor">.</a></h4><blockquote>
 <p>如果被监控有密码 需在 <code>sentinel.conf</code> 配置文件中，追加</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># sentinel auth-pass 被监控主机名称  &lt;password> </span>
 sentinel auth-pass myredis  <span class="token operator">&lt;</span>password<span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </blockquote>
 <pre class="line-numbers language-bash"><code class="language-bash">redis-sentinel sentinel.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="/2020/11/02/9349/image-20201117185637068.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131708.png" alt></p>
 <h4><span id="3-guan-bi-zhu-ji-ce-shi-xuan-ju-qing-kuang">3、关闭主机，测试选举情况</span><a href="#3-guan-bi-zhu-ji-ce-shi-xuan-ju-qing-kuang" class="header-anchor">.</a></h4><p>①主机关闭</p>
-<p><img src="/2020/11/02/9349/image-20201117185740796.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131716.png" alt></p>
 <p>②哨兵详情</p>
-<p><img src="/2020/11/02/9349/image-20201117190038438.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131721.png" alt></p>
 <p>③检查窗口3（端口为6381）</p>
-<p><img src="/2020/11/02/9349/image-20201117190359482.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131732.png" alt></p>
 <p>④我们恢复窗口1（即之前的主机），看看情况</p>
 <blockquote>
 <p>变成从机</p>
 </blockquote>
-<p><img src="/2020/11/02/9349/image-20201117191025901.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131738.png" alt></p>
 <h3><span id="you-que-dian">优缺点</span><a href="#you-que-dian" class="header-anchor">.</a></h3><ul>
 <li>优点：<ul>
 <li>哨兵集群，基于主从复制模式，所有的主从配置优点，它全有</li>
@@ -2712,9 +2712,9 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh <span class="tok
 <p>Redis缓存的使用，极大的提升了应用程序的性能和效率，特别是数据查询方面。但同时，它带来了一些问题。其中最要害的问题，就是数据一致性问题，从严格意义上讲，这个问题无解。如果对数据的一致性要求很高，那么就不能使用缓存。另外的一些典型问题就是，<strong>缓存穿透</strong>、<strong>缓存雪崩</strong>和<strong>缓存击穿</strong>。目前，业界也都有比较流行的解决方案。</p>
 <h3><span id="1-huan-cun-chuan-tou-cha-bu-dao">1、缓存穿透（查不到）</span><a href="#1-huan-cun-chuan-tou-cha-bu-dao" class="header-anchor">.</a></h3><p>缓存穿透：用户想要查一个数据，发现Redis内存数据库中没有，也就是<strong>缓存没命中，于是向持久层数据库查询。发现也没有，于是本次查询失败</strong>。当用户很多时，缓存都没有命中（秒杀！），于是都去请求持久层数据库。这会导致持久层数据库造成很大的压力，这时候就相当于出现了缓存穿透。</p>
 <h4><span id="jie-jue-fang-an">解决方案</span><a href="#jie-jue-fang-an" class="header-anchor">.</a></h4><h5><span id="bu-long-guo-lu-qi">布隆过滤器</span><a href="#bu-long-guo-lu-qi" class="header-anchor">.</a></h5><p>布隆过滤器是一种数据结构，对所有可能查询的参数以Hash形式存储，在控制层先进行校验，不符合则丢弃，从而避免存储系统的查询压力。</p>
-<p><img src="/2020/11/02/9349/image-20201118094031951.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131751.png" alt></p>
 <h5><span id="huan-cun-kong-dui-xiang">缓存空对象</span><a href="#huan-cun-kong-dui-xiang" class="header-anchor">.</a></h5><p>当存储层不命中后，即使返回的空对象也将其缓存起来，同时会设置一个过期时间，之后再访问这个数据将会从缓存中获取，保护了后端数据源</p>
-<p><img src="/2020/11/02/9349/image-20201118094132029.png" alt="image-20201118094132029"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131755.png" alt="image-20201118094132029"></p>
 <p><strong>但是这个方法会存在两个问题</strong></p>
 <ul>
 <li>如果空值能够被缓存起来，这就意味着缓存需要更多的空间存储更多的键，因为这当中可能会有很多的空值的键</li>
@@ -2723,7 +2723,7 @@ sentinel client-reconfig-script mymaster /var/redis/reconfig.sh <span class="tok
 <h3><span id="2-huan-cun-xue-beng-ji-zhong-shi-xiao">2、缓存雪崩（集中失效）</span><a href="#2-huan-cun-xue-beng-ji-zhong-shi-xiao" class="header-anchor">.</a></h3><p>缓存雪崩，是指在某一时间段，缓存集中过期失效。Redis宕机！</p>
 <p><strong>产生原因之一：</strong></p>
 <p>比如，双十一零点抢购，会把同一批商品信息比较集中的放入缓存中，假设缓存设置一个小时的过期时间，那么到凌晨一点钟的时候，这批商品的缓存就都过期了。而对这批商品的访问查询，都落到了数据库上，对于数据库而言，就会产生周期性的压抑波峰。于是所有的请求就会向存储层，存储层的调用量会暴增，<strong>可能</strong>造成存储层奔溃，服务器宕机。</p>
-<p><img src="/2020/11/02/9349/image-20201118094811319.png" alt="image-20201118094811319"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201119131802.png" alt="image-20201118094811319"></p>
 <p>其实集中过期，倒不是非常致命，<strong>比较致命的缓存雪崩，是缓存服务器某个结点宕机或断网</strong>。因为自然形成的缓存雪崩，一定是在某个时间段集中创建缓存，这个时候，数据库也是可以顶住压力的。无非就是对数据库产生周期性的压力而已。而<strong>缓存服务节点的宕机，对数据库服务器造成的压力是不可预知的，很可能瞬间就把数据库压垮。</strong></p>
 <h4><span id="jie-jue-fang-an">解决方案</span><a href="#jie-jue-fang-an" class="header-anchor">.</a></h4><h5><span id="redis-gao-ke-yong">Redis高可用</span><a href="#redis-gao-ke-yong" class="header-anchor">.</a></h5><p>这个思想含义是，既然Redis有可能挂到，那我们多增设几台Redis，这样挂掉之后其他的还可以继续工作，其实就是<strong>搭建集群</strong></p>
 <h5><span id="xian-liu-jiang-ji">限流降级</span><a href="#xian-liu-jiang-ji" class="header-anchor">.</a></h5><p>这个解决方案的思想是，在缓存失效后，通过加锁或队列来控制读数据库写缓存的线程数量。比如对某个key只允许一个线程查询数据和写缓存，其他线程等待。</p>
