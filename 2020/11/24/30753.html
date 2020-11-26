@@ -1,0 +1,1487 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="ElasticSearch7.6学习笔记, 刘民锴的个人博客">
+    <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '');
+</script>
+
+
+    <title>ElasticSearch7.6学习笔记 | 刘民锴的个人博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">刘民锴的个人博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-sticky-note" style="zoom: 0.6;"></i>
+      
+      <span>Essay</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">刘民锴的个人博客</div>
+        <div class="logo-desc">
+            
+            刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-sticky-note"></i>
+			
+			Essay
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/kaiminliu" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/kaiminliu" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">ElasticSearch7.6学习笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/springboot/">
+                                <span class="chip bg-color">springboot</span>
+                            </a>
+                        
+                            <a href="/tags/ElasticSearch7/">
+                                <span class="chip bg-color">ElasticSearch7</span>
+                            </a>
+                        
+                            <a href="/tags/Kibana/">
+                                <span class="chip bg-color">Kibana</span>
+                            </a>
+                        
+                            <a href="/tags/IK%E5%88%86%E8%AF%8D%E5%99%A8/">
+                                <span class="chip bg-color">IK分词器</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-11-24
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-11-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    20 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>笔记记录 B站狂神说Java的ElasticSearch课程：<a href="https://www.bilibili.com/video/BV17a4y1x7zq" target="_blank" rel="noopener">https://www.bilibili.com/video/BV17a4y1x7zq</a></p>
+</blockquote>
+<p>在学习ElasticSearch之前，先简单了解一下<strong>Lucene</strong>：</p>
+<ul>
+<li><p><strong>Doug Cutting开发</strong></p>
+</li>
+<li><p>是<strong>apache软件基金会</strong>4 jakarta项目组的一个子项目</p>
+</li>
+<li><p>是一个<strong>开放源代码</strong>的<strong>全文检索引擎工具包</strong></p>
+</li>
+<li><p><strong>不是一个完整的全文检索引擎，而是一个全文检索引擎的架构</strong>，提供了完整的查询引擎和索引引擎，部分<a href="https://baike.baidu.com/item/文本分析/11046544" target="_blank" rel="noopener">文本分析</a>引擎（英文与德文两种西方语言）</p>
+</li>
+<li><p>当前以及最近几年最受欢迎的<strong>免费Java信息检索程序库</strong>。</p>
+</li>
+</ul>
+<p><strong>Lucene和ElasticSearch的关系：</strong></p>
+<ul>
+<li>ElasticSearch是基于Lucene 做了一下封装和增强</li>
+</ul>
+<h1><span id="yi-elasticsearch-gai-shu">一、ElasticSearch概述</span><a href="#yi-elasticsearch-gai-shu" class="header-anchor">.</a></h1><blockquote>
+<p>官网：<a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a></p>
+</blockquote>
+<p><strong>Elaticsearch</strong>，简称为es，es是一个开源的<strong>高扩展</strong>的<strong>分布式全文检索引擎</strong>，它可以近乎<strong>实时的存储</strong>、<strong>检索数据;</strong>本身扩展性很好，可以扩展到上百台服务器，处理PB级别(大数据时代）的数据。es也使用java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的<strong>目的</strong>是<mark>通过简单的<strong>RESTful API</strong>来隐藏Lucene的复杂性，从而让全文搜索变得简单</mark>。</p>
+<p>据国际权威的数据库产品评测机构DB Engines的统计，在2016年1月，ElasticSearch已超过Solr等，成为<strong>排名第一的搜索引擎类应用</strong>。</p>
+<blockquote>
+<h3><span id="li-shi">历史</span><a href="#li-shi" class="header-anchor">.</a></h3></blockquote>
+<p>多年前，一个叫做Shay Banon的刚结婚不久的失业开发者，由于妻子要去伦敦学习厨师，他便跟着也去了。在他找工作的过程中，为了给妻子构建一个食谱的搜索引擎，他开始构建一个早期版本的Lucene。</p>
+<p>直接基于Lucene工作会比较困难，所以Shay开始抽象Lucene代码以便lava程序员可以在应用中添加搜索功能。他发布了他的第一个开源项目，叫做“Compass”。</p>
+<p>后来Shay找到一份工作，这份工作处在高性能和内存数据网格的分布式环境中，因此高性能的、实时的、分布式的搜索引擎也是理所当然需要的。然后他决定重写Compass库使其成为一个独立的服务叫做Elasticsearch。</p>
+<p>第一个公开版本出现在2010年2月，在那之后Elasticsearch已经成为Github上最受欢迎的项目之一，代码贡献者超过300人。一家主营Elasticsearch的公司就此成立，他们一边提供商业支持一边开发新功能，不过Elasticsearch将永远开源且对所有人可用。</p>
+<p>Shay的妻子依旧等待着她的食谱搜索…..</p>
+<p><strong>谁在使用：</strong></p>
+<p>1、维基百科,类似百度百科，全文检索,高亮,搜索推荐/2<br>2、The Guardian (国外新闻网站) ,类似搜狐新闻,用户行为日志(点击,浏览,收藏,评论) +社交网络数据(对某某新闻的相关看法) ,数据分析,给到每篇新闻文章的作者,让他知道他的文章的公众反馈(好,坏,热门，垃圾,鄙视，崇拜)<br>3、Stack Overflow (国外的程序异常讨论论坛) , IT问题,程序的报错,提交上去,有人会跟你讨论和回答,全文检索,搜索相关问题和答案,程序报错了,就会将报错信息粘贴到里面去,搜索有没有对应的答案<br>4、GitHub (开源代码管理),搜索 上千亿行代码<br>5、电商网站,检索商品<br>6、日志数据分析, logstash采集日志, ES进行复杂的数据分析, <strong>ELK技术, elasticsearch+logstash+kibana</strong><br>7、商品价格监控网站,用户设定某商品的价格阈值,当低于该阈值的时候,发送通知消息给用户,比如说订阅牙膏的监控,如果高露洁牙膏的家庭套装低于50块钱,就通知我,我就去买<br>8、BI系统,商业智能, Business Intelligence。比如说有个大型商场集团，BI ,分析一下某某区域最近3年的用户消费 金额的趋势以及用户群体的组成构成,产出相关的数张报表, **区,最近3年,每年消费金额呈现100%的增长,而且用户群体85%是高级白领，开-个新商场。ES执行数据分析和挖掘, Kibana进行数据可视化<br>9、国内:站内搜索(电商,招聘,门户,等等),IT系统搜索(OA,CRM,ERP,等等),数据分析(ES热门<br>的一一个使用场景)</p>
+<h2><span id="es-he-solr">ES和Solr</span><a href="#es-he-solr" class="header-anchor">.</a></h2><h3><span id="elasticsearch-jian-jie">ElasticSearch简介</span><a href="#elasticsearch-jian-jie" class="header-anchor">.</a></h3><ul>
+<li>Elasticsearch是一个<strong>实时分布式搜索和分析引擎</strong>。 它让你以前所未有的速度处理大数据成为可能。</li>
+<li>它用于<mark><strong>全文搜索、结构化搜索、分析</strong></mark>以及将这三者混合使用:</li>
+<li><code>维基百科</code>使用Elasticsearch提供<strong>全文搜索</strong>并<strong>高亮关键字</strong>,以及输入<strong>实时搜索</strong>(search-asyou-type)和<strong>搜索纠错</strong>(did-you-mean)等搜索建议功能。</li>
+<li><code>英国卫报</code>使用Elasticsearch结合用户日志和社交网络数据提供给他们的编辑以实时的反馈,以便及时了解公众对新发表的文章的回应。</li>
+<li><code>StackOverflow</code>结合全文搜索与地理位置查询,以及more-like-this功能来找到相关的问题和答案。</li>
+<li><code>Github</code>使用Elasticsearch检索1300亿行的代码。</li>
+<li>但是Elasticsearch不仅用于大型企业，它还让像<code>DataDog</code>以及<code>Klout</code>这样的创业公司将最初的想法变成可扩展的解决方案。</li>
+<li>Elasticsearch可以在你的笔记本上运行,也可以在数以百计的服务器上处理PB级别的数据。</li>
+<li>Elasticsearch是一个基于Apache Lucene(TM)的开源搜索引擎。无论在开源还是专有领域, Lucene可被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库。<ul>
+<li>但是, <strong>Lucene只是一个库</strong>。 想要使用它,你必须使用Java来作为开发语言并将其直接集成到你的应用中,更糟糕的是, Lucene非常复杂,你需要深入了解检索的相关知识来理解它是如何工作的。</li>
+</ul>
+</li>
+<li>Elasticsearch也使用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能,但是它的<strong>目的</strong>是<mark>通过简单的<strong>RESTful API</strong>来隐藏Lucene的复杂性,从而让全文搜索变得简单。</mark></li>
+</ul>
+<h3><span id="solr-jian-jie">Solr简介</span><a href="#solr-jian-jie" class="header-anchor">.</a></h3><ul>
+<li>Solr是Apache下的一个顶级开源项目,采用Java开发,它是<strong>基于Lucene的全文搜索服务器</strong>。Solr提供了比Lucene更为<strong>丰富的查询语言</strong>,同时实现了<strong>可配置</strong>、<strong>可扩展</strong>，并<strong>对索引、搜索性能进行了优化</strong></li>
+<li>Solr可以<strong>独立运行</strong>,运行在letty. Tomcat等这些Selrvlet容器中 , Solr 索引的实现方法很简单,<mark>用POST方法向Solr服务器发送一个描述Field及其内容的XML文档, Solr根据xml文档<strong>添加、删除、更新</strong>索引</mark>。Solr 搜索只需要发送HTTP GET请求,然后对Solr返回xml、json等格式的查询结果进行解析,组织页面布局。</li>
+<li>Solr不提供构建UI的功能, <strong>Solr提供了一个管理界面,通过管理界面可以查询Solr的配置和运行情况。</strong></li>
+<li>Solr是基于lucene开发企业级搜索服务器,实际上就是封装了lucene.</li>
+<li>Solr是一个独立的企业级搜索应用服务器,它<strong>对外提供类似于Web-service的API接口</strong>。用户可以通过http请求,向搜索引擎服务器提交-定格式的文件,生成索引;也可以通过提出查找请求,并得到返回结果。</li>
+</ul>
+<h3><span id="elasticsearch-yu-solr-bi-jiao">ElasticSearch与Solr比较</span><a href="#elasticsearch-yu-solr-bi-jiao" class="header-anchor">.</a></h3><pre><code>当单纯的对已有数据进行搜索时，Solr更快</code></pre><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124201341.png" alt></p>
+<pre><code>当实时建立索引时，Solr会产生io阻塞，查询性能较差，ElasticSearch具有明显的优势</code></pre><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124201508.png" alt></p>
+<pre><code>随着数据量的增加，Solr的搜索效率会变得更低，而ElasticSearch却没有明显的变化</code></pre><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124201629.png" alt></p>
+<pre><code>转变我们的搜索基础设施后从Solr ElasticSearch，我们看见一个即时~ 50x提高搜索性能！</code></pre><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124201712.png" alt></p>
+<h4><span id="zong-jie">总结</span><a href="#zong-jie" class="header-anchor">.</a></h4><p>1、<strong>es</strong>基本是<strong>开箱即用</strong>(解压就可以用!) ,非常简单。Solr安装略微复杂一丢丢!<br>2、<strong>Solr 利用Zookeeper进行分布式管理</strong>,而<strong>Elasticsearch<mark>自身带有分布式协调管理功能</mark>。</strong><br>3、Solr 支持更多格式的数据,比如JSON、XML、 CSV ,而<strong>Elasticsearch仅支持json文件格式</strong>。<br>4、Solr 官方提供的功能更多,而Elasticsearch本身更注重于核心功能，高级功能多有第三方插件提供，例如图形化界面需要kibana友好支撑<br><mark>5、</mark><strong>Solr 查询快,但更新索引时慢(即插入删除慢)</strong> ，用于电商等查询多的应用;</p>
+<ul>
+<li><strong>ES建立索引快(即查询慢)</strong> ，即<strong>实时性查询快</strong>，用于facebook新浪等搜索。</li>
+<li>Solr是传统搜索应用的有力解决方案，但Elasticsearch更适用于新兴的实时搜索应用。</li>
+</ul>
+<p>6、Solr比较成熟，有一个更大，更成熟的用户、开发和贡献者社区，而Elasticsearch相对开发维护者较少,更新太快,学习使用成本较高。</p>
+<h1><span id="er-elasticsearch-an-zhuang">二、ElasticSearch安装</span><a href="#er-elasticsearch-an-zhuang" class="header-anchor">.</a></h1><p><code>JDK8，最低要求</code></p>
+<p>使用Java开发，必须保证<code>ElasticSearch</code>的版本与Java的核心jar包版本对应！（Java环境保证没错）</p>
+<blockquote>
+<p>这里在windows上进行安装</p>
+</blockquote>
+<blockquote>
+<h3><span id="windows-xia-an-zhuang">Windows下安装</span><a href="#windows-xia-an-zhuang" class="header-anchor">.</a></h3></blockquote>
+<h4><span id="1-an-zhuang">1、安装</span><a href="#1-an-zhuang" class="header-anchor">.</a></h4><p>下载地址：<a href="https://www.elastic.co/cn/downloads/" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/</a></p>
+<p>历史版本下载：<a href="https://www.elastic.co/cn/downloads/past-releases/" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/past-releases/</a></p>
+<p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+<h4><span id="2-shou-xi-mu-lu">2、熟悉目录</span><a href="#2-shou-xi-mu-lu" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124211311.png" alt></p>
+<pre><code>bin 启动文件目录
+config 配置文件目录
+    1og4j2 日志配置文件
+    jvm.options java 虚拟机相关的配置(默认启动占1g内存，内容不够需要自己调整)
+    elasticsearch.ym1 elasticsearch 的配置文件! 默认9200端口!跨域!
+1ib 
+    相关jar包
+modules 功能模块目录
+plugins 插件目录
+    ik分词器</code></pre><h4><span id="3-qi-dong">3、启动</span><a href="#3-qi-dong" class="header-anchor">.</a></h4><blockquote>
+<p>一定要检查自己的java环境是否配置好</p>
+</blockquote>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124212858.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124212847.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124212841.png" alt></p>
+<blockquote>
+<h3><span id="an-zhuang-ke-shi-hua-jie-mian">安装可视化界面</span><a href="#an-zhuang-ke-shi-hua-jie-mian" class="header-anchor">.</a></h3></blockquote>
+<p><code>elasticsearch-head</code></p>
+<p><strong>使用前提</strong>：需要安装nodejs</p>
+<h4><span id="1-xia-zai-di-zhi">1、下载地址</span><a href="#1-xia-zai-di-zhi" class="header-anchor">.</a></h4><p><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a></p>
+<h4><span id="2-an-zhuang">2、安装</span><a href="#2-an-zhuang" class="header-anchor">.</a></h4><p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+<h4><span id="3-qi-dong">3、启动</span><a href="#3-qi-dong" class="header-anchor">.</a></h4><pre><code>cd elasticsearch-head
+# 安装依赖
+npm install
+# 启动
+npm run start
+# 访问
+http://localhost:9100/</code></pre><p><strong>安装依赖</strong></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124214341.png" alt="安装"></p>
+<p><strong>运行</strong></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124220457.png" alt="运行"></p>
+<p><strong>访问</strong></p>
+<blockquote>
+<p>存在跨域问题（只有当两个页面同源，才能交互）</p>
+<p>同源（端口，主机，协议三者都相同）</p>
+<p><a href="https://blog.csdn.net/qq_38128179/article/details/84956552" target="_blank" rel="noopener">https://blog.csdn.net/qq_38128179/article/details/84956552</a></p>
+</blockquote>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124220501.png" alt="存在跨域问题"></p>
+<p><strong>开启跨域（在elasticsearch解压目录config下elasticsearch.yml中添加）</strong></p>
+<pre><code># 开启跨域
+http.cors.enabled: true
+# 所有人访问
+http.cors.allow-origin: &quot;*&quot;</code></pre><blockquote>
+<p>重启elasticsearch</p>
+</blockquote>
+<p><strong>再次连接</strong></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124221100.png" alt></p>
+<p><strong>如何理解上图：</strong></p>
+<ul>
+<li>如果你是初学者<ul>
+<li>索引 可以看做 “数据库”</li>
+<li>类型 可以看做 “表”</li>
+<li>文档 可以看做 “库中的数据（表中的行）”</li>
+</ul>
+</li>
+<li>这个head，我们只是把它<strong>当做可视化数据展示工具</strong>，之后<strong>所有的查询都在kibana中进行</strong><ul>
+<li>因为不支持json格式化，不方便</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3><span id="an-zhuang-kibana">安装kibana</span><a href="#an-zhuang-kibana" class="header-anchor">.</a></h3></blockquote>
+<p>Kibana是一个针对ElasticSearch的开源分析及可视化平台,用来搜索、查看交互存储在Elasticsearch索引中的数据。使用Kibana ,可以通过各种图表进行高级数据分析及展示。Kibana让海量数据更容易理解。它操作简单,基于浏览器的用户界面可以快速创建仪表板( dashboard )实时显示Elasticsearch查询动态。设置Kibana非常简单。无需编码或者额外的基础架构,几分钟内就可以完成Kibana安装并启动Elasticsearch索引监测。</p>
+<h4><span id="1-xia-zai-di-zhi">1、下载地址:</span><a href="#1-xia-zai-di-zhi" class="header-anchor">.</a></h4><blockquote>
+<p>下载的版本需要与ElasticSearch版本对应</p>
+</blockquote>
+<p><a href="https://www.elastic.co/cn/downloads/" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/</a></p>
+<p>历史版本下载：<a href="https://www.elastic.co/cn/downloads/past-releases/" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/past-releases/</a></p>
+<h4><span id="2-an-zhuang">2、安装</span><a href="#2-an-zhuang" class="header-anchor">.</a></h4><p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124224049.png" alt></p>
+<h4><span id="3-qi-dong">3、启动</span><a href="#3-qi-dong" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124224155.png" alt></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124224502.png" alt></p>
+<p><strong>访问</strong></p>
+<pre><code>localhost:5601</code></pre><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124224629.png" alt></p>
+<h4><span id="4-kai-fa-gong-ju">4、开发工具</span><a href="#4-kai-fa-gong-ju" class="header-anchor">.</a></h4><p>（Postman、curl、head、谷歌浏览器插件）</p>
+<blockquote>
+<p>可以使用 <code>Kibana</code>进行测试</p>
+</blockquote>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124225557.png" alt></p>
+<blockquote>
+<p>如果说，你在英文方面不太擅长，kibana是支持汉化的</p>
+</blockquote>
+<h4><span id="5-kibana-han-hua">5、kibana汉化</span><a href="#5-kibana-han-hua" class="header-anchor">.</a></h4><p>编辑器打开<code>kibana解压目录/config/kibana.yml</code>，添加</p>
+<pre><code>i18n.locale: &quot;zh-CN&quot;</code></pre><blockquote>
+<p>重启kibana</p>
+</blockquote>
+<p><strong>汉化成功</strong></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124230434.png" alt="汉化成功"></p>
+<h3><span id="liao-jie-elk"><strong>了解ELK</strong></span><a href="#liao-jie-elk" class="header-anchor">.</a></h3><ul>
+<li>ELK是<strong>Elasticsearch、Logstash、 Kibana三大开源框架首字母大写简称</strong>。市面上也被成为Elastic Stack。<ul>
+<li>其中Elasticsearch是一个基于Lucene、分布式、通过Restful方式进行交互的近实时搜索平台框架。<ul>
+<li>像类似百度、谷歌这种大数据全文搜索引擎的场景都可以使用Elasticsearch作为底层支持框架，可见Elasticsearch提供的搜索能力确实强大,市面上很多时候我们简称Elasticsearch为es。</li>
+</ul>
+</li>
+<li>Logstash是ELK的中央数据流引擎,用于从不同目标(文件/数据存储/MQ )收集的不同格式数据,经过过滤后支持输出到不同目的地(文件/MQ/redis/elasticsearch/kafka等)。</li>
+<li>Kibana可以将elasticsearch的数据通过友好的页面展示出来 ,提供实时分析的功能。</li>
+</ul>
+</li>
+<li>市面上很多开发只要提到ELK能够一致说出它是一个日志分析架构技术栈总称 ,但实际上ELK不仅仅适用于日志分析,它还可以支持其它任何数据分析和收集的场景,日志分析和收集只是更具有代表性。并非唯一性。</li>
+</ul>
+<pre><code>收集清洗数据(Logstash) ==&gt; 搜索、存储(ElasticSearch) ==&gt; 展示(Kibana)</code></pre><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124224044.png" alt></p>
+<h1><span id="san-elasticsearch-he-xin-gai-nian">三、ElasticSearch核心概念</span><a href="#san-elasticsearch-he-xin-gai-nian" class="header-anchor">.</a></h1><blockquote>
+<h2><span id="gai-shu">概述</span><a href="#gai-shu" class="header-anchor">.</a></h2></blockquote>
+<p>1、索引（ElasticSearch）</p>
+<ul>
+<li>包多个分片</li>
+</ul>
+<p>2、字段类型（映射）</p>
+<ul>
+<li>字段类型映射（字段是整型，还是字符型…）</li>
+</ul>
+<p>3、文档</p>
+<p>4、分片（Lucene索引，倒排索引）</p>
+<blockquote>
+<p>ElasticSearch是面向文档，关系行数据库和ElasticSearch客观对比！一切都是JSON！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Relational DB</th>
+<th>ElasticSearch</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库（database）</td>
+<td>索引（indices）</td>
+</tr>
+<tr>
+<td>表（tables）</td>
+<td>types &lt;慢慢会被弃用!&gt;</td>
+</tr>
+<tr>
+<td>行（rows）</td>
+<td>documents</td>
+</tr>
+<tr>
+<td>字段（columns）</td>
+<td>fields</td>
+</tr>
+</tbody></table>
+<p><strong>elasticsearch（集群）</strong>中可以包含多个<strong>索引（数据库）</strong> ,每个索引中可以包含多个<strong>类型（表）</strong> ,每个类型下又包含多个<strong>文档（行）</strong> ,每个文档中又包含多个<strong>字段（列）</strong>。</p>
+<h3><span id="wu-li-she-ji">物理设计:</span><a href="#wu-li-she-ji" class="header-anchor">.</a></h3><p>elasticsearch在后台把<strong>每个索引划分成多个分片</strong>，每分分片可以在集群中的不同服务器间迁移</p>
+<p>一个人就是一个集群! ，即<strong>启动的ElasticSearch服务，默认就是一个集群，且默认集群名为elasticsearch</strong></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124232258.png" alt></p>
+<h3><span id="luo-ji-she-ji">逻辑设计:</span><a href="#luo-ji-she-ji" class="header-anchor">.</a></h3><p>一个索引类型中，包含多个文档，比如说文档1，文档2。当我们索引一篇文档时，可以通过这样的顺序找到它：索引 =&gt; 类型 =&gt; 文档ID ，通过这个组合我们就能索引到某个具体的文档。 注意：ID不必是整数，实际上它是个字符串。</p>
+<blockquote>
+<h4><span id="wen-dang-xing">文档（”行“）</span><a href="#wen-dang-xing" class="header-anchor">.</a></h4></blockquote>
+<p>之前说elasticsearch是面向文档的，那么就意味着<strong>索引和搜索数据的最小单位是文档</strong>，elasticsearch中，文档有几个重要属性:</p>
+<ul>
+<li>自我包含，一篇文档同时包含字段和对应的值，也就是同时包含key:value !</li>
+<li>可以是层次型的，一个文档中包含自文档，复杂的逻辑实体就是这么来的! {就是一个json对象 ! fastjson进行自动转换 !}</li>
+<li>灵活的结构，文档不依赖预先定义的模式，我们知道关系型数据库中，要提前定义字段才能使用，在elasticsearch中，对于字段是非常灵活的，有时候,我们可以忽略该字段，或者动态的添加一个新的字段。</li>
+</ul>
+<p>尽管我们可以随意的新增或者忽略某个字段，但是，每个字段的类型非常重要，比如一个年龄字段类型，可以是字符串也可以是整形。因为elasticsearch会保存字段和类型之间的映射及其他的设置。这种映射具体到每个映射的每种类型，这也是为什么在elasticsearch中，类型有时候也称为映射类型。</p>
+<blockquote>
+<h4><span id="lei-xing-biao">类型（“表”）</span><a href="#lei-xing-biao" class="header-anchor">.</a></h4></blockquote>
+<p>类型是文档的逻辑容器，就像关系型数据库一样，表格是行的容器。类型中对于字段的定义称为映射，比如name映射为字符串类型。我们说文档是无模式的，它们不需要拥有映射中所定义的所有字段，比如新增一个字段，那么elasticsearch是怎么做的呢?</p>
+<ul>
+<li>elasticsearch会自动的将新字段加入映射，但是这个字段的不确定它是什么类型，elasticsearch就开始猜，如果这个值是18，那么elasticsearch会认为它是整形。但是elasticsearch也可能猜不对，所以最安全的方式就是提前定义好所需要的映射，这点跟关系型数据库殊途同归了，先定义好字段，然后再使用，别整什么幺蛾子。</li>
+</ul>
+<blockquote>
+<h4><span id="suo-yin-ku">索引（“库”）</span><a href="#suo-yin-ku" class="header-anchor">.</a></h4></blockquote>
+<p>索引是映射类型的容器， elasticsearch中的索引是一个非常大的文档集合。 索引存储了映射类型的字段和其他设置。然后它们被存储到了各个分片上了。我们来研究下分片是如何工作的。</p>
+<p><strong>物理设计：节点和分片 如何工作</strong></p>
+<p>创建新索引</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125003116.png" alt="创建新索引"></p>
+<p>一个集群至少有一个节点，而一个节点就是一个elasricsearch进程，节点可以有多个索引默认的，如果你创建索引，那么索引将会有个5个分片(primary shard ,又称主分片)构成的，每一个主分片会有一个副本(replica shard，又称复制分片)</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201124234946.png" alt></p>
+<p>上图是一个有3个节点的集群，可以看到主分片和对应的复制分片都不会在同一个节点内，这样有利于某个节点挂掉了，数据也不至于失。实际上，<strong>一个分片是一个Lucene索引（<mark>一个ElasticSearch索引包含多个Lucene索引</mark>）</strong> ，<strong>一个包含倒排索引的文件目录，倒排索引的结构使得elasticsearch在不扫描全部文档的情况下，就能告诉你哪些文档包含特定的关键字</strong>。不过，等等，倒排索引是什么鬼?</p>
+<p><strong>倒排索引（Lucene索引底层）</strong></p>
+<blockquote>
+<p>简单说就是 按（文章关键字，对应的文档&lt;0个或多个&gt;）形式建立索引，根据关键字就可直接查询对应的文档（含关键字的），无需查询每一个文档，如下图</p>
+</blockquote>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125003531.png" alt></p>
+<h1><span id="si-ik-fen-ci-qi-elasticsearch-cha-jian">四、IK分词器(elasticsearch插件)</span><a href="#si-ik-fen-ci-qi-elasticsearch-cha-jian" class="header-anchor">.</a></h1><blockquote>
+<p><strong>IK分词器：中文分词器</strong></p>
+</blockquote>
+<p>分词：即把一段中文或者别的划分成一个个的关键字，我们在搜索时候会把自己的信息进行分词，会把数据库中或者索引库中的数据进行分词，然后进行一一个匹配操作，<strong>默认的中文分词是将每个字看成一个词</strong>（<mark>不使用用IK分词器的情况下</mark>），比如“我爱狂神”会被分为”我”，”爱”，”狂”，”神” ，这显然是不符合要求的，所以我们需要安装中文分词器ik来解决这个问题。</p>
+<p><strong>IK提供了两个分词算法</strong>: <code>ik_smart</code>和<code>ik_max_word</code> ,其中<code>ik_smart</code>为<strong>最少切分</strong>, <code>ik_max_word</code>为<strong>最细粒度划分</strong>! </p>
+<h3><span id="1-xia-zai">1、下载</span><a href="#1-xia-zai" class="header-anchor">.</a></h3><blockquote>
+<p>版本要与ElasticSearch版本对应</p>
+</blockquote>
+<p>下载地址：<a href="https://github.com/medcl/elasticsearch-analysis-ik/releases" target="_blank" rel="noopener">https://github.com/medcl/elasticsearch-analysis-ik/releases</a></p>
+<h3><span id="2-an-zhuang">2、安装</span><a href="#2-an-zhuang" class="header-anchor">.</a></h3><blockquote>
+<p>ik文件夹是自己创建的</p>
+</blockquote>
+<p>加压即可（但是我们需要解压到ElasticSearch的plugins目录ik文件夹下）</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125005908.png" alt></p>
+<h3><span id="3-chong-qi-elasticsearch">3、重启ElasticSearch</span><a href="#3-chong-qi-elasticsearch" class="header-anchor">.</a></h3><blockquote>
+<p>加载了IK分词器</p>
+</blockquote>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125010232.png" alt></p>
+<h3><span id="4-shi-yong-elasticsearch-an-zhuang-bu-lu-bin-elasticsearch-plugin-ke-yi-cha-kan-cha-jian">4、使用 <code>ElasticSearch安装补录/bin/elasticsearch-plugin</code> 可以查看插件</span><a href="#4-shi-yong-elasticsearch-an-zhuang-bu-lu-bin-elasticsearch-plugin-ke-yi-cha-kan-cha-jian" class="header-anchor">.</a></h3><pre><code>E:\ElasticSearch\elasticsearch-7.6.1\bin&gt;elasticsearch-plugin list</code></pre><p><img src="/2020/11/24/30753/image-20201125012852679.png" alt></p>
+<h3><span id="5-shi-yong-kibana-ce-shi">5、使用kibana测试</span><a href="#5-shi-yong-kibana-ce-shi" class="header-anchor">.</a></h3><p><code>ik_smart</code>：最少切分</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125013948.png" alt></p>
+<p><code>ik_max_word</code>：最细粒度划分（穷尽词库的可能）</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125014210.png" alt></p>
+<blockquote>
+<p>从上面看，感觉分词都比较正常，但是大多数，分词都满足不了我们的想法，如下例</p>
+</blockquote>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125015809.png" alt></p>
+<blockquote>
+<p>那么，我们需要手动将该词添加到分词器的词典当中</p>
+</blockquote>
+<h3><span id="6-tian-jia-zi-ding-yi-de-ci-tian-jia-dao-kuo-zhan-zi-dian-zhong">6、添加自定义的词添加到扩展字典中</span><a href="#6-tian-jia-zi-ding-yi-de-ci-tian-jia-dao-kuo-zhan-zi-dian-zhong" class="header-anchor">.</a></h3><p><code>elasticsearch目录/plugins/ik/config/IKAnalyzer.cfg.xml</code></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125020139.png" alt></p>
+<p>打开 <code>IKAnalyzer.cfg.xml</code> 文件，扩展字典</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125020519.png" alt></p>
+<p>创建字典文件，添加字典内容</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125020802.png" alt></p>
+<p>重启ElasticSearch，再次使用kibana测试</p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201125021137.png" alt></p>
+<h1><span id="wu-rest-feng-ge-shuo-ming">五、Rest风格说明</span><a href="#wu-rest-feng-ge-shuo-ming" class="header-anchor">.</a></h1><p><strong>一种软件架构风格</strong>,而不是标准,只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以<strong>更简洁</strong>，<strong>更有层次</strong>，<strong>更易于实现缓存</strong>等机制。</p>
+<h3><span id="ji-ben-rest-ming-ling-shuo-ming"><strong>基本Rest命令说明：</strong></span><a href="#ji-ben-rest-ming-ling-shuo-ming" class="header-anchor">.</a></h3><table>
+<thead>
+<tr>
+<th align="center">method</th>
+<th align="center">url地址</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PUT</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id</td>
+<td align="center">创建文档（指定文档id）</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="center">localhost:9200/索引名称/类型名称</td>
+<td align="center">创建文档（随机文档id）</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id/_update</td>
+<td align="center">修改文档</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id</td>
+<td align="center">删除文档</td>
+</tr>
+<tr>
+<td align="center">GET</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id</td>
+<td align="center">查询文档通过文档ID</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="center">localhost:9200/索引名称/类型名称/文档id/_search</td>
+<td align="center">查询所有数据</td>
+</tr>
+</tbody></table>
+<h3><span id="ce-shi">测试</span><a href="#ce-shi" class="header-anchor">.</a></h3><h4><span id="1-chuang-jian-yi-ge-suo-yin-tian-jia">1、创建一个索引，添加</span><a href="#1-chuang-jian-yi-ge-suo-yin-tian-jia" class="header-anchor">.</a></h4><pre><code>PUT /test1/type1/1
+{
+  &quot;name&quot; : &quot;流柚&quot;,
+  &quot;age&quot; : 18
+}</code></pre><p><img src="/2020/11/24/30753/image-20201125030257713.png" alt></p>
+<p><img src="/2020/11/24/30753/image-20201125030409080.png" alt></p>
+<h4><span id="2-zi-duan-shu-ju-lei-xing">2、字段数据类型</span><a href="#2-zi-duan-shu-ju-lei-xing" class="header-anchor">.</a></h4><ul>
+<li>字符串类型<ul>
+<li>text、keyword</li>
+</ul>
+</li>
+<li>数值型<ul>
+<li>long、Integer、short、byte、double、float、half float、scaled float</li>
+</ul>
+</li>
+<li>日期类型<ul>
+<li>date</li>
+</ul>
+</li>
+<li>te布尔类型<ul>
+<li>boolean</li>
+</ul>
+</li>
+<li>二进制类型<ul>
+<li>binary</li>
+</ul>
+</li>
+<li>等等…</li>
+</ul>
+<h4><span id="3-zhi-ding-zi-duan-de-lei-xing">3、指定字段的类型</span><a href="#3-zhi-ding-zi-duan-de-lei-xing" class="header-anchor">.</a></h4><pre><code>PUT /test2
+{
+  &quot;mappings&quot;: {
+    &quot;properties&quot;: {
+      &quot;name&quot;: {
+        &quot;type&quot;: &quot;text&quot;
+      },
+      &quot;age&quot;:{
+        &quot;type&quot;: &quot;long&quot;
+      },
+      &quot;birthday&quot;:{
+        &quot;type&quot;: &quot;date&quot;
+      }
+    }
+  }
+}</code></pre><p><img src="/2020/11/24/30753/image-20201125032113852.png" alt></p>
+<h4><span id="4-huo-qu">4、获取</span><a href="#4-huo-qu" class="header-anchor">.</a></h4><pre><code>GET test2</code></pre><p><img src="/2020/11/24/30753/image-20201125032618948.png" alt></p>
+<h4><span id="5-huo-qu-mo-ren-xin-xi">5、获取默认信息</span><a href="#5-huo-qu-mo-ren-xin-xi" class="header-anchor">.</a></h4><pre><code>PUT /test3/_doc/1
+{
+  &quot;name&quot;: &quot;流柚&quot;,
+  &quot;age&quot;: 18,
+  &quot;birth&quot;: &quot;1999-10-10&quot;
+}
+
+
+GET test3</code></pre><p><img src="/2020/11/24/30753/image-20201125033124991.png" alt></p>
+<blockquote>
+<p>如果自己的文档字段没有被指定，那么ElasticSearch就会给我们默认配置字段类型</p>
+</blockquote>
+<p>扩展：通过<code>get  _cat/</code>  可以获取ElasticSearch的当前的很多信息！</p>
+<pre><code>GET _cat/indices
+GET _cat/aliases
+GET _cat/allocation
+GET _cat/count
+GET _cat/fielddata
+GET _cat/health
+GET _cat/indices
+GET _cat/master
+GET _cat/nodeattrs
+GET _cat/nodes
+GET _cat/pending_tasks
+GET _cat/plugins
+GET _cat/recovery
+GET _cat/repositories
+GET _cat/segments
+GET _cat/shards
+GET _cat/snapshots
+GET _cat/tasks
+GET _cat/templates
+GET _cat/thread_pool</code></pre><h4><span id="6-xiu-gai">6、修改</span><a href="#6-xiu-gai" class="header-anchor">.</a></h4><blockquote>
+<p>两种方案</p>
+</blockquote>
+<p>①旧的（使用put覆盖原来的值）</p>
+<ul>
+<li>版本+1（_version）</li>
+<li>但是如果漏掉某个字段没有写，那么更新是没有写的字段 ，会消失</li>
+</ul>
+<p><img src="/2020/11/24/30753/image-20201125034845053.png" alt></p>
+<p>②新的（使用post）</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.liuminkai.top" rel="external nofollow noreferrer">liuminkai</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://www.liuminkai.top/2020/11/24/30753.html">http://www.liuminkai.top/2020/11/24/30753.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://www.liuminkai.top" target="_blank">liuminkai</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/springboot/">
+                                    <span class="chip bg-color">springboot</span>
+                                </a>
+                            
+                                <a href="/tags/ElasticSearch7/">
+                                    <span class="chip bg-color">ElasticSearch7</span>
+                                </a>
+                            
+                                <a href="/tags/Kibana/">
+                                    <span class="chip bg-color">Kibana</span>
+                                </a>
+                            
+                                <a href="/tags/IK%E5%88%86%E8%AF%8D%E5%99%A8/">
+                                    <span class="chip bg-color">IK分词器</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '4e04421bf007cd448eb3',
+        clientSecret: '98d0aaec7d39c4c8ba7ef6118575f68eafc77951',
+        repo: 'blogtalk',
+        owner: 'liuminkai-blog',
+        admin: ["liuminkai-blog"],
+        id: '2020-11-24T17-27-42',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/11/26/50002.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/19.jpg" class="responsive-img" alt="maven依赖的作用域说明">
+                        
+                        <span class="card-title">maven依赖的作用域说明</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Maven中的dependency的scope作用域.
+转载自：https://juejin.cn/post/6870758607659646983
+
+Dependency scope是用来限制Dependency作用范围的，影响Maven
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
+                                    转载
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BD%AC%E8%BD%BD/">
+                        <span class="chip bg-color">转载</span>
+                    </a>
+                    
+                    <a href="/tags/maven/">
+                        <span class="chip bg-color">maven</span>
+                    </a>
+                    
+                    <a href="/tags/scope/">
+                        <span class="chip bg-color">scope</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/21/51856.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="SSM整合Redis(二级缓存)错误">
+                        
+                        <span class="card-title">SSM整合Redis(二级缓存)错误</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            错误说明：.
+使用Spring、MyBatis、mybatis-redis(含Cache实现) 整合Redis做二级缓存时，启动测试类，所报的错
+
+错误如下（只留下关键部分）：.
+从以下错误日志信息，简单可以知道，①Redis连接超时，②连
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/error/" class="post-category">
+                                    error
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
+                    </a>
+                    
+                    <a href="/tags/SSM/">
+                        <span class="chip bg-color">SSM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="http://www.liuminkai.top" target="_blank">liuminkai</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">190.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/kaiminliu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:liuyou2021@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1423928650" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1423928650" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/instantpage/instantpage.js" type="module"></script>
+    
+	
+	
+	<!-- 一言API -->
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
+	  fetch('https://v1.hitokoto.cn')
+		.then(function (res){
+		  return res.json();
+		})
+		.then(function (data) {
+		  var hitokoto = document.getElementById('hitokoto');
+		  hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+		})
+		.catch(function (err) {
+		  console.error(err);
+		})
+	</script>
+</body>
+
+</html>
