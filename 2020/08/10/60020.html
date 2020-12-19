@@ -548,13 +548,13 @@ npm run dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <pre class="line-numbers language-vue"><code class="language-vue"><template>
   <div>
     <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
-      <h3 class="login-title"><span id="huan-ying-deng-lu">欢迎登陆</span><a href="#huan-ying-deng-lu" class="header-anchor">.</a></h3>
+      <h3 class="login-title">欢迎登陆</h3>
       <el-form-item label="账号" prop="username">
-        <el-input type="text" placeholder="请输入账号" autocomplete="off" v-model="form.username">
-      </el-input></el-form-item>
+        <el-input type="text" placeholder="请输入账号" autocomplete="off" v-model="form.username"/>
+      </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input type="password" placeholder="请输入密码" autocomplete="off" v-model="form.password">
-      </el-input></el-form-item>
+        <el-input type="password" placeholder="请输入密码" autocomplete="off" v-model="form.password"/>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit('loginForm')">登陆</el-button>
       </el-form-item>
@@ -965,7 +965,7 @@ npm run dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">213.1k</span>&nbsp;字
             
             
             

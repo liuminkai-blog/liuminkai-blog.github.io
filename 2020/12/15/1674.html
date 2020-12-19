@@ -737,39 +737,39 @@ hostname
 <span class="token comment" spellcheck="true"># 4.修改/etc/hosts 添加</span>
 <span class="token attr-name">127.0.0.1</span> <span class="token attr-value">你的主机名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5><span id="11-kai-ji-zi-qi">11、开机自启</span><a href="#11-kai-ji-zi-qi" class="header-anchor">.</a></h5><p><a href="https://blog.csdn.net/weixin_40539892/article/details/89175530" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40539892/article/details/89175530</a></p>
-<h5><span id="12-ssh-mian-mi-deng-lu">12、SSH免密登录</span><a href="#12-ssh-mian-mi-deng-lu" class="header-anchor">.</a></h5><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 0.准备至少两台机器，这里演示，安排如下</span>
-<span class="token title important"><span class="token punctuation">##</span> 三台机器:主机名 ip</span>
-<span class="token code keyword">    192.168.111.11 mq1</span>
-<span class="token code keyword">    192.168.111.12 mq2 </span>
-<span class="token code keyword">    192.168.111.13 mq3</span>
-<span class="token code keyword">    并将三个ip映射，写入到三台机器的/etc/hosts文件中    </span>
+<h5><span id="12-ssh-mian-mi-deng-lu">12、SSH免密登录</span><a href="#12-ssh-mian-mi-deng-lu" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 0.准备至少两台机器，这里演示，安排如下</span>
+<span class="token comment" spellcheck="true">## 三台机器:主机名 ip</span>
+<span class="token attr-name">    192.168.111.11</span> <span class="token attr-value">mq1</span>
+<span class="token attr-name">    192.168.111.12</span> <span class="token attr-value">mq2 </span>
+<span class="token attr-name">    192.168.111.13</span> <span class="token attr-value">mq3</span>
+<span class="token attr-name">    并将三个ip映射，写入到三台机器的/etc/hosts文件中</span> <span class="token attr-value">   </span>
 
-<span class="token title important"><span class="token punctuation">#</span> 1.密钥对生成(三台机器)</span>
-<span class="token title important"><span class="token punctuation">##</span> 1.1密钥对生成</span>
-<span class="token code keyword">    ssh-keygen -t rsa</span>
-<span class="token title important"><span class="token punctuation">##</span> 1.2进入~/.ssh目录</span>
-<span class="token code keyword">    cd ~/.ssh</span>
-<span class="token title important"><span class="token punctuation">##</span> 1.3查看密钥生成情况</span>
-<span class="token code keyword">    ll </span>
-<span class="token code keyword">    -rw-------. 1 root root 1679 12月 19 03:18 id_rsa (私钥：自己保存)</span>
-<span class="token code keyword">    -rw-r--r--. 1 root root  390 12月 19 03:18 id_rsa.pub (公钥：可以暴露)</span>
-<span class="token code keyword">    -rw-r--r--. 1 root root  360 12月 19 00:25 known_hosts </span>
-<span class="token title important"><span class="token punctuation">#</span> 2.将公钥上传到其他主机上，下面以主机mq1为例</span>
-<span class="token code keyword">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@mq2</span>
-<span class="token code keyword">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@mq3</span>
-<span class="token title important"><span class="token punctuation">##</span> 执行上述命令后，会在mq2、mq3的~/.ssh下生成 authorized_keys文件</span>
-<span class="token title important"><span class="token punctuation">###</span> 该文件存放mq1的公钥，mq1可以免密登录到mq2、mq3，命令如下</span>
-<span class="token code keyword">    ssh mq2 和 ssh mq3</span>
-<span class="token title important"><span class="token punctuation">###</span> 但是只是单向，如需双向，还需在mq2执行</span>
-<span class="token code keyword">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@mq1</span>
-<span class="token code keyword">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@mq3</span>
-<span class="token title important"><span class="token punctuation">###</span> 在mq3执行</span>
-<span class="token code keyword">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@mq1</span>
-<span class="token code keyword">    ssh-copy-id -i ~/.ssh/id_rsa.pub root@mq2</span>
-<span class="token title important"><span class="token punctuation">#</span> 3.ssh免密登录完成</span>
-<span class="token code keyword">    主机mq1 使用 ssh mq2 或 ssh mq3 可免密登录到 mq2/mq3</span>
-<span class="token code keyword">    主机mq2 使用 ssh mq1 或 ssh mq3 可免密登录到 mq1/mq3</span>
-<span class="token code keyword">    主机mq3 使用 ssh mq1 或 ssh mq2 可免密登录到 mq1/mq2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 1.密钥对生成(三台机器)</span>
+<span class="token comment" spellcheck="true">## 1.1密钥对生成</span>
+<span class="token attr-name">    ssh-keygen</span> <span class="token attr-value">-t rsa</span>
+<span class="token comment" spellcheck="true">## 1.2进入~/.ssh目录</span>
+<span class="token attr-name">    cd</span> <span class="token attr-value">~/.ssh</span>
+<span class="token comment" spellcheck="true">## 1.3查看密钥生成情况</span>
+<span class="token attr-name">    ll</span> 
+<span class="token attr-name">    -rw-------.</span> <span class="token attr-value">1 root root 1679 12月 19 03:18 id_rsa (私钥：自己保存)</span>
+<span class="token attr-name">    -rw-r--r--.</span> <span class="token attr-value">1 root root  390 12月 19 03:18 id_rsa.pub (公钥：可以暴露)</span>
+<span class="token attr-name">    -rw-r--r--.</span> <span class="token attr-value">1 root root  360 12月 19 00:25 known_hosts </span>
+<span class="token comment" spellcheck="true"># 2.将公钥上传到其他主机上，下面以主机mq1为例</span>
+<span class="token attr-name">    ssh-copy-id</span> <span class="token attr-value">-i ~/.ssh/id_rsa.pub root@mq2</span>
+<span class="token attr-name">    ssh-copy-id</span> <span class="token attr-value">-i ~/.ssh/id_rsa.pub root@mq3</span>
+<span class="token comment" spellcheck="true">## 执行上述命令后，会在mq2、mq3的~/.ssh下生成 authorized_keys文件</span>
+<span class="token comment" spellcheck="true">### 该文件存放mq1的公钥，mq1可以免密登录到mq2、mq3，命令如下</span>
+<span class="token attr-name">    ssh</span> <span class="token attr-value">mq2 和 ssh mq3</span>
+<span class="token comment" spellcheck="true">### 但是只是单向，如需双向，还需在mq2执行</span>
+<span class="token attr-name">    ssh-copy-id</span> <span class="token attr-value">-i ~/.ssh/id_rsa.pub root@mq1</span>
+<span class="token attr-name">    ssh-copy-id</span> <span class="token attr-value">-i ~/.ssh/id_rsa.pub root@mq3</span>
+<span class="token comment" spellcheck="true">### 在mq3执行</span>
+<span class="token attr-name">    ssh-copy-id</span> <span class="token attr-value">-i ~/.ssh/id_rsa.pub root@mq1</span>
+<span class="token attr-name">    ssh-copy-id</span> <span class="token attr-value">-i ~/.ssh/id_rsa.pub root@mq2</span>
+<span class="token comment" spellcheck="true"># 3.ssh免密登录完成</span>
+<span class="token attr-name">    主机mq1</span> <span class="token attr-value">使用 ssh mq2 或 ssh mq3 可免密登录到 mq2/mq3</span>
+<span class="token attr-name">    主机mq2</span> <span class="token attr-value">使用 ssh mq1 或 ssh mq3 可免密登录到 mq1/mq3</span>
+<span class="token attr-name">    主机mq3</span> <span class="token attr-value">使用 ssh mq1 或 ssh mq2 可免密登录到 mq1/mq2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong><code>known_hosts</code>文件作用:</strong></p>
 <p>ssh会把你每个访问过计算机的公钥(public key)都记录在known_hosts。当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告， 避免你受到<code>DNS Hijack</code>(<strong>域名劫持</strong>)之类的攻击<strong>。</strong></p>
@@ -786,79 +786,79 @@ hostname
 <p><code>.ssh/authorized_keys文件</code>：<code>600</code></p>
 </blockquote>
 <h5><span id="13-shi-jian-tong-bu">13、时间同步</span><a href="#13-shi-jian-tong-bu" class="header-anchor">.</a></h5><p><a href="https://www.cnblogs.com/zhubiao/p/9768209.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhubiao/p/9768209.html</a></p>
-<h6><span id="timedatectl-shi-yong">timedatectl使用</span><a href="#timedatectl-shi-yong" class="header-anchor">.</a></h6><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 1.查看当前系统时间、时区</span>
-<span class="token code keyword">    timedatectl 或 timedatectl status</span>
-<span class="token title important"><span class="token punctuation">#</span> 2.列出全世界所有的时区（或部分）</span>
-<span class="token code keyword">    timedatectl list-timezones | grep Asia</span>
-<span class="token title important"><span class="token punctuation">#</span> 3.设置时区</span>
-<span class="token title important"><span class="token punctuation">##</span> 3.1.方法一:</span>
-<span class="token code keyword">    timedatectl set-timezone Asia/Shanghai</span>
-<span class="token title important"><span class="token punctuation">##</span> 3.2.方法二: 直接修改符号链接</span>
-<span class="token code keyword">    rm /etc/localtime</span>
-<span class="token code keyword">    ln -s ../usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span>
+<h6><span id="timedatectl-shi-yong">timedatectl使用</span><a href="#timedatectl-shi-yong" class="header-anchor">.</a></h6><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 1.查看当前系统时间、时区</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">或 timedatectl status</span>
+<span class="token comment" spellcheck="true"># 2.列出全世界所有的时区（或部分）</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">list-timezones | grep Asia</span>
+<span class="token comment" spellcheck="true"># 3.设置时区</span>
+<span class="token comment" spellcheck="true">## 3.1.方法一:</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">set-timezone Asia/Shanghai</span>
+<span class="token comment" spellcheck="true">## 3.2.方法二: 直接修改符号链接</span>
+<span class="token attr-name">    rm</span> <span class="token attr-value">/etc/localtime</span>
+<span class="token attr-name">    ln</span> <span class="token attr-value">-s ../usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 4.设置时间</span>
-<span class="token title important"><span class="token punctuation">##</span> 4.1.方法一: 使用timedatectl，NTP enabled: yes时，使用了NTP服务器自动同步时间，若坚持要手动修改时间，先timedatectl set-ntp no。</span>
-<span class="token title important"><span class="token punctuation">###</span> 4.1.1.设置日期时间</span>
-<span class="token code keyword">    timedatectl set-time '2020-12-12 12:12:12'</span>
-<span class="token title important"><span class="token punctuation">###</span> 4.1.2.设置日期</span>
-<span class="token code keyword">    timedatectl set-time '2020-11-11'</span>
-<span class="token title important"><span class="token punctuation">###</span> 4.1.3.设置时间</span>
-<span class="token code keyword">    timedatectl set-time '11:11:11'    </span>
-<span class="token title important"><span class="token punctuation">##</span> 4.2.方法二: 使用date</span>
-<span class="token code keyword">    date -s '2020-02-02 20:20:20'</span>
+<span class="token comment" spellcheck="true"># 4.设置时间</span>
+<span class="token comment" spellcheck="true">## 4.1.方法一: 使用timedatectl，NTP enabled: yes时，使用了NTP服务器自动同步时间，若坚持要手动修改时间，先timedatectl set-ntp no。</span>
+<span class="token comment" spellcheck="true">### 4.1.1.设置日期时间</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">set-time '2020-12-12 12:12:12'</span>
+<span class="token comment" spellcheck="true">### 4.1.2.设置日期</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">set-time '2020-11-11'</span>
+<span class="token comment" spellcheck="true">### 4.1.3.设置时间</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">set-time '11:11:11'    </span>
+<span class="token comment" spellcheck="true">## 4.2.方法二: 使用date</span>
+<span class="token attr-name">    date</span> <span class="token attr-value">-s '2020-02-02 20:20:20'</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 5.同步系统时间到硬件时间</span>
-<span class="token title important"><span class="token punctuation">##</span> 方法一: 不建议硬件时间随系统时间变化</span>
-<span class="token title important"><span class="token punctuation">###</span> 设置硬件时间随系统时间变化</span>
-<span class="token code keyword">    # timedatectl set-local-rtc 1</span>
-<span class="token title important"><span class="token punctuation">###</span> 设置硬件时间不随系统时间变化</span>
-<span class="token code keyword">    # timedatectl set-local-rtc 0    </span>
-<span class="token title important"><span class="token punctuation">##</span> 方法二: </span>
-<span class="token code keyword">    # hwclock --systohc</span>
+<span class="token comment" spellcheck="true"># 5.同步系统时间到硬件时间</span>
+<span class="token comment" spellcheck="true">## 方法一: 不建议硬件时间随系统时间变化</span>
+<span class="token comment" spellcheck="true">### 设置硬件时间随系统时间变化</span>
+<span class="token comment" spellcheck="true">    # timedatectl set-local-rtc 1</span>
+<span class="token comment" spellcheck="true">### 设置硬件时间不随系统时间变化</span>
+<span class="token comment" spellcheck="true">    # timedatectl set-local-rtc 0    </span>
+<span class="token comment" spellcheck="true">## 方法二: </span>
+<span class="token comment" spellcheck="true">    # hwclock --systohc</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 6.是否启用同步时间  ================================</span>
-<span class="token title important"><span class="token punctuation">##</span> 6.1 启用|停用自动同步时间</span>
-<span class="token code keyword">    timedatectl set-ntp yes|no</span>
-<span class="token title important"><span class="token punctuation">###</span> 上面的命令其实是启用、停用时间服务器，若安装了chrony服务，则等同于对该服务启停，若只安装了ntp，则是对ntp服务启停。</span>
-<span class="token title important"><span class="token punctuation">###</span> 对chrony服务启停: systemctl start|stop chronyd</span>
-<span class="token title important"><span class="token punctuation">###</span> 对ntp服务启停: systemctl start|stop ntpd</span>
+<span class="token comment" spellcheck="true"># 6.是否启用同步时间  ================================</span>
+<span class="token comment" spellcheck="true">## 6.1 启用|停用自动同步时间</span>
+<span class="token attr-name">    timedatectl</span> <span class="token attr-value">set-ntp yes|no</span>
+<span class="token comment" spellcheck="true">### 上面的命令其实是启用、停用时间服务器，若安装了chrony服务，则等同于对该服务启停，若只安装了ntp，则是对ntp服务启停。</span>
+<span class="token comment" spellcheck="true">### 对chrony服务启停: systemctl start|stop chronyd</span>
+<span class="token comment" spellcheck="true">### 对ntp服务启停: systemctl start|stop ntpd</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 7.查看硬件时间</span>
-<span class="token code keyword">    hwclock</span>
+<span class="token comment" spellcheck="true"># 7.查看硬件时间</span>
+    hwclock
 
-<span class="token title important"><span class="token punctuation">#</span> 8.系统时间与网络时间同步</span>
-<span class="token code keyword">    ntpdate cn.pool.ntp.org</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 8.系统时间与网络时间同步</span>
+<span class="token attr-name">    ntpdate</span> <span class="token attr-value">cn.pool.ntp.org</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h6><span id="zi-dong-tong-bu-shi-jian-fu-wu-ntp-chrony-ming-ling-ntpdate">自动同步时间：服务ntp、chrony，命令ntpdate</span><a href="#zi-dong-tong-bu-shi-jian-fu-wu-ntp-chrony-ming-ling-ntpdate" class="header-anchor">.</a></h6><p><strong><code>ntp</code></strong></p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 0.安装</span>
-<span class="token code keyword">    yum install -y ntp</span>
-<span class="token title important"><span class="token punctuation">#</span> 1.配置ntp同步阿里云时间服务器</span>
-<span class="token code keyword">    vim /etc/ntp.conf</span>
-<span class="token code keyword">    server ntp1.aliyun.com</span>
-<span class="token code keyword">    server ntp2.aliyun.com</span>
-<span class="token code keyword">    server ntp3.aliyun.com</span>
-<span class="token code keyword">    #server 0.centos.pool.ntp.org iburst</span>
-<span class="token title important"><span class="token punctuation">#</span> 2.启动ntp服务</span>
-<span class="token code keyword">    systemctl start ntpd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 0.安装</span>
+<span class="token attr-name">    yum</span> <span class="token attr-value">install -y ntp</span>
+<span class="token comment" spellcheck="true"># 1.配置ntp同步阿里云时间服务器</span>
+<span class="token attr-name">    vim</span> <span class="token attr-value">/etc/ntp.conf</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">ntp1.aliyun.com</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">ntp2.aliyun.com</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">ntp3.aliyun.com</span>
+<span class="token comment" spellcheck="true">    #server 0.centos.pool.ntp.org iburst</span>
+<span class="token comment" spellcheck="true"># 2.启动ntp服务</span>
+<span class="token attr-name">    systemctl</span> <span class="token attr-value">start ntpd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong><code>chrony</code></strong></p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 0.安装</span>
-<span class="token code keyword">    yum install -y chrony</span>
-<span class="token title important"><span class="token punctuation">#</span> 1.配置</span>
-<span class="token code keyword">    vim /etc/chrony.conf</span>
-<span class="token code keyword">    server ntp1.alyun.com</span>
-<span class="token code keyword">    server ntp2.alyun.com</span>
-<span class="token code keyword">    server ntp3.alyun.com</span>
-<span class="token code keyword">    #server 0.centos.pool.ntp.org iburst</span>
-<span class="token title important"><span class="token punctuation">#</span> 2.启动</span>
-<span class="token code keyword">    systemctl start chronyd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 0.安装</span>
+<span class="token attr-name">    yum</span> <span class="token attr-value">install -y chrony</span>
+<span class="token comment" spellcheck="true"># 1.配置</span>
+<span class="token attr-name">    vim</span> <span class="token attr-value">/etc/chrony.conf</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">ntp1.alyun.com</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">ntp2.alyun.com</span>
+<span class="token attr-name">    server</span> <span class="token attr-value">ntp3.alyun.com</span>
+<span class="token comment" spellcheck="true">    #server 0.centos.pool.ntp.org iburst</span>
+<span class="token comment" spellcheck="true"># 2.启动</span>
+<span class="token attr-name">    systemctl</span> <span class="token attr-value">start chronyd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>配置计划任务，使用<code>ntpdate</code>同步时间</strong></p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 启动并开机启动计划任务cron</span>
-<span class="token code keyword">    systemctl start crond</span>
-<span class="token code keyword">    systemctl enable crond</span>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 启动并开机启动计划任务cron</span>
+<span class="token attr-name">    systemctl</span> <span class="token attr-value">start crond</span>
+<span class="token attr-name">    systemctl</span> <span class="token attr-value">enable crond</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 配置计划任务，每5分钟同步一次</span>
-<span class="token code keyword">    crontab -e</span>
-<span class="token code keyword">    */5 * * * * /usr/sbin/ntpdate ntp1.aliyun.com</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 配置计划任务，每5分钟同步一次</span>
+<span class="token attr-name">    crontab</span> <span class="token attr-value">-e</span>
+<span class="token attr-name">    */5</span> <span class="token attr-value">* * * * /usr/sbin/ntpdate ntp1.aliyun.com</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5><span id="ji-ben-ming-ling">基本命令</span><a href="#ji-ben-ming-ling" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">cd</span> <span class="token attr-value">abc -> 进入子目录</span>
 <span class="token attr-name">cd</span> <span class="token attr-value">/ -> 进入根目录</span>
 <span class="token attr-name">ll</span> <span class="token attr-value">-> 显示当前路径文件（详细）</span>
@@ -895,24 +895,25 @@ hostname
 <span class="token attr-name">rpm</span> <span class="token attr-value">-e （卸载一个包）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5><span id="zhu-yi">注意：</span><a href="#zhu-yi" class="header-anchor">.</a></h5><h6><span id="shen-yong-yum-update">慎用yum update</span><a href="#shen-yong-yum-update" class="header-anchor">.</a></h6><p><code>1、yum -y update 升级所有包，改变软件设置和系抄统设置,系统版本内核都升级。</code></p>
 <p><code>2、yum -y upgrade升级所有包，不改袭变软件设置和系统设置，系统版本升级，内核不改变。</code></p>
-<h6><span id="gen-mu-lu-jie-gou-shuo-ming">根目录结构说明</span><a href="#gen-mu-lu-jie-gou-shuo-ming" class="header-anchor">.</a></h6><pre><code>- bin 普通用户使用的命令
-- sbin 管理员使用的命令
-- dev 设备文件
-- proc  虚拟文件系统，反映内核进程信息实时状态
-- usr 系统文件，类似C:Windows
-  [注]: RHEL7 /bin /sbin /lib /lib64 都在此目录
-- boot 启动文件
-- etc 配置文件
-- lib 库文件
-- lib64 库文件
-- tmp 临时文件
-- var 变化文件
+<h6><span id="gen-mu-lu-jie-gou-shuo-ming">根目录结构说明</span><a href="#gen-mu-lu-jie-gou-shuo-ming" class="header-anchor">.</a></h6><pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">-</span> <span class="token attr-value">bin 普通用户使用的命令</span>
+<span class="token attr-name">-</span> <span class="token attr-value">sbin 管理员使用的命令</span>
+<span class="token attr-name">-</span> <span class="token attr-value">dev 设备文件</span>
+<span class="token attr-name">-</span> <span class="token attr-value">proc  虚拟文件系统，反映内核进程信息实时状态</span>
+<span class="token attr-name">-</span> <span class="token attr-value">usr 系统文件，类似C:Windows</span>
+<span class="token attr-name">  [注]</span><span class="token punctuation">:</span> <span class="token attr-value">RHEL7 /bin /sbin /lib /lib64 都在此目录</span>
+<span class="token attr-name">-</span> <span class="token attr-value">boot 启动文件</span>
+<span class="token attr-name">-</span> <span class="token attr-value">etc 配置文件</span>
+<span class="token attr-name">-</span> <span class="token attr-value">lib 库文件</span>
+<span class="token attr-name">-</span> <span class="token attr-value">lib64 库文件</span>
+<span class="token attr-name">-</span> <span class="token attr-value">tmp 临时文件</span>
+<span class="token attr-name">-</span> <span class="token attr-value">var 变化文件</span>
 
 注：设备挂载目录
-- media 移动设备挂载点
-- mnt 手工挂载点
-- misc  automount进程挂载
-- net  automount进程挂载</code></pre>
+<span class="token attr-name">-</span> <span class="token attr-value">media 移动设备挂载点</span>
+<span class="token attr-name">-</span> <span class="token attr-value">mnt 手工挂载点</span>
+<span class="token attr-name">-</span> <span class="token attr-value">misc  automount进程挂载</span>
+<span class="token attr-name">-</span> <span class="token attr-value">net  automount进程挂载</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr/>
 
@@ -1260,7 +1261,7 @@ h 或 向左箭头键(←)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">213.1k</span>&nbsp;字
             
             
             

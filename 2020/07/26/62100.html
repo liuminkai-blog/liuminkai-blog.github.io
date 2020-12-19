@@ -476,12 +476,12 @@
                                 <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/mybatis/">
-                                <span class="chip bg-color">mybatis</span>
-                            </a>
-                        
                             <a href="/tags/ssm/">
                                 <span class="chip bg-color">ssm</span>
+                            </a>
+                        
+                            <a href="/tags/mybatis/">
+                                <span class="chip bg-color">mybatis</span>
                             </a>
                         
                     </div>
@@ -621,7 +621,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3><span id="2-biao-qian-yuan-su">2、标签元素</span><a href="#2-biao-qian-yuan-su" class="header-anchor">.</a></h3><h4><span id="1-if">1. if</span><a href="#1-if" class="header-anchor">.</a></h4><h5><span id="jie-kou-fang-fa-tian-jia">接口方法添加</span><a href="#jie-kou-fang-fa-tian-jia" class="header-anchor">.</a></h5><pre class="line-numbers language-xml"><code class="language-xml">List<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Blog</span><span class="token punctuation">></span></span> getBlogByIF(Map<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>String,</span> <span class="token attr-name">Object</span><span class="token punctuation">></span></span> map);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h5><span id="blogmapper-xml-tian-jia-sql-yu-ju-shi-yong-if-biao-qian"><code>BlogMapper.xml</code>添加SQL语句，使用 if 标签</span><a href="#blogmapper-xml-tian-jia-sql-yu-ju-shi-yong-if-biao-qian" class="header-anchor">.</a></h5><pre class="line-numbers language-XML"><code class="language-XML"><select id="getBlogByIF" resulttype="pojo.Blog">
+<h5><span id="blogmapper-xml-tian-jia-sql-yu-ju-shi-yong-if-biao-qian"><code>BlogMapper.xml</code>添加SQL语句，使用 if 标签</span><a href="#blogmapper-xml-tian-jia-sql-yu-ju-shi-yong-if-biao-qian" class="header-anchor">.</a></h5><pre class="line-numbers language-XML"><code class="language-XML"><select id="getBlogByIF" resultType="pojo.Blog">
     -- 使用1=1 是避免 没有条件是的 where不能单独存在
     select * from mybatis.blog where 1=1
     -- if 标签 当满足执行条件时，才添加 需要的SQL语句
@@ -731,7 +731,7 @@ public void getBlogBySet(){
     try(SqlSession sqlSession  = MybatisUtils.getSqlSession();) {
         BlogMapper blogDao = sqlSession.getMapper(BlogMapper.class);
 
-        Map<string, object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("views","300");
         map.put("id","1");
         int i = blogDao.updateViewsBySet(map);
@@ -743,7 +743,7 @@ public void getBlogBySet(){
             System.out.println("成功");
         }
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></string,></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5><span id="jie-guo-xian-shi">结果显示</span><a href="#jie-guo-xian-shi" class="header-anchor">.</a></h5><p><img src="/2020/07/26/62100/image-20200801014835584.png" alt></p>
 <h4><span id="5-trim-ding-zhi-hua-where-set">5.trim（定制化 where 、set …）</span><a href="#5-trim-ding-zhi-hua-where-set" class="header-anchor">.</a></h4><blockquote>
 <p><code>prefix</code>表示 需要动态添加的 关键字 </p>
@@ -897,12 +897,12 @@ public void getBlogBySet(){
                                     <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/mybatis/">
-                                    <span class="chip bg-color">mybatis</span>
-                                </a>
-                            
                                 <a href="/tags/ssm/">
                                     <span class="chip bg-color">ssm</span>
+                                </a>
+                            
+                                <a href="/tags/mybatis/">
+                                    <span class="chip bg-color">mybatis</span>
                                 </a>
                             
                         </div>
@@ -1014,12 +1014,12 @@ public void getBlogBySet(){
                         <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/mybatis/">
-                        <span class="chip bg-color">mybatis</span>
-                    </a>
-                    
                     <a href="/tags/ssm/">
                         <span class="chip bg-color">ssm</span>
+                    </a>
+                    
+                    <a href="/tags/mybatis/">
+                        <span class="chip bg-color">mybatis</span>
                     </a>
                     
                 </div>
@@ -1189,7 +1189,7 @@ public void getBlogBySet(){
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">213.1k</span>&nbsp;字
             
             
             

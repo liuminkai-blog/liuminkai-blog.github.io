@@ -508,21 +508,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-18
+                    2020-12-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13k
+                    13.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    63 分
+                    67 分
                 </div>
                 
 
@@ -542,19 +542,19 @@
 </blockquote>
 <h2><span id="1-mq-yin-yan">1.MQ引言</span><a href="#1-mq-yin-yan" class="header-anchor">.</a></h2><h3><span id="1-1-shi-me-shi-mq">1.1 什么是MQ</span><a href="#1-1-shi-me-shi-mq" class="header-anchor">.</a></h3><p><code>MQ</code>(Message Quene) :  翻译为 <code>消息队列</code>,通过典型的 <code>生产者</code>和<code>消费者</code>模型,生产者不断向消息队列中生产消息，消费者不断的从队列中获取消息。因为消息的生产和消费都是异步的，而且只关心消息的发送和接收，没有业务逻辑的侵入,轻松的实现系统间解耦。别名为 <code>消息中间件</code>    通过利用高效可靠的消息传递机制进行平台无关的数据交流，并基于数据通信来进行分布式系统的集成。</p>
 <h3><span id="1-2-mq-you-na-xie">1.2 MQ有哪些</span><a href="#1-2-mq-you-na-xie" class="header-anchor">.</a></h3><p>当今市面上有很多主流的消息中间件，如老牌的<code>ActiveMQ</code>、<code>RabbitMQ</code>，炙手可热的<code>Kafka</code>，阿里巴巴自主开发<code>RocketMQ</code>等。</p>
-<h3><span id="1-3-bu-tong-mq-te-dian">1.3 不同MQ特点</span><a href="#1-3-bu-tong-mq-te-dian" class="header-anchor">.</a></h3><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 1.ActiveMQ</span>
-<span class="token code keyword">    ActiveMQ 是Apache出品，最流行的，能力强劲的开源消息总线。它是一个完全支持JMS规范的的消息中间件。丰富的API,多种集群架构模式让ActiveMQ在业界成为老牌的消息中间件,在中小型企业颇受欢迎!</span>
-<span class="token code keyword">        JMS:Java消息服务（Java Message Service）应用程序接口    </span>
-<span class="token title important"><span class="token punctuation">#</span> 2.Kafka</span>
-<span class="token code keyword">    Kafka是LinkedIn开源的分布式发布-订阅消息系统，目前归属于Apache顶级项目。Kafka主要特点是基于Pull的模式来处理消息消费，追求高吞吐量，一开始的目的就是用于日志收集和传输。0.8版本开始支持复制，不支持事务，对消息的重复、丢失、错误没有严格要求，</span>
-<span class="token code keyword">    适合产生大量数据的互联网服务的数据收集业务。</span>
+<h3><span id="1-3-bu-tong-mq-te-dian">1.3 不同MQ特点</span><a href="#1-3-bu-tong-mq-te-dian" class="header-anchor">.</a></h3><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 1.ActiveMQ</span>
+<span class="token attr-name">    ActiveMQ</span> <span class="token attr-value">是Apache出品，最流行的，能力强劲的开源消息总线。它是一个完全支持JMS规范的的消息中间件。丰富的API,多种集群架构模式让ActiveMQ在业界成为老牌的消息中间件,在中小型企业颇受欢迎!</span>
+<span class="token attr-name">        JMS</span><span class="token punctuation">:</span><span class="token attr-value">Java消息服务（Java Message Service）应用程序接口    </span>
+<span class="token comment" spellcheck="true"># 2.Kafka</span>
+    Kafka是LinkedIn开源的分布式发布-订阅消息系统，目前归属于Apache顶级项目。Kafka主要特点是基于Pull的模式来处理消息消费，追求高吞吐量，一开始的目的就是用于日志收集和传输。0.8版本开始支持复制，不支持事务，对消息的重复、丢失、错误没有严格要求，
+    适合产生大量数据的互联网服务的数据收集业务。
 
-<span class="token title important"><span class="token punctuation">#</span> 3.RocketMQ</span>
-<span class="token code keyword">    RocketMQ是阿里开源的消息中间件，它是纯Java开发，具有高吞吐量、高可用性、适合大规模分布式系统应用的特点。RocketMQ思路起源于Kafka，但并不是Kafka的一个Copy，它对消息的可靠传输及事务性做了优化，目前在阿里集团被广泛应用于交易、充值、流计算、消息推送、日志流式处理、binglog分发等场景。</span>
+<span class="token comment" spellcheck="true"># 3.RocketMQ</span>
+    RocketMQ是阿里开源的消息中间件，它是纯Java开发，具有高吞吐量、高可用性、适合大规模分布式系统应用的特点。RocketMQ思路起源于Kafka，但并不是Kafka的一个Copy，它对消息的可靠传输及事务性做了优化，目前在阿里集团被广泛应用于交易、充值、流计算、消息推送、日志流式处理、binglog分发等场景。
 
-<span class="token title important"><span class="token punctuation">#</span> 4.RabbitMQ</span>
-<span class="token code keyword">    RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP协议来实现。AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。AMQP协议更多用在企业系统内对数据一致性、稳定性和可靠性要求很高的场景，对性能和吞吐量的要求还在其次。</span>
-<span class="token code keyword">        AMQP:高级消息队列协议(Advanced Message Queuing Protocol) -- 一个提供统一消息服务的应用层标准高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端/中间件不同产品，不同的开发语言等条件的限制</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 4.RabbitMQ</span>
+    RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP协议来实现。AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。AMQP协议更多用在企业系统内对数据一致性、稳定性和可靠性要求很高的场景，对性能和吞吐量的要求还在其次。
+<span class="token attr-name">        AMQP</span><span class="token punctuation">:</span><span class="token attr-value">高级消息队列协议(Advanced Message Queuing Protocol) -- 一个提供统一消息服务的应用层标准高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端/中间件不同产品，不同的开发语言等条件的限制</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>RabbitMQ比Kafka可靠，Kafka更适合IO高吞吐的处理，一般应用在大数据日志处理或对实时性（少量延迟），可靠性（少量丢数据）要求稍低的场景使用，比如ELK日志收集。</p>
 <ul>
@@ -567,8 +567,8 @@
 </blockquote>
 <p><code>官网</code>: <a href="https://www.rabbitmq.com/" target="_blank" rel="noopener">https://www.rabbitmq.com/</a></p>
 <p><code>官方教程</code>: <a href="https://www.rabbitmq.com/#getstarted" target="_blank" rel="noopener">https://www.rabbitmq.com/#getstarted</a></p>
-<pre class="line-numbers language-markdown"><code class="language-markdown"> <span class="token title important"><span class="token punctuation">#</span> AMQP 协议</span>
- <span class="token code keyword">`AMQP（advanced message queuing protocol）`</span>在2003年时被提出，最早用于解决金融领不同平台之间的消息传递交互问题。顾名思义，AMQP是一种协议，更准确的说是一种<span class="token code keyword">`binary wire-level protocol`</span>（链接协议）。这是其和JMS的本质差别，AMQP不从API层进行限定，而是直接定义网络交换的数据格式。这使得实现了AMQP的provider天然性就是跨平台的。以下是AMQP协议模型:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"> # AMQP 协议</span>
+<span class="token attr-name"> `AMQP（advanced</span> <span class="token attr-value">message queuing protocol）`在2003年时被提出，最早用于解决金融领不同平台之间的消息传递交互问题。顾名思义，AMQP是一种协议，更准确的说是一种`binary wire-level protocol`（链接协议）。这是其和JMS的本质差别，AMQP不从API层进行限定，而是直接定义网络交换的数据格式。这使得实现了AMQP的provider天然性就是跨平台的。以下是AMQP协议模型:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201216161446.png" alt="AMQP协议模型"></p>
 <h3><span id="2-2-rabbitmq-de-an-zhuang">2.2 RabbitMQ 的安装</span><a href="#2-2-rabbitmq-de-an-zhuang" class="header-anchor">.</a></h3><h4><span id="2-2-1-xia-zai">2.2.1 下载</span><a href="#2-2-1-xia-zai" class="header-anchor">.</a></h4><p><code>官网下载地址</code>: <a href="https://www.rabbitmq.com/download.html" target="_blank" rel="noopener">https://www.rabbitmq.com/download.html</a></p>
 <p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201216224549.png" alt="下载CentOS版本"></p>
@@ -585,71 +585,71 @@
 <li>socat-1.7.3.2-2.el7.x86_64.rpm</li>
 <li>rabbitmq-server-3.8.9-1.el7.noarch.rpm</li>
 </ul>
-<h4><span id="2-2-3-an-zhuang-bu-zou">2.2.3 安装步骤</span><a href="#2-2-3-an-zhuang-bu-zou" class="header-anchor">.</a></h4><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 创建存放安装包暂存目录</span>
-mkdir /app
-cd /app
+<h4><span id="2-2-3-an-zhuang-bu-zou">2.2.3 安装步骤</span><a href="#2-2-3-an-zhuang-bu-zou" class="header-anchor">.</a></h4><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 创建存放安装包暂存目录</span>
+<span class="token attr-name">mkdir</span> <span class="token attr-value">/app</span>
+<span class="token attr-name">cd</span> <span class="token attr-value">/app</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 1.将安装包上传到 /app 上</span>
-<span class="token title important"><span class="token punctuation">##</span> 可使用xftp</span>
+<span class="token comment" spellcheck="true"># 1.将安装包上传到 /app 上</span>
+<span class="token comment" spellcheck="true">## 可使用xftp</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 2.安装</span>
-rpm -ivh erlang-23.1.5-1.el7.x86<span class="token italic"><span class="token punctuation">_</span>64.rpm
-rpm -ivh socat-1.7.3.2-2.el7.x86<span class="token punctuation">_</span></span>64.rpm
-rpm -ivh rabbitmq-server-3.8.9-1.el7.noarch.rpm
+<span class="token comment" spellcheck="true"># 2.安装</span>
+<span class="token attr-name">rpm</span> <span class="token attr-value">-ivh erlang-23.1.5-1.el7.x86_64.rpm</span>
+<span class="token attr-name">rpm</span> <span class="token attr-value">-ivh socat-1.7.3.2-2.el7.x86_64.rpm</span>
+<span class="token attr-name">rpm</span> <span class="token attr-value">-ivh rabbitmq-server-3.8.9-1.el7.noarch.rpm</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 3.复制配置文件</span>
-<span class="token title important"><span class="token punctuation">##</span> cp /usr/share/doc/rabbitmq-server-3.8.9/rabbitmq.config.example /etc/rabbitmq/rabbitmq.config</span>
-<span class="token title important"><span class="token punctuation">###</span> 3.8.9在该目录下没有这个文件，所以去github上拷贝了一份,复制到rabbitmq.conf，文件内容在结尾</span>
-<span class="token title important"><span class="token punctuation">###</span> https://github.com/rabbitmq/rabbitmq-server/tree/v3.8.x/deps/rabbit/docs</span>
-vim /etc/rabbitmq/rabbitmq.conf
-<span class="token title important"><span class="token punctuation">###</span> 编辑rabbitmq.conf 修改81行，取消注释</span>
-loopback_users.guest= false
+<span class="token comment" spellcheck="true"># 3.复制配置文件</span>
+<span class="token comment" spellcheck="true">## cp /usr/share/doc/rabbitmq-server-3.8.9/rabbitmq.config.example /etc/rabbitmq/rabbitmq.config</span>
+<span class="token comment" spellcheck="true">### 3.8.9在该目录下没有这个文件，所以去github上拷贝了一份,复制到rabbitmq.conf，文件内容在结尾</span>
+<span class="token comment" spellcheck="true">### https://github.com/rabbitmq/rabbitmq-server/tree/v3.8.x/deps/rabbit/docs</span>
+<span class="token attr-name">vim</span> <span class="token attr-value">/etc/rabbitmq/rabbitmq.conf</span>
+<span class="token comment" spellcheck="true">### 编辑rabbitmq.conf 修改81行，取消注释</span>
+<span class="token attr-name">loopback_users.guest</span><span class="token punctuation">=</span> <span class="token attr-value">false</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 4.配置开机自启</span>
-chkconfig rabbitmq-server on
+<span class="token comment" spellcheck="true"># 4.配置开机自启</span>
+<span class="token attr-name">chkconfig</span> <span class="token attr-value">rabbitmq-server on</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 5.开启rabbitmq</span>
-systemctl start rabbitmq-server
-<span class="token title important"><span class="token punctuation">#</span> 查看状态</span>
-systemctl status rabbitmq-server
+<span class="token comment" spellcheck="true"># 5.开启rabbitmq</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">start rabbitmq-server</span>
+<span class="token comment" spellcheck="true"># 查看状态</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">status rabbitmq-server</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 6.执行如下命令,启动rabbitmq中的插件管理</span>
-<span class="token title important"><span class="token punctuation">##</span> 192.168.111.11:15672访问图形化管理界面</span>
-rabbitmq-plugins enable rabbitmq_management
+<span class="token comment" spellcheck="true"># 6.执行如下命令,启动rabbitmq中的插件管理</span>
+<span class="token comment" spellcheck="true">## 192.168.111.11:15672访问图形化管理界面</span>
+<span class="token attr-name">rabbitmq-plugins</span> <span class="token attr-value">enable rabbitmq_management</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 7.如果访问不到：需要关闭防火墙</span>
-systemctl stop firewalld
-<span class="token title important"><span class="token punctuation">##</span> 关闭开机自启</span>
-systemctl disable firewalld
+<span class="token comment" spellcheck="true"># 7.如果访问不到：需要关闭防火墙</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">stop firewalld</span>
+<span class="token comment" spellcheck="true">## 关闭开机自启</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">disable firewalld</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 8.访问图形化界面</span>
-192.168.111.11:15672<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 8.访问图形化界面</span>
+<span class="token attr-name">192.168.111.11</span><span class="token punctuation">:</span><span class="token attr-value">15672</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4><span id="2-2-4-deng-lu">2.2.4登录</span><a href="#2-2-4-deng-lu" class="header-anchor">.</a></h4><p>username：guest</p>
 <p>password：guest</p>
 <blockquote>
 <p>但是登录失败：<code>User can only log in via localhost</code></p>
 <p>原因：<code>rabbitmq从3.3.0开始禁止使用guest/guest权限通过除localhost外的访问</code></p>
 </blockquote>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 解决方法</span>
-vim /etc/rabbitmq/rabbitmq.conf
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 解决方法</span>
+<span class="token attr-name">vim</span> <span class="token attr-value">/etc/rabbitmq/rabbitmq.conf</span>
 
-<span class="token title important"><span class="token punctuation">###</span> 编辑rabbitmq.conf 修改81行，取消注释</span>
-loopback_users.guest= false
+<span class="token comment" spellcheck="true">### 编辑rabbitmq.conf 修改81行，取消注释</span>
+<span class="token attr-name">loopback_users.guest</span><span class="token punctuation">=</span> <span class="token attr-value">false</span>
 
 
-<span class="token title important"><span class="token punctuation">####</span> 以前的配置文件rabbitmq.config</span>
-<span class="token title important"><span class="token punctuation">#</span> </span>
-<span class="token title important"><span class="token punctuation">#</span> {loopback_users, [&lt;&lt;”guest”>>]}  改为   {loopback_users, []}，</span>
-<span class="token title important"><span class="token punctuation">#</span> </span>
-<span class="token title important"><span class="token punctuation">####</span> </span>
+<span class="token comment" spellcheck="true">#### 以前的配置文件rabbitmq.config</span>
+<span class="token comment" spellcheck="true"># </span>
+<span class="token comment" spellcheck="true"># {loopback_users, [&lt;&lt;”guest”>>]}  改为   {loopback_users, []}，</span>
+<span class="token comment" spellcheck="true"># </span>
+<span class="token comment" spellcheck="true">#### </span>
 
-<span class="token title important"><span class="token punctuation">###</span> 然后重启服务</span>
-systemctl restart rabbitmq-server
+<span class="token comment" spellcheck="true">### 然后重启服务</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">restart rabbitmq-server</span>
 
-<span class="token title important"><span class="token punctuation">###</span> 再次访问，并登录</span>
-192.168.111.11:15672
-username: guest
-password: guest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">### 再次访问，并登录</span>
+<span class="token attr-name">192.168.111.11</span><span class="token punctuation">:</span><span class="token attr-value">15672</span>
+<span class="token attr-name">username</span><span class="token punctuation">:</span> <span class="token attr-value">guest</span>
+<span class="token attr-name">password</span><span class="token punctuation">:</span> <span class="token attr-value">guest</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201217120042.png" alt></p>
 <h4><span id="2-2-5-quan-xian-pei-zhi-ming-ling-yong-hu-biao-qian">2.2.5 权限配置命令，用户标签</span><a href="#2-2-5-quan-xian-pei-zhi-ming-ling-yong-hu-biao-qian" class="header-anchor">.</a></h4><p><strong>用户权限命令</strong></p>
 <pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">rabbitmqctl</span> <span class="token attr-value">list_users  // 查看当前所有用户</span>
@@ -701,14 +701,14 @@ password: guest<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <li><p><code>none</code>：无法访问管理插件</p>
 </li>
 </ul>
-<h2><span id="3-rabiitmq-pei-zhi">3. RabiitMQ 配置</span><a href="#3-rabiitmq-pei-zhi" class="header-anchor">.</a></h2><h3><span id="3-1rabbitmq-guan-li-ming-ling-xing">3.1RabbitMQ 管理命令行</span><a href="#3-1rabbitmq-guan-li-ming-ling-xing" class="header-anchor">.</a></h3><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 1.服务启动相关</span>
-<span class="token code keyword">    systemctl start|restart|stop|status rabbitmq-server</span>
+<h2><span id="3-rabiitmq-pei-zhi">3. RabiitMQ 配置</span><a href="#3-rabiitmq-pei-zhi" class="header-anchor">.</a></h2><h3><span id="3-1rabbitmq-guan-li-ming-ling-xing">3.1RabbitMQ 管理命令行</span><a href="#3-1rabbitmq-guan-li-ming-ling-xing" class="header-anchor">.</a></h3><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 1.服务启动相关</span>
+<span class="token attr-name">    systemctl</span> <span class="token attr-value">start|restart|stop|status rabbitmq-server</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 2.管理命令行  用来在不使用web管理界面情况下命令操作RabbitMQ</span>
-<span class="token code keyword">    rabbitmqctl  help  可以查看更多命令</span>
+<span class="token comment" spellcheck="true"># 2.管理命令行  用来在不使用web管理界面情况下命令操作RabbitMQ</span>
+<span class="token attr-name">    rabbitmqctl</span> <span class="token attr-value"> help  可以查看更多命令</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 3.插件管理命令行</span>
-<span class="token code keyword">    rabbitmq-plugins enable|list|disable </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 3.插件管理命令行</span>
+<span class="token attr-name">    rabbitmq-plugins</span> <span class="token attr-value">enable|list|disable </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3><span id="3-2-web-guan-li-jie-mian-jie-shao">3.2 web管理界面介绍</span><a href="#3-2-web-guan-li-jie-mian-jie-shao" class="header-anchor">.</a></h3><h4><span id="3-2-1-overview-gai-lan">3.2.1 overview概览</span><a href="#3-2-1-overview-gai-lan" class="header-anchor">.</a></h4><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201217124410.png" alt></p>
 <ul>
 <li><code>connections：无论生产者还是消费者，都需要与RabbitMQ建立连接后才可以完成消息的生产和消费，在这里可以查看连接情况</code></li>
@@ -735,8 +735,8 @@ password: guest<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <p>无法登陆管理控制台，通常就是普通的生产者和消费者。</p>
 </li>
 </ul>
-<h5><span id="2-chuang-jian-xu-ni-zhu-ji">2. 创建虚拟主机</span><a href="#2-chuang-jian-xu-ni-zhu-ji" class="header-anchor">.</a></h5><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 虚拟主机</span>
-<span class="token code keyword">    为了让各个用户可以互不干扰的工作，RabbitMQ添加了虚拟主机（Virtual Hosts）的概念。其实就是一个独立的访问路径，不同用户使用不同路径，各自有自己的队列、交换机，互相不会影响。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5><span id="2-chuang-jian-xu-ni-zhu-ji">2. 创建虚拟主机</span><a href="#2-chuang-jian-xu-ni-zhu-ji" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 虚拟主机</span>
+<span class="token attr-name">    为了让各个用户可以互不干扰的工作，RabbitMQ添加了虚拟主机（Virtual</span> <span class="token attr-value">Hosts）的概念。其实就是一个独立的访问路径，不同用户使用不同路径，各自有自己的队列、交换机，互相不会影响。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p> <img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201217124848.png" alt></p>
 <h5><span id="3-bang-ding-xu-ni-zhu-ji-he-yong-hu">3. 绑定虚拟主机和用户</span><a href="#3-bang-ding-xu-ni-zhu-ji-he-yong-hu" class="header-anchor">.</a></h5><p>创建好虚拟主机，我们还要给用户添加访问权限：</p>
 <p>点击添加好的虚拟主机：</p>
@@ -1110,26 +1110,27 @@ channel<span class="token punctuation">.</span><span class="token function">exch
 channel<span class="token punctuation">.</span><span class="token function">basicPublish</span><span class="token punctuation">(</span>exchange<span class="token punctuation">,</span> routingKey<span class="token punctuation">,</span> null<span class="token punctuation">,</span> message<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//5.关闭连接</span>
 RabbitMQUtil<span class="token punctuation">.</span><span class="token function">closeConnectionAndChannel</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> channel<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5><span id="2-kai-fa-xiao-fei-zhe">2.开发消费者</span><a href="#2-kai-fa-xiao-fei-zhe" class="header-anchor">.</a></h5><h6><span id="c1"><code>C1</code></span><a href="#c1" class="header-anchor">.</a></h6><pre><code>String exchange = &quot;direct&quot;;
-String routingKey = &quot;info&quot;;
-//1.连接
-Connection connection = RabbitMQUtil.getConnection();
-//2.通道
-Channel channel = connection.createChannel();
-//3.交换机
-channel.exchangeDeclare(exchange, BuiltinExchangeType.DIRECT);
-//4.临时队列
-String queue = channel.queueDeclare().getQueue();
-//5.绑定队列 == 绑定 info
-channel.queueBind(queue, exchange, routingKey);
-//6.消费消息
-channel.basicConsume(queue, false, new DefaultConsumer(channel){
-    @Override
-    public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-        System.out.println(&quot;消费者1 == &quot; + new String(body, &quot;utf-8&quot;));
-        channel.basicAck(envelope.getDeliveryTag(), false);
-    }
-});</code></pre><h6><span id="c2"><code>C2</code></span><a href="#c2" class="header-anchor">.</a></h6><pre class="line-numbers language-java"><code class="language-java">String exchange <span class="token operator">=</span> <span class="token string">"direct"</span><span class="token punctuation">;</span>
+<h5><span id="2-kai-fa-xiao-fei-zhe">2.开发消费者</span><a href="#2-kai-fa-xiao-fei-zhe" class="header-anchor">.</a></h5><h6><span id="c1"><code>C1</code></span><a href="#c1" class="header-anchor">.</a></h6><pre class="line-numbers language-java"><code class="language-java">String exchange <span class="token operator">=</span> <span class="token string">"direct"</span><span class="token punctuation">;</span>
+String routingKey <span class="token operator">=</span> <span class="token string">"info"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//1.连接</span>
+Connection connection <span class="token operator">=</span> RabbitMQUtil<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//2.通道</span>
+Channel channel <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">createChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//3.交换机</span>
+channel<span class="token punctuation">.</span><span class="token function">exchangeDeclare</span><span class="token punctuation">(</span>exchange<span class="token punctuation">,</span> BuiltinExchangeType<span class="token punctuation">.</span>DIRECT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//4.临时队列</span>
+String queue <span class="token operator">=</span> channel<span class="token punctuation">.</span><span class="token function">queueDeclare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//5.绑定队列 == 绑定 info</span>
+channel<span class="token punctuation">.</span><span class="token function">queueBind</span><span class="token punctuation">(</span>queue<span class="token punctuation">,</span> exchange<span class="token punctuation">,</span> routingKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//6.消费消息</span>
+channel<span class="token punctuation">.</span><span class="token function">basicConsume</span><span class="token punctuation">(</span>queue<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">DefaultConsumer</span><span class="token punctuation">(</span>channel<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handleDelivery</span><span class="token punctuation">(</span>String consumerTag<span class="token punctuation">,</span> Envelope envelope<span class="token punctuation">,</span> AMQP<span class="token punctuation">.</span>BasicProperties properties<span class="token punctuation">,</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> body<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"消费者1 == "</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>body<span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        channel<span class="token punctuation">.</span><span class="token function">basicAck</span><span class="token punctuation">(</span>envelope<span class="token punctuation">.</span><span class="token function">getDeliveryTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h6><span id="c2"><code>C2</code></span><a href="#c2" class="header-anchor">.</a></h6><pre class="line-numbers language-java"><code class="language-java">String exchange <span class="token operator">=</span> <span class="token string">"direct"</span><span class="token punctuation">;</span>
 String routingKey <span class="token operator">=</span> <span class="token string">"debug"</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//1.连接</span>
 Connection connection <span class="token operator">=</span> RabbitMQUtil<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1260,7 +1261,176 @@ channel<span class="token punctuation">.</span><span class="token function">basi
 <h3><span id="4-7-di-wu-chong-mo-xing-rpc">4.7 第五种模型 (RPC)</span><a href="#4-7-di-wu-chong-mo-xing-rpc" class="header-anchor">.</a></h3><p><code>在第二个教程中，我们学习了如何使用工作队列在多个工作人员之间分配耗时的任务。
 但是如果我们需要在远程计算机上运行一个函数并等待结果呢？好吧，那是另一回事了。这种模式通常称为远程过程调用或RPC。在本教程中，我们将使用RabbitMQ构建一个RPC系统：一个客户端和一个可伸缩的RPC服务器。由于我们没有任何值得分发的耗时任务，我们将创建一个返回Fibonacci数的虚拟RPC服务。</code></p>
 <p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201217135405.png" alt="img"></p>
-<h3><span id></span><a href="#" class="header-anchor">.</a></h3><h2><span id="5-springboot-zhong-shi-yong-rabbitmq">5. SpringBoot中使用RabbitMQ</span><a href="#5-springboot-zhong-shi-yong-rabbitmq" class="header-anchor">.</a></h2><h3><span id="5-0-da-jian-chu-shi-huan-jing">5.0 搭建初始环境</span><a href="#5-0-da-jian-chu-shi-huan-jing" class="header-anchor">.</a></h3><h4><span id="1-chuang-jian-springboot-xiang-mu">1.创建springboot项目</span><a href="#1-chuang-jian-springboot-xiang-mu" class="header-anchor">.</a></h4><h4><span id="2-yin-ru-yi-lai">2.引入依赖</span><a href="#2-yin-ru-yi-lai" class="header-anchor">.</a></h4><pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+<p>图解：</p>
+<ul>
+<li><code>C</code>：客户端，使用远程调用的那一方</li>
+<li><code>S</code>：服务端，远程调用服务提供方</li>
+<li><code>Request</code>：请求（携带<code>correlation_id</code>和 <code>用于回调临时队列名</code>）<ul>
+<li><code>correlation_id</code>：该id是确认标识，它会跟着回调响应传回客户端，客户端根据回调相关id和本地id进行对比，相等：取出</li>
+</ul>
+</li>
+<li><code>Reply</code>：回调（携带 <code>correlation_id</code>和 <code>远程方法返回值</code>）</li>
+</ul>
+<h4><span id="0-da-jian-huan-jing">0.搭建环境</span><a href="#0-da-jian-huan-jing" class="header-anchor">.</a></h4><h5><span id="chuang-jian-liang-ge-mo-kuai-rpcclient-he-rpcserver">①创建两个模块：<code>RPCClient</code> 和 <code>RPCServer</code></span><a href="#chuang-jian-liang-ge-mo-kuai-rpcclient-he-rpcserver" class="header-anchor">.</a></h5><h5><span id="yi-lai-yin-ru">②依赖引入</span><a href="#yi-lai-yin-ru" class="header-anchor">.</a></h5><pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.rabbitmq<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>amqp-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>5.10.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5><span id="liang-mo-kuai-du-bian-xie-xiang-tong-de-rabbitmqutil-gong-ju-lei">③两模块都编写相同的<code>RabbitMQUtil</code>工具类</span><a href="#liang-mo-kuai-du-bian-xie-xiang-tong-de-rabbitmqutil-gong-ju-lei" class="header-anchor">.</a></h5><blockquote>
+<p>该工具类 采用 虚拟主机为 <code>/rpc</code></p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RabbitMQUtil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span>  ConnectionFactory connectionFactory<span class="token punctuation">;</span>
+
+    <span class="token keyword">static</span> <span class="token punctuation">{</span>
+        connectionFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConnectionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connectionFactory<span class="token punctuation">.</span><span class="token function">setHost</span><span class="token punctuation">(</span><span class="token string">"192.168.111.11"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connectionFactory<span class="token punctuation">.</span><span class="token function">setPort</span><span class="token punctuation">(</span><span class="token number">5672</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connectionFactory<span class="token punctuation">.</span><span class="token function">setVirtualHost</span><span class="token punctuation">(</span><span class="token string">"/rpc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connectionFactory<span class="token punctuation">.</span><span class="token function">setUsername</span><span class="token punctuation">(</span><span class="token string">"liuyou"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        connectionFactory<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">"lmk"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> Connection <span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> connectionFactory<span class="token punctuation">.</span><span class="token function">newConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">TimeoutException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">closeConnectionAndChannel</span><span class="token punctuation">(</span>Connection connection<span class="token punctuation">,</span> Channel channel<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>channel <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                channel<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>connection <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                connection<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> <span class="token operator">|</span> TimeoutException e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4><span id="1-kai-fa-fu-wu-duan">1.开发服务端</span><a href="#1-kai-fa-fu-wu-duan" class="header-anchor">.</a></h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RPCServer_f</span> <span class="token punctuation">{</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> argv<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 运行rpc server</span>
+        <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 请求队列名</span>
+        String requestQueue <span class="token operator">=</span> <span class="token string">"rpc_queue_req"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//1.连接</span>
+        Connection connection <span class="token operator">=</span> RabbitMQUtil<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//2.通道</span>
+        Channel channel <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">createChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        channel<span class="token punctuation">.</span><span class="token function">basicQos</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//3.队列</span>
+        channel<span class="token punctuation">.</span><span class="token function">queueDeclare</span><span class="token punctuation">(</span>requestQueue<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//4.清空队列</span>
+        channel<span class="token punctuation">.</span><span class="token function">queuePurge</span><span class="token punctuation">(</span>requestQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//5.处理调用请求（consume）</span>
+        Object monitor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 锁</span>
+        DeliverCallback deliverCallback <span class="token operator">=</span> <span class="token punctuation">(</span>consumerTag<span class="token punctuation">,</span> delivery<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 处理内容</span>
+            <span class="token comment" spellcheck="true">//5.1 构建回调配置</span>
+            AMQP<span class="token punctuation">.</span>BasicProperties replyProps <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AMQP<span class="token punctuation">.</span>BasicProperties</span>
+                    <span class="token punctuation">.</span><span class="token function">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">correlationId</span><span class="token punctuation">(</span>delivery<span class="token punctuation">.</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCorrelationId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 使用</span>
+                    <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"client相关id："</span> <span class="token operator">+</span> delivery<span class="token punctuation">.</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCorrelationId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"client临时队列名："</span> <span class="token operator">+</span> delivery<span class="token punctuation">.</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getReplyTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//5.2 获取message</span>
+            String message <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>delivery<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//5.3 调用call() =======================</span>
+            String call <span class="token operator">=</span> RPCServer_f<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// =====================================</span>
+
+            <span class="token comment" spellcheck="true">//5.4 将调用处理结果 通过制定队列传回</span>
+            channel<span class="token punctuation">.</span><span class="token function">basicPublish</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> delivery<span class="token punctuation">.</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getReplyTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> replyProps<span class="token punctuation">,</span> call<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            channel<span class="token punctuation">.</span><span class="token function">basicAck</span><span class="token punctuation">(</span>delivery<span class="token punctuation">.</span><span class="token function">getEnvelope</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeliveryTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// RabbitMq consumer worker thread notifies the RPC server owner thread</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>monitor<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 防止多个consumer同时消费</span>
+                monitor<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        channel<span class="token punctuation">.</span><span class="token function">basicConsume</span><span class="token punctuation">(</span>requestQueue<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> deliverCallback<span class="token punctuation">,</span> consumerTag <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 被远程调用的方法 ===================
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">call</span><span class="token punctuation">(</span>String message<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"RPCServer的call()被远程调用，显示内容："</span> <span class="token operator">+</span> message<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4><span id="2-kai-fa-ke-hu-duan">2.开发客户端</span><a href="#2-kai-fa-ke-hu-duan" class="header-anchor">.</a></h4><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RPCClient_f</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> argv<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
+        String message <span class="token operator">=</span> <span class="token string">"rabbit_java"</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 调用</span>
+        Object call <span class="token operator">=</span> <span class="token function">call</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>call<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/** 
+     * 使用该方法调用 服务端的call()方法 ========================
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">call</span><span class="token punctuation">(</span>String message<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException<span class="token punctuation">,</span> InterruptedException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 请求队列名</span>
+        String requestQueue <span class="token operator">=</span> <span class="token string">"rpc_queue_req"</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//1.连接</span>
+        Connection connection <span class="token operator">=</span> RabbitMQUtil<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//2.通道</span>
+        Channel channel <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">createChannel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//3.回调队列名(临时队列名)</span>
+        String replyQueueName <span class="token operator">=</span> channel<span class="token punctuation">.</span><span class="token function">queueDeclare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//4.关联id correlationId</span>
+        String correlationId <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//5.构建配置信息</span>
+        AMQP<span class="token punctuation">.</span>BasicProperties properties <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AMQP<span class="token punctuation">.</span>BasicProperties</span>
+                <span class="token punctuation">.</span><span class="token function">Builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">correlationId</span><span class="token punctuation">(</span>correlationId<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">replyTo</span><span class="token punctuation">(</span>replyQueueName<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//6.发送调用请求</span>
+        channel<span class="token punctuation">.</span><span class="token function">basicPublish</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> requestQueue<span class="token punctuation">,</span> properties<span class="token punctuation">,</span> message<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//7.创建阻塞队列：解决多线程中数据的安全传输问题</span>
+        BlockingQueue<span class="token operator">&lt;</span>String<span class="token operator">></span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBlockingQueue</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//8.接收回调的数据</span>
+        DeliverCallback deliverCallback <span class="token operator">=</span> <span class="token punctuation">(</span>consumerTag<span class="token punctuation">,</span> delivery<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>delivery<span class="token punctuation">.</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCorrelationId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>correlationId<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// 数据入队</span>
+                response<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>delivery<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"相关ID ："</span> <span class="token operator">+</span> delivery<span class="token punctuation">.</span><span class="token function">getProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCorrelationId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            channel<span class="token punctuation">.</span><span class="token function">basicAck</span><span class="token punctuation">(</span>delivery<span class="token punctuation">.</span><span class="token function">getEnvelope</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDeliveryTag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 手动确认</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 消费（接收服务端传回的数据，并处理）</span>
+        channel<span class="token punctuation">.</span><span class="token function">basicConsume</span><span class="token punctuation">(</span>replyQueueName<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> deliverCallback<span class="token punctuation">,</span> consumerTag <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//9.从队列中获取结果</span>
+        String take <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//10.关闭连接</span>
+        RabbitMQUtil<span class="token punctuation">.</span><span class="token function">closeConnectionAndChannel</span><span class="token punctuation">(</span>connection<span class="token punctuation">,</span> channel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> take<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4><span id="3-ce-shi">3.测试</span><a href="#3-ce-shi" class="header-anchor">.</a></h4><h5><span id="yun-xing-fu-wu-duan">①运行服务端</span><a href="#yun-xing-fu-wu-duan" class="header-anchor">.</a></h5><h5><span id="yun-xing-ke-hu-duan">②运行客户端</span><a href="#yun-xing-ke-hu-duan" class="header-anchor">.</a></h5><h5><span id="yun-xing-jie-guo">③运行结果</span><a href="#yun-xing-jie-guo" class="header-anchor">.</a></h5><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201219170710.png" alt="客户端"></p>
+<p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201219170727.png" alt="服务端"></p>
+<h2><span id="5-springboot-zhong-shi-yong-rabbitmq">5. SpringBoot中使用RabbitMQ</span><a href="#5-springboot-zhong-shi-yong-rabbitmq" class="header-anchor">.</a></h2><h3><span id="5-0-da-jian-chu-shi-huan-jing">5.0 搭建初始环境</span><a href="#5-0-da-jian-chu-shi-huan-jing" class="header-anchor">.</a></h3><h4><span id="1-chuang-jian-springboot-xiang-mu">1.创建springboot项目</span><a href="#1-chuang-jian-springboot-xiang-mu" class="header-anchor">.</a></h4><p>过程略</p>
+<h4><span id="2-yin-ru-yi-lai">2.引入依赖</span><a href="#2-yin-ru-yi-lai" class="header-anchor">.</a></h4><pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-amqp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1439,48 +1609,48 @@ channel<span class="token punctuation">.</span><span class="token function">basi
 <h2><span id="7-rabbitmq-de-ji-qun">7. RabbitMQ的集群</span><a href="#7-rabbitmq-de-ji-qun" class="header-anchor">.</a></h2><h3><span id="7-1-ji-qun-jia-gou">7.1 集群架构</span><a href="#7-1-ji-qun-jia-gou" class="header-anchor">.</a></h3><h4><span id="7-1-1-pu-tong-ji-qun-fu-ben-ji-qun">7.1.1 普通集群(副本集群)</span><a href="#7-1-1-pu-tong-ji-qun-fu-ben-ji-qun" class="header-anchor">.</a></h4><p><code>默认情况下:RabbitMQ代理操作所需的所有数据/状态都将跨所有节点复制。这方面的一个例外是消息队列，默认情况下，消息队列位于一个节点上，尽管它们可以从所有节点看到和访问</code></p>
 <h5><span id="1-jia-gou-tu">1.架构图</span><a href="#1-jia-gou-tu" class="header-anchor">.</a></h5><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201218155845.png" alt></p>
 <p>​    核心解决问题:  <code>当集群中某一时刻master节点宕机,可以对Quene中信息,进行备份</code></p>
-<h5><span id="2-ji-qun-da-jian">2.集群搭建</span><a href="#2-ji-qun-da-jian" class="header-anchor">.</a></h5><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 0.集群规划</span>
-<span class="token code keyword">    node1: 192.168.111.11  mq1  master 主节点</span>
-<span class="token code keyword">    node2: 192.168.111.12  mq2  repl1  副本节点</span>
-<span class="token code keyword">    node3: 192.168.111.13  mq3  repl2  副本节点</span>
+<h5><span id="2-ji-qun-da-jian">2.集群搭建</span><a href="#2-ji-qun-da-jian" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 0.集群规划</span>
+<span class="token attr-name">    node1</span><span class="token punctuation">:</span> <span class="token attr-value">192.168.111.11  mq1  master 主节点</span>
+<span class="token attr-name">    node2</span><span class="token punctuation">:</span> <span class="token attr-value">192.168.111.12  mq2  repl1  副本节点</span>
+<span class="token attr-name">    node3</span><span class="token punctuation">:</span> <span class="token attr-value">192.168.111.13  mq3  repl2  副本节点</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 1.克隆三台机器</span>
-<span class="token title important"><span class="token punctuation">##</span> 1.1 更改主机名</span>
-<span class="token code keyword">    主机mq2：hostnamectl set-hostname mq2</span>
-<span class="token code keyword">    主机mq3：hostnamectl set-hostname mq3</span>
-<span class="token title important"><span class="token punctuation">##</span> 1.2 更改三台主机ip</span>
-<span class="token code keyword">    只需更改 mq2、mq3</span>
-<span class="token code keyword">    vim /etc/sysconfig/network-scripts/ifcfg-ens33</span>
-<span class="token code keyword">    内容修改：</span>
-<span class="token code keyword">    主机mq2 IPADDR=192.168.111.12</span>
-<span class="token code keyword">    主机mq3 IPADDR=192.168.111.13</span>
-<span class="token code keyword">    ## 修改后重启network服务</span>
-<span class="token code keyword">    systemctl restart network</span>
-<span class="token title important"><span class="token punctuation">##</span> 1.3 添加主机映射</span>
-<span class="token code keyword">    ①主机mq1：vim /etc/hosts 加入：</span>
-<span class="token code keyword">        192.168.111.11 mq1</span>
-<span class="token code keyword">        192.168.111.12 mq2</span>
-<span class="token code keyword">        192.168.111.13 mq3</span>
-<span class="token code keyword">        保存退出</span>
-<span class="token code keyword">    ②主机mq1:  scp /etc/hosts root@mq2:/etc/hosts</span>
-<span class="token code keyword">               scp /etc/hosts root@mq3:/etc/hosts</span>
+<span class="token comment" spellcheck="true"># 1.克隆三台机器</span>
+<span class="token comment" spellcheck="true">## 1.1 更改主机名</span>
+<span class="token attr-name">    主机mq2：hostnamectl</span> <span class="token attr-value">set-hostname mq2</span>
+<span class="token attr-name">    主机mq3：hostnamectl</span> <span class="token attr-value">set-hostname mq3</span>
+<span class="token comment" spellcheck="true">## 1.2 更改三台主机ip</span>
+<span class="token attr-name">    只需更改</span> <span class="token attr-value">mq2、mq3</span>
+<span class="token attr-name">    vim</span> <span class="token attr-value">/etc/sysconfig/network-scripts/ifcfg-ens33</span>
+    内容修改：
+<span class="token attr-name">    主机mq2</span> <span class="token attr-value">IPADDR=192.168.111.12</span>
+<span class="token attr-name">    主机mq3</span> <span class="token attr-value">IPADDR=192.168.111.13</span>
+<span class="token comment" spellcheck="true">    ## 修改后重启network服务</span>
+<span class="token attr-name">    systemctl</span> <span class="token attr-value">restart network</span>
+<span class="token comment" spellcheck="true">## 1.3 添加主机映射</span>
+<span class="token attr-name">    ①主机mq1：vim</span> <span class="token attr-value">/etc/hosts 加入：</span>
+<span class="token attr-name">        192.168.111.11</span> <span class="token attr-value">mq1</span>
+<span class="token attr-name">        192.168.111.12</span> <span class="token attr-value">mq2</span>
+<span class="token attr-name">        192.168.111.13</span> <span class="token attr-value">mq3</span>
+        保存退出
+<span class="token attr-name">    ②主机mq1</span><span class="token punctuation">:</span>  <span class="token attr-value">scp /etc/hosts root@mq2:/etc/hosts</span>
+<span class="token attr-name">               scp</span> <span class="token attr-value">/etc/hosts root@mq3:/etc/hosts</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 2.三个机器安装rabbitmq,并同步cookie文件,在mq1上执行:</span>
-<span class="token code keyword">    scp /var/lib/rabbitmq/.erlang.cookie root@mq2:/var/lib/rabbitmq/</span>
-<span class="token code keyword">    scp /var/lib/rabbitmq/.erlang.cookie root@mq3:/var/lib/rabbitmq/</span>
-<span class="token title important"><span class="token punctuation">##</span> 必须保证三台机器 .erlang.cookie 内容一致</span>
+<span class="token comment" spellcheck="true"># 2.三个机器安装rabbitmq,并同步cookie文件,在mq1上执行:</span>
+<span class="token attr-name">    scp</span> <span class="token attr-value">/var/lib/rabbitmq/.erlang.cookie root@mq2:/var/lib/rabbitmq/</span>
+<span class="token attr-name">    scp</span> <span class="token attr-value">/var/lib/rabbitmq/.erlang.cookie root@mq3:/var/lib/rabbitmq/</span>
+<span class="token comment" spellcheck="true">## 必须保证三台机器 .erlang.cookie 内容一致</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 3.后台启动rabbitmq所有节点执行如下命令,启动成功访问管理界面:</span>
-<span class="token code keyword">    rabbitmq-server -detached</span>
+<span class="token comment" spellcheck="true"># 3.后台启动rabbitmq所有节点执行如下命令,启动成功访问管理界面:</span>
+<span class="token attr-name">    rabbitmq-server</span> <span class="token attr-value">-detached</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 4.在mq2和mq3执行加入集群命令:</span>
-<span class="token code keyword">    1.关闭       rabbitmqctl stop_app</span>
-<span class="token code keyword">    2.加入集群    rabbitmqctl join_cluster rabbit@mq1</span>
-<span class="token code keyword">    3.启动服务    rabbitmqctl start_app</span>
-<span class="token title important"><span class="token punctuation">#</span> 5.查看集群状态,任意节点执行:</span>
-<span class="token code keyword">    rabbitmqctl cluster_status    </span>
+<span class="token comment" spellcheck="true"># 4.在mq2和mq3执行加入集群命令:</span>
+<span class="token attr-name">    1.关闭</span> <span class="token attr-value">      rabbitmqctl stop_app</span>
+<span class="token attr-name">    2.加入集群</span> <span class="token attr-value">   rabbitmqctl join_cluster rabbit@mq1</span>
+<span class="token attr-name">    3.启动服务</span> <span class="token attr-value">   rabbitmqctl start_app</span>
+<span class="token comment" spellcheck="true"># 5.查看集群状态,任意节点执行:</span>
+<span class="token attr-name">    rabbitmqctl</span> <span class="token attr-value">cluster_status    </span>
 
-<span class="token title important"><span class="token punctuation">#</span> 6.登录管理界面,展示如下状态:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 6.登录管理界面,展示如下状态:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201218171735.png" alt></p>
 <h5><span id="3-ce-shi">3.测试</span><a href="#3-ce-shi" class="header-anchor">.</a></h5><blockquote>
 <p>普通集群，主机负责对交换机、队列等创建，消息进入队列，备机只是备份交换机、队列（不含队列里的消息），并不能做到故障转移</p>
@@ -1490,36 +1660,39 @@ channel<span class="token punctuation">.</span><span class="token function">basi
 rabbitmqctl stop_app<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201218173947.png" alt></p>
 <h4><span id="7-1-2-jing-xiang-ji-qun">7.1.2 镜像集群</span><a href="#7-1-2-jing-xiang-ji-qun" class="header-anchor">.</a></h4><p><code>镜像队列机制就是将队列在三个节点之间设置主从关系，消息会在三个节点之间进行自动同步，且如果其中一个节点不可用，并不会导致消息丢失或服务不可用的情况，提升MQ集群的整体高可用性。</code></p>
+<blockquote>
+<p>队列数据可备份，但是还是无法实现故障转移</p>
+</blockquote>
 <h5><span id="1-jia-gou-tu">1.架构图</span><a href="#1-jia-gou-tu" class="header-anchor">.</a></h5><p><img src="https://liuyou-images.oss-cn-hangzhou.aliyuncs.com/markdown/20201218160127.png" alt></p>
 <h5><span id="2-ji-qun-pei-zhi">2.集群配置</span><a href="#2-ji-qun-pei-zhi" class="header-anchor">.</a></h5><blockquote>
 <p>（在普通集群基础上）</p>
 </blockquote>
-<pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 0.策略说明</span>
-<span class="token code keyword">    rabbitmqctl set_policy [-p &lt;vhost>] [--priority &lt;priority>] [--apply-to &lt;apply-to>] &lt;name> &lt;pattern>  &lt;definition></span>
-<span class="token code keyword">    -p Vhost： 可选参数，针对指定vhost下的queue进行设置</span>
-<span class="token code keyword">    Name:     policy的名称</span>
-<span class="token code keyword">    Pattern: queue的匹配模式(正则表达式)</span>
-<span class="token code keyword">    Definition：镜像定义，包括三个部分ha-mode, ha-params, ha-sync-mode</span>
-<span class="token code keyword">                   ha-mode:指明镜像队列的模式，有效值为 all/exactly/nodes</span>
-<span class="token code keyword">                        all：表示在集群中所有的节点上进行镜像</span>
-<span class="token code keyword">                        exactly：表示在指定个数的节点上进行镜像，节点的个数由ha-params指定</span>
-<span class="token code keyword">                        nodes：表示在指定的节点上进行镜像，节点名称通过ha-params指定</span>
-<span class="token code keyword">                ha-params：ha-mode模式需要用到的参数</span>
-<span class="token code keyword">                ha-sync-mode：进行队列中消息的同步方式，有效值为automatic和manual</span>
-<span class="token code keyword">                priority：可选参数，policy的优先级</span>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 0.策略说明</span>
+<span class="token attr-name">    rabbitmqctl</span> <span class="token attr-value">set_policy [-p &lt;vhost>] [--priority &lt;priority>] [--apply-to &lt;apply-to>] &lt;name> &lt;pattern>  &lt;definition></span>
+<span class="token attr-name">    -p</span> <span class="token attr-value">Vhost： 可选参数，针对指定vhost下的queue进行设置</span>
+<span class="token attr-name">    Name</span><span class="token punctuation">:</span>     <span class="token attr-value">policy的名称</span>
+<span class="token attr-name">    Pattern</span><span class="token punctuation">:</span> <span class="token attr-value">queue的匹配模式(正则表达式)</span>
+<span class="token attr-name">    Definition：镜像定义，包括三个部分ha-mode,</span> <span class="token attr-value">ha-params, ha-sync-mode</span>
+<span class="token attr-name">                   ha-mode</span><span class="token punctuation">:</span><span class="token attr-value">指明镜像队列的模式，有效值为 all/exactly/nodes</span>
+                        all：表示在集群中所有的节点上进行镜像
+                        exactly：表示在指定个数的节点上进行镜像，节点的个数由ha-params指定
+                        nodes：表示在指定的节点上进行镜像，节点名称通过ha-params指定
+                ha-params：ha-mode模式需要用到的参数
+                ha-sync-mode：进行队列中消息的同步方式，有效值为automatic和manual
+                priority：可选参数，policy的优先级
 
 
-<span class="token title important"><span class="token punctuation">#</span> 1.查看当前策略</span>
-<span class="token code keyword">    rabbitmqctl list_policies</span>
+<span class="token comment" spellcheck="true"># 1.查看当前策略</span>
+<span class="token attr-name">    rabbitmqctl</span> <span class="token attr-value">list_policies</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 2.添加策略</span>
-<span class="token code keyword">    rabbitmqctl set_policy ha-all '^hello' '{"ha-mode":"all","ha-sync-mode":"automatic"}' </span>
-<span class="token code keyword">    说明:策略正则表达式为 “^” 表示所有匹配所有队列名称  ^hello:匹配hello开头队列</span>
+<span class="token comment" spellcheck="true"># 2.添加策略</span>
+<span class="token attr-name">    rabbitmqctl</span> <span class="token attr-value">set_policy ha-all '^hello' '{"ha-mode":"all","ha-sync-mode":"automatic"}' </span>
+<span class="token attr-name">    说明</span><span class="token punctuation">:</span><span class="token attr-value">策略正则表达式为 “^” 表示所有匹配所有队列名称  ^hello:匹配hello开头队列</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 3.删除策略</span>
-<span class="token code keyword">    rabbitmqctl clear_policy ha-all</span>
+<span class="token comment" spellcheck="true"># 3.删除策略</span>
+<span class="token attr-name">    rabbitmqctl</span> <span class="token attr-value">clear_policy ha-all</span>
 
-<span class="token title important"><span class="token punctuation">#</span> 4.测试集群</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true"># 4.测试集群</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2><span id="pei-zhi-wen-jian">配置文件</span><a href="#pei-zhi-wen-jian" class="header-anchor">.</a></h2><h3><span id="rabbitmq-conf-example">rabbitmq.conf.example</span><a href="#rabbitmq-conf-example" class="header-anchor">.</a></h3><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># ======================================</span>
 <span class="token comment" spellcheck="true"># RabbitMQ broker section</span>
 <span class="token comment" spellcheck="true"># ======================================</span>
@@ -2981,7 +3154,7 @@ linux开放防火墙端口.查看防火墙服务状态：
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.4k</span>&nbsp;字
+                class="white-color">213.1k</span>&nbsp;字
             
             
             
