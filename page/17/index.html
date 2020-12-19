@@ -393,24 +393,84 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/28/5687.html">
+                    <a href="/2020/07/29/11779.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="javase -- 值传递和引用传递">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/3.jpg" class="responsive-img" alt="javase -- super关键字">
                             
-                            <span class="card-title">javase -- 值传递和引用传递</span>
+                            <span class="card-title">javase -- super关键字</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-实际上，java方法参数传递只有值传递，只不过我们所说的引用传递 传递的是 对象的引用（地址值）
-这个博客很详细
+                                super.
+父类
 
-值传递（pass by value）是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，将不会
+
+使用super可以在构造器或方法中调用父类的属性（super.属性名）、构造器（super(形参列表)）、方法（super.方法名）
+通常情况下，我们习惯省略super
+但，父类，与子类存在同名的方法或属性时，如果你
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                liuminkai
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/28/59850.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/20.jpg" class="responsive-img" alt="javase -- 方法重写">
+                            
+                            <span class="card-title">javase -- 方法重写</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                方法重写.
+在子类中可以根据需要对从父类中继承的同名、同参数的方法进行改造 – 重写，也称为方法重置、覆盖
+
+
+重写之后，当创建子类对象以后，通过子类对象调用子类中的同名同参数方法时，实际执行的是子类重写父类的方法
+
+要求.
+子类重写的方法
                             
                         </div>
                         <div class="publish-info">
@@ -448,24 +508,26 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/28/3080.html">
+                    <a href="/2020/07/28/20018.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/3.jpg" class="responsive-img" alt="javase -- 可变形参">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/2.jpg" class="responsive-img" alt="javase -- this关键字">
                             
-                            <span class="card-title">javase -- 可变形参</span>
+                            <span class="card-title">javase -- this关键字</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                可变形参（varargs）.JDK1.5
-编译器认为：String[] arr   ==   String ... arr 
+                                this的使用.
+this表示 当前对象 或 当前正在创建的对象（构造器中的this）
 
-String[] 做形参只能传入 数组
-String...做形参可以传入数组，无参，有个数变化的参数，但是只能有
+
+可以用于修饰：属性（this.属性名）、方法（this.方法名(有参|无参)）、构造器（this(有参|无参)）
+
+如果一个类中有n个构造器，则最多
                             
                         </div>
                         <div class="publish-info">
@@ -503,28 +565,34 @@ String...做形参可以传入数组，无参，有个数变化的参数，但�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/27/54168.html">
+                    <a href="/2020/07/28/42056.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg" class="responsive-img" alt="javase -- jvm中内存存储的数据">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/14.jpg" class="responsive-img" alt="javase -- javaBean">
                             
-                            <span class="card-title">javase -- jvm中内存存储的数据</span>
+                            <span class="card-title">javase -- javaBean</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                堆heap : 将new出来的结构(对象和数组)都放在堆空间里，包含对象里面的属性（非static）
-方法区：类的加载信息、常量池、静态域
-栈stack（java中提到的栈）：JVM中的虚拟机栈，局部变量都在这里面
+                                JavaBean.
+javaBean 是一种java语言写成的可重用组件
+所谓javaBean，是指符合如下标准的java类：
+类是公共的
+有一个无参构造器
+有私有属性，且有对应的get、set方法
+
+
+
 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
                             </span>
                             <span class="publish-author">
                                 
@@ -557,39 +625,29 @@ String...做形参可以传入数组，无参，有个数变化的参数，但�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/27/20336.html">
+                    <a href="/2020/07/28/2384.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="javase -- 面向对象">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="javase -- 构造器">
                             
-                            <span class="card-title">javase -- 面向对象</span>
+                            <span class="card-title">javase -- 构造器</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                面向对象.一、面向过程（POP）与 面向对象（OOP）.
-面向过程
-强调的是 功能行为
-以函数为最小单位
-考虑怎么做
+                                构造器（constructor）.权限修饰符 类名(形参列表){}
 
-
-面向对象
-强调的是 具备了功能的对象
-以类/对象为最小单位
-考虑谁来做（知道怎么做）
-
-
-
-二、面向对象的三大特征.1
+如果没有显式定义构造器，会默认生成一个无参构造器
+一个类可以存在多个构造器（构造器的重载）
+一个类如果显式定义了有参构造器，就不会默认生成无参构造器，如果需要有参构造器，
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
                             </span>
                             <span class="publish-author">
                                 
@@ -622,30 +680,65 @@ String...做形参可以传入数组，无参，有个数变化的参数，但�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/27/46990.html">
+                    <a href="/2020/07/28/37058.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="javase -- Arrays工具类">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/17.jpg" class="responsive-img" alt="javase -- 访问修饰符">
                             
-                            <span class="card-title">javase -- Arrays工具类</span>
+                            <span class="card-title">javase -- 访问修饰符</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Arrays工具类.java.util.Arrays
-1、equals(arr1,arr2).
-判断两个数组内容是否相等
+                                访问修饰符.访问修饰符可用范围.
 
-底层源码.（以参数类型int,Object为例）
- public static boolean equals(int
+
+
+同一类
+同一包
+不同包的子类
+同一项目（工程）
+
+
+
+public
+√
+√
+√
+√
+
+
+protected
+√
+√
+√
+
+
+
+默认（缺省）
+√
+√
+
+
+
+
+private
+√
+
+
+
+
+
+
+访问修饰符可
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
                             </span>
                             <span class="publish-author">
                                 
@@ -669,64 +762,6 @@ String...做形参可以传入数组，无参，有个数变化的参数，但�
                         
                         <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
                             <span class="chip bg-color">尚硅谷</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/27/31905.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="Spring学习笔记-8-Bean的自动装配">
-                            
-                            <span class="card-title">Spring学习笔记-8-Bean的自动装配</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Bean的自动装配.
-自动装配是Spring满足bean依赖一种方式
-Spring会在上下文中自动寻找，并自动给bean装配属性
-
-在Spring中有三种装配方式.
-在xml中装配
-在java中装配
-隐式的自动装配（autowired）：将
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                liuminkai
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/ssm/">
-                            <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                        <a href="/tags/spring/">
-                            <span class="chip bg-color">spring</span>
                         </a>
                         
                     </div>
@@ -751,7 +786,7 @@ Spring会在上下文中自动寻找，并自动给bean装配属性
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">17 / 28</div>
+            <div class="center-align b-text-gray">17 / 30</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -779,7 +814,7 @@ Spring会在上下文中自动寻找，并自动给bean装配属性
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">195.1k</span>&nbsp;字
+                class="white-color">212.4k</span>&nbsp;字
             
             
             
