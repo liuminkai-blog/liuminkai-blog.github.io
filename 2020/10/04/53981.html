@@ -472,10 +472,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">学习笔记</span>
-                            </a>
-                        
                             <a href="/tags/springboot/">
                                 <span class="chip bg-color">springboot</span>
                             </a>
@@ -484,6 +480,15 @@
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -499,14 +504,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-05
+                    2021-01-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    40
+                    210
                 </div>
                 
 
@@ -528,18 +533,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2><span id="ding-shi-ren-wu">定时任务</span><a href="#ding-shi-ren-wu" class="header-anchor">.</a></h2><p><strong>相关接口</strong></p>
-<ul>
+                <h2><span id="ding-shi-ren-wu">定时任务</span><a href="#ding-shi-ren-wu" class="header-anchor">.</a></h2><h3><span id="xiang-guan-jie-kou">相关接口</span><a href="#xiang-guan-jie-kou" class="header-anchor">.</a></h3><ul>
 <li><code>TaskScheduler</code>调度</li>
 <li><code>TaskExecutor</code>执行</li>
 </ul>
-<p><strong>相关注解</strong></p>
-<ul>
-<li><p><code>@EnableScheduling</code> 添加在入口类，开启定时功能</p>
-</li>
-<li><p><code>@Scheduled</code> 确定什么时候执行</p>
-</li>
+<h3><span id="xiang-guan-zhu-jie">相关注解</span><a href="#xiang-guan-zhu-jie" class="header-anchor">.</a></h3><ul>
+<li><code>@EnableScheduling</code> 添加在入口类，开启定时功能</li>
+<li><code>@Scheduled</code> 确定什么时候执行</li>
 </ul>
+<h4><span id="shi-yong">使用</span><a href="#shi-yong" class="header-anchor">.</a></h4><h5><span id="qi-dong-lei-shang-tian-jia-enablescheduling-zhu-jie">启动类上添加 <code>@EnableScheduling</code>注解</span><a href="#qi-dong-lei-shang-tian-jia-enablescheduling-zhu-jie" class="header-anchor">.</a></h5><pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@EnableScheduling</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TaskApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>TaskApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5><span id="bian-xie-ye-wu-lei">编写业务类</span><a href="#bian-xie-ye-wu-lei" class="header-anchor">.</a></h5><p>方法上添加 <code>@Scheduled</code></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScheduledService</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// cron表达式 计划任务</span>
+    <span class="token comment" spellcheck="true">// 秒(0-59)  分(0-59)  时(0-23)  日(1-31)  月(1-12)  星期(0-7,0和7表示的都是星期日)</span>
+    <span class="token comment" spellcheck="true">/*
+        *: 所有
+        /: 每  ==>   * / 2 每2个单位  ==>  1 / 2 从第一个单位开始，每两个单位发生一次
+        -: 数字到数字
+        ,: 分开几个离散的数字
+        ?: 不指定值 -- 用于 日 和 星期
+        #: 确定每个月的第几个星期几  2#3 每月第二个星期三
+     */</span>
+    <span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>cron <span class="token operator">=</span> <span class="token string">"*/3 * * * * ?"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 每3秒</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5><span id="ce-shi-jie-guo">测试结果</span><a href="#ce-shi-jie-guo" class="header-anchor">.</a></h5><p><img src="/2020/10/04/53981/scheduled.gif" alt></p>
 
             </div>
             <hr/>
@@ -602,10 +632,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">学习笔记</span>
-                                </a>
                             
                                 <a href="/tags/springboot/">
                                     <span class="chip bg-color">springboot</span>
@@ -681,36 +707,34 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/10/21/15831.html">
+                <a href="/2020/10/05/37988.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/6.jpg" class="responsive-img" alt="实体类定义规则">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/18.jpg" class="responsive-img" alt="springBoot学习笔记-24-RPC">
                         
-                        <span class="card-title">实体类定义规则</span>
+                        <span class="card-title">springBoot学习笔记-24-RPC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            实体类定义规则.PO，Entity：persistent object 持久化对象
-
-对应数据库的实体，其一个实例化对象对应数据表中的一条记录（一行）
-
-VO：view object 表现层对象
-
-对应页面显示的数据对象
-可以不对应数据库，
+                            如何给老婆解释什么是RPC https://zhuanlan.zhihu.com/p/36427583
+什么是RPC.RPC【Remote Procedure Call】是指远程过程调用，是一种进程间通信方式，他是一种技术的思想，而不是规范
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -718,8 +742,8 @@ VO：view object 表现层对象
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
                     </a>
                     
                 </div>
@@ -733,21 +757,23 @@ VO：view object 表现层对象
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/04/22016.html">
+                <a href="/2020/10/04/27195.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/12.jpg" class="responsive-img" alt="springBoot学习笔记-21-邮件任务">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/18.jpg" class="responsive-img" alt="springBoot学习笔记-23-分布式系统">
                         
-                        <span class="card-title">springBoot学习笔记-21-邮件任务</span>
+                        <span class="card-title">springBoot学习笔记-23-分布式系统</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            邮件服务.使用.1、引入依赖.&lt;dependency>
-    &lt;groupId>org.springframework.boot&lt;/groupId>
-    &lt;artifactId>spring-boot-star
+                            分布式系统.
+本文出自：https://www.zhihu.com/question/22764869/answer/56011081作者：林建入来源：知乎
+
+一、三个步骤完成华丽转身——任意软件变为“分布式”
+分布式——一个高大上的名词，
                         
                     </div>
                     <div class="publish-info">
@@ -756,18 +782,18 @@ VO：view object 表现层对象
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
                     
                     <a href="/tags/springboot/">
                         <span class="chip bg-color">springboot</span>
@@ -876,7 +902,7 @@ VO：view object 表现层对象
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">213.1k</span>&nbsp;字
+                class="white-color">281.1k</span>&nbsp;字
             
             
             

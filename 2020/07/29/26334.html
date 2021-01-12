@@ -489,6 +489,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -503,7 +512,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-21
+                    2021-01-12
                 </div>
                 
 
@@ -699,23 +708,24 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
           <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-java"><code class="language-java">  <span class="token comment" spellcheck="true">//class A </span>
-  <span class="token comment" spellcheck="true">//field int a String b </span>
-  <span class="token annotation punctuation">@Override</span>
-  <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-       <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">==</span> obj<span class="token punctuation">)</span><span class="token punctuation">{</span>
-          <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>   
-      <span class="token keyword">if</span><span class="token punctuation">(</span>obj <span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 可以不要</span>
-          <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">if</span><span class="token punctuation">(</span>obj <span class="token keyword">instanceof</span> <span class="token class-name">A</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          A o <span class="token operator">=</span> <span class="token punctuation">(</span>A<span class="token punctuation">)</span>obj<span class="token punctuation">;</span>
-          <span class="token keyword">return</span> o<span class="token punctuation">.</span>a <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">&amp;&amp;</span> o<span class="token punctuation">.</span>b <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token keyword">this</span><span class="token punctuation">.</span>b <span class="token operator">==</span> null <span class="token operator">:</span> o<span class="token punctuation">.</span>b<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<pre><code>
+  ```java
+  //class A 
+  //field int a String b 
+  @Override
+  public boolean equals(Object obj) {
+       if(this == obj){
+          return true;
+      }   
+      if(obj == null){// 可以不要
+          return false;
+      }
+      if(obj instanceof A){
+          A o = (A)obj;
+          return o.a == this.a &amp;&amp; o.b == null ? this.b == null : o.b.equals(this.b);
+      }
+      return false;
+}</code></pre></li>
 </ul>
 </li>
 </ul>
@@ -923,8 +933,12 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -984,8 +998,12 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1108,7 +1126,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">213.1k</span>&nbsp;字
+                class="white-color">281.1k</span>&nbsp;字
             
             
             

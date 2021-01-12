@@ -546,7 +546,7 @@
 <pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//limit 分页</span>
 List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getUserByLimit</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> map<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>  2.mapper.xml</p>
-<pre class="line-numbers language-XML"><code class="language-XML"><select id="getUserByLimit" resultType="pojo.User" parameterType="map">
+<pre class="line-numbers language-XML"><code class="language-XML"><select id="getUserByLimit" resulttype="pojo.User" parametertype="map">
     select * from mybatis.user limit #{pageIndex},#{pageSize};
 </select><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ol start="3">
@@ -777,8 +777,12 @@ List<span class="token operator">&lt;</span>User<span class="token operator">></
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -843,8 +847,12 @@ SLF4J | LOG4J |
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -967,7 +975,7 @@ SLF4J | LOG4J |
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">213.1k</span>&nbsp;字
+                class="white-color">281.1k</span>&nbsp;字
             
             
             

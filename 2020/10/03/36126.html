@@ -472,22 +472,27 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">学习笔记</span>
+                            <a href="/tags/Swagger/">
+                                <span class="chip bg-color">Swagger</span>
                             </a>
                         
                             <a href="/tags/springboot/">
                                 <span class="chip bg-color">springboot</span>
                             </a>
                         
-                            <a href="/tags/Swagger/">
-                                <span class="chip bg-color">Swagger</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -503,21 +508,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-05
+                    2021-01-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
 
@@ -543,6 +548,13 @@
 <li>直接运行，可以在线测试API接口</li>
 <li>支持多种语言：Java、php 。。。</li>
 </ul>
+<p>优点：</p>
+<ol>
+<li>大大减少前后端的沟通</li>
+<li>方便查找和测试接口</li>
+<li>提高团队的开发效率</li>
+<li>方便新人了解项目</li>
+</ol>
 <h2><span id="springboot-ji-cheng-swagger">SpringBoot集成Swagger</span><a href="#springboot-ji-cheng-swagger" class="header-anchor">.</a></h2><h3><span id="1-dao-ru-yi-lai">1、导入依赖</span><a href="#1-dao-ru-yi-lai" class="header-anchor">.</a></h3><pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.springfox<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>springfox-swagger2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -659,6 +671,92 @@
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Docket</span><span class="token punctuation">(</span>DocumentationType<span class="token punctuation">.</span>SWAGGER_2<span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">groupName</span><span class="token punctuation">(</span><span class="token string">"group3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2><span id="swagger-zhu-jie">Swagger注解</span><a href="#swagger-zhu-jie" class="header-anchor">.</a></h2><p>参考自：<a href="https://zhuanlan.zhihu.com/p/49996147" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/49996147</a></p>
+<h3><span id="api"><code>@Api</code></span><a href="#api" class="header-anchor">.</a></h3><p>用在<strong>请求的类</strong>上，表示对类的说明，也代表了这个类是swagger2的资源</p>
+<p>参数：</p>
+<pre class="line-numbers language-text"><code class="language-text">tags：说明该类的作用，参数是个数组，可以填多个。
+value="该参数没什么意义，在UI界面上不显示，所以不用配置"
+description = "用户基本信息操作"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3><span id="apioperation"><code>@ApiOperation</code></span><a href="#apioperation" class="header-anchor">.</a></h3><p>用于<strong>方法</strong>，表示一个http请求访问该方法的操作</p>
+<p>参数：</p>
+<pre class="line-numbers language-text"><code class="language-text">value="方法的用途和作用"    
+notes="方法的注意事项和备注"    
+tags：说明该方法的作用，参数是个数组，可以填多个。
+格式：tags={"作用1","作用2"} 
+（在这里建议不使用这个参数，会使界面看上去有点乱，前两个常用）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="apimodel"><code>@ApiModel</code></span><a href="#apimodel" class="header-anchor">.</a></h3><p>用于<strong>响应实体类</strong>上，用于说明实体作用</p>
+<p>参数：</p>
+<pre class="line-numbers language-text"><code class="language-text">description="描述实体的作用"  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3><span id="apimodelproperty"><code>@ApiModelProperty</code></span><a href="#apimodelproperty" class="header-anchor">.</a></h3><p>用在<strong>属性</strong>上，描述实体类的属性</p>
+<p>参数：</p>
+<pre class="line-numbers language-text"><code class="language-text">value="用户名"  描述参数的意义
+name="name"    参数的变量名
+required=true     参数是否必选<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3><span id="apiimplicitparams"><code>@ApiImplicitParams</code></span><a href="#apiimplicitparams" class="header-anchor">.</a></h3><p>用在<strong>请求的方法</strong>上，包含多@ApiImplicitParam</p>
+<h3><span id="apiimplicitparam"><code>@ApiImplicitParam</code></span><a href="#apiimplicitparam" class="header-anchor">.</a></h3><p>用于<strong>方法</strong>，表示单独的请求参数</p>
+<p>参数：</p>
+<pre class="line-numbers language-text"><code class="language-text">name="参数名" 
+value="参数说明" 
+dataType="数据类型" 
+paramType="query" 表示参数放在哪里
+    · header 请求参数的获取：@RequestHeader
+    · query   请求参数的获取：@RequestParam
+    · path（用于restful接口） 请求参数的获取：@PathVariable
+    · body（不常用）
+    · form（不常用） 
+defaultValue="参数的默认值"
+required="true" 表示参数是否必须传<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="apiparam"><code>@ApiParam</code></span><a href="#apiparam" class="header-anchor">.</a></h3><p>用于<strong>方法</strong>，<strong>参数</strong>，<strong>字段</strong>说明 表示对参数的要求和说明</p>
+<p>参数：</p>
+<pre class="line-numbers language-text"><code class="language-text">name="参数名称"
+value="参数的简要说明"
+defaultValue="参数默认值"
+required="true" 表示属性是否必填，默认为false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3><span id="apiresponses"><code>@ApiResponses</code></span><a href="#apiresponses" class="header-anchor">.</a></h3><p>用于<strong>请求的方法</strong>上，根据响应码表示不同响应</p>
+<p>一个@ApiResponses包含多个@ApiResponse</p>
+<h3><span id="apiresponse"><code>@ApiResponse</code></span><a href="#apiresponse" class="header-anchor">.</a></h3><p>用在<strong>请求的方法</strong>上，表示不同的响应</p>
+<p><strong>参数</strong>：</p>
+<pre class="line-numbers language-text"><code class="language-text">code="404"    表示响应码(int型)，可自定义
+message="状态码对应的响应信息"   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3><span id="apiignore"><code>@ApiIgnore</code></span><a href="#apiignore" class="header-anchor">.</a></h3><p>用于<strong>类或者方法</strong>上，不被显示在页面上</p>
+<h3><span id="profile-quot-dev-quot-quot-test-quot"><code>@Profile({&quot;dev&quot;, &quot;test&quot;})</code></span><a href="#profile-quot-dev-quot-quot-test-quot" class="header-anchor">.</a></h3><p>用于<strong>配置类</strong>上，表示只对开发和测试环境有用</p>
+<h3><span id="wan-zheng-shi-li">完整示例</span><a href="#wan-zheng-shi-li" class="header-anchor">.</a></h3><p><strong>实体类</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token annotation punctuation">@ApiModel</span><span class="token punctuation">(</span><span class="token string">"User实体类"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> 5978016955197106792L<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"账号"</span><span class="token punctuation">,</span>name <span class="token operator">=</span> <span class="token string">"username"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String username<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@ApiModelProperty</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"密码"</span><span class="token punctuation">,</span> name <span class="token operator">=</span> <span class="token string">"password"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String password<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>请求类</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@Api</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"hello控制类"</span><span class="token punctuation">,</span>tags <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"类的作用：接收请求，跳转页面"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloController</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"接收hello，跳转到hello.html"</span><span class="token punctuation">,</span> notes <span class="token operator">=</span> <span class="token string">"注意：请求方法不做要求"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> String <span class="token function">hello</span><span class="token punctuation">(</span><span class="token annotation punctuation">@ApiParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"id"</span><span class="token punctuation">,</span>value <span class="token operator">=</span> <span class="token string">"ID"</span><span class="token punctuation">)</span>Integer id<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// 只要我们的接口中，返回值中存在实体类，它就会被扫描到Swagger中</span>
+    <span class="token annotation punctuation">@ApiImplicitParams</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@ApiImplicitParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"username"</span><span class="token punctuation">,</span> value <span class="token operator">=</span> <span class="token string">"用户名"</span><span class="token punctuation">,</span> dataType <span class="token operator">=</span> <span class="token string">"String"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token annotation punctuation">@ApiImplicitParam</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"password"</span><span class="token punctuation">,</span> value <span class="token operator">=</span> <span class="token string">"密码"</span><span class="token punctuation">,</span> dataType <span class="token operator">=</span> <span class="token string">"String"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//    @ApiResponse()</span>
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/user"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> User <span class="token function">user</span><span class="token punctuation">(</span>String username<span class="token punctuation">,</span> String password<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>结果展示</strong></p>
+<p><img src="/2020/10/03/36126/image-20210112144717707.png" alt></p>
+<p><img src="/2020/10/03/36126/image-20210112145011091.png" alt></p>
+<p><img src="/2020/10/03/36126/image-20210112145245643.png" alt></p>
 <h2><span id="bu-chong">补充</span><a href="#bu-chong" class="header-anchor">.</a></h2><h3><span id="swaggerconfig-he-ji">SwaggerConfig 合集</span><a href="#swaggerconfig-he-ji" class="header-anchor">.</a></h3><pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Bean<span class="token punctuation">;</span>
 <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span>
 <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>core<span class="token punctuation">.</span>env<span class="token punctuation">.</span>Environment<span class="token punctuation">;</span>
@@ -793,16 +891,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">学习笔记</span>
+                                <a href="/tags/Swagger/">
+                                    <span class="chip bg-color">Swagger</span>
                                 </a>
                             
                                 <a href="/tags/springboot/">
                                     <span class="chip bg-color">springboot</span>
-                                </a>
-                            
-                                <a href="/tags/Swagger/">
-                                    <span class="chip bg-color">Swagger</span>
                                 </a>
                             
                         </div>
@@ -899,8 +993,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -931,23 +1029,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/03/36125.html">
+                <a href="/2020/10/03/24777.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="springBoot学习笔记-19-Swagger">
+                        <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/12.jpg" class="responsive-img" alt="javase -- Array和List之间的转换">
                         
-                        <span class="card-title">springBoot学习笔记-19-Swagger</span>
+                        <span class="card-title">javase -- Array和List之间的转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Swagger.
-官网：https://swagger.io/
+                            
+本文出自：https://blog.csdn.net/qq_41097354/article/details/90403953
 
-Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。
-总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的
+数组转List.package listtoArray;
+
+import java.util.ArrayLi
                         
                     </div>
                     <div class="publish-info">
@@ -956,8 +1055,12 @@ Swagger 是一个规范和完整的框架，用于生成、描述、调用和可
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            liuminkai
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
+                                    转载
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -965,16 +1068,8 @@ Swagger 是一个规范和完整的框架，用于生成、描述、调用和可
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
-                    
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/Swagger/">
-                        <span class="chip bg-color">Swagger</span>
+                    <a href="/tags/javase/">
+                        <span class="chip bg-color">javase</span>
                     </a>
                     
                 </div>
@@ -1080,7 +1175,7 @@ Swagger 是一个规范和完整的框架，用于生成、描述、调用和可
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">213.1k</span>&nbsp;字
+                class="white-color">281.1k</span>&nbsp;字
             
             
             

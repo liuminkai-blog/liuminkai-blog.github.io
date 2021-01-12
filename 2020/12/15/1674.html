@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="centos7系统配置, 刘民锴的个人博客">
+    <meta name="keywords" content="linux-centos7系统配置, 刘民锴的个人博客">
     <meta name="description" content="刘民锴使用hexo和githubpages 搭建的个人博客 主要用于记录学习笔记 和 技术分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>centos7系统配置 | 刘民锴的个人博客</title>
+    <title>linux-centos7系统配置 | 刘民锴的个人博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//libs/awesome/css/all.css">
@@ -342,12 +342,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">centos7系统配置</h1>
+                    <h1 class="description center-align post-title">linux-centos7系统配置</h1>
                 </div>
             </div>
         </div>
@@ -508,21 +508,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-01-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    17 分
                 </div>
                 
 
@@ -859,6 +859,132 @@ hostname
 <span class="token comment" spellcheck="true"># 配置计划任务，每5分钟同步一次</span>
 <span class="token attr-name">    crontab</span> <span class="token attr-value">-e</span>
 <span class="token attr-name">    */5</span> <span class="token attr-value">* * * * /usr/sbin/ntpdate ntp1.aliyun.com</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5><span id="fu-wu-guan-li">服务管理</span><a href="#fu-wu-guan-li" class="header-anchor">.</a></h5><p>文本来自：<a href="https://blog.csdn.net/echizao1839/article/details/86622535" target="_blank" rel="noopener">https://blog.csdn.net/echizao1839/article/details/86622535</a></p>
+<blockquote>
+<p>linux服务管理分为 <code>service</code> 和 <code>systemctl</code></p>
+</blockquote>
+<h6><span id="1-service-ming-ling">1.service命令</span><a href="#1-service-ming-ling" class="header-anchor">.</a></h6><p>service命令其实是去<code>/etc/init.d</code>目录下，去执行相关程序</p>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># service命令启动redis脚本</span>
+<span class="token attr-name">service</span> <span class="token attr-value">redis start</span>
+<span class="token comment" spellcheck="true"># 直接启动redis脚本</span>
+<span class="token attr-name">/etc/init.d/redis</span> <span class="token attr-value">start</span>
+<span class="token comment" spellcheck="true"># 开机自启动</span>
+<span class="token attr-name">update-rc.d</span> <span class="token attr-value">redis defaults</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>其中脚本需要我们自己编写(后面说)</strong></p>
+<h6><span id="2-systemctl-ming-ling">2.systemctl命令</span><a href="#2-systemctl-ming-ling" class="header-anchor">.</a></h6><p>systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。<br>systemd对应的进程管理命令是systemctl</p>
+<p><strong>1)systemctl命令兼容了service</strong><br>即systemctl也会去/etc/init.d目录下，查看，执行相关程序</p>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">Linux</span> <span class="token attr-value">Systemctl是一个系统管理守护进程、工具和库的集合，用于取代System V、service和chkconfig命令，初始进程主要负责控制systemd系统和服务管理器。通过Systemctl –help可以看到该命令主要分为：查询或发送控制命令给systemd服务，管理单元服务的命令，服务文件的相关命令，任务、环境、快照相关命令，systemd服务的配置重载，系统开机关机相关的命令。 </span>
+
+<span class="token comment" spellcheck="true"># 1. 列出所有可用单元 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">list-unit-files</span>
+<span class="token comment" spellcheck="true"># 2. 列出所有运行中单元 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">list-units</span>
+<span class="token comment" spellcheck="true"># 3. 列出所有失败单元 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">–failed</span>
+<span class="token comment" spellcheck="true"># 4. 检查某个单元（如 crond.service）是否启用 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">is-enabledcrond.service </span>
+<span class="token comment" spellcheck="true"># 5. 列出所有服务 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">list-unit-files –type=service</span>
+<span class="token comment" spellcheck="true"># 6. Linux中如何启动、重启、停止、重载服务以及检查服务（如 httpd.service）状态 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">start|restart|stop|reload|status httpd.service </span>
+
+注意：当我们使用systemctl的start，restart，stop和reload命令时，终端不会输出任何内容，只有status命令可以打印输出。
+
+<span class="token comment" spellcheck="true"># 7. 如何激活服务并在开机时启用或禁用服务（即系统启动时自动启动mysql.service服务） </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">is-active|enable|disable mysql.service</span>
+<span class="token comment" spellcheck="true"># 8. 如何屏蔽（让它不能启动）或显示服务（如ntpdate.service） </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">mask ntpdate.service</span>
+<span class="token comment" spellcheck="true">## ln -s /dev/null /etc/systemd/system/ntpdate.service</span>
+<span class="token comment" spellcheck="true">## systemctl unmask ntpdate.service</span>
+<span class="token comment" spellcheck="true">## rm /etc/systemd/system/ntpdate.service</span>
+
+<span class="token comment" spellcheck="true"># 9. 使用systemctl命令杀死服务 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">kill crond </span>
+<span class="token comment" spellcheck="true"># 10. 列出所有系统挂载点 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">list-unit-files –type=mount</span>
+<span class="token comment" spellcheck="true"># 11. 挂载、卸载、重新挂载、重载系统挂载点并检查系统中挂载点状态 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">start tmp.mount</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">stop tmp.mount</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">restart tmp.mount</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">reload tmp.mount</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">status tmp.mount</span>
+
+<span class="token comment" spellcheck="true"># 12. 在启动时激活、启用或禁用挂载点（系统启动时自动挂载） </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">is-active tmp.mount</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">enable tmp.mount</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">disable tmp.mount</span>
+
+<span class="token comment" spellcheck="true"># 13. 在Linux中屏蔽（让它不能启用）或可见挂载点 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">mask tmp.mount</span>
+<span class="token attr-name">ln</span> <span class="token attr-value">-s ‘/dev/null”/etc/systemd/system/tmp.mount’</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">unmask tmp.mount</span>
+<span class="token attr-name">rm</span> <span class="token attr-value">‘/etc/systemd/system/tmp.mount’</span>
+
+<span class="token comment" spellcheck="true"># 14. 列出所有可用系统套接口 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">list-unit-files –type=socket</span>
+<span class="token comment" spellcheck="true"># 15. 检查某个服务的所有配置细节 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">show mysql </span>
+<span class="token comment" spellcheck="true"># 16. 获取某个服务（httpd）的依赖性列表 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">list-dependencies httpd.service</span>
+<span class="token comment" spellcheck="true"># 17. 启动救援模式 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">rescue</span>
+<span class="token comment" spellcheck="true"># 18. 进入紧急模式 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">emergency</span>
+<span class="token comment" spellcheck="true"># 19. 列出当前使用的运行等级 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">get-default</span>
+<span class="token comment" spellcheck="true"># 20. 启动运行等级5，即图形模式 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">isolate runlevel5.target</span>
+<span class="token comment" spellcheck="true">## 或</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">isolate graphical.target</span>
+<span class="token comment" spellcheck="true"># 21. 启动运行等级3，即多用户模式（命令行） </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">isolate runlevel3.target</span>
+<span class="token comment" spellcheck="true">## 或</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">isolate multiuser.target</span>
+<span class="token comment" spellcheck="true"># 22. 设置多用户模式或图形模式为默认运行等级 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">set-default runlevel3.target</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">set-default runlevel5.target</span>
+<span class="token comment" spellcheck="true"># 23. 重启、停止、挂起、休眠系统或使系统进入混合睡眠 </span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">reboot</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">halt</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">suspend</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">hibernate</span>
+<span class="token attr-name">systemctl</span> <span class="token attr-value">hybrid-sleep</span>
+
+<span class="token comment" spellcheck="true"># 对于不知运行等级为何物的人，说明如下。</span>
+
+<span class="token attr-name">Runlevel</span> <span class="token attr-value">0 : 关闭系统</span>
+
+<span class="token attr-name">Runlevel</span> <span class="token attr-value">1 : 救援，维护模式</span>
+
+<span class="token attr-name">Runlevel</span> <span class="token attr-value">3 : 多用户，无图形系统</span>
+
+<span class="token attr-name">Runlevel</span> <span class="token attr-value">4 : 多用户，无图形系统</span>
+
+<span class="token attr-name">Runlevel</span> <span class="token attr-value">5 : 多用户，图形化系统</span>
+
+<span class="token attr-name">Runlevel</span> <span class="token attr-value">6 : 关闭并重启机器</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>2)systemctl命令管理systemd的资源Unit</strong><br>systemd的Unit放在目录/usr/lib/systemd/system(Centos)或/etc/systemd/system(Ubuntu)<br><img src="https://images2018.cnblogs.com/blog/300946/201807/300946-20180712195319224-1030601984.png" alt="img"></p>
+<p>主要有四种类型文件.mount,.service,.target,.wants</p>
+<p>.mount文件<br><img src="https://images2018.cnblogs.com/blog/300946/201807/300946-20180712195326962-2083747119.png" alt="img"></p>
+<p>.mount文件定义了一个挂载点，[Mount]节点里配置了What,Where,Type三个数据项<br>等同于以下命令：</p>
+<pre><code>mount -t hugetlbfs /dev/hugepages hugetlbfs</code></pre><p>.service文件<br><img src="https://images2018.cnblogs.com/blog/300946/201807/300946-20180712195335145-316583537.png" alt="img"></p>
+<p>.service文件定义了一个服务，分为[Unit]，[Service]，[Install]三个小节</p>
+<pre><code>[Unit]
+Description:描述，
+After：在network.target,auditd.service启动后才启动
+ConditionPathExists: 执行条件
+
+[Service]
+EnvironmentFile:变量所在文件
+ExecStart: 执行启动脚本
+Restart: fail时重启
+
+[Install]
+Alias:服务别名
+WangtedBy: 多用户模式下需要的</code></pre><p>.target文件<br><img src="https://images2018.cnblogs.com/blog/300946/201807/300946-20180712195344043-1979650638.png" alt="img"></p>
+<p>.target定义了一些基础的组件，供.service文件调用</p>
+<p>.wants文件<br><img src="https://images2018.cnblogs.com/blog/300946/201807/300946-20180712195352135-1901178022.png" alt="img"></p>
+<p>.wants文件定义了要执行的文件集合，每次执行，.wants文件夹里面的文件都会执行</p>
 <h5><span id="ji-ben-ming-ling">基本命令</span><a href="#ji-ben-ming-ling" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">cd</span> <span class="token attr-value">abc -> 进入子目录</span>
 <span class="token attr-name">cd</span> <span class="token attr-value">/ -> 进入根目录</span>
 <span class="token attr-name">ll</span> <span class="token attr-value">-> 显示当前路径文件（详细）</span>
@@ -1261,7 +1387,7 @@ h 或 向左箭头键(←)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">213.1k</span>&nbsp;字
+                class="white-color">281.1k</span>&nbsp;字
             
             
             
