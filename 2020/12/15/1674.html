@@ -508,21 +508,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-12
+                    2021-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    18 分
                 </div>
                 
 
@@ -567,13 +567,20 @@
 
 <span class="token comment" spellcheck="true"># 2.编辑CentOS-Base.repo</span>
 <span class="token attr-name">vi</span> <span class="token attr-value">CentOS-Base.repo</span>
-<span class="token comment" spellcheck="true">### 注释 mirrorlist*</span>
-<span class="token comment" spellcheck="true">### baseurl* 取消注释</span>
-<span class="token comment" spellcheck="true">### 将baseurl后的 mirror.centos.org 替换为 mirrors.tuna.tsinghua.edu.cn</span>
+<span class="token comment" spellcheck="true">### ①注释 mirrorlist*</span>
+<span class="token comment" spellcheck="true">### ②baseurl* 取消注释#号  </span>
+<span class="token comment" spellcheck="true">### ③将baseurl后的 http://mirror.centos.org|baseurl 替换为 https://mirrors.tuna.tsinghua.edu.cn </span>
+<span class="token attr-name">sed</span> <span class="token attr-value">-e 's|^mirrorlist=|#mirrorlist=|g' \
+         -e 's|^#baseurl=http://mirror.centos.org|baseurl=https://mirrors.tuna.tsinghua.edu.cn|g' \
+         -i.bak \
+         /etc/yum.repos.d/CentOS-*.repo</span>
 <span class="token comment" spellcheck="true"># 保存退出</span>
 
 <span class="token comment" spellcheck="true"># 3.更新软件包缓存</span>
-<span class="token attr-name">yum</span> <span class="token attr-value">makecache</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token attr-name">yum</span> <span class="token attr-value">clean all</span>
+<span class="token attr-name">yum</span> <span class="token attr-value">makecache</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>遇到错误</p>
+<pre><code>[Errno 14] curl#6 - &quot;Could not resolve host: mirrors.tuna.tsinghua.edu.cn; Unknown error&quot;</code></pre><p>以上操作都是官方提供不会有错，只有是我们自己服务器配置存在问题，不能解析host，说明可能是dns或者网关的配置出错（结果是网关写成了本地主机ip，更改后正常）</p>
 <h5><span id="4-she-zhi-jing-tai-ip">4、设置静态IP</span><a href="#4-she-zhi-jing-tai-ip" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 1.编辑ifcfg-ens33文件</span>
 <span class="token attr-name">vi</span> <span class="token attr-value">/etc/sysconfig/network-scripts/ifcfg-ens33</span>
 
@@ -671,7 +678,7 @@ date
 <span class="token attr-name">set</span> <span class="token attr-value">smartindent " 智能对齐，支持自动、c</span>
 <span class="token attr-name">set</span> <span class="token attr-value">cindent " 使用c语言对齐，识别c、java语言</span>
 <span class="token attr-name">set</span> <span class="token attr-value">mouse=a " 鼠标支持</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5><span id="8-fang-huo-qiang-pei-zhi-han-centos">8、防火墙配置（含centos）</span><a href="#8-fang-huo-qiang-pei-zhi-han-centos" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># centos7 == filewall</span>
+<h5><span id="8-fang-huo-qiang-pei-zhi-han-centos6">8、防火墙配置（含centos6）</span><a href="#8-fang-huo-qiang-pei-zhi-han-centos6" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># centos7 == filewall</span>
 <span class="token comment" spellcheck="true">## 开启开机自启</span>
 <span class="token attr-name">systemctl</span> <span class="token attr-value">enable firewalld</span>
 <span class="token comment" spellcheck="true">## 启动 停止 重启 状态</span>
@@ -709,7 +716,7 @@ date
 <span class="token comment" spellcheck="true">## 永久关闭防火墙</span>
 <span class="token attr-name">chkconfig</span> <span class="token attr-value">iptables off</span>
 <span class="token comment" spellcheck="true">## 永久关闭后重启</span>
-<span class="token attr-name">chkconfig</span> <span class="token attr-value">iptables on</span>
+<span class="token attr-name">chkconfig</span> <span class="token attr-value">iptables on    </span>
 <span class="token comment" spellcheck="true">## 开启端口</span>
 <span class="token attr-name">vim</span> <span class="token attr-value">/etc/sysconfig/iptables</span>
 <span class="token comment" spellcheck="true">### 添加80端口</span>
@@ -737,6 +744,22 @@ hostname
 <span class="token comment" spellcheck="true"># 4.修改/etc/hosts 添加</span>
 <span class="token attr-name">127.0.0.1</span> <span class="token attr-value">你的主机名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5><span id="11-kai-ji-zi-qi">11、开机自启</span><a href="#11-kai-ji-zi-qi" class="header-anchor">.</a></h5><p><a href="https://blog.csdn.net/weixin_40539892/article/details/89175530" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40539892/article/details/89175530</a></p>
+<p><strong>chkconfig</strong></p>
+<pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># ①</span>
+<span class="token comment" spellcheck="true"># 启动脚本复制到 /etc/init.d/ 并更名 xxx </span>
+<span class="token comment" spellcheck="true"># 或者 ln -s /etc/init.d/xxx 启动脚本路径</span>
+
+<span class="token comment" spellcheck="true"># ②</span>
+<span class="token comment" spellcheck="true"># 添加服务到chkconfig列表</span>
+<span class="token attr-name">chkconfig</span> <span class="token attr-value">--add xxx</span>
+<span class="token comment" spellcheck="true"># 开启开机自启</span>
+<span class="token attr-name">chkconfig</span> <span class="token attr-value">xxx on </span>
+<span class="token comment" spellcheck="true"># systemctl enable xxx</span>
+<span class="token comment" spellcheck="true"># 查看</span>
+<span class="token attr-name">chkconfig</span> <span class="token attr-value">--list xxx</span>
+<span class="token comment" spellcheck="true"># 关闭</span>
+<span class="token attr-name">chkconfig</span> <span class="token attr-value">xxx off</span>
+<span class="token comment" spellcheck="true"># systemctl disable xxx</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5><span id="12-ssh-mian-mi-deng-lu">12、SSH免密登录</span><a href="#12-ssh-mian-mi-deng-lu" class="header-anchor">.</a></h5><pre class="line-numbers language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># 0.准备至少两台机器，这里演示，安排如下</span>
 <span class="token comment" spellcheck="true">## 三台机器:主机名 ip</span>
 <span class="token attr-name">    192.168.111.11</span> <span class="token attr-value">mq1</span>
@@ -872,7 +895,7 @@ hostname
 <span class="token attr-name">update-rc.d</span> <span class="token attr-value">redis defaults</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>其中脚本需要我们自己编写(后面说)</strong></p>
 <h6><span id="2-systemctl-ming-ling">2.systemctl命令</span><a href="#2-systemctl-ming-ling" class="header-anchor">.</a></h6><p>systemd是Linux系统最新的初始化系统(init),作用是提高系统的启动速度，尽可能启动较少的进程，尽可能更多进程并发启动。<br>systemd对应的进程管理命令是systemctl</p>
-<p><strong>1)systemctl命令兼容了service</strong><br>即systemctl也会去/etc/init.d目录下，查看，执行相关程序</p>
+<p><strong>1)systemctl命令兼容了service</strong><br>即systemctl也会去<code>/etc/init.d</code>目录下，查看，执行相关程序</p>
 <pre class="line-numbers language-properties"><code class="language-properties"><span class="token attr-name">Linux</span> <span class="token attr-value">Systemctl是一个系统管理守护进程、工具和库的集合，用于取代System V、service和chkconfig命令，初始进程主要负责控制systemd系统和服务管理器。通过Systemctl –help可以看到该命令主要分为：查询或发送控制命令给systemd服务，管理单元服务的命令，服务文件的相关命令，任务、环境、快照相关命令，systemd服务的配置重载，系统开机关机相关的命令。 </span>
 
 <span class="token comment" spellcheck="true"># 1. 列出所有可用单元 </span>
@@ -1387,7 +1410,7 @@ h 或 向左箭头键(←)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.1k</span>&nbsp;字
+                class="white-color">287.4k</span>&nbsp;字
             
             
             

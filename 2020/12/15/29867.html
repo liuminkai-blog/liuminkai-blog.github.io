@@ -504,21 +504,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -867,7 +867,43 @@
 <pre><code>:10,20s#^#//#g</code></pre><p>2、在 10 - 20 行删除 <strong>//</strong> 注释</p>
 <pre><code>:10,20s#^//##g</code></pre><p>3、在 10 - 20 行添加 <strong>#</strong> 注释</p>
 <pre><code>:10,20s/^/#/g</code></pre><p>4、在 <strong>10 - 20</strong> 行删除 # 注释</p>
-<pre><code>:10,20s/#//g</code></pre>
+<pre><code>:10,20s/#//g</code></pre><h3><span id="bu-chong">补充</span><a href="#bu-chong" class="header-anchor">.</a></h3><h4><span id="vim-ti-huan-ming-ling">vim替换命令</span><a href="#vim-ti-huan-ming-ling" class="header-anchor">.</a></h4><p>参考：<a href="https://blog.csdn.net/glorin/article/details/6317098" target="_blank" rel="noopener">https://blog.csdn.net/glorin/article/details/6317098</a></p>
+<pre><code>:[range]s/pattern/string/[c,e,g,i]</code></pre><table>
+<thead>
+<tr>
+<th><strong>range</strong></th>
+<th>指的是范围，1,7 指从第一行至第七行，1,$ 指从第一行至最后一行，也就是整篇文章，也可以 % 代表。还记得吗？ % 是目前编辑的文章，# 是前一次编辑的文章。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>pattern</strong></td>
+<td>就是要被替换掉的字串，可以用 regexp 來表示。</td>
+</tr>
+<tr>
+<td><strong>string</strong></td>
+<td>將 pattern 由 string 所取代。</td>
+</tr>
+<tr>
+<td><strong>c</strong></td>
+<td>confirm，每次替换前询问。</td>
+</tr>
+<tr>
+<td><strong>e</strong></td>
+<td>不显示 error。</td>
+</tr>
+<tr>
+<td><strong>g</strong></td>
+<td>globe，不询问，整行替换。</td>
+</tr>
+<tr>
+<td><strong>i</strong></td>
+<td>ignore 不分大小写。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>不加 <code>g</code>，只会替换一行中第一个匹配的串</p>
+</blockquote>
+
             </div>
             <hr/>
 
@@ -1217,7 +1253,7 @@ HOSTNAME=主机名 # 主机名设置
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.1k</span>&nbsp;字
+                class="white-color">287.4k</span>&nbsp;字
             
             
             

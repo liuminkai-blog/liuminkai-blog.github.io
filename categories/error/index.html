@@ -393,20 +393,20 @@
                 
                 
                 
-                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="学习笔记: 168">
+                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="学习笔记: 173">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F9EBEA;">学习笔记
-                        <span class="tag-length">168</span>
+                        <span class="tag-length">173</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/error/" title="error: 6">
+                <a href="/categories/error/" title="error: 8">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F5EEF8;">error
-                        <span class="tag-length">6</span>
+                        <span class="tag-length">8</span>
                     </span>
                 </a>
                 
@@ -420,11 +420,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/" title="转载: 3">
+                <a href="/categories/%E8%BD%AC%E8%BD%BD/" title="转载: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #E8F8F5;">转载
-                        <span class="tag-length">3</span>
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -448,6 +448,98 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/24/3425.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/11.jpg" class="responsive-img" alt="向consul中注册服务，无法通过健康检查：server checks failing">
+                            
+                            <span class="card-title">向consul中注册服务，无法通过健康检查：server checks failing</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题如下图所示.
+服务配置的都没有出错，以下是配置文件信息.
+consul服务不在本机上，consul所需依赖是导入成功的.
+
+查看检查信息，发现是 localhost:8006拒绝连接.http://192.168.111.88:8500
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/error/" class="post-category">
+                                    error
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/consul/">
+                            <span class="chip bg-color">consul</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/22/20005.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/18.jpg" class="responsive-img" alt="编写Test时，Service无法注入，报错NullPointException">
+                            
+                            <span class="card-title">编写Test时，Service无法注入，报错NullPointException</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                解决办法：
+在测试类上添加注解
+@SpringBootTest(classes = 启动类.class)
+@RunWith(SpringRunner.class)
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/error/" class="post-category">
+                                    error
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -772,7 +864,7 @@ Neither the JAVA_HOME nor the JRE_HOME environment variable is defined，At leas
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.1k</span>&nbsp;字
+                class="white-color">287.4k</span>&nbsp;字
             
             
             

@@ -393,58 +393,35 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/64485.html">
+                    <a href="/2020/07/30/48860.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/15.jpg" class="responsive-img" alt="javase -- 包装类">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg" class="responsive-img" alt="javase -- 抽象类和抽象方法">
                             
-                            <span class="card-title">javase -- 包装类</span>
+                            <span class="card-title">javase -- 抽象类和抽象方法</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                包装类（Wrapper）.
+                                abstract
+
+抽象的
 
 
-基本数据类型
-包装类
+可以修饰类、方法
+不能用于修饰 私有方法 （因为我们需要重写方法的）
+不能用于修饰静态方法（子类与父类同名同参的static方法不叫重写）
+不能用于修饰final方法（不能被重写）
 
-
-
-byte
-Byte
-
-
-short
-Short
-
-
-int
-Integer
-
-
-long
-Long
-
-
-float
-Float
-
-
-double
-Double
-
-
-char
-Cha
+抽象类.权限修饰符 ab
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -481,31 +458,41 @@ Cha
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/53935.html">
+                    <a href="/2020/07/30/18906.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/19.jpg" class="responsive-img" alt="javase -- 向下转型">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/4.jpg" class="responsive-img" alt="javase -- JUnit使用要求">
                             
-                            <span class="card-title">javase -- 向下转型</span>
+                            <span class="card-title">javase -- JUnit使用要求</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                向上转型（多态性）.Person p = new Men();
-向下转型（强制转换）.
-注意对象p 本质上仍然是 Men
+                                JUnit使用要求.1.对类的要求.
+公共的 public修饰的
+有个无参构造器
 
-Men m = (Men)p;
-错误示范.示范一： 兄弟类型
-//Woman 和 Men 直接父类都是 Person
+2.对测试方法编写的要求.
+需要在方法前加注解@Test
+
+公共的public修饰的
+
+没有返回值类型 void
+
+无参
+
+非静态
+
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -542,30 +529,40 @@ Men m = (Men)p;
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/15015.html">
+                    <a href="/2020/07/30/328.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="javase -- 对象的引用">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="javase -- 方法重载">
                             
-                            <span class="card-title">javase -- 对象的引用</span>
+                            <span class="card-title">javase -- 方法重载</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                JAVA:”对象的引用“意思是定义一个变量，这个变量指向的是一个对象，所以叫对象的引用。
-Object obj = new Object();
-//obj：对象的引用
-//new Object():对象
-//Object：类
+                                重载.判断是否是重载
+
+是否是重载和方法的权限修饰符、返回值类型、形参变量名、方法体都没有关系
+
+两同一不同
+
+同一类，相同方法名
+参数列表不同（参数类型、个数、顺序至少有一个不同）
+参数个数不同
+参数类型不同
+
+
+
+
+
 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -602,28 +599,40 @@ Object obj = new Object();
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/37283.html">
+                    <a href="/2020/07/30/57189.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/4.jpg" class="responsive-img" alt="javase -- instanceof关键字">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/14.jpg" class="responsive-img" alt="javase -- final关键字">
                             
-                            <span class="card-title">javase -- instanceof关键字</span>
+                            <span class="card-title">javase -- final关键字</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                instanceof.
-为了避免在向下转型是出现ClassCastException异常，我们在向下转型之前，先使用instanceof进行判断
+                                final.
+最终的
 
-对象 instanceof 类或接口：对象 是否是 类或接口 的一个实例（该类的对象或子对象
+
+可以修饰的结构：类、方法、变量
+
+final修饰一个类
+
+不能被其他类继承
+String、System、StringBuffer、包装类
+
+
+final修饰一个方法
+
+不能被子类重写
+Object对象的getCla
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -660,32 +669,35 @@ Object obj = new Object();
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/26334.html">
+                    <a href="/2020/07/30/46633.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="javase -- Object类">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="javase -- 属性赋值的先后顺序">
                             
-                            <span class="card-title">javase -- Object类</span>
+                            <span class="card-title">javase -- 属性赋值的先后顺序</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Object.
-是所有java类的根父类
+                                属性赋值的先后顺序.
+默认初始化
+显示初始化 / 在代码块中初始化
+构造器初始化
+有了对象以后，通过 对象.属性 或 对象.set方法
 
-
-Object只有一个 无参构造器
-
-Object类中的功能.1、clone.protected native Object clone().
-创建并返回一个对象的副本(新的对象：包含旧对象的状态
+{ a = 1;}
+int a;
+//不会报错  a = 1
+int a = 2;
+{ a = 1;}
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -722,33 +734,29 @@ Object类中的功能.1、clone.protected native Object clone().
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/63735.html">
+                    <a href="/2020/07/30/61834.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/0.jpg" class="responsive-img" alt="javase -- 多态性的表现">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/17.jpg" class="responsive-img" alt="javase -- 类的加载顺序">
                             
-                            <span class="card-title">javase -- 多态性的表现</span>
+                            <span class="card-title">javase -- 类的加载顺序</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                多态性.
-可理解为一个事物的多种形态
+                                类的加载顺序.public class Child extends father {
 
+    private String child = method();
 
-父类的引用指向子类对象（或子类的对象赋给父类的引用）
-
-多态的使用.虚拟方法调用.
-当调用子父类同名的方法时，实际执行的是子类重写父类的方法
-父类根据子类更据赋给它的不同子类对象，动态调用属于子类的
+    private static String staticChild 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -800,7 +808,7 @@ Object类中的功能.1、clone.protected native Object clone().
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">19 / 33</div>
+            <div class="center-align b-text-gray">19 / 34</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -828,7 +836,7 @@ Object类中的功能.1、clone.protected native Object clone().
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.1k</span>&nbsp;字
+                class="white-color">287.4k</span>&nbsp;字
             
             
             
