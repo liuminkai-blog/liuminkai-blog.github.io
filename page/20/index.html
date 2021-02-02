@@ -393,35 +393,31 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/30/18708.html">
+                    <a href="/2020/07/30/38170.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/13.jpg" class="responsive-img" alt="javase -- 代码块">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/18.jpg" class="responsive-img" alt="javase -- 接口">
                             
-                            <span class="card-title">javase -- 代码块</span>
+                            <span class="card-title">javase -- 接口</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                代码块.
-用于初始化类或对象
+                                接口.interface
 
-分类.
-静态代码块
-内部可以有输出语句
-随着类的加载而执行
-只会执行一次
-作用：初始化类信息
-如果定义了多个代码块，则按照声明的先后顺序执行
-只能调用静态属性或静态方法
+java中类不支持多继承，使用接口实现多重继承的效果
+
+开发中，类和接口是并列的两个结构
+
+interface
 
 
-非静态代码块
-内部可以输出语句
-随
+JDK7及以前：只能定义全局常量和抽象方法
+
+全局常量：[public] [static] [f
                             
                         </div>
                         <div class="publish-info">
@@ -463,33 +459,159 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/30/4927.html">
+                    <a href="/2020/07/30/3411.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/10.jpg" class="responsive-img" alt="javase -- static关键字">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="javase -- 模板方法设计模式">
                             
-                            <span class="card-title">javase -- static关键字</span>
+                            <span class="card-title">javase -- 模板方法设计模式</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                static.
-静态的
+                                模板方法设计模式（抽象类的应用）.解决的问题.
+当功能(方法)内部一部分实现是确定的，一部分实现是不确定的（易变的）。这时可以把不确定的部分暴露出来，让子类去实现
+常用
+数据库访问的封装
+Junit单元测试
+JavaWeb的Servlet中
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/30/48860.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg" class="responsive-img" alt="javase -- 抽象类和抽象方法">
+                            
+                            <span class="card-title">javase -- 抽象类和抽象方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                abstract
+
+抽象的
 
 
-可以用于修饰属性、方法、代码块、内部类
+可以修饰类、方法
+不能用于修饰 私有方法 （因为我们需要重写方法的）
+不能用于修饰静态方法（子类与父类同名同参的static方法不叫重写）
+不能用于修饰final方法（不能被重写）
 
-static修饰属性：静态变量(类变量).
-属性除了静态变量，就是实例变量
+抽象类.权限修饰符 ab
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-一个类的多个对象共享同一个静态变量
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/30/18906.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/4.jpg" class="responsive-img" alt="javase -- JUnit使用要求">
+                            
+                            <span class="card-title">javase -- JUnit使用要求</span>
+                        </div>
+                    </a>
 
-随着类的加载而加载
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                JUnit使用要求.1.对类的要求.
+公共的 public修饰的
+有个无参构造器
 
-静态变量的加载早于对象的创建
+2.对测试方法编写的要求.
+需要在方法前加注解@Test
+
+公共的public修饰的
+
+没有返回值类型 void
+
+无参
+
+非静态
+
 
 
                             
@@ -533,58 +655,40 @@ static修饰属性：静态变量(类变量).
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/64485.html">
+                    <a href="/2020/07/30/328.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/15.jpg" class="responsive-img" alt="javase -- 包装类">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="javase -- 方法重载">
                             
-                            <span class="card-title">javase -- 包装类</span>
+                            <span class="card-title">javase -- 方法重载</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                包装类（Wrapper）.
+                                重载.判断是否是重载
+
+是否是重载和方法的权限修饰符、返回值类型、形参变量名、方法体都没有关系
+
+两同一不同
+
+同一类，相同方法名
+参数列表不同（参数类型、个数、顺序至少有一个不同）
+参数个数不同
+参数类型不同
 
 
-基本数据类型
-包装类
 
 
 
-byte
-Byte
 
-
-short
-Short
-
-
-int
-Integer
-
-
-long
-Long
-
-
-float
-Float
-
-
-double
-Double
-
-
-char
-Cha
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -621,149 +725,40 @@ Cha
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/29/53935.html">
+                    <a href="/2020/07/30/57189.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/19.jpg" class="responsive-img" alt="javase -- 向下转型">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/14.jpg" class="responsive-img" alt="javase -- final关键字">
                             
-                            <span class="card-title">javase -- 向下转型</span>
+                            <span class="card-title">javase -- final关键字</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                向上转型（多态性）.Person p = new Men();
-向下转型（强制转换）.
-注意对象p 本质上仍然是 Men
+                                final.
+最终的
 
-Men m = (Men)p;
-错误示范.示范一： 兄弟类型
-//Woman 和 Men 直接父类都是 Person
+
+可以修饰的结构：类、方法、变量
+
+final修饰一个类
+
+不能被其他类继承
+String、System、StringBuffer、包装类
+
+
+final修饰一个方法
+
+不能被子类重写
+Object对象的getCla
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/javase/">
-                            <span class="chip bg-color">javase</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
-                            <span class="chip bg-color">尚硅谷</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/29/15015.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="javase -- 对象的引用">
-                            
-                            <span class="card-title">javase -- 对象的引用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                JAVA:”对象的引用“意思是定义一个变量，这个变量指向的是一个对象，所以叫对象的引用。
-Object obj = new Object();
-//obj：对象的引用
-//new Object():对象
-//Object：类
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/javase/">
-                            <span class="chip bg-color">javase</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
-                            <span class="chip bg-color">尚硅谷</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/29/37283.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/4.jpg" class="responsive-img" alt="javase -- instanceof关键字">
-                            
-                            <span class="card-title">javase -- instanceof关键字</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                instanceof.
-为了避免在向下转型是出现ClassCastException异常，我们在向下转型之前，先使用instanceof进行判断
-
-对象 instanceof 类或接口：对象 是否是 类或接口 的一个实例（该类的对象或子对象
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
                             </span>
                             <span class="publish-author">
                                 
@@ -815,7 +810,7 @@ Object obj = new Object();
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">20 / 34</div>
+            <div class="center-align b-text-gray">20 / 36</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -843,7 +838,7 @@ Object obj = new Object();
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">287.4k</span>&nbsp;字
+                class="white-color">300.4k</span>&nbsp;字
             
             
             

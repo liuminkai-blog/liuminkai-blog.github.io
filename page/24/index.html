@@ -393,24 +393,332 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/27/20674.html">
+                    <a href="/2020/07/28/5687.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="Spring学习笔记-5-Spring配置">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="javase -- 值传递和引用传递">
                             
-                            <span class="card-title">Spring学习笔记-5-Spring配置</span>
+                            <span class="card-title">javase -- 值传递和引用传递</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Spring配置.1、别名（Alias）.&lt;alias name="变量名" alias="别名"/>
-&lt;bean id="变量名" class="类的全限定名"/>
-2、Bean配置.&lt;!--
-Bean属性：
-    i
+                                
+实际上，java方法参数传递只有值传递，只不过我们所说的引用传递 传递的是 对象的引用（地址值）
+这个博客很详细
+
+值传递（pass by value）是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，将不会
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/28/3080.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/3.jpg" class="responsive-img" alt="javase -- 可变形参">
+                            
+                            <span class="card-title">javase -- 可变形参</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                可变形参（varargs）.JDK1.5
+编译器认为：String[] arr   ==   String ... arr 
+
+String[] 做形参只能传入 数组
+String...做形参可以传入数组，无参，有个数变化的参数，但是只能有
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/27/54168.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg" class="responsive-img" alt="javase -- jvm中内存存储的数据">
+                            
+                            <span class="card-title">javase -- jvm中内存存储的数据</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                堆heap : 将new出来的结构(对象和数组)都放在堆空间里，包含对象里面的属性（非static）
+方法区：类的加载信息、常量池、静态域
+栈stack（java中提到的栈）：JVM中的虚拟机栈，局部变量都在这里面
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/27/20336.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="javase -- 面向对象">
+                            
+                            <span class="card-title">javase -- 面向对象</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                面向对象.一、面向过程（POP）与 面向对象（OOP）.
+面向过程
+强调的是 功能行为
+以函数为最小单位
+考虑怎么做
+
+
+面向对象
+强调的是 具备了功能的对象
+以类/对象为最小单位
+考虑谁来做（知道怎么做）
+
+
+
+二、面向对象的三大特征.1
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/27/46990.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="javase -- Arrays工具类">
+                            
+                            <span class="card-title">javase -- Arrays工具类</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Arrays工具类.java.util.Arrays
+1、equals(arr1,arr2).
+判断两个数组内容是否相等
+
+底层源码.（以参数类型int,Object为例）
+ public static boolean equals(int
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/javase/">
+                            <span class="chip bg-color">javase</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
+                            <span class="chip bg-color">尚硅谷</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/27/31905.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/5.jpg" class="responsive-img" alt="Spring学习笔记-8-Bean的自动装配">
+                            
+                            <span class="card-title">Spring学习笔记-8-Bean的自动装配</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Bean的自动装配.
+自动装配是Spring满足bean依赖一种方式
+Spring会在上下文中自动寻找，并自动给bean装配属性
+
+在Spring中有三种装配方式.
+在xml中装配
+在java中装配
+隐式的自动装配（autowired）：将
                             
                         </div>
                         <div class="publish-info">
@@ -443,313 +751,6 @@ Bean属性：
                         
                         <a href="/tags/ssm/">
                             <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/27/49083.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/15.jpg" class="responsive-img" alt="Spring学习笔记-4-IOC创建对象方式">
-                            
-                            <span class="card-title">Spring学习笔记-4-IOC创建对象方式</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                IOC创建对象方式.目录结构
-
-1、使用无参构造创建对象（默认）.&lt;!--默认无参 beans.xml-->
-&lt;bean id="user" class="pojo.User">
-    &lt;property name="n
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/spring/">
-                            <span class="chip bg-color">spring</span>
-                        </a>
-                        
-                        <a href="/tags/ssm/">
-                            <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/27/16975.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/13.jpg" class="responsive-img" alt="Spring学习笔记-3-第一个Spring程序">
-                            
-                            <span class="card-title">Spring学习笔记-3-第一个Spring程序</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                HelloSpring.目录结构
-
-环境搭建及实现.
-导入依赖
-
-&lt;dependency>
-    &lt;groupId>org.springframework&lt;/groupId>
-    &lt;artifactId>spr
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/spring/">
-                            <span class="chip bg-color">spring</span>
-                        </a>
-                        
-                        <a href="/tags/ssm/">
-                            <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/26/20592.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="Spring学习笔记-2-IOC">
-                            
-                            <span class="card-title">Spring学习笔记-2-IOC</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                IOC 控制反转.目录结构
-
-1、IOC理论推导.原来业务Dao写法.
-UserDao接口
-public interface UserDao {
-    void getUser();
-}
-
-UserDaoImpl接口实现
-public c
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/spring/">
-                            <span class="chip bg-color">spring</span>
-                        </a>
-                        
-                        <a href="/tags/ssm/">
-                            <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/26/45718.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/23.jpg" class="responsive-img" alt="Spring学习笔记-1-简介">
-                            
-                            <span class="card-title">Spring学习笔记-1-简介</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Spring简介.
-Spring ：春天 
-
-Spring雏形：interface21框架
-
-Spring框架 以 interface框架为基础，经过重新设计，并不断丰富其内涵，于2004年3月24日发布了1.0正式版
-
-Rod Johns
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/spring/">
-                            <span class="chip bg-color">spring</span>
-                        </a>
-                        
-                        <a href="/tags/ssm/">
-                            <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/26/46749.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/20.jpg" class="responsive-img" alt="MyBatis学习笔记-13-缓存">
-                            
-                            <span class="card-title">MyBatis学习笔记-13-缓存</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                缓存.
-狂神笔记：没有做任何更改
-
-一、简介.
-查询  ：  连接数据库 ，耗资源！                一次查询的结果，给他暂存在一个可以直接取到的地方！–&gt; 内存 ： 缓存
-我们再次查询相同数据的时候，直接走缓存，就不用
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            <span class="chip bg-color">学习笔记</span>
-                        </a>
-                        
-                        <a href="/tags/ssm/">
-                            <span class="chip bg-color">ssm</span>
-                        </a>
-                        
-                        <a href="/tags/mybatis/">
-                            <span class="chip bg-color">mybatis</span>
                         </a>
                         
                     </div>
@@ -774,7 +775,7 @@ Rod Johns
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">24 / 34</div>
+            <div class="center-align b-text-gray">24 / 36</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -802,7 +803,7 @@ Rod Johns
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">287.4k</span>&nbsp;字
+                class="white-color">300.4k</span>&nbsp;字
             
             
             

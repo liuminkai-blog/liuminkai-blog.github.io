@@ -393,30 +393,34 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/23/7288.html">
+                    <a href="/2020/07/24/554.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/11.jpg" class="responsive-img" alt="MyBatis学习笔记-04-模糊查询">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/20.jpg" class="responsive-img" alt="MyBatis学习笔记-09-注解开发(含CRUD)">
                             
-                            <span class="card-title">MyBatis学习笔记-04-模糊查询</span>
+                            <span class="card-title">MyBatis学习笔记-09-注解开发(含CRUD)</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                模糊查询的几种方式.
-java代码执行的时候，传递通配符%%
-@Test
-public void getUserByLike(){
+                                注解开发.1、面向接口编程.
+根本原因: 
 
-    try(SqlSession sqlSession = MybatisUtils.getSqlSe
+解耦，可扩展，提高代码复用，分层开发中、上层不用管具体实现，大家都遵守的共同标准，使得开发变的更容易，规范性更好
+理想的系统设计规范：定义与实现分离
+
+
+关于接口的理解
+
+接口从更深层次的理解，
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
                             </span>
                             <span class="publish-author">
                                 
@@ -453,31 +457,101 @@ public void getUserByLike(){
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/15105.html">
+                    <a href="/2020/07/24/41312.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="MyBatis学习笔记-03-万能Map">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="MyBatis学习笔记-08-分页">
                             
-                            <span class="card-title">MyBatis学习笔记-03-万能Map</span>
+                            <span class="card-title">MyBatis学习笔记-08-分页</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                万能Map.
-假设，我们的实体类 或者 数据库中的表，字段或者参数过多，可以考虑使用Map
+                                分页.
+减少数据的处理量
+数据太多在页面上也不好展示
 
 
-很像构造器 （带参，但是参数数量，类型，可以变化）
-给字段起别名
-其实可以在实体类中 生成所有带参的构造器，但是事先写好，使用Map按需求写就行
+下面只是简单的展示,分页查询，并不是，面向对象的分页
+
+Limit分页.使用Mybatis实现分页，核心是sql
+
+接口方法
+
+//limit 分页
+List&lt;User> ge
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                liuminkai
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/ssm/">
+                            <span class="chip bg-color">ssm</span>
+                        </a>
+                        
+                        <a href="/tags/mybatis/">
+                            <span class="chip bg-color">mybatis</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/24/10823.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="MyBatis学习笔记-08-日志工厂(LOG4J STDOUT_LOGGING)">
+                            
+                            <span class="card-title">MyBatis学习笔记-08-日志工厂(LOG4J STDOUT_LOGGING)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                日志.1、日志工厂.如果一个数据库操作,出现了异常，我们需要排错，日志就是很好的助手
+
+
+
+设置名
+描述
+有效值
+默认值
+
+
+
+logImpl
+指定 MyBatis 所用日志的具体实现，未指定时将自动查找。
+SLF4J | LOG4J | 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
                             </span>
                             <span class="publish-author">
                                 
@@ -514,40 +588,32 @@ public void getUserByLike(){
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/41539.html">
+                    <a href="/2020/07/24/37967.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/13.jpg" class="responsive-img" alt="MyBatis学习笔记-02-CRUD">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/7.jpg" class="responsive-img" alt="MyBatis学习笔记-06-生命周期和作用域">
                             
-                            <span class="card-title">MyBatis学习笔记-02-CRUD</span>
+                            <span class="card-title">MyBatis学习笔记-06-生命周期和作用域</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                CRUD.目录结构
-
-1、namespace.
-UserMapper.xml的namespace中的包名与Dao/mapper接口的包名一致
-
-&lt;mapper namespace="dao.UserMapper">
-2、select.
+                                作用域（Scope）和生命周期.理解不同作用域和生命周期类别是至关重要的，因为错误的使用会导致非常严重的并发问题。
+提示        对象生命周期和依赖注入框架      
+ 依赖注入框架可以创建线程安全的、基于事务的 SqlSessio
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                liuminkai
                                 
                             </span>
                         </div>
@@ -575,39 +641,35 @@ UserMapper.xml的namespace中的包名与Dao/mapper接口的包名一致
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/41916.html">
+                    <a href="/2020/07/24/24709.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/17.jpg" class="responsive-img" alt="maven项目pom.xml文件配置">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/3.jpg" class="responsive-img" alt="MyBatis学习笔记-07-ResultMap">
                             
-                            <span class="card-title">maven项目pom.xml文件配置</span>
+                            <span class="card-title">MyBatis学习笔记-07-ResultMap</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                pom.xml
-&lt;build>
-    &lt;!--解决maven刷新后 jdk变为 jdk5的问题 方法一-->
-    &lt;plugins>
-        &lt;plugin>
-            &lt;group
+                                解决数据库属性名和和实体类字段名的不一致问题.
+在之前，第一篇笔记的注意中 获取到的结果里变为 null是由于数据库属性名和和实体类字段名的不一致，接下来使其具体的解决办法
+
+首先，数据表展示
+
+实体类（此时用户名、密码与数据表中对应属性不
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                liuminkai
                                 
                             </span>
                         </div>
@@ -615,135 +677,79 @@ UserMapper.xml的namespace中的包名与Dao/mapper接口的包名一致
 
                     
                     <div class="card-action article-tags">
-                        
-                        <a href="/tags/maven/">
-                            <span class="chip bg-color">maven</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/21/12421.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/1.jpg" class="responsive-img" alt="maven远程仓库镜像更改为阿里云镜像">
-                            
-                            <span class="card-title">maven远程仓库镜像更改为阿里云镜像</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                maven远程仓库镜像更改为阿里云镜像.1.找到maven下的conf目录中的config.xml文件.在&lt;mirrors&gt;标签中添加 如下内容
-&lt;mirror>
-    &lt;id>nexus-aliyun&lt;/i
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/aliyun/">
-                            <span class="chip bg-color">aliyun</span>
-                        </a>
-                        
-                        <a href="/tags/maven/">
-                            <span class="chip bg-color">maven</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%95%9C%E5%83%8F/">
-                            <span class="chip bg-color">镜像</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/20/3378.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/14.jpg" class="responsive-img" alt="javase -- 多维数组">
-                            
-                            <span class="card-title">javase -- 多维数组</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                多维数组.
-数组的元素也是数组
-
-
-
-数组的元素是数组
-
-
-
-1、声明和初始化.
-数组一旦初始化长度，就确定了
-
-//静态初始化
-int[][] arr = new int[][]{{1,2},{2,3}}; // int[] arr[]
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/javase/">
-                            <span class="chip bg-color">javase</span>
-                        </a>
                         
                         <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                             <span class="chip bg-color">学习笔记</span>
                         </a>
                         
-                        <a href="/tags/%E5%B0%9A%E7%A1%85%E8%B0%B7/">
-                            <span class="chip bg-color">尚硅谷</span>
+                        <a href="/tags/ssm/">
+                            <span class="chip bg-color">ssm</span>
+                        </a>
+                        
+                        <a href="/tags/mybatis/">
+                            <span class="chip bg-color">mybatis</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/24/39821.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/6.jpg" class="responsive-img" alt="MyBatis学习笔记-05-配置解析">
+                            
+                            <span class="card-title">MyBatis学习笔记-05-配置解析</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                配置解析.1、核心配置文件.
+mybatis-config.xml（文件名：可以更改，官方推荐这个）
+
+配置文档的顶层结构如下：
+
+configuration（配置）          
+properties（属性）
+settings（设置
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">学习笔记</span>
+                        </a>
+                        
+                        <a href="/tags/ssm/">
+                            <span class="chip bg-color">ssm</span>
+                        </a>
+                        
+                        <a href="/tags/mybatis/">
+                            <span class="chip bg-color">mybatis</span>
                         </a>
                         
                     </div>
@@ -768,7 +774,7 @@ int[][] arr = new int[][]{{1,2},{2,3}}; // int[] arr[]
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">27 / 34</div>
+            <div class="center-align b-text-gray">27 / 36</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -796,7 +802,7 @@ int[][] arr = new int[][]{{1,2},{2,3}}; // int[] arr[]
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">287.4k</span>&nbsp;字
+                class="white-color">300.4k</span>&nbsp;字
             
             
             

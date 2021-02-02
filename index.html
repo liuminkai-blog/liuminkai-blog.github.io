@@ -635,174 +635,35 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/25/18902.html">
+                    <a href="/2021/02/02/23289.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="jdk高版本，模块移除，恢复依赖">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/1.jpg" class="responsive-img" alt="springboot测试mail工具类使用时,报空指针异常,详情@Autowired注入静态变量失败">
                             
-                            <span class="card-title">jdk高版本，模块移除，恢复依赖</span>
+                            <span class="card-title">springboot测试mail工具类使用时,报空指针异常,详情@Autowired注入静态变量失败</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                常用注解 @Resource.&lt;dependency>
-    &lt;groupId>javax.annotation&lt;/groupId>
-    &lt;artifactId>javax.annotation-api&lt;
+                                情况说明.测试类中使用MailUtil报错，错误情况如下：
+
+工具类和测试类：
+​    
+
+
+
+
+报错原因.经过断点调试，发现mailSender变量并没有注入，即@Autowired注入失败
+为什么会失败呢？
+最后发现 注入的是静态变量
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/maven/">
-                            <span class="chip bg-color">maven</span>
-                        </a>
-                        
-                        <a href="/tags/javax/">
-                            <span class="chip bg-color">javax</span>
-                        </a>
-                        
-                        <a href="/tags/jdk9/">
-                            <span class="chip bg-color">jdk9</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/24/53778.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/14.jpg" class="responsive-img" alt="RestTemplate的getForObject和getForEntity">
-                            
-                            <span class="card-title">RestTemplate的getForObject和getForEntity</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                getForObject 和 getForEntity区别
-
-getForObject
-
-返回一个对象，这个对象更具具体传入类型决定（不含响应头，体信息）
-
-
-
-getForEntity
-
-返回对象为ResponseEntity对象，包含了
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/24/44851.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/14.jpg" class="responsive-img" alt="CAP理论">
-                            
-                            <span class="card-title">CAP理论</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                CAP原则.CAP原则又称CAP定理，指的是在一个分布式系统中， Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可得兼，最多只能满足两个，要么AP，要么C
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/24/3425.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/11.jpg" class="responsive-img" alt="向consul中注册服务，无法通过健康检查：server checks failing">
-                            
-                            <span class="card-title">向consul中注册服务，无法通过健康检查：server checks failing</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                问题如下图所示.
-服务配置的都没有出错，以下是配置文件信息.
-consul服务不在本机上，consul所需依赖是导入成功的.
-
-查看检查信息，发现是 localhost:8006拒绝连接.http://192.168.111.88:8500
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-02
                             </span>
                             <span class="publish-author">
                                 
@@ -818,45 +679,42 @@ consul服务不在本机上，consul所需依赖是导入成功的.
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/consul/">
-                            <span class="chip bg-color">consul</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/23/19825.html">
+                    <a href="/2021/02/01/31068.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/12.jpg" class="responsive-img" alt="Eclipse和IDEA的SpringBoot项目导入和导出（包含lombok插件安装）">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="网址收藏">
                             
-                            <span class="card-title">Eclipse和IDEA的SpringBoot项目导入和导出（包含lombok插件安装）</span>
+                            <span class="card-title">网址收藏</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                ...
+                                
+平时使用浏览器收藏了很多网址，由于数量激增，导致不好寻找想要的网址，因此，写下这边博客管理网址收藏
+
+BootCDN 稳定、快速、免费的前端开源项目 CDN 加速服务.https://www.bootcdn.cn/
+
+Toolfk 在线常
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%BD%AC%E8%BD%BD/" class="post-category">
-                                    转载
+                                <a href="/categories/%E6%97%A0%E5%88%86%E7%B1%BB/" class="post-category">
+                                    无分类
                                 </a>
                                 
                                 
@@ -870,29 +728,29 @@ consul服务不在本机上，consul所需依赖是导入成功的.
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/22/20005.html">
+                    <a href="/2021/01/31/6335.html">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/18.jpg" class="responsive-img" alt="编写Test时，Service无法注入，报错NullPointException">
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/9.jpg" class="responsive-img" alt="windows下git bash命令窗口输出的汉字是乱码">
                             
-                            <span class="card-title">编写Test时，Service无法注入，报错NullPointException</span>
+                            <span class="card-title">windows下git bash命令窗口输出的汉字是乱码</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                解决办法：
-在测试类上添加注解
-@SpringBootTest(classes = 启动类.class)
-@RunWith(SpringRunner.class)
+                                情况说明.执行java命令时，输出内容是乱码，详情看下图：
 
+原因.window默认控制台、以及文件保存都是gbk编码
+解决方法.git bash，右键-&gt;Options-&gt;Text-&gt;Character set 
+编码设
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
                             </span>
                             <span class="publish-author">
                                 
@@ -907,6 +765,149 @@ consul服务不在本机上，consul所需依赖是导入成功的.
                         </div>
                     </div>
 
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/30/42032.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/16.jpg" class="responsive-img" alt="java生成的class文件,使用cmd运行报错,找不到或无法加载主类">
+                            
+                            <span class="card-title">java生成的class文件,使用cmd运行报错,找不到或无法加载主类</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                情况说明.在编译java文件后，执行class文件报错
+
+java源文件如下：
+package xyz.liuyou.tcp.simple;
+
+import java.io.*;
+import java.net.ServerSocket;
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/error/" class="post-category">
+                                    error
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/30/52560.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/8.jpg" class="responsive-img" alt="网络编程">
+                            
+                            <span class="card-title">网络编程</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                网络编程..TCP/IP协议簇是Internet的基础，也是当今最流行的组网形式。主要包含的协议：IP协议、ARP协议、TCP协议、UDP协议、FTP协议。。。
+传输层协议.传输层协议分为TCP、UDP
+TCP-传输控制协议（Transmi
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/29/60958.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/liuminkai-blog/liuminkai-blog.github.io//medias/featureimages/22.jpg" class="responsive-img" alt="qq第三方登录">
+                            
+                            <span class="card-title">qq第三方登录</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                网站接入：https://wiki.open.qq.com/wiki/%E3%80%90QQ%E7%99%BB%E5%BD%95%E3%80%91%E7%BD%91%E7%AB%99%E6%8E%A5%E5%85%A5
+web接入：jsSD
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-category">
+                                    使用教程
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/java/">
+                            <span class="chip bg-color">java</span>
+                        </a>
+                        
+                        <a href="/tags/qq/">
+                            <span class="chip bg-color">qq</span>
+                        </a>
+                        
+                        <a href="/tags/login/">
+                            <span class="chip bg-color">login</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -927,7 +928,7 @@ consul服务不在本机上，consul所需依赖是导入成功的.
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 34</div>
+            <div class="center-align b-text-gray">1 / 36</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -955,7 +956,7 @@ consul服务不在本机上，consul所需依赖是导入成功的.
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">287.4k</span>&nbsp;字
+                class="white-color">300.4k</span>&nbsp;字
             
             
             
